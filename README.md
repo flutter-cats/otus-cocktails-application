@@ -1,3 +1,1 @@
 # otus-cocktails-application
-
-test
