@@ -1,0 +1,1 @@
+# otus-cocktails-application
