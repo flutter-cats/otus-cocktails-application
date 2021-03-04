@@ -13,17 +13,3 @@ void main() {
     ),
   );
 }
-
-
-class MyOwnWidget extends StatefulWidget {
-  @override
-  _MyOwnWidgetState createState() => _MyOwnWidgetState();
-}
-
-class _MyOwnWidgetState extends State<MyOwnWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-

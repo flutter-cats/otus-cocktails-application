@@ -1,4 +1,4 @@
-# ex01helloworld
+# examplehelloworld
 
 A new Flutter application.
 

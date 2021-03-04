@@ -1,4 +1,4 @@
-package guidestory.ru.ex01helloworld
+package guidestory.ru.examplehelloworld
 
 import io.flutter.embedding.android.FlutterActivity
 
