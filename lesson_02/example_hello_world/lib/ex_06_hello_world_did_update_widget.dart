@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(
-    HelloWorldDecorationWidget(),
-  );
+  runApp(HelloWorldDecorationWidget());
 }
 
 //

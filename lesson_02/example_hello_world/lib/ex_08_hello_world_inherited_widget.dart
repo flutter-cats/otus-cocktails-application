@@ -48,8 +48,10 @@ class TitleProvider extends InheritedWidget {
   final String title;
   final Widget child;
 
-  TitleProvider({@required this.title, @required this.child})
-      : super(child: child);
+  TitleProvider({
+    @required this.title,
+    @required this.child,
+  }) : super(child: child);
 
   @override
   bool updateShouldNotify(InheritedWidget oldWidget) => true;

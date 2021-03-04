@@ -16,25 +16,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Spinner extends StatelessWidget {
-  const Spinner();
-
-  @override
-  Widget build(BuildContext context) {
-    return Transform.rotate(
-      angle: SpinModel.of(context) * 2.0 * math.pi,
-      child: Container(
-        width: 100,
-        height: 100,
-        color: Colors.green,
-        child: const Center(
-          child: Text('Whee!'),
-        ),
-      ),
-    );
-  }
-}
-
 class MyStatefulWidget extends StatefulWidget {
   MyStatefulWidget({Key key}) : super(key: key);
 
@@ -72,6 +53,25 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
           Spinner(),
           Spinner(),
         ],
+      ),
+    );
+  }
+}
+
+class Spinner extends StatelessWidget {
+  const Spinner();
+
+  @override
+  Widget build(BuildContext context) {
+    return Transform.rotate(
+      angle: SpinModel.of(context) * 2.0 * math.pi,
+      child: Container(
+        width: 100,
+        height: 100,
+        color: Colors.green,
+        child: const Center(
+          child: Text('Whee!'),
+        ),
       ),
     );
   }
