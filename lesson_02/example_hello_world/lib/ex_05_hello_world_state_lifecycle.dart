@@ -1,10 +1,36 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyOwnWidget());
+  runApp(MyFirstWidget());
+}
+
+class MyFirstWidget extends StatefulWidget {
+  @override
+  _MyFirstWidgetState createState() => _MyFirstWidgetState();
+}
+
+class _MyFirstWidgetState extends State<MyFirstWidget> {
+  bool _isCircle = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => setState(() => _isCircle = !_isCircle),
+      child: MyOwnWidget(
+        isCircle: _isCircle,
+      ),
+    );
+  }
 }
 
 class MyOwnWidget extends StatefulWidget {
+  final bool isCircle;
+
+  const MyOwnWidget({
+    Key key,
+    this.isCircle,
+  }) : super(key: key);
+
   @override
   _MyOwnWidgetState createState() => _MyOwnWidgetState();
 }
@@ -16,7 +42,7 @@ class _MyOwnWidgetState extends State<MyOwnWidget> {
   void initState() {
     super.initState();
     print('initState');
-    _isShapeCircle = false;
+    _isShapeCircle = widget.isCircle;
   }
 
   @override
@@ -29,6 +55,7 @@ class _MyOwnWidgetState extends State<MyOwnWidget> {
   void didUpdateWidget(MyOwnWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
     print('didUpdateWidget');
+    _isShapeCircle = widget.isCircle;
   }
 
   @override

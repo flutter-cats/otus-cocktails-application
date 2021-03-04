@@ -10,6 +10,16 @@ void main() {
   );
 }
 
+class RootLevelWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) => SecondLevelWidget();
+}
+
+class SecondLevelWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) => HelloWorldDecorationWidget();
+}
+
 class HelloWorldDecorationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Container(
@@ -32,16 +42,6 @@ class HelloWorldTitleOnlyWidget extends StatelessWidget {
       style: TextStyle(color: Colors.black, fontSize: 40),
     );
   }
-}
-
-class RootLevelWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) => SecondLevelWidget();
-}
-
-class SecondLevelWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) => HelloWorldDecorationWidget();
 }
 
 class TitleProvider extends InheritedWidget {

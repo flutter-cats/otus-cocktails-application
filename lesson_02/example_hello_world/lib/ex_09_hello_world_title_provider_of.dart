@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 void main() {
   const String rootLevelTitle = 'It\'s so easy!';
   runApp(
-    TitleProvider(
-      title: rootLevelTitle,
-      child: RootLevelWidget(),
+    MaterialApp(
+      home: TitleProvider(
+        title: rootLevelTitle,
+        child: RootLevelWidget(),
+      ),
     ),
   );
 }

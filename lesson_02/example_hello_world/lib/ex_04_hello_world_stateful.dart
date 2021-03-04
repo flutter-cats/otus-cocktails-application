@@ -5,6 +5,10 @@ void main() {
 }
 
 class MyOwnWidget extends StatefulWidget {
+  final String title;
+
+  const MyOwnWidget({Key key, this.title}) : super(key: key);
+
   @override
   _MyOwnWidgetState createState() => _MyOwnWidgetState();
 }
@@ -15,8 +19,8 @@ class _MyOwnWidgetState extends State<MyOwnWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _isShapeCircle = !_isShapeCircle,
-      // onTap: () => setState(() => _isShapeCircle = !_isShapeCircle),
+      // onTap: () => _isShapeCircle = !_isShapeCircle,
+      onTap: () => setState(() => _isShapeCircle = !_isShapeCircle),
       child: Container(
         decoration: BoxDecoration(
           shape: _isShapeCircle ? BoxShape.circle : BoxShape.rectangle,

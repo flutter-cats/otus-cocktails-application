@@ -72,6 +72,11 @@ class HelloWorldTitleOnlyWidget extends StatefulWidget {
 
 class _HelloWorldTitleOnlyWidgetState extends State<HelloWorldTitleOnlyWidget> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Text(
       widget.title,
@@ -84,7 +89,8 @@ class _HelloWorldTitleOnlyWidgetState extends State<HelloWorldTitleOnlyWidget> {
   void didUpdateWidget(HelloWorldTitleOnlyWidget oldWidget) {
     super.didUpdateWidget(oldWidget);
     //  TODO: uncomment this
-    //  print('Old widget title is ${oldWidget.title}, current title is ${widget.title}');
+    print(
+        'Old widget title is ${oldWidget.title}, current title is ${widget.title}');
   }
 
   _HelloWorldTitleOnlyWidgetState() {
