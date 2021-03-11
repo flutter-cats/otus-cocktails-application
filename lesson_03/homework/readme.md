@@ -18,3 +18,10 @@ advanced:
 
 - [ ] Добавляем зависимость на effective_dart или pedantic
 - [ ] Настраиваем analisys_options.yaml
+
+
+API & Mockups
+
+https://www.figma.com/file/p5ChHrgMoTLi94NbkpB1aZ/cocktails?node-id=13:56
+
+https://rapidapi.com/thecocktaildb/api/the-cocktail-db
