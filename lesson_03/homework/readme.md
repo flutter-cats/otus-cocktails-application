@@ -3,17 +3,17 @@
 
 ### Делаем, если есть немного времени и желания попрактиковаться с dart packages & pub.
 
-[] - Создаем flutter (dart) package cocktail_app_models
-[] - Создаем lib/src
-[] - Создаем класс коктейля в src
-[] - Формируем файл экспорта в lib
-[] - Создаем flutter application cocktail_app
-[] - Импортируем package с моделью в pubspec.yaml
-[] - Создаем в main() инстанс модели коктейля
+[ ] - Создаем flutter (dart) package cocktail_app_models
+[ ] - Создаем lib/src
+[ ] - Создаем класс коктейля в src
+[ ] - Формируем файл экспорта в lib
+[ ] - Создаем flutter application cocktail_app
+[ ] - Импортируем package с моделью в pubspec.yaml
+[ ] - Создаем в main() инстанс модели коктейля
 
 ---
 
 advanced:
 
-[] - Добавляем зависимость на effective_dart или pedantic
-[] - Настраиваем analisys_options.yaml
+[ ] - Добавляем зависимость на effective_dart или pedantic
+[ ] - Настраиваем analisys_options.yaml
