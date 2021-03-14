@@ -1,5 +1,4 @@
-import 'package:homework/models/cocktail.dart';
-import 'package:homework/models/ingredient_cocktail.dart';
+import 'package:homework/models.dart';
 
 dynamic getKeyValue(Map<String, dynamic> json, String key) {
 	if (json[key] != Null) {

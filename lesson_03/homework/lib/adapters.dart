@@ -1,1 +1,1 @@
-export './adapters/cocktail.dart';
+export 'src/adapters/cocktail.dart';

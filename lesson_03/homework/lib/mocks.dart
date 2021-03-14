@@ -1,1 +1,1 @@
-export './mocks/cocktail.dart';
+export 'src/mocks/cocktail.dart';

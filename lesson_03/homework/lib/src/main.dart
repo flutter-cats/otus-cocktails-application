@@ -1,7 +1,5 @@
-import 'dart:convert';
-
-import 'package:homework/adapters/cocktail.dart';
-import 'package:homework/mocks/cocktail.dart';
+import 'package:homework/adapters.dart';
+import 'package:homework/mocks.dart';
 
 void main(){
 	var cocktail = adaptCoctail(

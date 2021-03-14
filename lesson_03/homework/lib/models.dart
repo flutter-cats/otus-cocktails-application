@@ -1,2 +1,2 @@
-export './models/cocktail.dart';
-export './models/ingredient_cocktail.dart';
+export 'src/models/cocktail.dart';
+export 'src/models/ingredient_cocktail.dart';
