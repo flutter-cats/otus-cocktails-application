@@ -1,4 +1,5 @@
 import 'package:cocktail_app_models/models.dart';
+import 'package:cocktail_app_models/src/model/cocktail_definition.dart';
 import 'package:cocktail_app_models/src/model/cocktail_type.dart';
 import 'package:cocktail_app_models/src/model/glass_type.dart';
 import 'package:cocktail_app_models/src/model/ingredient_definition.dart';
@@ -82,26 +83,27 @@ import 'package:flutter/foundation.dart';
 ///   see more on RapidApi or https://www.thecocktaildb.com/
 ///
 ///
-class Cocktail {
-  final String? id;
-  final String? name;
+class Cocktail extends CocktailDefinition {
   final String? instruction;
   final CocktailCategory? category;
   final GlassType? glassType;
   final CocktailType? cocktailType;
   final Iterable<IngredientDefinition>? ingredients;
-  final String? drinkThumbUrl;
-  final bool? isFavourite;
 
   Cocktail({
-    @required this.id,
-    @required this.name,
+    @required String? id,
+    @required String? name,
+    @required String? drinkThumbUrl,
+    @required bool? isFavourite,
     @required this.instruction,
     @required this.category,
     @required this.glassType,
     @required this.cocktailType,
     @required this.ingredients,
-    @required this.drinkThumbUrl,
-    @required this.isFavourite,
-  });
+  }) : super(
+          id: id,
+          drinkThumbUrl: drinkThumbUrl,
+          isFavourite: isFavourite,
+          name: name,
+        );
 }
