@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4157d75b-7177-43a4-bae5-27928aab8cf9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/andreysmirnov.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/freezed.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/json/freezed/cocktail.freezed.dart" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
+  </component>
+  <component name="ProjectId" id="1pu5PhxB71nDlxOmAK3qbup6jEd" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="flutter.settings" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="json_04_freezed_annotation.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lib/json/json_04_freezed_annotation.dart" />
+      <option name="workingDirectory" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Dart Command Line App.json_04_freezed_annotation.dart" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4157d75b-7177-43a4-bae5-27928aab8cf9" name="Default Changelist" comment="" />
+      <created>1616020112474</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616020112474</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1440" height="269" key="GridCell.Tab.0.bottom" timestamp="1616022162198">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="269" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1616022162198" />
+    <state width="1440" height="269" key="GridCell.Tab.0.center" timestamp="1616022162197">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="269" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1616022162197" />
+    <state width="1440" height="269" key="GridCell.Tab.0.left" timestamp="1616022162196">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="269" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1616022162196" />
+    <state width="1440" height="269" key="GridCell.Tab.0.right" timestamp="1616022162197">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="269" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1616022162197" />
+    <state width="1440" height="269" key="GridCell.Tab.1.bottom" timestamp="1616022162200">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="269" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1616022162200" />
+    <state width="1440" height="269" key="GridCell.Tab.1.center" timestamp="1616022162199">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="269" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1616022162199" />
+    <state width="1440" height="269" key="GridCell.Tab.1.left" timestamp="1616022162198">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="269" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1616022162198" />
+    <state width="1440" height="269" key="GridCell.Tab.1.right" timestamp="1616022162199">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="269" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1616022162199" />
+    <state x="221" y="86" key="SettingsEditor" timestamp="1616021239811">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="221" y="86" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1616021239811" />
+    <state x="450" y="200" width="540" height="524" key="StructurePopup" timestamp="1616022113370">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="450" y="200" width="540" height="524" key="StructurePopup/0.0.1440.900@0.0.1440.900" timestamp="1616022113370" />
+    <state x="385" y="196" key="search.everywhere.popup" timestamp="1616021436693">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1616021436693" />
+  </component>
+</project>
