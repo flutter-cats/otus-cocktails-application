@@ -1,4 +1,4 @@
-# cocktaildbhttpusing
+# cocktail_db_http_using
 
 A new Flutter package.
 

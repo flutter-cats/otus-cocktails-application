@@ -2,8 +2,8 @@ import 'dart:convert' as convert;
 import 'dart:io';
 
 import 'package:cocktail_app_models/models.dart';
-import 'package:cocktaildbhttpusing/src/dto/cocktail_definition_dto.dart';
-import 'package:cocktaildbhttpusing/src/dto/cocktail_dto.dart';
+import 'package:cocktail_db_http_using/src/dto/cocktail_definition_dto.dart';
+import 'package:cocktail_db_http_using/src/dto/cocktail_dto.dart';
 import 'package:http/http.dart' as http;
 
 class AsyncCocktailRepository {
