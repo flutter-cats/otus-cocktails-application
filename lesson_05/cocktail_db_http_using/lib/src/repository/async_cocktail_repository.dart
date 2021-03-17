@@ -1,15 +1,9 @@
 import 'dart:convert' as convert;
 import 'dart:io';
 
-import 'package:cocktaildbhttpusing/models.dart';
+import 'package:cocktail_app_models/models.dart';
 import 'package:cocktaildbhttpusing/src/dto/cocktail_definition_dto.dart';
 import 'package:cocktaildbhttpusing/src/dto/cocktail_dto.dart';
-import 'package:cocktaildbhttpusing/src/model/cocktail.dart';
-import 'package:cocktaildbhttpusing/src/model/cocktail_category.dart';
-import 'package:cocktaildbhttpusing/src/model/cocktail_definition.dart';
-import 'package:cocktaildbhttpusing/src/model/cocktail_type.dart';
-import 'package:cocktaildbhttpusing/src/model/glass_type.dart';
-import 'package:cocktaildbhttpusing/src/model/ingredient_definition.dart';
 import 'package:http/http.dart' as http;
 
 class AsyncCocktailRepository {
@@ -25,7 +19,7 @@ class AsyncCocktailRepository {
     var client = http.Client();
     try {
       final url = 'https://the-cocktail-db.p.rapidapi.com/lookup.php?i=$id';
-      var response = await http.get(url, headers: _headers);
+      var response = await http.get(Uri.parse(url), headers: _headers);
       if (response.statusCode == 200) {
         final jsonResponse = convert.jsonDecode(response.body);
         var drinks = jsonResponse['drinks'] as Iterable<dynamic>;

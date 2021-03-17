@@ -3,18 +3,25 @@ description: Dart Async lesson
 version: 0.0.1
 
 environment:
-  sdk: ">=2.9.0 <3.0.0"
-  flutter: ">=1.17.0 <2.0.0"
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=2.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  json_annotation: ^3.0.1
+  json_annotation: ^4.0.0
+  # обратите внимание - я могу указать зависимость на репозиторий из git с указанием отдельной ветки
+  # и конкретный путь к фолдеру/директории
+  cocktail_app_models:
+    git:
+      url: git@github.com:flutter-cats/otus-cocktails-application.git
+      ref: master
+      path: lesson_03/lesson/cocktail_app_models/
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   pedantic: ^1.9.0
-  http: ^0.12.2
-  build_runner: ^1.10.1
-  json_serializable: ^3.4.1
+  http: ^0.13.0
+  build_runner: ^1.12.2
+  json_serializable: ^4.0.3
