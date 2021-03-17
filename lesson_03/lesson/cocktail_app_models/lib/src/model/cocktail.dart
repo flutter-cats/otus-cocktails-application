@@ -3,7 +3,7 @@ import 'package:cocktail_app_models/src/model/cocktail_definition.dart';
 import 'package:cocktail_app_models/src/model/cocktail_type.dart';
 import 'package:cocktail_app_models/src/model/glass_type.dart';
 import 'package:cocktail_app_models/src/model/ingredient_definition.dart';
-import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart';
 
 ///
 /// see some details on https://www.thecocktaildb.com/

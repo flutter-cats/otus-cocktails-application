@@ -1,5 +1,5 @@
 import 'package:cocktail_app_models/src/repository/sync_cocktail_repository.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 
 void main() {
   late SyncCocktailRepository syncRepository;
@@ -8,7 +8,7 @@ void main() {
     syncRepository = SyncCocktailRepository();
   });
 
-  group('Coctail repository', () {
+  group('Cocktail repository', () {
     test('fetchAllCocktails method should return all cocktails', () {
       final actualResult = syncRepository.fetchAllCocktails();
       expect(actualResult, isNotEmpty);
