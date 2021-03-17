@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:lesson05async_freezed/json/freezed/cocktail.dart';
 
-
 const String httpResponse = '''
 {
     "id": "11408",
