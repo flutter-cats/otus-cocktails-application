@@ -36,5 +36,5 @@ class Cocktail {
         drink = json['strDrink'],
         category = json['strCategory'],
         alcoholic = json['strAlcoholic'],
-        glass = json['strGlass;'];
+        glass = json['strGlass'];
 }

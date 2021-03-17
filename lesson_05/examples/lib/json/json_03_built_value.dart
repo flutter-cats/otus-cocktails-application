@@ -18,5 +18,4 @@ void main() {
 
   var cocktail = serializers.deserializeWith(Cocktail.serializer, data)!;
   assert(cocktail.idDrink == "11408");
-
 }
