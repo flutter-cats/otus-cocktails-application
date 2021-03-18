@@ -1,15 +1,13 @@
 ///
 /// Create Delayed Future & Resolve the result
 ///
-const featureResult = 5;
 
 void main() {
- Future<int>.delayed(Duration(seconds: 3), ourComputation).
- then((int value) {
-   print('current result is $value!');
- });
+  Future<int>.delayed(Duration(seconds: 3), ourComputation).then((int value) {
+    print('current result is $value!');
+  });
 
- print('Main method is complete!');
+  print('Main method is complete!');
 }
 
 ///
@@ -17,8 +15,10 @@ void main() {
 /// который вернет нам какое-то вычисление
 ///
 int ourComputation() {
+  const featureResult = 5;
+
   // throw Exception('Чтото случилось (');
- return featureResult;
+  return featureResult;
 }
 
 ///

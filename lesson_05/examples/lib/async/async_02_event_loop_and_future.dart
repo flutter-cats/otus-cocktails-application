@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyRootApplicationWidget());
+  runApp(IsProblemResolvedDemo());
 }
 
-class DemoWidget extends StatelessWidget {
+class DemoWidget02 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hello Event Loop!'),
+        title: Text('IsProblemResolvedDemo!'),
       ),
       body: Center(
         child: Column(
@@ -36,18 +36,18 @@ class DemoWidget extends StatelessWidget {
   }
 }
 
-class MyRootApplicationWidget extends StatelessWidget {
+class IsProblemResolvedDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Mobile Developer',
+      title: 'IsProblemResolvedDemo',
       theme: ThemeData(
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           textTheme: TextTheme(
             bodyText2: TextStyle(fontSize: 25, color: Colors.blue),
           )),
-      home: DemoWidget(),
+      home: DemoWidget02(),
     );
   }
 }
