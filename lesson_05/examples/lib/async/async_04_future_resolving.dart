@@ -2,13 +2,13 @@
 /// Create Delayed Future & Resolve the result
 ///
 
-void main() {
-  Future<int>.delayed(Duration(seconds: 3), ourComputation).then((int value) {
-    print('current result is $value!');
-  });
-
-  print('Main method is complete!');
-}
+// void main() {
+//   Future<int>.delayed(Duration(seconds: 3), ourComputation).then((int value) {
+//     print('current result is $value!');
+//   });
+//
+//   print('Main method is complete!');
+// }
 
 ///
 /// Представим, что здесь выполняется сложный код,
@@ -23,7 +23,7 @@ int ourComputation() {
 
 ///
 /// todo: uncomment this - whenComplete
-//void main() {
+// void main() {
 //  Future<int>.delayed(Duration(seconds: 3), ourComputation).then((value) {
 //    print('current result is $value!');
 //  }).whenComplete(() {
@@ -31,7 +31,7 @@ int ourComputation() {
 //  });
 //
 //  print('Main method is complete!');
-//}
+// }
 
 ///
 /// todo: uncomment this - catchError
