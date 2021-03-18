@@ -25,11 +25,14 @@
 ///
 /// Create Sync Future
 ///
-//void main() {
-//  final future = Future<int>.sync(() => 10);
+// void main() {
+//  final future = Future<int>.sync(() {
+//    print('Hello From Delayed Async operation');
+//    return 10;
+//  });
 //
 //  print('Main method is complete!');
-//}
+// }
 //
 //void main() {
 //  final future = Future.sync(() {
