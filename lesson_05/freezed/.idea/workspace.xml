@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4157d75b-7177-43a4-bae5-27928aab8cf9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../examples/lib/json/json_serializable_approach/some_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/http/http_01_using.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/http/http_01_using.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/json/json_02_json_annotation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/json/json_02_json_annotation.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/json/json_03_built_value.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/json/json_03_built_value.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -150,7 +150,12 @@ class AsyncCocktailRepository {
 
   ///
   /// TODO: implement Lookup ingredient by ID operation to get all details about Ingredient
-  /// using an endpoint https://rapidapi.com/thecocktaildb/api/the-cocktail-db?endpoint=apiendpoint_0ee9572a-a259-4b6e-9e53-b97aa3d42b18
+  /// using an endpoint
+  /// description is available here
+  /// https://rapidapi.com/thecocktaildb/api/the-cocktail-db?endpoint=apiendpoint_0ee9572a-a259-4b6e-9e53-b97aa3d42b18
+  ///
+  /// api operation is:
+  /// https://the-cocktail-db.p.rapidapi.com/lookup.php
   ///
   Future<Ingredient?> lookupIngredientById() async {
     return null;
