@@ -66,7 +66,7 @@ class MyOwnHttpImplementor {
   Future<Image> get(Uri uri) {
     final completer = Completer<Image>();
 
-    Future.delayed(Duration(seconds: 10), () {
+    Future.delayed(Duration(seconds: 5), () {
       completer.complete(Image.asset('assets/gifs/so_fast_cats.gif'));
     });
 
