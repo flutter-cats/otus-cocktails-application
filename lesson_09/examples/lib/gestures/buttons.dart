@@ -37,13 +37,13 @@ class _ButtonsList extends StatelessWidget {
   final bool enabled;
 
   const _ButtonsList({
-    Key key,
-    @required this.enabled,
+    Key? key,
+    required this.enabled,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final VoidCallback action = enabled ? () {} : null;
+    final VoidCallback? action = enabled ? () {} : null;
 
     return Column(
       children: [

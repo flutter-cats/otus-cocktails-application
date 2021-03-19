@@ -15,7 +15,7 @@ class InkWidgets extends StatelessWidget {
 }
 
 class _WidgetsList extends StatelessWidget {
-  const _WidgetsList({Key key}) : super(key: key);
+  const _WidgetsList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class __InkWellExampleState extends State<_InkWellExample> {
       onTap: () {
         setState(() => isToggled = false);
       },
-      radius: 200,
+      radius: 100,
       child: Container(
         height: 100,
         width: 100,
