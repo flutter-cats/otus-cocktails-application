@@ -3,22 +3,22 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyRootApplicationWidget());
+  runApp(ShowTheSequenceOfFutures());
 }
 
-class DemoWidget extends StatefulWidget {
+class DemoWidget07 extends StatefulWidget {
   @override
   _DemoWidgetState createState() => _DemoWidgetState();
 }
 
-class _DemoWidgetState extends State<DemoWidget> {
+class _DemoWidgetState extends State<DemoWidget07> {
   Image? _imageWidget;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hello Future!'),
+        title: Text('ShowTheSequenceOfFutures!'),
       ),
       body: Center(
         child: Column(
@@ -46,18 +46,18 @@ class _DemoWidgetState extends State<DemoWidget> {
   }
 }
 
-class MyRootApplicationWidget extends StatelessWidget {
+class ShowTheSequenceOfFutures extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Mobile Developer',
+      title: 'ShowTheSequenceOfFutures',
       theme: ThemeData(
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           textTheme: TextTheme(
             bodyText2: TextStyle(fontSize: 25, color: Colors.blue),
           )),
-      home: DemoWidget(),
+      home: DemoWidget07(),
     );
   }
 }
@@ -66,7 +66,7 @@ class MyOwnHttpImplementor {
   Future<Image> get(Uri uri) {
     final completer = Completer<Image>();
 
-    Future.delayed(Duration(seconds: 10), () {
+    Future.delayed(Duration(seconds: 5), () {
       completer.complete(Image.asset('assets/gifs/so_fast_cats.gif'));
     });
 

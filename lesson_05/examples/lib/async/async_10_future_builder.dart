@@ -1,25 +1,24 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyRootApplicationWidget());
+  runApp(FutureBuilderDemo());
 }
 
-class DemoWidget extends StatefulWidget {
+class DemoWidget10 extends StatefulWidget {
   @override
   _DemoWidgetState createState() => _DemoWidgetState();
 }
 
-class _DemoWidgetState extends State<DemoWidget> {
+class _DemoWidgetState extends State<DemoWidget10> {
 
   @override
   Widget build(BuildContext context)  {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hello Future!'),
+        title: Text('FutureBuilderDemo!'),
       ),
       body: Center(
         child: Container(
@@ -46,18 +45,18 @@ Future<Image> _fetchNetworkData() {
   return http.get(Uri.parse('http://some-image-from-network.com'));
 }
 
-class MyRootApplicationWidget extends StatelessWidget {
+class FutureBuilderDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Mobile Developer',
+      title: 'FutureBuilderDemo',
       theme: ThemeData(
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
           textTheme: TextTheme(
             bodyText2: TextStyle(fontSize: 25, color: Colors.blue),
           )),
-      home: DemoWidget(),
+      home: DemoWidget10(),
     );
   }
 }

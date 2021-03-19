@@ -1,29 +1,29 @@
 ///
 /// Create Delayed Future & Resolve the result
 ///
-const featureResult = 5;
 
-void main() {
- Future<int>.delayed(Duration(seconds: 3), ourComputation).
- then((int value) {
-   print('current result is $value!');
- });
-
- print('Main method is complete!');
-}
+// void main() {
+//   Future<int>.delayed(Duration(seconds: 3), ourComputation).then((int value) {
+//     print('current result is $value!');
+//   });
+//
+//   print('Main method is complete!');
+// }
 
 ///
 /// Представим, что здесь выполняется сложный код,
 /// который вернет нам какое-то вычисление
 ///
 int ourComputation() {
+  const featureResult = 5;
+
   // throw Exception('Чтото случилось (');
- return featureResult;
+  return featureResult;
 }
 
 ///
 /// todo: uncomment this - whenComplete
-//void main() {
+// void main() {
 //  Future<int>.delayed(Duration(seconds: 3), ourComputation).then((value) {
 //    print('current result is $value!');
 //  }).whenComplete(() {
@@ -31,7 +31,7 @@ int ourComputation() {
 //  });
 //
 //  print('Main method is complete!');
-//}
+// }
 
 ///
 /// todo: uncomment this - catchError
