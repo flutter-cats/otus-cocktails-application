@@ -19,13 +19,28 @@ class _WidgetsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        _InkWellExample(),
-        const SizedBox(width: 24),
-        _InkResponseExample(),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 200),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text("Press me"),
+              _InkWellExample(),
+            ],
+          ),
+          const SizedBox(width: 200),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text("Press me"),
+              _InkResponseExample(),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
@@ -47,6 +62,7 @@ class __InkWellExampleState extends State<_InkWellExample> {
       onTap: () {
         setState(() => isToggled = false);
       },
+      radius: 200,
       child: Container(
         height: 100,
         width: 100,
@@ -71,24 +87,22 @@ class __InkResponseExampleState extends State<_InkResponseExample> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: InkResponse(
-        onTapDown: (_) {
-          setState(() => isToggled = true);
-        },
-        onTap: () {
-          setState(() => isToggled = false);
-        },
-        highlightShape: BoxShape.circle,
-        radius: 40,
-        child: Container(
-          height: 120,
-          width: 120,
-          child: Center(
-            child: Icon(
-              Icons.favorite,
-              size: isToggled ? 50 : 30,
-            ),
+    return InkResponse(
+      onTapDown: (_) {
+        setState(() => isToggled = true);
+      },
+      onTap: () {
+        setState(() => isToggled = false);
+      },
+      highlightShape: BoxShape.circle,
+      radius: 100,
+      child: Container(
+        height: 50,
+        width: 50,
+        child: Center(
+          child: Icon(
+            Icons.favorite,
+            size: isToggled ? 50 : 30,
           ),
         ),
       ),
