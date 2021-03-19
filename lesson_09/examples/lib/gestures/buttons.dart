@@ -64,37 +64,9 @@ class _ButtonsList extends StatelessWidget {
         ),
         const SizedBox(height: 24),
         IconButton(
-          icon: Icon(Icons.favorite),
+          icon: Icon(Icons.play_arrow),
           tooltip: "Like",
           onPressed: action,
-        ),
-        const SizedBox(height: 24),
-        PopupMenuButton<int>(
-          enabled: enabled,
-          itemBuilder: (context) {
-            return <PopupMenuEntry<int>>[
-              PopupMenuItem(
-                child: Text("Item 1"),
-                value: 1,
-              ),
-              PopupMenuItem(
-                child: Text("Item 2"),
-                value: 2,
-              ),
-              PopupMenuDivider(),
-              CheckedPopupMenuItem(
-                checked: false,
-                child: Text("Checked Item 3"),
-                value: 3,
-              ),
-              CheckedPopupMenuItem(
-                checked: true,
-                child: Text("Checked Item 4"),
-                value: 4,
-              ),
-            ];
-          },
-          onSelected: (value) => print(value),
         ),
         const SizedBox(height: 24),
         CupertinoButton(
