@@ -22,7 +22,6 @@ class CocktailInstructionWidget extends StatelessWidget {
   }
 
   List<Widget> _getInstructions(String instruction) {
-    instruction.split("-");
     return List<Widget>()
       ..add(
         Padding(

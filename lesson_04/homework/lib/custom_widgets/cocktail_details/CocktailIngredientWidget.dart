@@ -25,15 +25,16 @@ class CocktailIngredientWidget extends StatelessWidget {
 
   List<Widget> _getListOfIngredients(
       Iterable<IngredientDefinition> ingredients) {
-    return List<Widget>()
-      ..add(Center(
+    return [
+      Center(
           child: Text(
         'Ингредиенты:',
         style: TextStyle(
             fontFamily: 'SF Pro Text',
             fontSize: 16,
             color: AppColors.cocktail_ingredient_title_color),
-      )))
-      ..addAll(ingredients.map((e) => CocktailIngredientItemWidget(e)));
+      )),
+      ...ingredients.map((e) => CocktailIngredientItemWidget(e))
+    ];
   }
 }

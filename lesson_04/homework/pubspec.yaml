@@ -48,7 +48,7 @@ flutter:
   fonts:
     - family: SF Pro Text
       fonts:
-        - asset: assets\fonts\FontsFree-Net-SFProText-Regular.ttf
+        - asset: assets/fonts/FontsFree-Net-SFProText-Regular.ttf
 
   assets:
     - assets/images/
