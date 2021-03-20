@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class InkWidgets extends StatelessWidget {
+class InkWidgetsExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,28 +19,40 @@ class _WidgetsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 200),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text("Press me"),
-              _InkWellExample(),
-            ],
+    return ListView(
+      children: [
+        const SizedBox(height: 100),
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text("Press me"),
+            _InkWellExample(),
+          ],
+        ),
+        const SizedBox(height: 100),
+        Center(
+          child: Container(
+            color: Colors.yellowAccent,
+            child: _InkWellExample(),
           ),
-          const SizedBox(width: 200),
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text("Press me"),
-              _InkResponseExample(),
-            ],
+        ),
+        const SizedBox(height: 100),
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text("Press me"),
+            _InkResponseExample(),
+          ],
+        ),
+        const SizedBox(height: 100),
+        Center(
+          child: Container(
+            color: Colors.yellowAccent,
+            child: _InkResponseExample(),
           ),
-        ],
-      ),
+        ),
+        const SizedBox(height: 100),
+      ],
     );
   }
 }
