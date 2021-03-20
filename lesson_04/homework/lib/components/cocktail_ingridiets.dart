@@ -1,40 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:homework/models/models.dart';
 import 'package:homework/models/src/model/ingredient_definition.dart';
 import 'package:homework/text_styles.dart';
 
-class CoctailIngridientsWidgets extends StatelessWidget {
-  final Iterable<IngredientDefinition> allIngridients;
+class CocktailIngredientsWidgets extends StatelessWidget {
+  final Iterable<IngredientDefinition> allIngredients;
 
-  const CoctailIngridientsWidgets({this.allIngridients});
+  const CocktailIngredientsWidgets({this.allIngredients});
 
-  Widget _addingredientList(Iterable<IngredientDefinition> ingredients) {
-    List<Container> list = [];
-
-    for (var ingredient in ingredients) {
-      Container row = Container(
+  Widget _addIngredient(IngredientDefinition ingredient) => Container(
         padding: EdgeInsets.symmetric(vertical: 8.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              ingredient.ingredientName,
-              style: TextStyle(decoration: TextDecoration.underline),
+            Flexible(
+              child: Text(
+                ingredient.ingredientName,
+                style: TextStyle(decoration: TextDecoration.underline),
+              ),
             ),
-            Text(
-              ingredient.measure,
-              style: ingridientsTextStyle,
+            Flexible(
+              child: Text(
+                ingredient.measure,
+                style: ingridientsTextStyle,
+              ),
             ),
           ],
         ),
       );
-
-      list.add(row);
-    }
-
-    return Column(
-      children: list,
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +41,7 @@ class CoctailIngridientsWidgets extends StatelessWidget {
               style: TextStyle(fontSize: 16.0, color: Color(0xFFB1AFC6)),
             ),
           ),
-          _addingredientList(allIngridients)
+          ...allIngredients.map(_addIngredient),
         ],
       ),
     );

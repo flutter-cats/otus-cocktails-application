@@ -32,13 +32,13 @@ class CocktailDetailPage extends StatelessWidget {
                 type: cocktail.cocktailType.value,
                 glassType: cocktail.glassType.value,
               ),
-              CoctailIngridientsWidgets(
-                allIngridients: cocktail.ingredients,
+              CocktailIngredientsWidgets(
+                allIngredients: cocktail.ingredients,
               ),
               CoctailInstructionWidget(
                 instruction: cocktail.instruction,
               ),
-              CoctailRankBarWidget(),
+              CocktailRankBarWidget(),
             ],
           ),
         ),
