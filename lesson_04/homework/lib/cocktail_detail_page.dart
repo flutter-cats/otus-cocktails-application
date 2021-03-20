@@ -24,6 +24,25 @@ class TagItem extends StatelessWidget {
   }
 }
 
+class IngredientItem extends StatelessWidget {
+  final String title;
+  final String quantity;
+  final simpleText = TextStyle(color: Colors.white, fontSize: 14);
+  final simpleTextUnderlined = TextStyle(color: Colors.white, fontSize: 14, decoration: TextDecoration.underline);
+  IngredientItem(this.title, this.quantity);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(title, style: simpleTextUnderlined),
+        Text(quantity, style: simpleText),
+      ],
+    );
+  }
+}
+
 class ListItem extends StatelessWidget {
   final String title;
   final textStyle = TextStyle(color: Colors.white,  fontSize: 14);
@@ -151,8 +170,6 @@ class CocktailDetailPage extends StatelessWidget {
 
   Widget _coctailIngredients() {
     final titleStyle = TextStyle(color: _colorFromHex("B1AFC6"),  fontSize: 16);
-    final simpleText = TextStyle(color: Colors.white, fontSize: 14);
-    final simpleTextUnderlined = TextStyle(color: Colors.white, fontSize: 14, decoration: TextDecoration.underline);
 
     return Container(
       color: Colors.black,
@@ -161,58 +178,23 @@ class CocktailDetailPage extends StatelessWidget {
         children: [
           Center(child: Text('Ингредиенты:', style: titleStyle)),
           Container(padding: EdgeInsets.only(top:24)),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Листья мяты', style: simpleTextUnderlined),
-              Text('4шт', style: simpleText),
-            ],
-          ),
+
+          IngredientItem('Листья мяты', '4шт'),
           Container(padding: EdgeInsets.only(top:16)),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Лайм', style: simpleTextUnderlined),
-              Text('½ шт', style: simpleText),
-            ],
-          ),
+          IngredientItem('Лайм', '½ шт'),
           Container(padding: EdgeInsets.only(top:16)),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Сахар', style: simpleTextUnderlined),
-              Text('1 ст. ложка', style: simpleText),
-            ],
-          ),
+          IngredientItem('Сахар', '1 ст. ложка'),
           Container(padding: EdgeInsets.only(top:16)),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Белый ром', style: simpleTextUnderlined),
-              Text('60 мл', style: simpleText),
-            ],
-          ),
+          IngredientItem('Белый ром', '60 мл'),
           Container(padding: EdgeInsets.only(top:16)),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Лед', style: simpleTextUnderlined),
-              Text('½ стакана', style: simpleText),
-            ],
-          ),
+          IngredientItem('Лед', '½ стакана'),
           Container(padding: EdgeInsets.only(top:16)),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Мякоть арбуза', style: simpleTextUnderlined),
-              Text('120 г', style: simpleText),
-            ],
-          ),
+          IngredientItem('Мякоть арбуза', '120 г'),
         ]
       )
     );
