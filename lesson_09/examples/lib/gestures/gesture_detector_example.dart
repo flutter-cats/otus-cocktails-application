@@ -167,6 +167,33 @@ class _HorizontalChannelPicker extends StatelessWidget {
 
 //todo on pan? on scale?
 
+enum DetectorStatus { none, tapDown, tap }
+
+class StatusLabel extends StatelessWidget {
+  final DetectorStatus status;
+
+  const StatusLabel({Key? key, required this.status}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      _text,
+      style: TextStyle(fontSize: 16),
+    );
+  }
+
+  String get _text {
+    switch (status) {
+      case DetectorStatus.none:
+        return "";
+      case DetectorStatus.tapDown:
+        return "Tap down";
+      case DetectorStatus.tap:
+        return "Tap";
+    }
+  }
+}
+
 class _StackedGestureDetectors extends StatefulWidget {
   @override
   _StackedGestureDetectorsState createState() =>
@@ -174,8 +201,8 @@ class _StackedGestureDetectors extends StatefulWidget {
 }
 
 class _StackedGestureDetectorsState extends State<_StackedGestureDetectors> {
-  bool isInnerTapped = false;
-  bool isOuterTapped = false;
+  DetectorStatus innerStatus = DetectorStatus.none;
+  DetectorStatus outerStatus = DetectorStatus.none;
 
   @override
   Widget build(BuildContext context) {
@@ -189,46 +216,41 @@ class _StackedGestureDetectorsState extends State<_StackedGestureDetectors> {
           Container(),
           GestureDetector(
             onTapDown: (_) {
-              setState(() => isInnerTapped = true);
+              setState(() => innerStatus = DetectorStatus.tapDown);
             },
             onTapCancel: () {
-              setState(() => isInnerTapped = false);
+              setState(() => innerStatus = DetectorStatus.none);
             },
             onTap: () {
-              setState(() => isInnerTapped = false);
+              setState(() => innerStatus = DetectorStatus.tap);
             },
             child: Container(
               height: 100,
               width: 100,
               color: Color(0x8882cbb2),
-              child: isInnerTapped
-                  ? Center(
-                      child: Text(
-                        "Tap down",
-                        style: TextStyle(fontSize: 16),
-                      ),
-                    )
-                  : null,
-            ),
-          ),
-          if (isOuterTapped)
-            Positioned(
-              top: 14,
-              child: Text(
-                "Tap down",
-                style: TextStyle(fontSize: 16),
+              child: Center(
+                child: StatusLabel(
+                  status: innerStatus,
+                ),
               ),
             ),
+          ),
+          Positioned(
+            top: 14,
+            child: StatusLabel(
+              status: outerStatus,
+            ),
+          ),
           GestureDetector(
             behavior: HitTestBehavior.translucent,
             onTapDown: (_) {
-              setState(() => isOuterTapped = true);
+              setState(() => outerStatus = DetectorStatus.tapDown);
             },
             onTapCancel: () {
-              setState(() => isOuterTapped = false);
+              setState(() => outerStatus = DetectorStatus.none);
             },
             onTap: () {
-              setState(() => isOuterTapped = false);
+              setState(() => outerStatus = DetectorStatus.tap);
             },
           ),
         ],
@@ -243,20 +265,20 @@ class _ChildGestureDetectors extends StatefulWidget {
 }
 
 class _ChildGestureDetectorsState extends State<_ChildGestureDetectors> {
-  bool isInnerTapped = false;
-  bool isOuterTapped = false;
+  DetectorStatus innerStatus = DetectorStatus.none;
+  DetectorStatus outerStatus = DetectorStatus.none;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTapDown: (_) {
-        setState(() => isOuterTapped = true);
+        setState(() => outerStatus = DetectorStatus.tapDown);
       },
       onTapCancel: () {
-        setState(() => isOuterTapped = false);
+        setState(() => outerStatus = DetectorStatus.none);
       },
       onTap: () {
-        setState(() => isOuterTapped = false);
+        setState(() => outerStatus = DetectorStatus.tap);
       },
       child: Container(
         height: 200,
@@ -266,38 +288,32 @@ class _ChildGestureDetectorsState extends State<_ChildGestureDetectors> {
           child: Stack(
             alignment: Alignment.center,
             children: [
-              if (isOuterTapped)
-                Positioned(
-                  top: 14,
-                  child: Text(
-                    "Tap down",
-                    style: TextStyle(fontSize: 16),
-                  ),
+              Positioned(
+                top: 14,
+                child: StatusLabel(
+                  status: outerStatus,
                 ),
+              ),
               Center(
                 child: GestureDetector(
                   onTapDown: (_) {
-                    setState(() => isInnerTapped = true);
+                    setState(() => innerStatus = DetectorStatus.tapDown);
                   },
                   onTapCancel: () {
-                    setState(() => isInnerTapped = false);
+                    setState(() => innerStatus = DetectorStatus.none);
                   },
                   onTap: () {
-                    setState(() => isInnerTapped = false);
+                    setState(() => innerStatus = DetectorStatus.tap);
                   },
                   child: Container(
-                    height: 100,
-                    width: 100,
-                    color: Color(0xfff4ebc1),
-                    child: isInnerTapped
-                        ? Center(
-                            child: Text(
-                              "Tap down",
-                              style: TextStyle(fontSize: 16),
-                            ),
-                          )
-                        : null,
-                  ),
+                      height: 100,
+                      width: 100,
+                      color: Color(0xfff4ebc1),
+                      child: Center(
+                        child: StatusLabel(
+                          status: innerStatus,
+                        ),
+                      )),
                 ),
               ),
             ],
