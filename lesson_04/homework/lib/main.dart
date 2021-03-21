@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'ui/coctail_detail_page/cocktail_detail_page.dart';
+import 'ui/cocktail_detail_page/cocktail_detail_page.dart';
 import 'models/src/repository/sync_cocktail_repository.dart';
 
 void main() {

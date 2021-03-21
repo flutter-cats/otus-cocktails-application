@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homework/models/models.dart';
-import 'package:homework/ui/coctail_detail_page/coctail_description_widget.dart';
-import 'package:homework/ui/coctail_detail_page/coctail_image_widget.dart';
+import 'package:homework/ui/cocktail_detail_page/cocktail_description_widget.dart';
+import 'package:homework/ui/cocktail_detail_page/cocktail_image_widget.dart';
 
 class CocktailDetailPage extends StatelessWidget {
   const CocktailDetailPage(
