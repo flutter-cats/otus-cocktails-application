@@ -1,8 +1,8 @@
 class Strings {
-  static const String id = "Id";
-  static const String category = "Категория коктейля";
-  static const String type = "Тип коктейля";
-  static const String glass = "Тип стекла";
-  static const String ingredients = "Ингредиенты:";
-  static const String instruction = "Инструкция для приготовления";
+  static const id = "Id";
+  static const category = "Категория коктейля";
+  static const type = "Тип коктейля";
+  static const glass = "Тип стекла";
+  static const ingredients = "Ингредиенты:";
+  static const instruction = "Инструкция для приготовления";
 }

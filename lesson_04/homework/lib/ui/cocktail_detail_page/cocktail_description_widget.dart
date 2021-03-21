@@ -5,7 +5,6 @@ import 'package:homework/res/application_colors.dart';
 import 'package:homework/res/strings.dart';
 import 'package:homework/utils/show_toast.dart';
 
-const Color myColor = Color.fromARGB(32, 31, 44, 1);
 
 class CocktailDescription extends StatelessWidget {
   const CocktailDescription(

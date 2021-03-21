@@ -14,7 +14,7 @@ class IngredientsWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
-          padding: EdgeInsets.only(top: 24, bottom: 12),
+          padding: EdgeInsets.all(24),
           child: Text(
             Strings.ingredients,
             style: TextStyle(
@@ -29,7 +29,7 @@ class IngredientsWidget extends StatelessWidget {
 
 Widget _ingredientItem(String name, String value) {
   return Container(
-    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 32),
+    padding: EdgeInsets.fromLTRB(32, 0, 32, 20),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
