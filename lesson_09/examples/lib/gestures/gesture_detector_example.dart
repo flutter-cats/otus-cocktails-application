@@ -16,15 +16,30 @@ class GestureDetectorExample extends StatelessWidget {
 class _Examples extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        const SizedBox(height: 60),
-        Center(child: _ColorPicker()),
-        const SizedBox(height: 100),
-        Center(
-          child: _MultiGestureDetectors(),
+    return SingleChildScrollView(
+      child: Center(
+        child: Column(
+          children: [
+            const SizedBox(height: 60),
+            _ColorPicker(),
+            const SizedBox(height: 100),
+            Text(
+              "GestureDetector перекрывает GestureDetector:",
+              style: Theme.of(context).textTheme.subtitle1,
+            ),
+            const SizedBox(height: 8),
+            _StackedGestureDetectors(),
+            const SizedBox(height: 100),
+            Text(
+              "GestureDetector внутри GestureDetector:",
+              style: Theme.of(context).textTheme.subtitle1,
+            ),
+            const SizedBox(height: 8),
+            _ChildGestureDetectors(),
+            const SizedBox(height: 100),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
@@ -112,11 +127,11 @@ class _HorizontalChannelPicker extends StatelessWidget {
         return GestureDetector(
           onHorizontalDragUpdate: (details) {
             var position = details.localPosition.dx;
-            if (position < 0) position = 0;
-            if (position > width) position = width;
-
-            final newValue = position * 255 / width;
-            onChanged(newValue.toInt());
+            _update(position, width);
+          },
+          onTapDown: (details) {
+            var position = details.localPosition.dx;
+            _update(position, width);
           },
           child: Stack(
             children: [
@@ -140,67 +155,39 @@ class _HorizontalChannelPicker extends StatelessWidget {
       },
     );
   }
+
+  void _update(double position, double width) {
+    if (position < 0) position = 0;
+    if (position > width) position = width;
+
+    final newValue = position * 255 / width;
+    onChanged(newValue.toInt());
+  }
 }
 
 //todo on pan? on scale?
 
-class _MultiGestureDetectors extends StatefulWidget {
+class _StackedGestureDetectors extends StatefulWidget {
   @override
-  __MultiGestureDetectorsState createState() => __MultiGestureDetectorsState();
+  _StackedGestureDetectorsState createState() =>
+      _StackedGestureDetectorsState();
 }
 
-class __MultiGestureDetectorsState extends State<_MultiGestureDetectors> {
+class _StackedGestureDetectorsState extends State<_StackedGestureDetectors> {
   bool isInnerTapped = false;
   bool isOuterTapped = false;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.deferToChild,
-      onTapDown: (_) {
-        setState(() => isOuterTapped = true);
-      },
-      onTapCancel: () {
-        setState(() => isOuterTapped = false);
-      },
-      onTap: () {
-        setState(() => isOuterTapped = false);
-      },
+    return Container(
+      height: 200,
+      width: 200,
+      color: Color(0xfffedfdc),
       child: Stack(
         alignment: Alignment.center,
         children: [
-          // GestureDetector(
-          //   behavior: HitTestBehavior.translucent,
-          //   onTapDown: (_) {
-          //     setState(() => isOuterTapped = true);
-          //   },
-          //   onTapCancel: () {
-          //     setState(() => isOuterTapped = false);
-          //   },
-          //   onTap: () {
-          //     setState(() => isOuterTapped = false);
-          //   },
-          //   child: Container(
-          //     height: 200,
-          //     width: 200,
-          //     color: Color(0xfffedfdc),
-          //   ),
-          // ),
-          Container(
-            height: 200,
-            width: 200,
-            color: Color(0xfffedfdc),
-          ),
-          if (isOuterTapped)
-            Positioned(
-              top: 14,
-              child: Text(
-                "It's a tap",
-                style: TextStyle(fontSize: 16),
-              ),
-            ),
+          Container(),
           GestureDetector(
-            // behavior: HitTestBehavior.opaque,
             onTapDown: (_) {
               setState(() => isInnerTapped = true);
             },
@@ -217,14 +204,105 @@ class __MultiGestureDetectorsState extends State<_MultiGestureDetectors> {
               child: isInnerTapped
                   ? Center(
                       child: Text(
-                        "It's a tap",
+                        "Tap down",
                         style: TextStyle(fontSize: 16),
                       ),
                     )
                   : null,
             ),
           ),
+          if (isOuterTapped)
+            Positioned(
+              top: 14,
+              child: Text(
+                "Tap down",
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+          GestureDetector(
+            behavior: HitTestBehavior.translucent,
+            onTapDown: (_) {
+              setState(() => isOuterTapped = true);
+            },
+            onTapCancel: () {
+              setState(() => isOuterTapped = false);
+            },
+            onTap: () {
+              setState(() => isOuterTapped = false);
+            },
+          ),
         ],
+      ),
+    );
+  }
+}
+
+class _ChildGestureDetectors extends StatefulWidget {
+  @override
+  _ChildGestureDetectorsState createState() => _ChildGestureDetectorsState();
+}
+
+class _ChildGestureDetectorsState extends State<_ChildGestureDetectors> {
+  bool isInnerTapped = false;
+  bool isOuterTapped = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTapDown: (_) {
+        setState(() => isOuterTapped = true);
+      },
+      onTapCancel: () {
+        setState(() => isOuterTapped = false);
+      },
+      onTap: () {
+        setState(() => isOuterTapped = false);
+      },
+      child: Container(
+        height: 200,
+        width: 200,
+        color: Color(0xffc7ceea),
+        child: Center(
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              if (isOuterTapped)
+                Positioned(
+                  top: 14,
+                  child: Text(
+                    "Tap down",
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),
+              Center(
+                child: GestureDetector(
+                  onTapDown: (_) {
+                    setState(() => isInnerTapped = true);
+                  },
+                  onTapCancel: () {
+                    setState(() => isInnerTapped = false);
+                  },
+                  onTap: () {
+                    setState(() => isInnerTapped = false);
+                  },
+                  child: Container(
+                    height: 100,
+                    width: 100,
+                    color: Color(0xfff4ebc1),
+                    child: isInnerTapped
+                        ? Center(
+                            child: Text(
+                              "Tap down",
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          )
+                        : null,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
