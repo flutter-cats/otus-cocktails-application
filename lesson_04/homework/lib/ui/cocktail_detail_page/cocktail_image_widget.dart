@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:toast/toast.dart';
+import 'package:homework/utils/show_toast.dart';
 
 class CocktailImage extends StatelessWidget {
   const CocktailImage(this.imageUrl, {Key key}) : super(key: key);
@@ -27,7 +27,7 @@ Widget _buttonBack(BuildContext context) {
   final String iconBackName = 'assets/images/icon_back.svg';
 
   return IconButton(
-      onPressed: () => _showToast("Back Button", context),
+      onPressed: () => showToast("Back Button", context),
       icon: SvgPicture.asset(iconBackName)
   );
 }
@@ -36,11 +36,9 @@ Widget _buttonOut(BuildContext context) {
   final String iconOutName = 'assets/images/icon_out.svg';
 
   return  IconButton(
-    onPressed: () => _showToast("Out Button", context),
+    onPressed: () => showToast("Out Button", context),
     icon: SvgPicture.asset(iconOutName)
   );
 }
 
-void _showToast(String message, BuildContext context) =>
-  Toast.show(message, context);
 

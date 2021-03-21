@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:homework/res/application_colors.dart';
 import 'package:homework/res/strings.dart';
+import 'package:homework/utils/show_toast.dart';
 
 const Color myColor = Color.fromARGB(32, 31, 44, 1);
 
@@ -24,7 +25,6 @@ class CocktailDescription extends StatelessWidget {
     final nameStyle = TextStyle(color: Colors.white, fontSize: 20);
     final idStyle = TextStyle(
         color: ApplicationColors.idColor,
-        fontFamily: 'SF Pro Text',
         fontSize: 13);
 
     return Container(
@@ -39,7 +39,7 @@ class CocktailDescription extends StatelessWidget {
                 name,
                 style: nameStyle,
               ),
-              trailing: _isFavorite(),
+              trailing: _isFavorite(context),
             ),
             Text(
               '${Strings.id}:$id',
@@ -53,24 +53,40 @@ class CocktailDescription extends StatelessWidget {
   }
 }
 
-Widget _isFavorite() {
+Widget _isFavorite(BuildContext context) {
   final String widgetName = 'assets/images/icon_hart.svg';
 
-  return SvgPicture.asset(widgetName);
+  return IconButton(
+      onPressed: () => showToast("isFavorite Button Pressed", context),
+      icon: SvgPicture.asset(widgetName)
+  ); //
 }
 
 Widget _descriptionItem(String itemName, String itemValue) {
 
-  final nameStyle = TextStyle(fontFamily: 'SF Pro Text', color: Colors.white70, fontSize: 14);
-  final valueStyle = TextStyle(fontFamily: 'SF Pro Text', color: Colors.white70, fontSize: 15);
+  final nameStyle = TextStyle(color: Colors.white70, fontSize: 14);
+  final valueStyle = TextStyle(color: Colors.white, fontSize: 15);
 
   return Container(
-    padding: EdgeInsets.symmetric(vertical: 33, horizontal: 32),
+    padding: EdgeInsets.only(top: 20),
     child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(itemName.trim(), style: nameStyle,),
-        Text(itemValue.trim(), style: valueStyle,)
+        Text(itemName, style: nameStyle,),
+        DecoratedBox(
+          decoration: BoxDecoration(
+              color: ApplicationColors.itemDescriptionBackground,
+              borderRadius: BorderRadius.all(Radius.circular(20))
+            ),
+          child: Container(
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+            child: Text(itemValue, style: valueStyle,),
+          ),
+        ),
+
       ],
     ),
   );
 }
+
+
