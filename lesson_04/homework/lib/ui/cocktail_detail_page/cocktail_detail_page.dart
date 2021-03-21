@@ -4,6 +4,7 @@ import 'package:homework/ui/cocktail_detail_page/cocktail_description_widget.dar
 import 'package:homework/ui/cocktail_detail_page/cocktail_image_widget.dart';
 import 'package:homework/ui/cocktail_detail_page/ingredients_widget.dart';
 import 'package:homework/ui/cocktail_detail_page/instruction_widget.dart';
+import 'package:homework/ui/cocktail_detail_page/rating_widget.dart';
 
 class CocktailDetailPage extends StatelessWidget {
   const CocktailDetailPage(
@@ -30,7 +31,8 @@ class CocktailDetailPage extends StatelessWidget {
                 cocktail.cocktailType.value,
                 cocktail.glassType.value),
             IngredientsWidget(cocktail.ingredients),
-            InstructionsWidget(cocktail.instruction)
+            InstructionsWidget(cocktail.instruction),
+            RatingWidget()
           ],
         ),
       )),

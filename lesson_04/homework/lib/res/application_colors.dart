@@ -6,6 +6,7 @@ class ApplicationColors {
   static const itemDescriptionBackground = Color(0xff15151C);
   static const ingredientTitle = Color(0xffB1AFC6);
   static const instructionBackground = Color(0xff201F2C);
+  static const itemRating = Color(0xff2A293A);
 }
 
 
