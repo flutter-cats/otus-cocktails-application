@@ -1,37 +1,37 @@
 import 'dart:async';
 import 'dart:io';
 
-void main() {
- final http = MyOwnHttpImplementor();
- http
-     .get(Uri.parse('http://ya.ru'))
-     .then((value) {
-       //  <<  Continuation >>
-
-         print(value);
-       })
-           .catchError((error) {
-         print(error);
-       });
-     }
+// void main() {
+//  final http = MyOwnHttpImplementor();
+//  http
+//      .get(Uri.parse('http://ya.ru'))
+//      .then((value) {
+//        //  <<  Continuation >>
+//
+//          print(value);
+//        })
+//            .catchError((error) {
+//          print(error);
+//        });
+//      }
 
 //todo: uncomment this
-//Future<void> main() async {
-//  final http = MyOwnHttpImplementor();
-//  try {
-//    ///
-//    ///  ожидаем получение результата
-//    ///  после await весь код становится областью Continuation
-//    ///
-//    final value = await http.get(Uri.parse('http://ya.ru'));
-//
-//    // <<  Continuation >>
-//
-//    print(value);
-//  } catch (error) {
-//    print(error);
-//  }
-//}
+Future<void> main() async {
+ final http = MyOwnHttpImplementor();
+ try {
+   ///
+   ///  ожидаем получение результата
+   ///  после await весь код становится областью Continuation
+   ///
+   final value = await http.get(Uri.parse('http://ya.ru'));
+
+   // <<  Continuation >>
+
+   print(value);
+ } catch (error) {
+   print(error);
+ }
+}
 
 //todo: uncomment this
 // Future<void> main() async {

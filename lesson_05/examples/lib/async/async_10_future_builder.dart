@@ -22,7 +22,7 @@ class _DemoWidgetState extends State<DemoWidget10> {
       ),
       body: Center(
         child: Container(
-          child: FutureBuilder(
+          child: FutureBuilder<Image>(
             future: _fetchNetworkData(),
             builder: (BuildContext context, AsyncSnapshot<Image> snapshot) {
               if (snapshot.hasData) {

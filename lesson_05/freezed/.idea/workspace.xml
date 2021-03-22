@@ -2,10 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4157d75b-7177-43a4-bae5-27928aab8cf9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../examples/lib/json/json_serializable_approach/some_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../examples/lib/json/json_serializable_approach/some_model.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/async/async_01_event_loop.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/async/async_01_event_loop.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/async/async_03_future_ctors.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/async/async_03_future_ctors.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/async/async_04_future_resolving.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/async/async_04_future_resolving.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/async/async_05_completer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/async/async_05_completer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/async/async_10_future_builder.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/async/async_10_future_builder.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/async/async_11_await_async.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/async/async_11_await_async.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/async/async_12_future_try_catch.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/async/async_12_future_try_catch.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/async/async_20_event_loop_plus_microtasks.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/async/async_20_event_loop_plus_microtasks.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../examples/lib/http/http_01_using.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/http/http_01_using.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/json/built_value_approach/cocktail.g.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../examples/lib/json/json_02_json_annotation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/json/json_02_json_annotation.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../examples/lib/json/json_03_built_value.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/json/json_03_built_value.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/json/json_serializable_approach/some_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/json/json_serializable_approach/some_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

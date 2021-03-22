@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 ///
 /// это будет сгенерированный файл
 ///
-// part 'some_model.g.dart';
+part 'some_model.g.dart';
 
 @JsonSerializable()
 class SomeModel {
@@ -15,29 +15,6 @@ class SomeModel {
 
   SomeModel(this.id, this.name);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // factory SomeModel.fromJson(Map<String, dynamic> json) =>
-  //     _$SomeModelFromJson(json);
+  factory SomeModel.fromJson(Map<String, dynamic> json) =>
+      _$SomeModelFromJson(json);
 }

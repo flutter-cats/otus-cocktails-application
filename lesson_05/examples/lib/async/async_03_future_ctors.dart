@@ -1,13 +1,13 @@
 ///
 /// Create Future with computation
 ///
-void main() {
- final future = Future(() {
-   print('Hello From Async operation');
- });
-
- print('Main method is complete!');
-}
+// void main() {
+//  final future = Future(() {
+//    print('Hello From Async operation');
+//  });
+//
+//  print('Main method is complete!');
+// }
 
 ///
 /// Create value ready or error future
@@ -54,9 +54,9 @@ void main() {
 
 ///
 /// future.sync scenario
-//
+
 // void main() {
-//   final cache = <int>[];
+//   final cache = <int>[10];
 //
 //   final future = Future<int>.sync(() {
 //     if (cache.isEmpty) {
@@ -77,16 +77,16 @@ void main() {
 ///
 /// sync & value
 ///
-// void main() {
-//   Future.sync(() {
-//     print('Hello From Delayed Async operation');
-//   });
-//
-//   Future.value(
-//     (() {
-//       print('Hello From Future.Value');
-//     }).call(),
-//   );
-//
-//   print('Main method is complete!');
-// }
+void main() {
+  Future.sync(() {
+    print('Hello From Delayed Async operation');
+  });
+
+  Future.value(
+    (() {
+      print('Hello From Future.Value');
+    }).call(),
+  );
+
+  print('Main method is complete!');
+}

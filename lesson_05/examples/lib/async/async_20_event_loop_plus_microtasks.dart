@@ -22,7 +22,7 @@ void main() {
 
   eventLoop.loop();
 
-  //    scheduleMicrotask((){});
+     scheduleMicrotask((){});
 }
 
 class EventLoop {

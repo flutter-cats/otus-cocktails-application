@@ -8,7 +8,7 @@ void main() {
   ///
   ///  problem
   ///
-  runApp(ShowTheProblemDemo());
+  // runApp(ShowTheProblemDemo());
 
   ///
   /// lets try futures
@@ -32,7 +32,7 @@ void main() {
   /// async_12_await_async
   ///
 
-  // runApp(IsProblemResolvedDemo());
+  runApp(IsProblemResolvedDemo());
 }
 
 class DemoWidget01 extends StatelessWidget {

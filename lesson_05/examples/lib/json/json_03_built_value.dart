@@ -20,12 +20,11 @@ void main() {
   assert(cocktail.idDrink == "11408");
 
 
-  //    cocktail.strDrink = 'some value';
-  //    final newInstance = cocktail.rebuild(
-  //      (builder) => builder
-  //        ..idDrink = '200'
-  //        ..strDrink = 'some title',
-  //    );
-  //
-  //    print(newInstance);
+     // final newInstance = cocktail.rebuild(
+     //   (builder) => builder
+     //     ..idDrink = '200'
+     //     ..strDrink = 'some title',
+     // );
+     //
+     // print(newInstance);
 }

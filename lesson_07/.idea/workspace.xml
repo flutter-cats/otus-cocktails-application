@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ac343a15-ac21-4401-83e4-c1c750040a69" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/json/json_serializable_approach/some_model.g.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.fvm/flutter_sdk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.fvm/fvm_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_01_event_loop.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_01_event_loop.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_03_future_ctors.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_03_future_ctors.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_04_future_resolving.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_04_future_resolving.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_05_completer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_05_completer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_10_future_builder.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_10_future_builder.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_11_await_async.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_11_await_async.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_12_future_try_catch.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_12_future_try_catch.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_20_event_loop_plus_microtasks.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_20_event_loop_plus_microtasks.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/http/http_01_using.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/http/http_01_using.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/json/built_value_approach/cocktail.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/json/json_02_json_annotation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/json/json_02_json_annotation.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/json/json_03_built_value.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/json/json_03_built_value.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/json/json_serializable_approach/some_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/json/json_serializable_approach/some_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson_05/freezed/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/freezed/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
+  </component>
+  <component name="ProjectId" id="1q82YfFjFCLFx5YOdlNWvlBY1GB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="dart.settings" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ac343a15-ac21-4401-83e4-c1c750040a69" name="Default Changelist" comment="" />
+      <created>1616446945134</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616446945134</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="221" y="86" key="SettingsEditor" timestamp="1616447134310">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="221" y="86" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1616447134309" />
+  </component>
+</project>

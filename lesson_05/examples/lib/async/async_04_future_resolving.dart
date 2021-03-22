@@ -3,7 +3,8 @@
 ///
 
 // void main() {
-//   Future<int>.delayed(Duration(seconds: 3), ourComputation).then((int value) {
+//   Future<int>.delayed(Duration(seconds: 3), ourComputation).
+//   then((int value) {
 //     print('current result is $value!');
 //   });
 //
@@ -17,7 +18,7 @@
 int ourComputation() {
   const featureResult = 5;
 
-  // throw Exception('Чтото случилось (');
+  throw Exception('Чтото случилось (');
   return featureResult;
 }
 
@@ -36,14 +37,14 @@ int ourComputation() {
 ///
 /// todo: uncomment this - catchError
 ///
-// void main() {
-//   Future<int>.delayed(Duration(seconds: 3), ourComputation).then((value) {
-//     print('current result is $value!');
-//   }).catchError((error) {
-//     print(error);
-//   }).whenComplete(() {
-//     print('Операция завершена - независимо от того, с ошибкой или нет');
-//   });
-//
-//   print('Main method is complete!');
-// }
+void main() {
+  Future<int>.delayed(Duration(seconds: 3), ourComputation).then((value) {
+    print('current result is $value!');
+  }).catchError((error) {
+    print(error);
+  }).whenComplete(() {
+    print('Операция завершена - независимо от того, с ошибкой или нет');
+  });
+
+  print('Main method is complete!');
+}
