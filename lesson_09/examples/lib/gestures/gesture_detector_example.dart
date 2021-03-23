@@ -17,10 +17,13 @@ class _Examples extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      physics: ClampingScrollPhysics(),
       child: Center(
         child: Column(
           children: [
             const SizedBox(height: 60),
+            LifecycleExample(),
+            const SizedBox(height: 100),
             _ColorPicker(),
             const SizedBox(height: 100),
             Text(
@@ -38,6 +41,49 @@ class _Examples extends StatelessWidget {
             _ChildGestureDetectors(),
             const SizedBox(height: 100),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class LifecycleExample extends StatefulWidget {
+  @override
+  _LifecycleExampleState createState() => _LifecycleExampleState();
+}
+
+class _LifecycleExampleState extends State<LifecycleExample> {
+  String type = "";
+
+  void _updateType(String value) {
+    setState(() => type = value);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onHorizontalDragDown: (details) {
+        _updateType("onHorizontalDragDown");
+      },
+      onHorizontalDragStart: (details) {
+        _updateType("onHorizontalDragStart");
+      },
+      onHorizontalDragUpdate: (details) {
+        _updateType("onHorizontalDragUpdate");
+      },
+      onHorizontalDragCancel: () {
+        _updateType("onHorizontalDragCancel");
+      },
+      onHorizontalDragEnd: (details) {
+        _updateType("onHorizontalDragEnd");
+      },
+      child: Container(
+        height: 40,
+        width: 200,
+        color: Colors.amber,
+        child: Center(
+          child: Text(type),
         ),
       ),
     );
@@ -164,8 +210,6 @@ class _HorizontalChannelPicker extends StatelessWidget {
     onChanged(newValue.toInt());
   }
 }
-
-//todo on pan? on scale?
 
 enum DetectorStatus { none, tapDown, tap }
 
