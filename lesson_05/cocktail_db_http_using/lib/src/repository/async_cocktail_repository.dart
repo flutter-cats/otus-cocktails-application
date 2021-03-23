@@ -153,29 +153,30 @@ class AsyncCocktailRepository {
 
   Future<Ingredient?> lookupIngredientById(String ingredientId) async {
     Ingredient? ingredient;
-    
+
     const url = "https://the-cocktail-db.p.rapidapi.com/lookup.php?=${ingredientId}";
 
     await http
         .get(Uri.parse(url), headers: _headers)
         .then((value) => ingredient = _handleResponse(value))
         .catchError((exception) {
-      ingredient = null;
       _mapInputExceptionToCocktailException(exception.message);
     });
 
     return ingredient;
   }
 
-  Ingredient _handleResponse(http.Response response) {
+  Ingredient? _handleResponse(http.Response response) {
+    Ingredient? ingredient = null;
     if (response.statusCode == HttpStatus.ok) {
       final ingredientsResponse = convert.jsonDecode(response.body);
       var ingredients = ingredientsResponse['ingredients'] as Iterable<dynamic>;
-      return _mapDtoToModel(IngredientDto.fromJson(
+      ingredient = _mapDtoToModel(IngredientDto.fromJson(
           ingredients.cast<Map<String, dynamic>>().first));
     } else {
       throw HttpException('Request failed with status: ${response.statusCode}');
     }
+    return ingredient;
   }
 
   CocktailException _mapInputExceptionToCocktailException(String message) {
