@@ -64,7 +64,7 @@ class _FileDataReaderWidgetState extends State<FileDataReaderWidget> {
   }
 
 
-  late StreamSubscription<int> _readSubscription;
+  StreamSubscription<int>? _readSubscription;
 
   void _readData() {
     final fileReader = IOFileDataReader();
@@ -75,7 +75,7 @@ class _FileDataReaderWidgetState extends State<FileDataReaderWidget> {
     /// А теперь само чтение данных из нашего DataReader
     /// является асинхронным - мы будем получать данные по мере чтения асинхронно и порционно!
     ///
-    _readSubscription.cancel();
+    _readSubscription?.cancel();
     _readSubscription = fileReader.readAsync().listen(_handleReadData);
   }
 
@@ -93,6 +93,6 @@ class _FileDataReaderWidgetState extends State<FileDataReaderWidget> {
     ///
     /// Закрыли нашу подписку
     ///
-    _readSubscription.cancel();
+    _readSubscription?.cancel();
   }
 }

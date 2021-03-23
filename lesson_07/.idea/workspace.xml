@@ -2,23 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac343a15-ac21-4401-83e4-c1c750040a69" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/json/json_serializable_approach/some_model.g.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.fvm/flutter_sdk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.fvm/fvm_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_01_event_loop.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_01_event_loop.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_03_future_ctors.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_03_future_ctors.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_04_future_resolving.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_04_future_resolving.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_05_completer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_05_completer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_10_future_builder.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_10_future_builder.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_11_await_async.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_11_await_async.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_12_future_try_catch.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_12_future_try_catch.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_20_event_loop_plus_microtasks.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/async/async_20_event_loop_plus_microtasks.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/http/http_01_using.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/http/http_01_using.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/json/built_value_approach/cocktail.g.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/json/json_02_json_annotation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/json/json_02_json_annotation.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/json/json_03_built_value.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/json/json_03_built_value.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_05/examples/lib/json/json_serializable_approach/some_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/examples/lib/json/json_serializable_approach/some_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_05/freezed/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_05/freezed/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/04_resolving_the_problem_console.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/lesson_07.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lesson_07.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/07_single_and_broadcast.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/07_single_and_broadcast.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/08_common_scenario_to_use_stream_as_api.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/08_common_scenario_to_use_stream_as_api.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/09_resolving_the_problem_using_subscription.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/09_resolving_the_problem_using_subscription.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/22_stream_transformer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/22_stream_transformer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/31_iterable_generators.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/31_iterable_generators.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/33_async_io_file_data_reader.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/33_async_io_file_data_reader.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/40_stream_controller_event_loop.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/40_stream_controller_event_loop.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/nn_stream_periodic.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/nn_stream_periodic.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +25,29 @@
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="lesson_07" />
+                    <option name="lastUsedInstant" value="1616447639" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1616447638" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$/.." />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="ProjectId" id="1q82YfFjFCLFx5YOdlNWvlBY1GB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -43,9 +61,50 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="dart.settings" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Dart Command Line App.nn_stream_periodic.dart">
+    <configuration name="21_stream_transformations.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lib/21_stream_transformations.dart" />
+      <option name="workingDirectory" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="22_stream_transformer.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lib/22_stream_transformer.dart" />
+      <option name="workingDirectory" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="33_async_io_file_data_reader.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lib/33_async_io_file_data_reader.dart" />
+      <option name="workingDirectory" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="40_stream_controller_event_loop.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lib/40_stream_controller_event_loop.dart" />
+      <option name="workingDirectory" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="nn_stream_periodic.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lib/nn_stream_periodic.dart" />
+      <option name="workingDirectory" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Dart Command Line App.nn_stream_periodic.dart" />
+        <item itemvalue="Dart Command Line App.40_stream_controller_event_loop.dart" />
+        <item itemvalue="Dart Command Line App.33_async_io_file_data_reader.dart" />
+        <item itemvalue="Dart Command Line App.22_stream_transformer.dart" />
+        <item itemvalue="Dart Command Line App.21_stream_transformations.dart" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -58,12 +117,68 @@
       <option name="presentableId" value="Default" />
       <updated>1616446945134</updated>
     </task>
+    <task id="LOCAL-00001" summary="lesson 07 streams">
+      <created>1616447748503</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1616447748503</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="lesson 07 streams" />
+    <option name="LAST_COMMIT_MESSAGE" value="lesson 07 streams" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="221" y="86" key="SettingsEditor" timestamp="1616447134310">
+    <state x="226" y="41" key="CommitChangelistDialog2" timestamp="1616447746442">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="221" y="86" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1616447134309" />
+    <state x="226" y="41" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1616447746442" />
+    <state width="1440" height="470" key="GridCell.Tab.0.bottom" timestamp="1616533863216">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="470" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1616533863216" />
+    <state width="1440" height="470" key="GridCell.Tab.0.center" timestamp="1616533863215">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="470" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1616533863215" />
+    <state width="1440" height="470" key="GridCell.Tab.0.left" timestamp="1616533863214">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="470" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1616533863214" />
+    <state width="1440" height="470" key="GridCell.Tab.0.right" timestamp="1616533863216">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="470" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1616533863216" />
+    <state width="1440" height="470" key="GridCell.Tab.1.bottom" timestamp="1616533863218">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="470" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1616533863218" />
+    <state width="1440" height="470" key="GridCell.Tab.1.center" timestamp="1616533863217">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="470" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1616533863217" />
+    <state width="1440" height="470" key="GridCell.Tab.1.left" timestamp="1616533863217">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="470" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1616533863217" />
+    <state width="1440" height="470" key="GridCell.Tab.1.right" timestamp="1616533863218">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="470" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1616533863218" />
+    <state x="221" y="86" key="SettingsEditor" timestamp="1616483637424">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="221" y="86" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1616483637424" />
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1616447802804">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1616447802804" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1616483311837">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1616483311837" />
   </component>
 </project>

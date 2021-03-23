@@ -1,20 +1,13 @@
-import 'dart:io';
+import 'dart:async';
 
-void main() async {
+void main() {
   print('> Start');
+  Timer.periodic(Duration(seconds: 1), (_) => print('user tap gesture'));
 
-  await for(final element in IOFileDataReader().read()) {
-    ///
-    /// Здесь мы читаем данные по мере необходимости их обработки
-    /// OnDemand чтение данных
-    ///
-    print(element);
-
-    // stdin.readLineSync();
-  }
-
-  IOFileDataReader().read().listen(print);
-
+  final fileReader = IOFileDataReader();
+  fileReader.read().listen((int data) {
+    print('Current data is $data');
+  });
   print('> End');
 }
 
@@ -32,13 +25,8 @@ abstract class DataReader<T> {
 /// чтения из файла побайтово!
 ///
 class IOFileDataReader implements DataReader<int> {
-
   @override
-  Stream<int> read() async* {
-    for(int i in Iterable.generate(10)) {
-      sleep(Duration(milliseconds: 300));
-      print('yield $i');
-      yield i;
-    }
+  Stream<int> read() {
+    return Stream.periodic(Duration(seconds: 1), (int byte) => byte);
   }
 }
