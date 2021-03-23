@@ -128,6 +128,7 @@ class AsyncCocktailRepository {
     try {
       const url = 'https://the-cocktail-db.p.rapidapi.com/random.php';
       var response = await http.get(Uri.parse(url), headers: _headers);
+
       if (response.statusCode == 200) {
         final jsonResponse = convert.jsonDecode(response.body);
         var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
@@ -135,6 +136,7 @@ class AsyncCocktailRepository {
         final dtos = drinks
             .cast<Map<String, dynamic>>()
             .map((json) => CocktailDto.fromJson(json));
+
         if (dtos.length > 0) {
           result = _createCocktailFromDto(dtos.first);
         }
@@ -161,16 +163,16 @@ class AsyncCocktailRepository {
   Future<Ingredient?> lookupIngredientById(String id) async {
     late Ingredient result;
 
-    var client = http.Client();
+    final client = http.Client();
     try {
       final url = 'https://the-cocktail-db.p.rapidapi.com/lookup.php?iid=${id}';
-      var response = await client.get(Uri.parse(url), headers: _headers);
+      final response = await client.get(Uri.parse(url), headers: _headers);
 
       if (response.statusCode == HttpStatus.ok) {
         final jsonResponse = convert.jsonDecode(response.body);
-        var ingredients = jsonResponse['ingredients'] as Iterable<dynamic>;
+        final ingredients = jsonResponse['ingredients'] as Iterable<dynamic>;
 
-        var dto = ingredients
+        final dto = ingredients
             .cast<Map<String, dynamic>>()
             .map((json) => IngredientDto.fromJson(json));
 
@@ -188,11 +190,12 @@ class AsyncCocktailRepository {
 
   Ingredient _createIngredientFromDto(IngredientDto dto) {
     return Ingredient(
-        id: dto.idIngredient,
-        name: dto.strIngredient,
-        description: dto.strDescription,
-        ingredientType: dto.strType,
-        isAlcoholic: dto.strAlcohol);
+      id: dto.idIngredient,
+      name: dto.strIngredient,
+      description: dto.strDescription,
+      ingredientType: dto.strType,
+      isAlcoholic: dto.strAlcohol?.toLowerCase() == 'true',
+    );
   }
 
   Cocktail _createCocktailFromDto(CocktailDto dto) {

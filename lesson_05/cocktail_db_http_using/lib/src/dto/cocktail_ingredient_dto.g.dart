@@ -12,7 +12,7 @@ IngredientDto _$IngredientDtoFromJson(Map<String, dynamic> json) {
     strIngredient: json['strIngredient'] as String?,
     strDescription: json['strDescription'] as String?,
     strType: json['strType'] as String?,
-    strAlcohol: json['strAlcohol'] as bool?,
+    strAlcohol: json['strAlcohol'] as String?,
     strABV: json['strABV'] as String?,
   );
 }

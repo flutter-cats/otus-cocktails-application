@@ -4,19 +4,20 @@ part 'cocktail_ingredient_dto.g.dart';
 
 @JsonSerializable(createFactory: true)
 class IngredientDto {
-  IngredientDto(
-      {this.idIngredient,
-      this.strIngredient,
-      this.strDescription,
-      this.strType,
-      this.strAlcohol,
-      this.strABV});
+  IngredientDto({
+    this.idIngredient,
+    this.strIngredient,
+    this.strDescription,
+    this.strType,
+    this.strAlcohol,
+    this.strABV,
+  });
 
   final String? idIngredient;
   final String? strIngredient;
   final String? strDescription;
   final String? strType;
-  final bool? strAlcohol;
+  final String? strAlcohol;
   final String? strABV;
 
   factory IngredientDto.fromJson(Map<String, dynamic> json) =>
