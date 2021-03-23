@@ -23,9 +23,9 @@ class MyOwnHttpImplementor {
     /// await startTimer, endTimer(); etc.
     ///
 
-    completer.complete('successful operation');
+    // completer.complete('successful operation');
 
-    // completer.completeError(HttpException('Uri is not accessible'));
+    completer.completeError(HttpException('Uri is not accessible'));
 
     return completer.future;
   }
@@ -34,33 +34,33 @@ class MyOwnHttpImplementor {
 // ///
 // /// Другой сценарий использования completer
 // ///
-// class MyOwnDatabase {
-//   ///
-//   /// Сохраним список сущностей в базе данных
-//   ///
-//   Future<bool> store<T>(Iterable<T> batch) {
-//     final completer = Completer<bool>();
-//
-//     ///
-//     /// Здесь у меня много логики, настройки хедеров, другие асинхронные операции
-//     /// такие как логирование, профилирование, кеширование, и прочие
-//     ///
-//     /// await log();
-//     /// await storeResultInCache();
-//     /// await startTimer, endTimer(); etc.
-//     ///
-//
-//     for (T entity in batch) {
-//       _storeOneEntity(entity);
-//     }
-//
-//     completer.complete(true);
-//     completer.complete(false);
-//
-//     // completer.completeError(HttpException('Uri is not accessible'));
-//
-//     return completer.future;
-//   }
-//
-//   Future<bool> _storeOneEntity<T>(T entity) => throw Exception();
-// }
+class MyOwnDatabase {
+  ///
+  /// Сохраним список сущностей в базе данных
+  ///
+  Future<bool> store<T>(Iterable<T> batch) {
+    final completer = Completer<bool>();
+
+    ///
+    /// Здесь у меня много логики, настройки хедеров, другие асинхронные операции
+    /// такие как логирование, профилирование, кеширование, и прочие
+    ///
+    /// await log();
+    /// await storeResultInCache();
+    /// await startTimer, endTimer(); etc.
+    ///
+
+    for (T entity in batch) {
+      _storeOneEntity(entity);
+    }
+
+    completer.complete(true);
+    completer.complete(false);
+
+    // completer.completeError(HttpException('Uri is not accessible'));
+
+    return completer.future;
+  }
+
+  Future<bool> _storeOneEntity<T>(T entity) => throw Exception();
+}

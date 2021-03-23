@@ -1,25 +1,24 @@
 import 'dart:async';
 import 'dart:io';
 
-void main() {
- final http = MyOwnHttpImplementor();
- http
-     .get(Uri.parse('http://ya.ru'))
-     .then((value) {
-       //  <<  Continuation >>
-
-         print(value);
-       });
-     }
+// void main() {
+//  final http = MyOwnHttpImplementor();
+//  http
+//      .get(Uri.parse('http://ya.ru'))
+//      .then((value) {
+//        //  <<  Continuation >>
+//
+//          print(value);
+//        });
+//      }
 
 // Future<void> main() async {
 //   final http = MyOwnHttpImplementor();
-//     final value = await http.get(Uri.parse('http://ya.ru'));
+//   final value = await http.get(Uri.parse('http://ya.ru'));
 //
-//     // <<  Continuation >>
+//   // <<  Continuation >>
 //
-//     print(value);
-//
+//   print(value);
 // }
 
 class MyOwnHttpImplementor {

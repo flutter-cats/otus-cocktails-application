@@ -8,17 +8,17 @@ Future<void> main() async {
  try {
    const url = 'https://the-cocktail-db.p.rapidapi.com/popular.php';
 
-   //    список доступных операций
-   //
-   //    If you're planning on making multiple requests to
-   //    the same server, you should use a single [Client] for all of those requests.
-   //
-   //    Future<String> response = http.get(url, ...);
-   //    Future<String> response = http.put(url, ...);
-   //    Future<String> response = http.post(url, ...);
-   //    Future<String> response = http.delete(url, ...);
-   //    Future<String> response = http.patch(url, ...);
-   //    Future<String> response = http.read(url, ...);
+      // список доступных операций
+      //
+      // If you're planning on making multiple requests to
+      // the same server, you should use a single [Client] for all of those requests.
+
+      // Future<String> response = http.get(url, ...);
+      // Future<String> response = http.put(url, ...);
+      // Future<String> response = http.post(url, ...);
+      // Future<String> response = http.delete(url, ...);
+      // Future<String> response = http.patch(url, ...);
+      // Future<String> response = http.read(url, ...);
 
    var response = await client.get(
      Uri.parse(url),
