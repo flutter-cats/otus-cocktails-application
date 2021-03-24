@@ -82,3 +82,24 @@ void main() {
 //    print('element data is $element');
 //  }
 //}
+
+
+///
+/// for (final data in await fileReader.read()) {
+///
+// void _readData() async {
+//   final fileReader = IOFileDataReader();
+//
+//   fileData.clear();
+//
+//   ///
+//   /// Несмотря на то, что опрерация чтения является асинхронной, само чтение всего контента
+//   /// является длительной операцией и выполняется синхронно
+//   ///
+//   for (final data in await fileReader.read()) {
+//     print('Current data is $data');
+//     setState(() {
+//       fileData.add(data);
+//     });
+//   }
+// }

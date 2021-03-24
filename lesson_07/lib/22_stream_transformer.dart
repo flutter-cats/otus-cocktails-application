@@ -23,6 +23,36 @@ void main() {
       .listen((event) => print('Этот элемент из нового стрима $event'));
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ///
 /// todo: uncomment it
 ///

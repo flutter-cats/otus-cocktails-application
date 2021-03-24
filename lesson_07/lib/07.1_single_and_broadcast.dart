@@ -12,13 +12,16 @@ void main() async {
   /// Bad state: Stream has already been listened to.
   ///
   /// uncomment code
-  /// final streamController = StreamController<int>.broadcast();
-
+  // final streamController = StreamController<int>.broadcast();
+  //
   ///
   /// Мы создали подписку на появление элементов в нашем цикле
   ///
-  final subscription1 = streamController.stream.listen((element) => print('1. element data is $element'));
-  final subscription2 = streamController.stream.listen((element) => print('2. element data is $element'));
+  final subscription1 = streamController.stream
+      .listen((element) => print('1. element data is $element'));
+
+  final subscription2 = streamController.stream
+      .listen((element) => print('2. element data is $element'));
 
   ///
   /// добавим элементы в наш поток

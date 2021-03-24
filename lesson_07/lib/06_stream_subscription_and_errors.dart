@@ -13,7 +13,7 @@ void main() async {
     },
     onError: (error) => print(error),
     onDone: () => print('all read!'),
-    cancelOnError: true, /* true завершит передачу данных */
+    cancelOnError: false, /* true завершит передачу данных */
   );
 
   ///
