@@ -28,9 +28,9 @@ class IOFileDataReader implements DataReader<int> {
   @override
   Future<Iterable<int>> read() async {
     ///
-    /// Представим, что это файл, состоящий из 15 байт
+    /// Представим, что это файл, состоящий из 5 байт
     ///
-    final data = Iterable<int>.generate(15, (i) {
+    final data = Iterable<int>.generate(5, (i) {
       //  todo: remove comment here
       //  Мы можем сэмулировать длительную операцию чтения файла (или запрос по HTTP),
       //  который будет выполняться синхронно.
