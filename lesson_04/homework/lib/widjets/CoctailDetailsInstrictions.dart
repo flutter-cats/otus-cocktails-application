@@ -9,14 +9,14 @@ class CoctailDetailsInstrictions extends StatelessWidget {
   CoctailDetailsInstrictions({this.instruction});
 
   List<String> get _instructions {
-    return instruction.split('-').sublist(1).toList();
+    return instruction.split('- ').sublist(1).toList();
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.black,
-        padding: EdgeInsets.symmetric(horizontal: 32),
+        color: HexColor('#201F2C'),
+        padding: EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
             Container(
@@ -47,9 +47,13 @@ class CoctailInstruction extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(top: 10),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(Icons.point_of_sale),
+          Text('\u2022', style: TextStyle(color: Colors.white)),
+          SizedBox(
+            width: 5,
+          ),
           Expanded(
               child: Text(instruction, style: TextStyle(color: Colors.white)))
         ],

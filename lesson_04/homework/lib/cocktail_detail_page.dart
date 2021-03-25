@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:homework/models/models.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
+import 'package:homework/extensions/Color+Extensions.dart';
 import 'package:homework/widjets/CoctailDetailsHeader.dart';
 import 'package:homework/widjets/CoctailDetailsInfo.dart';
 import 'package:homework/widjets/CoctailDetailsIngridients.dart';
 import 'package:homework/widjets/CoctailDetailsInstrictions.dart';
+import 'package:homework/widjets/StarRatingWidhet.dart';
 
 class CocktailDetailPage extends StatelessWidget {
   const CocktailDetailPage(
@@ -28,9 +30,10 @@ class CocktailDetailPage extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Container(
                   color: Colors.black,
-                  // height: 1200,
-                  // width: deviceSize.width,
+                  height: 1400,
+                  width: deviceSize.width,
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
                         height: 343,
@@ -50,16 +53,20 @@ class CocktailDetailPage extends StatelessWidget {
                           typeGlass: cocktail.glassType,
                         ),
                       ),
-                      Expanded(
+                      Flexible(
                         child: CoctailDetailsIngridients(
                           ingridens: cocktail.ingredients,
                         ),
                       ),
-                      Expanded(
+                      Flexible(
                         child: CoctailDetailsInstrictions(
                           instruction: cocktail.instruction,
                         ),
-                      )
+                      ),
+                      Flexible(
+                          child: StarRatingWidjet(
+                        stars: 3,
+                      ))
                     ],
                   ),
                 ),
