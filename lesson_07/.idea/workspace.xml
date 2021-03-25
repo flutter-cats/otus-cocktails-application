@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac343a15-ac21-4401-83e4-c1c750040a69" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/02.1_flutter_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/02.1_flutter_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/03_stream_controller_creation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/03_stream_controller_creation.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/03_stream_controller_event_loop.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/03_stream_controller_event_loop.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/11.1_future_to_stream.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/11.1_future_to_stream.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/22_stream_transformer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/22_stream_transformer.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,38 +61,39 @@
       <recent name="$PROJECT_DIR$/lib" />
     </key>
   </component>
-  <component name="RunManager" selected="Dart Command Line App.03_stream_controller_event_loop.dart">
+  <component name="RunManager" selected="Dart Command Line App.11.1_future_to_stream.dart">
     <configuration name="03_stream_controller_event_loop.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
       <option name="filePath" value="$PROJECT_DIR$/lib/03_stream_controller_event_loop.dart" />
       <option name="workingDirectory" value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="07.2_single_and_broadcast_and_buffered_streams.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
-      <option name="filePath" value="$PROJECT_DIR$/lib/07.2_single_and_broadcast_and_buffered_streams.dart" />
+    <configuration name="05_stream_subscription_cancellation.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lib/05_stream_subscription_cancellation.dart" />
       <option name="workingDirectory" value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="31_iterable_generators.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
-      <option name="filePath" value="$PROJECT_DIR$/lib/31_iterable_generators.dart" />
+    <configuration name="07.1_single_and_broadcast.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lib/07.1_single_and_broadcast.dart" />
       <option name="workingDirectory" value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="32_stream_generators.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
-      <option name="filePath" value="$PROJECT_DIR$/lib/32_stream_generators.dart" />
+    <configuration name="11.0_cancel_the_future.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lib/11.0_cancel_the_future.dart" />
       <option name="workingDirectory" value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="02.1_flutter_demo.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
-      <option name="filePath" value="$PROJECT_DIR$/lib/02.1_flutter_demo.dart" />
+    <configuration name="11.1_future_to_stream.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lib/11.1_future_to_stream.dart" />
+      <option name="workingDirectory" value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Dart Command Line App.11.1_future_to_stream.dart" />
+        <item itemvalue="Dart Command Line App.11.0_cancel_the_future.dart" />
+        <item itemvalue="Dart Command Line App.07.1_single_and_broadcast.dart" />
+        <item itemvalue="Dart Command Line App.05_stream_subscription_cancellation.dart" />
         <item itemvalue="Dart Command Line App.03_stream_controller_event_loop.dart" />
-        <item itemvalue="Flutter.02.1_flutter_demo.dart" />
-        <item itemvalue="Dart Command Line App.07.2_single_and_broadcast_and_buffered_streams.dart" />
-        <item itemvalue="Dart Command Line App.31_iterable_generators.dart" />
-        <item itemvalue="Dart Command Line App.32_stream_generators.dart" />
       </list>
     </recent_temporary>
   </component>
@@ -172,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616662053256</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="lesson 07 streams">
+      <created>1616690243766</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1616690243766</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -188,42 +194,42 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="533" y="170" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1616657275926" />
-    <state x="222" y="41" key="CommitChangelistDialog2" timestamp="1616662994282">
+    <state x="222" y="41" key="CommitChangelistDialog2" timestamp="1616690243157">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="222" y="41" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1616662994282" />
-    <state width="1440" height="468" key="GridCell.Tab.0.bottom" timestamp="1616689706586">
+    <state x="222" y="41" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1616690243157" />
+    <state width="1440" height="468" key="GridCell.Tab.0.bottom" timestamp="1616690695399">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1440" height="468" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1616689706586" />
-    <state width="1440" height="468" key="GridCell.Tab.0.center" timestamp="1616689706586">
+    <state width="1440" height="468" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1616690695399" />
+    <state width="1440" height="468" key="GridCell.Tab.0.center" timestamp="1616690695398">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1440" height="468" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1616689706586" />
-    <state width="1440" height="468" key="GridCell.Tab.0.left" timestamp="1616689706584">
+    <state width="1440" height="468" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1616690695398" />
+    <state width="1440" height="468" key="GridCell.Tab.0.left" timestamp="1616690695397">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1440" height="468" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1616689706584" />
-    <state width="1440" height="468" key="GridCell.Tab.0.right" timestamp="1616689706586">
+    <state width="1440" height="468" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1616690695397" />
+    <state width="1440" height="468" key="GridCell.Tab.0.right" timestamp="1616690695398">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1440" height="468" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1616689706586" />
-    <state width="1440" height="468" key="GridCell.Tab.1.bottom" timestamp="1616689706589">
+    <state width="1440" height="468" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1616690695398" />
+    <state width="1440" height="468" key="GridCell.Tab.1.bottom" timestamp="1616690695400">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1440" height="468" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1616689706589" />
-    <state width="1440" height="468" key="GridCell.Tab.1.center" timestamp="1616689706587">
+    <state width="1440" height="468" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1616690695400" />
+    <state width="1440" height="468" key="GridCell.Tab.1.center" timestamp="1616690695399">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1440" height="468" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1616689706587" />
-    <state width="1440" height="468" key="GridCell.Tab.1.left" timestamp="1616689706586">
+    <state width="1440" height="468" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1616690695399" />
+    <state width="1440" height="468" key="GridCell.Tab.1.left" timestamp="1616690695399">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1440" height="468" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1616689706586" />
-    <state width="1440" height="468" key="GridCell.Tab.1.right" timestamp="1616689706589">
+    <state width="1440" height="468" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1616690695399" />
+    <state width="1440" height="468" key="GridCell.Tab.1.right" timestamp="1616690695399">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1440" height="468" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1616689706589" />
+    <state width="1440" height="468" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1616690695399" />
     <state x="428" y="130" key="SettingsEditor" timestamp="1616689742489">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -232,10 +238,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="450" y="200" width="540" height="524" key="StructurePopup/0.0.1440.900@0.0.1440.900" timestamp="1616626856145" />
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1616662054395">
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1616690246340">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1616662054395" />
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1616690246340" />
     <state x="412" y="38" width="893" height="657" key="find.popup" timestamp="1616535465463">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
