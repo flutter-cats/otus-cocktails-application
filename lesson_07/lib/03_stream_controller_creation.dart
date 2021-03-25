@@ -7,7 +7,7 @@ void main() {
   const nextElementData = 11;
 
   ///
-  /// Создаем контроллер потока, обощив его типом int для его элементов
+  /// Создаем контроллер потока, обобщив его типом int для его элементов
   ///
   final streamController = StreamController<int>();
 
@@ -23,7 +23,22 @@ void main() {
     (element) => print('element data is $element, read in iterable forEach'),
   );
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   ///
+  /// forEach для стрима - легко!
   /// Как вы считаете, как будет выполнен for each для потока?
   ///
   streamController.stream.forEach(

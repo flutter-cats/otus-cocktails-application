@@ -9,7 +9,7 @@ void main() {
   final streamController = StreamController<int>();
 
   ///
-  /// Для демонстрауии асинхронного чтения из потока мы в поток сначала положим один элемент
+  /// Для демонстрации асинхронного чтения из потока мы в поток сначала положим один элемент
   ///
   streamController.sink.add(elementData);
 
@@ -26,6 +26,7 @@ void main() {
 
   ///
   /// Затем поместим в потом еще один элемент потока
+  /// scheduleMicrotask()!
   ///
   Timer.run(() {
     streamController.sink.add(nextElementData);

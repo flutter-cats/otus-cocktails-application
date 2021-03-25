@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '10.1_subscription_pause_and_resume**.dart';
+import '02_the_problem_with_cats**.dart';
 import 'hidden/application.dart';
 
 void main() {
