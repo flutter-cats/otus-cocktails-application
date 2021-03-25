@@ -1,5 +1,3 @@
-
-
 ///
 /// Поговорим про Iterable<int>
 /// Iterator<E>
@@ -14,10 +12,10 @@ void main() {
   /// Обычный сценарий обхода коллекции - используем
   /// for in
   ///
-  //  final collection = [1, 2, 3];
-  //  for (final i in collection) {
-  //    print('collection item is $i');
-  //  }
+  final collection = [1, 2, 3, 4, 5];
+  for (final i in collection) {
+    print('collection item is $i');
+  }
   //
   //  ///
   //  /// Но этот сценарий ForIn, ForEach подразумевает использование
@@ -25,21 +23,28 @@ void main() {
   //  ///
   //  /// Как бы мы могли обойти коллекицю, используя ее итератор
   //  ///
-  //  final iterator = (collection as Iterable<int>).iterator;
-  //  while (iterator.moveNext()) {
-  //    print(iterator.current);
-  //  }
+  ///
+  /// demo:
+  ///
+  // final collectionIterator = collection.iterator;
+  // collectionIterator.moveNext();
+  // print(collectionIterator.current);
+  // collectionIterator.moveNext();
+  // print(collectionIterator.current);
+  //
+  // while (collectionIterator.moveNext()) {
+  //   print(collectionIterator.current);
+  // }
 
   ///
   /// Можно ли сделать такой итератор, чтобы в какой-то момент времени
   /// можно было прекратить обход по коллекции?
   /// И чтобы значение получалось пот ребованию? (допустим, генерация таких
   /// значений очень дорогая по времени)
-  ///
-  //  final iterator = getTopNCollection(10, 5).iterator;
-  for (final element in getTopNCollection(10, 5)) {
-    print(element);
-  }
+
+  // for (final element in getTopNCollection(10, 5)) {
+  //   print(element);
+  // }
 
   print('> End');
 }
@@ -84,9 +89,10 @@ void main() {
 ///     14, 1
 ///     15, 0
 ///
-Iterable<int> getTopNCollection(int start, int count) sync* {
-  if (start <= (start + count)) {
-    yield start;
-    yield* getTopNCollection(++start, count - 1);
-  }
-}
+// Iterable<int> getTopNCollection(int start, int count) sync* {
+//   print('newStart is $start, newcCunt is $count');
+//   if (start <= (start + count)) {
+//     yield start;
+//     yield* getTopNCollection(++start, count - 1);
+//   }
+// }
