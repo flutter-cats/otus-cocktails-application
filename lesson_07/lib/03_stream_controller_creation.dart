@@ -7,29 +7,30 @@ void main() {
   const nextElementData = 11;
 
   ///
-  /// Создаем поток, обощив его типом int для его элементов
+  /// Создаем контроллер потока, обощив его типом int для его элементов
   ///
   final streamController = StreamController<int>();
 
   ///
   /// Положим в Stream при помощи Event Sink два элемента
   ///
-  streamController.sink
-    ..add(elementData)
-    ..add(nextElementData);
+  streamController.sink..add(elementData)..add(nextElementData);
 
   ///
   /// for each для коллекций выполняется синхронно
   ///
-  Iterable.generate(10).forEach((element) => print('element data is $element, read in iterable forEach'));
+  Iterable.generate(10).forEach(
+    (element) => print('element data is $element, read in iterable forEach'),
+  );
 
   ///
   /// Как вы считаете, как будет выполнен for each для потока?
   ///
-  streamController.stream.forEach((element) {
-    print('element data is $element, read in streamed forEach');
-  });
-
+  streamController.stream.forEach(
+    (element) {
+      print('element data is $element, read in streamed forEach');
+    },
+  );
 
   ///
   /// По завершении работы с потоком, когда он не нужен, закрываем его
@@ -38,5 +39,3 @@ void main() {
 
   print('> End');
 }
-
-

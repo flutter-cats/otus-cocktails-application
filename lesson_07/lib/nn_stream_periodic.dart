@@ -5,6 +5,8 @@ Future<void> main() async {
     print(byte);
     return byte;
   });
+
+
   await for (final data in fileData) {
     print('Current data is $data');
   }

@@ -11,12 +11,9 @@ Future<void> main() async {
     }),
   ).then(
     (_) => print('operation is complete'),
-    onCancel: () {
-      print('operation is cancelled');
-    },
   );
 
-  Future.delayed(Duration(seconds: 2), () {
+  Future.delayed(Duration(seconds: 4), () {
     print('operation should be cancelled');
     operation.cancel();
   });

@@ -6,7 +6,9 @@ void main() {
 
   final streamController = StreamController<int>();
 
-  var isNewElementIsCreated = false;
+  //
+  // var isNewElementIsCreated = false;
+
   ///
   /// Мы создали подписку на появление элементов в нашем цикле
   ///
@@ -14,6 +16,9 @@ void main() {
     (element) {
       print('element data is $element');
 
+      ///
+      /// Что произойдет, если >>>>
+      ///
       // if (!isNewElementIsCreated) {
       //   isNewElementIsCreated = true;
       //   streamController.add(element + 1);

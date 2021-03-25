@@ -47,7 +47,6 @@ class FileDataReaderWidget extends StatefulWidget {
   _FileDataReaderWidgetState createState() => _FileDataReaderWidgetState();
 }
 
-
 class _FileDataReaderWidgetState extends State<FileDataReaderWidget> {
   final List<int> fileData = [];
 
@@ -60,9 +59,13 @@ class _FileDataReaderWidgetState extends State<FileDataReaderWidget> {
       body: Center(
         child: ListView(
           children: <Widget>[
-            Text('Весь ваш код выполняется в одном потоке', textAlign: TextAlign.center),
-            SizedBox(height: 140, child: Image.asset('assets/gifs/so_fast_cats.gif')),
-            for (final i in fileData) Center(child: Text('Это элемент $i из файла')),
+            Text('Весь ваш код выполняется в одном потоке',
+                textAlign: TextAlign.center),
+            SizedBox(
+                height: 140,
+                child: Image.asset('assets/gifs/so_fast_cats.gif')),
+            for (final i in fileData)
+              Center(child: Text('Это элемент $i из файла')),
           ],
         ),
       ),
