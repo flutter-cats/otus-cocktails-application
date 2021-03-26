@@ -4,7 +4,7 @@ void main() async {
   const elementData = 10;
   const nextElementData = 11;
 
-  final streamController = StreamController<int>.broadcast();
+  final streamController = StreamController<int>();
 
   ///
   /// По умолчанию потоки позволяют только разовую подписку,
@@ -12,13 +12,16 @@ void main() async {
   /// Bad state: Stream has already been listened to.
   ///
   /// uncomment code
-  /// final streamController = StreamController<int>.broadcast();
-
+  // final streamController = StreamController<int>.broadcast();
+  //
   ///
   /// Мы создали подписку на появление элементов в нашем цикле
   ///
-  final subscription1 = streamController.stream.listen((element) => print('element data is $element'));
-  final subscription2 = streamController.stream.listen((element) => print('element data is $element'));
+  final subscription1 = streamController.stream
+      .listen((element) => print('1. element data is $element'));
+
+  final subscription2 = streamController.stream
+      .listen((element) => print('2. element data is $element'));
 
   ///
   /// добавим элементы в наш поток

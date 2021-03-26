@@ -9,7 +9,7 @@ void main() {
   final streamController = StreamController<int>();
 
   ///
-  /// Для демонстрауии асинхронного чтения из потока мы в поток сначала положим один элемент
+  /// Для демонстрации асинхронного чтения из потока мы в поток сначала положим один элемент
   ///
   streamController.sink.add(elementData);
 
@@ -26,6 +26,7 @@ void main() {
 
   ///
   /// Затем поместим в потом еще один элемент потока
+  /// scheduleMicrotask()!
   ///
   Timer.run(() {
     streamController.sink.add(nextElementData);
@@ -82,3 +83,24 @@ void main() {
 //    print('element data is $element');
 //  }
 //}
+
+
+///
+/// for (final data in await fileReader.read()) {
+///
+// void _readData() async {
+//   final fileReader = IOFileDataReader();
+//
+//   fileData.clear();
+//
+//   ///
+//   /// Несмотря на то, что опрерация чтения является асинхронной, само чтение всего контента
+//   /// является длительной операцией и выполняется синхронно
+//   ///
+//   for (final data in await fileReader.read()) {
+//     print('Current data is $data');
+//     setState(() {
+//       fileData.add(data);
+//     });
+//   }
+// }

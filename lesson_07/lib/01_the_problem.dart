@@ -36,7 +36,7 @@ class IOFileDataReader implements DataReader<int> {
       //  todo: remove comment here
       //  Мы можм сэмулировать длительную операцию чтения файла (или запрос по HTTP),
       //  который будет выполняться синхронно.
-      sleep(Duration(seconds: 1));
+      //  sleep(Duration(seconds: 1));
       return i;
     });
 

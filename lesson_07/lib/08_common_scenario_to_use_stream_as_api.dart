@@ -15,7 +15,7 @@ void main() {
     print('пришло оповещение $event');
   };
 
-  final subscription = outputService.onSomeEvent.listen(handleSomeEvent);
+  final subscription = outputService.onSomeEvent.listen((int event) => handleSomeEvent(event));
 
   ///
   /// Упростить код
