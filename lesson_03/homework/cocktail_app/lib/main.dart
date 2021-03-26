@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:coctail_app_models/models.dart';
+import 'package:cocktail_app_modelsPM/models.dart';
+
 // import 'package:coctail_app_models/src/model/PMcoctail.dart';
 
 void main() {

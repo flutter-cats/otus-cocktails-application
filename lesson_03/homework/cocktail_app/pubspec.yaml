@@ -23,8 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  coctail_app_models:
-    path: ../cocktail_app_models
+  cocktail_app_modelsPM:
+    path: ../cocktail_app_modelsPM
   cupertino_icons: ^1.0.2
   http: ^0.13.0
 
