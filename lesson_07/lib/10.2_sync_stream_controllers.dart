@@ -2,18 +2,31 @@ import 'dart:async';
 
 void main() {
   const elementData = 10;
-  const nextElementData = 11;
+  const nextElementData = 12;
 
   final streamController = StreamController<int>();
+
+  //
+  // var isNewElementIsCreated = false;
 
   ///
   /// Мы создали подписку на появление элементов в нашем цикле
   ///
-  final subscription = streamController.stream.listen((element) => print('element data is $element'));
+  final subscription = streamController.stream.listen(
+    (element) {
+      print('element data is $element');
 
-  streamController.sink
-    ..add(elementData)
-    ..add(nextElementData);
+      ///
+      /// Что произойдет, если >>>>
+      ///
+      // if (!isNewElementIsCreated) {
+      //   isNewElementIsCreated = true;
+      //   streamController.add(element + 1);
+      // }
+    },
+  );
+
+  streamController.sink..add(elementData)..add(nextElementData);
 
   ///
   /// Так как пример синхронный, то в случае синхронного закрытия и потока и подписки

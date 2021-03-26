@@ -1,17 +1,22 @@
 void main() {
-
-  final iterable = Iterable.generate(20);                           //  single  sync iterable
-  final stream = Stream.fromIterable(iterable).asBroadcastStream(); //  single async iterable
+  final iterable = Iterable.generate(10);                       //  single  sync iterable
+  final stream = Stream.fromIterable(iterable); //  single async iterable
 
   ///
   /// Мы можем выполнять трансформации над нашими стримами, получая новые
   ///
-//  stream.map((element) => element * 2).listen(print);
+  final itsNewStream = stream.map((element) => element * 2);
+  itsNewStream.listen((element) => print(element));
 
-  stream.map((element) => element).takeWhile((element) => element < 10).listen((element) {
-    print('читаю только элементы < 10, $element');
+  ///
+  /// не обязательно создавать переменную, можно сразу создать subscription
+  ///
+  stream
+      .map((element) => element)
+      .takeWhile((element) => element < 5)
+      .listen((element) {
+    print('читаю только элементы < 5, $element');
   });
-
 
   ///  методы, которые выполняют модицифкацию стрима
   ///  Stream<S> map<S>(S Function(T event) convert);
@@ -22,5 +27,20 @@ void main() {
   ///  Stream<T> where(bool Function(T event) test);
   ///  Stream<R> cast<R>();
   ///  Stream<S> expand<S>(Iterable<S> Function(T element) convert);
-
 }
+
+///
+/// Abstract superclass for subscriptions that forward to other subscriptions.
+///
+// class _ForwardingStreamSubscription<S, T>
+//     extends _BufferingStreamSubscription<T> {
+//   final _ForwardingStream<S, T> _stream;
+//
+//   StreamSubscription<S>? _subscription;
+//
+//   _ForwardingStreamSubscription(this._stream, void onData(T data)?,
+//       Function? onError, void onDone()?, bool cancelOnError)
+//       : super(onData, onError, onDone, cancelOnError) {
+//     _subscription = _stream._source
+//         .listen(_handleData, onError: _handleError, onDone: _handleDone);
+//   }
