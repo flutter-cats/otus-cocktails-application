@@ -4,9 +4,9 @@ void main() async {
   print('> Start');
 
 
-  await for(final element in getTopNCollection(10, 5)) {
-    print(element);
-  }
+  // await for(final element in getTopNCollection(10, 5)) {
+  //   print(element);
+  // }
 
   //  getTopNCollection(10, 5).listen(print);
 
@@ -17,16 +17,16 @@ void main() async {
 ///
 /// 1.  Попробуем реализовать свой Stream<T>
 ///
-//Stream<int> getTopNCollection(int start, int count) {
+// Stream<int> getTopNCollection(int start, int count) {
 //
 //  for(var i = start; i < start + 10; i++) {
 //
 //  }
-//}
+// }
 
 
 ///
-///2.  Попробуем реализовать свой Iterable<T> sync*
+///2.  Попробуем реализовать свой Stream<T> sync*
 ///
 ///
 ///
@@ -41,7 +41,7 @@ void main() async {
 //}
 
 ///
-///3.  Попробуем реализовать свой Iterable<T> sync*
+///3.  Попробуем реализовать свой Stream<T> sync*
 ///    Сразу выкидываем набор элементов
 ///
 //Stream<int> getTopNCollection(int start, int count) async* {
@@ -63,9 +63,23 @@ void main() async {
 ///     14, 1
 ///     15, 0
 ///
-Stream<int> getTopNCollection(int start, int count) async* {
-  if (start <= (start + count)) {
-    yield start;
-    yield* getTopNCollection(++start, count - 1);
-  }
-}
+// Stream<int> getTopNCollection(int start, int count) async* {
+//   if (start <= (start + count)) {
+//     yield start;
+//     yield* getTopNCollection(++start, count - 1);
+//   }
+// }
+//
+
+///
+/// Здесь просто выведем в лог эти start & count, чтобы получше понять предыдущий пример с рекурсией
+///
+// Stream<int> getTopNCollectionWithOutput(int start, int count) async* {
+//   if (start <= (start + count)) {
+//     yield start;
+//     final newStart = ++start;
+//     final newCount = count - 1;
+//     print('newStart is $newStart, newcCunt is $newCount');
+//     yield* getTopNCollection(newStart, newCount);
+//   }
+// }
