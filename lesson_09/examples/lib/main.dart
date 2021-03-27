@@ -1,3 +1,4 @@
+import 'package:examples/gestures/listener_example.dart';
 import 'package:examples/gestures/raw_gesture_detector_example.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: RawGestureDetectorExample(),
+      home: ListenerExample(),
     );
   }
 }
