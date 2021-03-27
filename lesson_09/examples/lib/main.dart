@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'gestures/buttons.dart';
 import 'gestures/gesture_detector_example.dart';
 import 'gestures/ink_widgets.dart';
+import 'inputs/inputs.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: ListenerExample(),
+      home: InputsExample(),
     );
   }
 }
