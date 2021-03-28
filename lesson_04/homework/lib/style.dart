@@ -1,2 +1,2 @@
-export 'style/app-colors.dart';
-export 'style/app-text-style.dart';
+export 'style/app_colors.dart';
+export 'style/app_text_style.dart';

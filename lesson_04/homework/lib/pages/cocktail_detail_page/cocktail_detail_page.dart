@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homework/models/models.dart';
-import 'package:homework/style/app-colors.dart';
+import 'package:homework/style/app_colors.dart';
 
 import 'top_bar.dart';
 import 'cocktail_image.dart';

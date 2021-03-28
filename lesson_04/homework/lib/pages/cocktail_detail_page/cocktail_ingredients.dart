@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:homework/style/app-colors.dart';
-import 'package:homework/style/app-text-style.dart';
+import 'package:homework/style/app_colors.dart';
+import 'package:homework/style/app_text_style.dart';
 import 'package:homework/models/models.dart';
 
 class CocktailIngredients extends StatelessWidget {

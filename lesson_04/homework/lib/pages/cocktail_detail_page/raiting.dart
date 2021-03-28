@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homework/style/app-colors.dart';
+import 'package:homework/style/app_colors.dart';
 
 class Raiting extends StatelessWidget {
   Raiting({
