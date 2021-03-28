@@ -16,7 +16,7 @@ class InstructionWidget extends StatelessWidget {
       var listTile = Text(
         '\u2022 ${str.substring(1)}\n',
         softWrap: true,
-        style: cooklistTextStyle,
+        style: cookingListTextStyle,
       );
 
       listTitles.add(listTile);
@@ -37,7 +37,7 @@ class InstructionWidget extends StatelessWidget {
             margin: EdgeInsets.only(bottom: 24.0),
             child: DescriptionItemWidget(
               label: 'Инструкция по приготовлению',
-              textStyle: cooklistTitleStyle,
+              textStyle: cookingListTitleStyle,
             ),
           ),
           _cooklistInstruction(instruction),

@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 
+/* main */
 TextStyle cocktailMainTitle =
     TextStyle(fontSize: 20.0, fontWeight: FontWeight.w500, color: Colors.white);
 TextStyle cocktailIdTitle =
     TextStyle(fontSize: 13.0, fontWeight: FontWeight.w400, color: Colors.grey);
 
+/* items & types */
 TextStyle cocktailTypeStyle =
     TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Colors.white);
 TextStyle cocktailValueStyle =
     TextStyle(fontSize: 15.0, fontWeight: FontWeight.w400, color: Colors.white);
 
+/* glass */
 TextStyle cocktailGlassStyleTitle = TextStyle(
     fontSize: 14.0,
     fontWeight: FontWeight.w400,
@@ -20,6 +23,7 @@ TextStyle cocktailGlassStyle = TextStyle(
     fontWeight: FontWeight.w400,
     color: Colors.white);
 
+/* ingredients */
 TextStyle ingridientTitleStyle = TextStyle(
     fontSize: 16.0,
     fontWeight: FontWeight.w500,
@@ -32,7 +36,8 @@ TextStyle ingridientsItemStyle = TextStyle(
 TextStyle ingridientsValueStyle =
     TextStyle(fontSize: 14.0, fontWeight: FontWeight.w500, color: Colors.white);
 
-TextStyle cooklistTitleStyle =
+/* cookinglist */
+TextStyle cookingListTitleStyle =
     TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Colors.white);
-TextStyle cooklistTextStyle =
+TextStyle cookingListTextStyle =
     TextStyle(fontSize: 14.0, fontWeight: FontWeight.w400, color: Colors.white);

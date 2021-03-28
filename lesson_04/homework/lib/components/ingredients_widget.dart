@@ -32,7 +32,8 @@ class IngredientsWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 24.0),
+      padding: EdgeInsets.symmetric(
+          horizontal: 32.0, vertical: 24.0),
       child: Column(
         children: [
           Container(

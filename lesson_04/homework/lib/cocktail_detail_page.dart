@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'models/models.dart';
+import 'components/image_widget.dart';
+import 'components/description_widget.dart';
 import 'components/ingredients_widget.dart';
 import 'components/instruction_widget.dart';
 import 'components/rank_bar_widget.dart';
-import 'models/models.dart';
-import 'components/description_widget.dart';
-import 'components/image_widget.dart';
 
 class CocktailDetailPage extends StatelessWidget {
   const CocktailDetailPage(

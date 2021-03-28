@@ -16,7 +16,10 @@ class DescriptionItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.fromLTRB(leftMargin, 0, 0, bottomMargin),
+        margin: EdgeInsets.fromLTRB(
+            leftMargin,
+            0, 0,
+            bottomMargin),
         child: Text(
           label,
           style: textStyle,

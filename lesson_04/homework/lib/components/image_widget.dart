@@ -11,7 +11,6 @@ class ImageWidget extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          width: 375.0,
           height: 343.0,
           alignment: Alignment.center,
           child: Image.network(imageUrl),

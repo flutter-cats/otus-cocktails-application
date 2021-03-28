@@ -27,7 +27,8 @@ class DescriptionWidget extends StatelessWidget {
         children: [
           Container(
             alignment: Alignment.topLeft,
-            padding: EdgeInsets.fromLTRB(32.0, 33, 32, 18),
+            padding: EdgeInsets.fromLTRB(
+                32.0, 33, 32, 18),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

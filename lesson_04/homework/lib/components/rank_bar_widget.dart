@@ -22,7 +22,6 @@ class RankBarWidget extends StatelessWidget {
           ),
         ),
       );
-
       rankedList.add(item);
     }
 

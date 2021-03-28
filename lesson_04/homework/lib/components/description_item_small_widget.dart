@@ -15,7 +15,8 @@ class DescriptionItemSmallWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
       margin: EdgeInsets.only(bottom: bottomMargin),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20.0), color: Colors.black),
+          borderRadius: BorderRadius.circular(20.0),
+          color: Colors.black),
       child: child,
     );
   }
