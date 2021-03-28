@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:homework/style/app-text-style.dart';
 
 class CoctailImage extends StatelessWidget {
-  final errorLoadingMessage = 'Loading image error';
+  const CoctailImage({
+    Key key,
+    @required this.image,
+  }) : super(key: key);
+
   final String image;
-  const CoctailImage({Key key, @required this.image}) : super(key: key);
+  final String errorLoadingMessage = 'Loading image error';
 
   @override
   Widget build(BuildContext context) {

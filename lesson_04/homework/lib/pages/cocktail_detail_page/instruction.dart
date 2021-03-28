@@ -2,32 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:homework/style/app-text-style.dart';
 
 class Instruction extends StatelessWidget {
-  final instructionTitle = 'Инструкция для приготовления';
-  final instruction;
+  Instruction({Key key, @required this.instruction});
 
-  Instruction({Key key, this.instruction});
+  final String instruction;
+  final String instructionTitle = 'Инструкция для приготовления';
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> instructionWidgets = [
-      ...instruction.split('-').sublist(1).map(
-            (text) => Row(
-              children: [
-                Text(
-                  '\u2022',
+    List<Widget> instructionWidgets = instruction
+        .split('-')
+        .sublist(1)
+        .map(
+          (text) => Row(
+            children: [
+              Text(
+                '\u2022',
+                style: AppTextStyle.primaryText,
+              ),
+              Flexible(
+                child: Text(
+                  text,
                   style: AppTextStyle.primaryText,
                 ),
-                Flexible(
-                  child: Text(
-                    text,
-                    style: AppTextStyle.primaryText,
-                  ),
-                ),
-              ],
-              crossAxisAlignment: CrossAxisAlignment.start,
-            ),
+              ),
+            ],
+            crossAxisAlignment: CrossAxisAlignment.start,
           ),
-    ];
+        )
+        .toList();
 
     return Container(
       child: Column(

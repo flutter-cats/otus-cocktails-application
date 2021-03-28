@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:homework/style/app-colors.dart';
 
 class Raiting extends StatelessWidget {
-  final maxRatingCount;
-  final raiting;
-
   Raiting({
     Key key,
-    @required int this.raiting,
-    int this.maxRatingCount = 5,
+    @required this.raiting,
+    this.maxRatingCount = 5,
   });
+
+  final int raiting;
+  final int maxRatingCount;
 
   @override
   Widget build(BuildContext context) {

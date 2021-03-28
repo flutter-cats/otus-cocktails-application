@@ -3,8 +3,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class TopBar extends StatelessWidget {
   const TopBar({Key key}) : super(key: key);
-  final String _iconBack = 'assets/images/icon_back.svg';
-  final String _iconOut = 'assets/images/icon_out.svg';
+
+  final String iconBack = 'assets/images/icon_back.svg';
+  final String iconOut = 'assets/images/icon_out.svg';
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class TopBar extends StatelessWidget {
             left: 28,
           ),
           icon: SvgPicture.asset(
-            _iconBack,
+            iconBack,
             color: Colors.white,
             width: 16,
             height: 16,
@@ -29,7 +30,7 @@ class TopBar extends StatelessWidget {
               right: 20,
             ),
             icon: SvgPicture.asset(
-              _iconOut,
+              iconOut,
               color: Colors.white,
               width: 18,
               height: 18,

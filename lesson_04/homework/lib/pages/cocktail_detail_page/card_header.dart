@@ -4,14 +4,6 @@ import 'package:homework/style/app-text-style.dart';
 import 'favorite_button.dart';
 
 class CardHeader extends StatelessWidget {
-  final String id, name, category, cocktailType, glassType;
-  final bool isFavourite;
-  final Map<String, String> headerItems = const {
-    'category': 'Категория коктейля ',
-    'cocktailType': 'Тип коктейля',
-    'glassType': 'Тип стекла',
-  };
-
   const CardHeader({
     Key key,
     @required this.id,
@@ -21,6 +13,14 @@ class CardHeader extends StatelessWidget {
     @required this.glassType,
     @required this.isFavourite,
   }) : super(key: key);
+
+  final String id, name, category, cocktailType, glassType;
+  final bool isFavourite;
+  final Map<String, String> headerItems = const {
+    'category': 'Категория коктейля ',
+    'cocktailType': 'Тип коктейля',
+    'glassType': 'Тип стекла',
+  };
 
   @override
   Widget build(BuildContext context) {

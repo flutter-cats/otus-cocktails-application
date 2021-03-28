@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class FavoriteButton extends StatefulWidget {
-  final bool isFavorited;
   FavoriteButton(this.isFavorited);
+
+  final bool isFavorited;
+
   @override
   _FavoriteButtonWidgetState createState() => _FavoriteButtonWidgetState();
 }
@@ -30,7 +32,6 @@ class _FavoriteButtonWidgetState extends State<FavoriteButton> {
           color:
               _isFavorited ? Colors.white : Color.fromRGBO(255, 255, 255, 0.3),
         ),
-        color: Colors.green,
         onPressed: _toggleFavorite,
       ),
     );

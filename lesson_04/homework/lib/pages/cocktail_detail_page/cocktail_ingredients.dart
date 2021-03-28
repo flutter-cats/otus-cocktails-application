@@ -4,9 +4,13 @@ import 'package:homework/style/app-text-style.dart';
 import 'package:homework/models/models.dart';
 
 class CocktailIngredients extends StatelessWidget {
-  final String ingredientTitle = 'Ингредиенты:';
+  const CocktailIngredients({
+    Key key,
+    @required this.ingredients,
+  }) : super(key: key);
+
   final List<IngredientDefinition> ingredients;
-  const CocktailIngredients({Key key, this.ingredients}) : super(key: key);
+  final String ingredientTitle = 'Ингредиенты:';
 
   @override
   Widget build(BuildContext context) {
