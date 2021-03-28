@@ -1,0 +1,46 @@
+name: lesson05async
+description: Lesson 05 Demos
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  http: ^0.13.0
+  cupertino_icons: ^1.0.0
+
+  # обратите внимание - я могу указать зависимость на репозиторий из git с указанием отдельной ветки
+  # и конкретный путь к фолдеру/директории
+  cocktail_app_models:
+    git:
+      url: git@github.com:flutter-cats/otus-cocktails-application.git
+      ref: master
+      path: lesson_03/lesson/cocktail_app_models/
+
+
+  # это нам понадобится для описания моделей json_serializable
+  json_annotation: ^4.0.0
+
+  # это нам понадобится для описания моделей BuiltValue
+  built_value: ^8.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # это нам понадобится только на этапе разработки
+  build_runner: ^1.12.2
+  json_serializable: ^4.0.3
+
+  # это нам понадобится для описания моделей BuiltValue
+  built_value_generator: ^8.0.3
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/gifs/so_fast_cats.gif

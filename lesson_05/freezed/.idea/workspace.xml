@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4157d75b-7177-43a4-bae5-27928aab8cf9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../examples/lib/json/json_serializable_approach/some_model.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/async/async_01_event_loop.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/async/async_01_event_loop.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/async/async_03_future_ctors.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/async/async_03_future_ctors.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/async/async_04_future_resolving.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/async/async_04_future_resolving.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/async/async_05_completer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/async/async_05_completer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/async/async_10_future_builder.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/async/async_10_future_builder.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/async/async_11_await_async.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/async/async_11_await_async.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/async/async_12_future_try_catch.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/async/async_12_future_try_catch.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/async/async_20_event_loop_plus_microtasks.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/async/async_20_event_loop_plus_microtasks.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/http/http_01_using.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/http/http_01_using.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/json/built_value_approach/cocktail.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/json/json_02_json_annotation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/json/json_02_json_annotation.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/json/json_03_built_value.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/json/json_03_built_value.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/lib/json/json_serializable_approach/some_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/lib/json/json_serializable_approach/some_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
+  </component>
+  <component name="ProjectId" id="1pu5PhxB71nDlxOmAK3qbup6jEd" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="flutter.settings" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="json_04_freezed_annotation.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lib/json/json_04_freezed_annotation.dart" />
+      <option name="workingDirectory" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Dart Command Line App.json_04_freezed_annotation.dart" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4157d75b-7177-43a4-bae5-27928aab8cf9" name="Default Changelist" comment="" />
+      <created>1616020112474</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616020112474</updated>
+    </task>
+    <task id="LOCAL-00001" summary="freezed annotation">
+      <created>1616022316975</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1616022316975</updated>
+    </task>
+    <task id="LOCAL-00002" summary="freezed annotation">
+      <created>1616022351408</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1616022351409</updated>
+    </task>
+    <task id="LOCAL-00003" summary="freezed annotation">
+      <created>1616022486944</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1616022486944</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="freezed annotation" />
+    <option name="LAST_COMMIT_MESSAGE" value="freezed annotation" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="240" y="41" key="CommitChangelistDialog2" timestamp="1616022486778">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="240" y="41" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1616022486778" />
+    <state width="565" height="452" key="DebuggerActiveHint" timestamp="1616022249537">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="565" height="452" key="DebuggerActiveHint/0.0.1440.900@0.0.1440.900" timestamp="1616022249537" />
+    <state width="1440" height="269" key="GridCell.Tab.0.bottom" timestamp="1616023359644">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="269" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1616023359644" />
+    <state width="1440" height="269" key="GridCell.Tab.0.center" timestamp="1616023359644">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="269" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1616023359644" />
+    <state width="1440" height="269" key="GridCell.Tab.0.left" timestamp="1616023359641">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="269" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1616023359641" />
+    <state width="1440" height="269" key="GridCell.Tab.0.right" timestamp="1616023359644">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="269" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1616023359644" />
+    <state width="1440" height="269" key="GridCell.Tab.1.bottom" timestamp="1616023359645">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="269" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1616023359645" />
+    <state width="1440" height="269" key="GridCell.Tab.1.center" timestamp="1616023359645">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="269" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1616023359645" />
+    <state width="1440" height="269" key="GridCell.Tab.1.left" timestamp="1616023359644">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="269" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1616023359644" />
+    <state width="1440" height="269" key="GridCell.Tab.1.right" timestamp="1616023359645">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1440" height="269" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1616023359645" />
+    <state x="221" y="86" key="SettingsEditor" timestamp="1616021239811">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="221" y="86" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1616021239811" />
+    <state x="450" y="200" width="540" height="524" key="StructurePopup" timestamp="1616022113370">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="450" y="200" width="540" height="524" key="StructurePopup/0.0.1440.900@0.0.1440.900" timestamp="1616022113370" />
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1616022489378">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1616022489378" />
+    <state x="385" y="196" key="search.everywhere.popup" timestamp="1616021436693">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1616021436693" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/json/json_04_freezed_annotation.dart</url>
+          <line>21</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

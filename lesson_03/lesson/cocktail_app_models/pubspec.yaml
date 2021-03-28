@@ -1,0 +1,18 @@
+name: cocktail_app_models
+description: There is first lesson in our course to get intro to Dart Lang & Flutter
+version: 0.0.1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  json_annotation: ^4.0.0
+  meta: any
+  collection: ^1.15.0
+
+dev_dependencies:
+  test: any
+  pedantic: ^1.9.0
+  http: ^0.13.0
+  build_runner: ^1.12.2
+  json_serializable: ^4.0.3
