@@ -25,7 +25,7 @@ class _InputsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = Theme.of(context).textTheme.subtitle1;
+    final textStyle = Theme.of(context).textTheme.headline5;
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -60,6 +60,7 @@ class _InputsList extends StatelessWidget {
             "Segmented Control:",
             style: textStyle,
           ),
+          const SizedBox(height: 4),
           _SegmentedControlExample(),
           const SizedBox(height: 24),
         ],

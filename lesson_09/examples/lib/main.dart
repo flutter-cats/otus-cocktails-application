@@ -1,6 +1,15 @@
 import 'package:examples/inputs/form_example.dart';
 import 'package:flutter/material.dart';
 
+import 'gestures/buttons_example.dart';
+import 'gestures/gesture_detector_example.dart';
+import 'gestures/ink_widgets_example.dart';
+import 'gestures/listener_example.dart';
+import 'gestures/raw_gesture_detector_example.dart';
+import 'inputs/inputs_example.dart';
+import 'inputs/text_fields2_example.dart';
+import 'inputs/text_fields_example.dart';
+
 void main() {
   runApp(MyApp());
 }

@@ -25,7 +25,10 @@ class _WidgetsList extends StatelessWidget {
         Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text("Press me"),
+            Text(
+              "Press me",
+              style: Theme.of(context).textTheme.headline5,
+            ),
             _InkWellExample(),
           ],
         ),
@@ -40,7 +43,10 @@ class _WidgetsList extends StatelessWidget {
         Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text("Press me"),
+            Text(
+              "Press me",
+              style: Theme.of(context).textTheme.headline5,
+            ),
             _InkResponseExample(),
           ],
         ),

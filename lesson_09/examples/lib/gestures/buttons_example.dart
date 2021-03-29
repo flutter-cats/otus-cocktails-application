@@ -14,19 +14,19 @@ class ButtonsExample extends StatelessWidget {
         onPressed: () {},
       ),
       body: Center(
-        child: SingleChildScrollView(
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              _ButtonsList(
-                enabled: false,
-              ),
-              const SizedBox(width: 48),
-              _ButtonsList(
-                enabled: true,
-              ),
-            ],
-          ),
+        child: ListView(
+          padding: EdgeInsets.all(24),
+          scrollDirection: Axis.horizontal,
+          // mainAxisSize: MainAxisSize.min,
+          children: [
+            _ButtonsList(
+              enabled: false,
+            ),
+            const SizedBox(width: 48),
+            _ButtonsList(
+              enabled: true,
+            ),
+          ],
         ),
       ),
     );
@@ -47,6 +47,11 @@ class _ButtonsList extends StatelessWidget {
 
     return Column(
       children: [
+        const SizedBox(height: 24),
+        RawMaterialButton(
+          onPressed: action,
+          child: Text("RawMaterialButton"),
+        ),
         const SizedBox(height: 24),
         TextButton(
           child: Text("TextButton"),

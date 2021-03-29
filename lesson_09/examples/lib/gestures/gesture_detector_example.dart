@@ -17,6 +17,7 @@ class _Examples extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      padding: const EdgeInsets.all(24),
       physics: ClampingScrollPhysics(),
       child: Center(
         child: Column(
@@ -28,14 +29,14 @@ class _Examples extends StatelessWidget {
             const SizedBox(height: 100),
             Text(
               "GestureDetector перекрывает GestureDetector:",
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.headline6,
             ),
             const SizedBox(height: 8),
             _StackedGestureDetectors(),
             const SizedBox(height: 100),
             Text(
               "GestureDetector внутри GestureDetector:",
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.headline6,
             ),
             const SizedBox(height: 8),
             _ChildGestureDetectors(),
@@ -79,11 +80,14 @@ class _LifecycleExampleState extends State<LifecycleExample> {
         _updateType("onHorizontalDragEnd");
       },
       child: Container(
-        height: 40,
-        width: 200,
+        width: 320,
         color: Colors.amber,
+        padding: EdgeInsets.all(8),
         child: Center(
-          child: Text(type),
+          child: Text(
+            type,
+            style: Theme.of(context).textTheme.headline6,
+          ),
         ),
       ),
     );
@@ -139,8 +143,8 @@ class __ColorPickerState extends State<_ColorPicker> {
           ),
           const SizedBox(width: 30),
           Container(
-            height: 100,
-            width: 100,
+            height: 80,
+            width: 80,
             color: Color.fromARGB(255, r, g, b),
           ),
         ],
@@ -154,7 +158,7 @@ class _HorizontalChannelPicker extends StatelessWidget {
   final Color color;
   final ValueSetter<int> onChanged;
 
-  static const _pointerWidth = 6.0;
+  static const _pointerWidth = 8.0;
 
   const _HorizontalChannelPicker({
     Key? key,
@@ -182,7 +186,7 @@ class _HorizontalChannelPicker extends StatelessWidget {
           child: Stack(
             children: [
               Container(
-                height: 10,
+                height: 20,
                 width: width,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(colors: [Colors.black, color]),

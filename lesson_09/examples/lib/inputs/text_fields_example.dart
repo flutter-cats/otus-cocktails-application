@@ -26,10 +26,10 @@ class _TextFieldsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textStyle = Theme.of(context).textTheme.subtitle1;
+    final textStyle = Theme.of(context).textTheme.headline5;
 
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(24),
       child: Column(
         children: [
           const SizedBox(height: 24),
@@ -37,15 +37,15 @@ class _TextFieldsList extends StatelessWidget {
             "CupertinoTextField:",
             style: textStyle,
           ),
-          CupertinoTextField(),
+          CupertinoTextField(
+            keyboardAppearance: Brightness.dark,
+          ),
           const SizedBox(height: 24),
           Text(
             "TextField:",
             style: textStyle,
           ),
           ..._buildTextFields(),
-          const SizedBox(height: 24),
-          _TextFieldExample(),
         ],
       ),
     );
@@ -89,85 +89,5 @@ class _TextFieldsList extends StatelessWidget {
       ),
       const SizedBox(height: 8),
     ];
-  }
-}
-
-class _TextFieldExample extends StatefulWidget {
-  @override
-  __TextFieldExampleState createState() => __TextFieldExampleState();
-}
-
-class __TextFieldExampleState extends State<_TextFieldExample> {
-  final TextEditingController _controller = TextEditingController();
-  late final FocusNode _focusNode = FocusNode(onKey: _onKey);
-
-  @override
-  void initState() {
-    super.initState();
-
-    _controller.addListener(() {
-      print(_controller.text);
-    });
-
-    _focusNode.addListener(() {
-      print(_focusNode.hasFocus);
-    });
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    _focusNode.dispose();
-
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      controller: _controller,
-      focusNode: _focusNode,
-      decoration: InputDecoration(
-        border: OutlineInputBorder(),
-      ),
-      maxLines: null,
-    );
-  }
-
-  bool _onKey(FocusNode node, RawKeyEvent event) {
-    if (event is! RawKeyDownEvent) return false;
-
-    final isBackspacePressed = event.isKeyPressed(LogicalKeyboardKey.backspace);
-    final selection = _controller.selection;
-    final isCaretAtStart = selection.start == 0 && selection.end == 0;
-
-    if (isBackspacePressed && isCaretAtStart) {
-      _focusNode.unfocus();
-      return true;
-    }
-
-    final isEnterPressed = event.isKeyPressed(LogicalKeyboardKey.enter);
-    final isRangeSelected = selection.start != selection.end;
-
-    if (isEnterPressed && isRangeSelected) {
-      const replacement = "ENTER";
-      final newText = _controller.value.text.replaceRange(
-        _controller.value.selection.start,
-        _controller.value.selection.end,
-        replacement,
-      );
-      final caretPosition = _controller.selection.start + replacement.length;
-      final newSelection = TextSelection(
-        baseOffset: caretPosition,
-        extentOffset: caretPosition,
-      );
-      _controller.value = _controller.value.copyWith(
-        text: newText,
-        selection: newSelection,
-      );
-      return true;
-    }
-
-    return false;
   }
 }

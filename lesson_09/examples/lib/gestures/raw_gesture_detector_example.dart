@@ -45,7 +45,10 @@ class __ExampleState extends State<_Example> {
           height: 200,
           color: Colors.yellow,
           alignment: Alignment.center,
-          child: Text(_last ?? ''),
+          child: Text(
+            _last ?? '',
+            style: Theme.of(context).textTheme.headline5,
+          ),
         ),
       ),
     );
