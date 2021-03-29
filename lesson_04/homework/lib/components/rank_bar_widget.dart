@@ -17,7 +17,7 @@ class RankBarWidget extends StatelessWidget {
           BoxDecoration(shape: BoxShape.circle, color: Color(0xFF2A293A)),
           child: Icon(
             Icons.star,
-            color: starCount >= 0 ? Colors.white : Colors.white,
+            color: starCount > 0 ? Colors.white : Colors.black,
             size: 32.0,
           ),
         ),
