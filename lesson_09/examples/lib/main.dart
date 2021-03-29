@@ -1,12 +1,5 @@
-import 'package:examples/gestures/buttons.dart';
-import 'package:examples/gestures/gesture_detector_example.dart';
-import 'package:examples/gestures/ink_widgets.dart';
-import 'package:examples/gestures/listener_example.dart';
-import 'package:examples/gestures/raw_gesture_detector_example.dart';
-import 'package:examples/inputs/inputs.dart';
+import 'package:examples/inputs/form_example.dart';
 import 'package:flutter/material.dart';
-
-import 'inputs/text_fields.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,7 +20,9 @@ class MyApp extends StatelessWidget {
       // home: RawGestureDetectorExample(),
       // home: ListenerExample(),
       // home: InputsExample(),
-      home: TextFieldsExample(),
+      // home: TextFieldsExample(),
+      // home: TextFields2Example(),
+      home: FormExample(),
     );
   }
 }
