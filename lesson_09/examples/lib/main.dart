@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'gestures/buttons_example.dart';
 import 'gestures/gesture_detector_example.dart';
+import 'gestures/ignore_pointer_example.dart';
 import 'gestures/ink_widgets_example.dart';
 import 'gestures/listener_example.dart';
 import 'gestures/raw_gesture_detector_example.dart';
@@ -28,10 +29,11 @@ class MyApp extends StatelessWidget {
       // home: GestureDetectorExample(),
       // home: RawGestureDetectorExample(),
       // home: ListenerExample(),
+      home: IgnorePointerExample(),
       // home: InputsExample(),
       // home: TextFieldsExample(),
       // home: TextFields2Example(),
-      home: FormExample(),
+      // home: FormExample(),
     );
   }
 }
