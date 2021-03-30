@@ -151,26 +151,22 @@ class AsyncCocktailRepository {
     return result;
   }
 
-  Future<Ingredient?> lookupIngredientById(String ingredientId) async {
-    Ingredient? ingredient;
-
-    const url = "https://the-cocktail-db.p.rapidapi.com/lookup.php?=${ingredientId}";
-
-    await http
-        .get(Uri.parse(url), headers: _headers)
-        .then((value) => ingredient = _handleResponse(value))
-        .catchError((exception) {
-      _mapInputExceptionToCocktailException(exception.message);
-    });
-
-    return ingredient;
-  }
+  Future<Ingredient?> lookupIngredientById(String ingredientId) => http
+          .get(
+              Uri.parse(
+                  "https://the-cocktail-db.p.rapidapi.com/lookup.php?=$ingredientId"),
+              headers: _headers)
+          .then((value) => _handleResponse(value))
+          .catchError((exception) {
+        _mapInputExceptionToCocktailException(exception.message);
+      });
 
   Ingredient? _handleResponse(http.Response response) {
     Ingredient? ingredient = null;
     if (response.statusCode == HttpStatus.ok) {
       final ingredientsResponse = convert.jsonDecode(response.body);
-      var ingredients = ingredientsResponse['ingredients'] as Iterable<dynamic>;
+      final ingredients =
+          ingredientsResponse['ingredients'] as Iterable<dynamic>;
       ingredient = _mapDtoToModel(IngredientDto.fromJson(
           ingredients.cast<Map<String, dynamic>>().first));
     } else {
@@ -179,9 +175,8 @@ class AsyncCocktailRepository {
     return ingredient;
   }
 
-  CocktailException _mapInputExceptionToCocktailException(String message) {
-    return CocktailException(message);
-  }
+  CocktailException _mapInputExceptionToCocktailException(String message) =>
+      CocktailException(message);
 
   Cocktail _createCocktailFromDto(CocktailDto dto) {
     final glass = GlassType.parse(dto.strGlass!);
@@ -228,10 +223,13 @@ class AsyncCocktailRepository {
 
   Ingredient _mapDtoToModel(IngredientDto dto) {
     return Ingredient(
-        id: dto.idIngredient,
-        name: dto.strIngredient,
-        description: dto.strDescription,
-        ingredientType: dto.strType,
-        isAlcoholic: dto.strAlcohol);
+      id: dto.idIngredient,
+      name: dto.strIngredient,
+      description: dto.strDescription,
+      ingredientType: dto.strType,
+      isAlcoholic: _convertStringToBool(dto.strAlcohol),
+    );
   }
+
+  bool _convertStringToBool(String? value) => value == 'true';
 }
