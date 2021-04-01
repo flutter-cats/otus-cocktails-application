@@ -257,11 +257,12 @@ class _StackedGestureDetectorsState extends State<_StackedGestureDetectors> {
     return Container(
       height: 200,
       width: 200,
-      color: Color(0xfffedfdc),
+      decoration: BoxDecoration(
+        border: Border.all(),
+      ),
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Container(),
           GestureDetector(
             onTapDown: (_) {
               setState(() => innerStatus = DetectorStatus.tapDown);
@@ -291,6 +292,8 @@ class _StackedGestureDetectorsState extends State<_StackedGestureDetectors> {
           ),
           GestureDetector(
             behavior: HitTestBehavior.translucent,
+            // behavior: HitTestBehavior.opaque,
+            // behavior: HitTestBehavior.deferToChild,
             onTapDown: (_) {
               setState(() => outerStatus = DetectorStatus.tapDown);
             },
@@ -331,7 +334,7 @@ class _ChildGestureDetectorsState extends State<_ChildGestureDetectors> {
       child: Container(
         height: 200,
         width: 200,
-        color: Color(0xffc7ceea),
+        color: const Color(0xffc7ceea),
         child: Center(
           child: Stack(
             alignment: Alignment.center,
@@ -354,14 +357,15 @@ class _ChildGestureDetectorsState extends State<_ChildGestureDetectors> {
                     setState(() => innerStatus = DetectorStatus.tap);
                   },
                   child: Container(
-                      height: 100,
-                      width: 100,
-                      color: Color(0xfff4ebc1),
-                      child: Center(
-                        child: StatusLabel(
-                          status: innerStatus,
-                        ),
-                      )),
+                    height: 100,
+                    width: 100,
+                    color: const Color(0xfff4ebc1),
+                    child: Center(
+                      child: StatusLabel(
+                        status: innerStatus,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],

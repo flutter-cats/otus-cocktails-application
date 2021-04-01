@@ -26,7 +26,7 @@ class _WidgetsList extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              "Press me",
+              "InkWell",
               style: Theme.of(context).textTheme.headline5,
             ),
             _InkWellExample(),
@@ -44,7 +44,7 @@ class _WidgetsList extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              "Press me",
+              "InkResponse",
               style: Theme.of(context).textTheme.headline5,
             ),
             _InkResponseExample(),
@@ -80,7 +80,6 @@ class __InkWellExampleState extends State<_InkWellExample> {
       onTap: () {
         setState(() => isToggled = false);
       },
-      radius: 100,
       child: Container(
         height: 100,
         width: 100,

@@ -18,24 +18,18 @@ class ListenerExample extends StatelessWidget {
 class _Example extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Listener(
-      behavior: HitTestBehavior.opaque,
-      onPointerDown: (event) {
-        print("Listener: onPointerDown");
-      },
-      child: Container(
-        color: Colors.blue,
-        height: 200,
-        width: 200,
-        child: Center(
-          child: GestureDetector(
-            onTapDown: (details) {
-              print("GestureDetector: onTapDown");
-            },
-            child: Container(
-              color: Colors.red,
-              height: 100,
-              width: 100,
+    return Center(
+      child: GestureDetector( //Listener
+        onTapDown: (details) => print("GestureDetector: onTapDown"),
+        // onPointerDown: (event) => print("Listener: onPointerDown"),
+        child: Container(
+          color: Colors.yellow.withOpacity(0.2),
+          height: 200,
+          width: 200,
+          child: Center(
+            child: ElevatedButton(
+              onPressed: () => print("ElevatedButton: onPressed"),
+              child: Text("ElevatedButton"),
             ),
           ),
         ),
