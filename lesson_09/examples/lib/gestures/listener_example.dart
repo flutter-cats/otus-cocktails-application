@@ -20,16 +20,21 @@ class _Example extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: GestureDetector( //Listener
-        onTapDown: (details) => print("GestureDetector: onTapDown"),
+        onTapDown: (details) => print("Outer: onTapDown"),
+        onTap: () => print("Outer: onTap"),
         // onPointerDown: (event) => print("Listener: onPointerDown"),
         child: Container(
           color: Colors.yellow.withOpacity(0.2),
           height: 200,
           width: 200,
           child: Center(
-            child: ElevatedButton(
-              onPressed: () => print("ElevatedButton: onPressed"),
-              child: Text("ElevatedButton"),
+            child: GestureDetector(
+              onTap: () => print("Inner: onTap"),
+              child: Container(
+                color: Colors.cyan,
+                padding: const EdgeInsets.all(8.0),
+                child: Text("GestureDetector"),
+              ),
             ),
           ),
         ),
