@@ -9,6 +9,7 @@ class FormExample extends StatefulWidget {
 class _FormExampleState extends State<FormExample> {
   final _firstNameController = TextEditingController();
   final _firstNameFocusNode = FocusNode();
+
   final _formKey = GlobalKey<FormState>();
 
   bool _isChecked = false;
@@ -60,26 +61,29 @@ class _FormExampleState extends State<FormExample> {
   Widget _buildCheckbox() {
     return FormField<bool>(
       validator: (value) {
-        return value == true ? null : 'Нужно обязательно со всем согласиться';
+        if (value != true) return 'Нужно обязательно со всем согласиться';
+        return null;
       },
       initialValue: _isChecked,
-      builder: (state) => CheckboxListTile(
-        value: _isChecked,
-        title: Text('На все согласен'),
-        subtitle: state.hasError
-            ? Text(
-                state.errorText ?? '',
-                style: const TextStyle(color: Colors.red, fontSize: 12),
-              )
-            : null,
-        onChanged: (value) {
-          setState(() {
-            _isChecked = value ?? false;
-            state.didChange(_isChecked);
-            state.validate();
-          });
-        },
-      ),
+      builder: (state) {
+        return CheckboxListTile(
+          value: _isChecked,
+          title: Text('На все согласен'),
+          subtitle: state.hasError
+              ? Text(
+                  state.errorText ?? '',
+                  style: const TextStyle(color: Colors.red, fontSize: 12),
+                )
+              : null,
+          onChanged: (value) {
+            setState(() {
+              _isChecked = value ?? false;
+              state.didChange(_isChecked);
+              state.validate();
+            });
+          },
+        );
+      },
     );
   }
 
