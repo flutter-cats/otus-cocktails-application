@@ -171,7 +171,7 @@ class __SliderExampleState extends State<_SliderExample> {
           value: _value,
           min: 0,
           max: 100,
-          // divisions: 10,
+          // divisions: 5,
           // label: _value.toString(),
         ),
         Slider.adaptive(

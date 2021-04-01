@@ -41,7 +41,7 @@ class _TextFields2ExampleState extends State<TextFields2Example> {
         padding: const EdgeInsets.all(16),
         children: [
           _buildFirstNameField(_firstNameFocusNode, _surnameFocusNode),
-          _buildFamilyNameNameField(_surnameFocusNode, _phoneNumberFocusNode),
+          _buildLastNameNameField(_surnameFocusNode, _phoneNumberFocusNode),
           _buildPhoneField(_phoneNumberFocusNode, _passwordFocusNode),
           _buildPasswordField(_passwordFocusNode, null),
         ],
@@ -51,6 +51,7 @@ class _TextFields2ExampleState extends State<TextFields2Example> {
 
   Widget _buildFirstNameField(FocusNode node, FocusNode nextFocus) {
     return TextField(
+      decoration: InputDecoration(labelText: "First name"),
       focusNode: node,
       controller: _firstNameController,
       onSubmitted: (_) => nextFocus.requestFocus(),
@@ -60,8 +61,9 @@ class _TextFields2ExampleState extends State<TextFields2Example> {
     );
   }
 
-  Widget _buildFamilyNameNameField(FocusNode node, FocusNode nextFocus) {
+  Widget _buildLastNameNameField(FocusNode node, FocusNode nextFocus) {
     return TextField(
+      decoration: InputDecoration(labelText: "Last name"),
       focusNode: node,
       controller: _surnameController,
       onSubmitted: (_) => nextFocus.requestFocus(),
@@ -91,7 +93,10 @@ class _TextFields2ExampleState extends State<TextFields2Example> {
         })
       ],
       textInputAction: TextInputAction.next,
-      decoration: InputDecoration(prefixText: '+7'),
+      decoration: InputDecoration(
+        prefixText: '+7',
+        labelText: "Phone",
+      ),
       autofillHints: [AutofillHints.name],
       keyboardType: TextInputType.phone,
     );
@@ -99,11 +104,11 @@ class _TextFields2ExampleState extends State<TextFields2Example> {
 
   Widget _buildPasswordField(FocusNode node, FocusNode? nextFocus) {
     return TextField(
+      decoration: InputDecoration(labelText: "Password"),
       focusNode: node,
       controller: _passwordController,
       onSubmitted: (value) => node.unfocus(),
       textInputAction: TextInputAction.done,
-      decoration: InputDecoration(),
       obscuringCharacter: '*',
       obscureText: true,
       keyboardType: TextInputType.visiblePassword,

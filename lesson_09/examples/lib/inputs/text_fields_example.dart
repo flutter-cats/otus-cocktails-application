@@ -53,7 +53,10 @@ class _TextFieldsList extends StatelessWidget {
 
   List<Widget> _buildTextFields() {
     return [
-      TextField(),
+      TextField(
+        keyboardType: TextInputType.url,
+        textInputAction: TextInputAction.done,
+      ),
       const SizedBox(height: 8),
       TextField(
         minLines: 3,
