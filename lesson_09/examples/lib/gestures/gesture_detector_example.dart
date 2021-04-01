@@ -290,19 +290,20 @@ class _StackedGestureDetectorsState extends State<_StackedGestureDetectors> {
               status: outerStatus,
             ),
           ),
-          GestureDetector(
-            behavior: HitTestBehavior.translucent,
-            // behavior: HitTestBehavior.opaque,
-            // behavior: HitTestBehavior.deferToChild,
-            onTapDown: (_) {
-              setState(() => outerStatus = DetectorStatus.tapDown);
-            },
-            onTapCancel: () {
-              setState(() => outerStatus = DetectorStatus.none);
-            },
-            onTap: () {
-              setState(() => outerStatus = DetectorStatus.tap);
-            },
+          Positioned.fill(
+            child: GestureDetector(
+              behavior: HitTestBehavior.translucent,
+              // behavior: HitTestBehavior.opaque,
+              onTapDown: (_) {
+                setState(() => outerStatus = DetectorStatus.tapDown);
+              },
+              onTapCancel: () {
+                setState(() => outerStatus = DetectorStatus.none);
+              },
+              onTap: () {
+                setState(() => outerStatus = DetectorStatus.tap);
+              },
+            ),
           ),
         ],
       ),
