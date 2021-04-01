@@ -56,5 +56,8 @@ class __ExampleState extends State<_Example> {
 }
 
 class CustomLongPressRecognizer extends LongPressGestureRecognizer {
-  CustomLongPressRecognizer() : super(duration: Duration(seconds: 1));
+  CustomLongPressRecognizer()
+      : super(
+          duration: const Duration(seconds: 1),
+        );
 }
