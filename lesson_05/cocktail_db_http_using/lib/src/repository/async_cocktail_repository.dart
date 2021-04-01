@@ -4,7 +4,9 @@ import 'dart:io';
 import 'package:cocktail_app_models/models.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_definition_dto.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_dto.dart';
+import 'package:cocktail_db_http_using/src/dto/ingredient_dto.dart';
 import 'package:http/http.dart' as http;
+import 'package:cocktail_db_http_using/src/utils/mapping.dart';
 
 class AsyncCocktailRepository {
   static const String _apiKey =
@@ -148,17 +150,26 @@ class AsyncCocktailRepository {
     return result;
   }
 
-  ///
-  /// TODO: implement Lookup ingredient by ID operation to get all details about Ingredient
-  /// using an endpoint
-  /// description is available here
-  /// https://rapidapi.com/thecocktaildb/api/the-cocktail-db?endpoint=apiendpoint_0ee9572a-a259-4b6e-9e53-b97aa3d42b18
-  ///
-  /// api operation is:
-  /// https://the-cocktail-db.p.rapidapi.com/lookup.php
-  ///
-  Future<Ingredient?> lookupIngredientById() async {
-    return null;
+  Future<Ingredient?> lookupIngredientById(String ingredientId) async {
+    Ingredient? ingredient;
+
+    String url =
+        'https://the-cocktail-db.p.rapidapi.com/lookup.php?iid=$ingredientId';
+
+    var response = await http.get(Uri.parse(url), headers: _headers);
+
+    if (response.statusCode == HttpStatus.ok) {
+      final jsonResponse = convert.jsonDecode(response.body);
+      final ingredients = jsonResponse['ingredients'] as Iterable<dynamic>;
+      ingredient =
+          IngredientDto.fromJson(ingredients.cast<Map<String, dynamic>>().first)
+              .getIngredient();
+
+    } else {
+      throw HttpException('Request failed with status: ${response.statusCode}');
+    }
+
+    return ingredient;
   }
 
   Cocktail _createCocktailFromDto(CocktailDto dto) {
