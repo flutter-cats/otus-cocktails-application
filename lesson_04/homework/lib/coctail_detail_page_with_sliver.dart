@@ -36,26 +36,28 @@ class CocktailDetailPageWithSliver extends StatelessWidget {
                 child: CustomScrollView(
               slivers: [
                 SliverToBoxAdapter(
-                    child: SizedBox(
-                  height: 343,
-                  child: CoctailDetailsHeader(
-                    imageUrl: cocktail.drinkThumbUrl,
-                  ),
-                )),
-                SliverToBoxAdapter(
-                  child: Container(
-                    width: deviceSize.width,
-                    height: 312,
-                    child: CoctailDetailsInfo(
-                      title: cocktail.name,
-                      id: cocktail.id,
-                      isFavorit: cocktail.isFavourite,
-                      category: cocktail.category,
-                      typeCoctail: cocktail.cocktailType,
-                      typeGlass: cocktail.glassType,
+                    child: Column(
+                  children: [
+                    SizedBox(
+                      height: 343,
+                      child: CoctailDetailsHeader(
+                        imageUrl: cocktail.drinkThumbUrl,
+                      ),
                     ),
-                  ),
-                ),
+                    Container(
+                      width: deviceSize.width,
+                      height: 312,
+                      child: CoctailDetailsInfo(
+                        title: cocktail.name,
+                        id: cocktail.id,
+                        isFavorit: cocktail.isFavourite,
+                        category: cocktail.category,
+                        typeCoctail: cocktail.cocktailType,
+                        typeGlass: cocktail.glassType,
+                      ),
+                    ),
+                  ],
+                )),
                 SliverToBoxAdapter(
                   child: Container(
                     padding: EdgeInsets.only(top: 24),
