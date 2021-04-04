@@ -1,5 +1,4 @@
-// import 'package:cocktail_app_models/models.dart';
-import '/Users/pavelmisagin/Developer/Flutter/Otus/otus-cocktails-application/lesson_03/lesson/cocktail_app_models';
+import 'package:cocktail_app_models/models.dart';
 
 class SyncCocktailRepository {
   Iterable<Cocktail> fetchAllCocktails() {
