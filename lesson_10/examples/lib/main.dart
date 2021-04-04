@@ -1,4 +1,5 @@
 import 'package:anitex/anitex.dart';
+import 'package:examples/service/8.0_isolator.dart';
 import 'package:examples/service/benchmark.dart';
 import 'package:examples/service/utils.dart';
 import 'package:flutter/foundation.dart';
@@ -87,6 +88,8 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(height: 50),
             OutlinedButton(onPressed: _runInMainIsolate, child: Text('Run in main Isolate')),
             OutlinedButton(onPressed: _runInAnotherIsolate, child: Text('Run in separated Isolate')),
+            OutlinedButton(onPressed: () => runCase(false), child: Text('Start isolator')),
+            OutlinedButton(onPressed: () => runCase(true), child: Text('Start isolator with chunks')),
           ],
         ),
       ),

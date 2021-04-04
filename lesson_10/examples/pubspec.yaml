@@ -24,6 +24,8 @@ dependencies:
   flutter:
     sdk: flutter
   anitex: ^1.1.0
+  dio: ^4.0.0
+  isolator: ^1.0.1
 
 
   # The following adds the Cupertino Icons font to your application.
