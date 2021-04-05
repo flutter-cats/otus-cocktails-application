@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import '../core/src/widjets/CoctailDetailsHeader.dart';
 import '../core/src/widjets/CoctailDetailsInfo.dart';
 import '../core/src/widjets/CoctailDetailsInstrictions.dart';
+import '../core/src/widjets/CoctailDetailsIngridients.dart';
 import '../core/src/widjets/StarRatingWidhet.dart';
 import '../core/models.dart';
 
