@@ -10,14 +10,13 @@ class StarRatingWidjet extends StatelessWidget {
   Widget build(BuildContext context) {
     List<int> _maxStars = List<int>.generate(maxRatingCount, (index) => index);
 
-    return Flexible(
-      child: Container(
-        padding: EdgeInsets.fromLTRB(35, 40, 35, 10),
-        color: HexColor('#201F2C'),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [..._maxStars.map((e) => StarRatingItemWidget(e < stars))],
-        ),
+    return Container(
+      padding: const EdgeInsets.fromLTRB(35, 40, 35, 10),
+      color: HexColor('#201F2C'),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: List.generate(
+            _maxStars.length, (index) => StarRatingItemWidget(index < stars)),
       ),
     );
   }
@@ -33,17 +32,20 @@ class StarRatingItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: 48,
-        height: 48,
-        margin: EdgeInsets.all(10),
-        decoration:
-            BoxDecoration(shape: BoxShape.circle, color: HexColor('#2A293A')),
-        child: Icon(
-          Icons.star,
-          color: _getIconColor(),
-          size: 32,
-        ));
+    return Flexible(
+      child: Container(
+          width: 38,
+          height: 38,
+          decoration:
+              BoxDecoration(shape: BoxShape.circle, color: HexColor('#2A293A')),
+          child: Container(
+            padding: const EdgeInsets.all(5),
+            child: Icon(
+              Icons.star,
+              color: _getIconColor(),
+            ),
+          )),
+    );
   }
 
   Color _getIconColor() {

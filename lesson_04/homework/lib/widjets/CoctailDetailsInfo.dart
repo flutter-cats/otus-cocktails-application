@@ -23,7 +23,7 @@ class CoctailDetailsInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: HexColor('#1A1927'),
-      padding: EdgeInsets.symmetric(horizontal: 32),
+      padding: const EdgeInsets.fromLTRB(32, 0, 32, 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -57,7 +57,7 @@ class CoctailDetailsTypeItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 15),
+      padding: const EdgeInsets.only(top: 15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -65,7 +65,7 @@ class CoctailDetailsTypeItem extends StatelessWidget {
             title,
             style: TextStyle(color: Colors.white, fontSize: 14),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Container(
@@ -73,7 +73,7 @@ class CoctailDetailsTypeItem extends StatelessWidget {
                 borderRadius: BorderRadius.horizontal(
                     left: Radius.circular(20), right: Radius.circular(20)),
                 color: HexColor('#15151C')),
-            padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
+            padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
             child: Text(value,
                 style: TextStyle(color: Colors.white, fontSize: 14)),
           )
@@ -92,16 +92,18 @@ class CoctailDetailsInfoHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(0, 23, 0, 0),
+      padding: const EdgeInsets.fromLTRB(0, 23, 0, 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                title,
-                style: TextStyle(color: Colors.white, fontSize: 20),
+              Flexible(
+                child: Text(
+                  title,
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
               ),
               IconButton(
                 onPressed: () {

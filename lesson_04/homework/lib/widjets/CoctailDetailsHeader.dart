@@ -16,6 +16,8 @@ class CoctailDetailsHeader extends StatelessWidget {
                 image: NetworkImage(imageUrl), fit: BoxFit.fill)),
       ),
       Positioned(
+        left: 4,
+        top: 4,
         child: IconButton(
           icon: Icon(
             Icons.arrow_back,
@@ -23,10 +25,10 @@ class CoctailDetailsHeader extends StatelessWidget {
           ),
           onPressed: () => {print("Back Tapped")},
         ),
-        left: 4,
-        top: 4,
       ),
       Positioned(
+        right: 4,
+        top: 4,
         child: IconButton(
           icon: Icon(
             Icons.open_in_new,
@@ -34,8 +36,6 @@ class CoctailDetailsHeader extends StatelessWidget {
           ),
           onPressed: () => {print("Share Tapped")},
         ),
-        right: 4,
-        top: 4,
       )
     ]);
   }

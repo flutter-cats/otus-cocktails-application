@@ -6,7 +6,7 @@ import 'package:homework/models/src/model/cocktail_type.dart';
 class CoctailDetailsInstrictions extends StatelessWidget {
   final String instruction;
 
-  CoctailDetailsInstrictions({this.instruction});
+  CoctailDetailsInstrictions(this.instruction);
 
   List<String> get _instructions {
     return instruction.split('- ').sublist(1).toList();
@@ -16,7 +16,7 @@ class CoctailDetailsInstrictions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         color: HexColor('#201F2C'),
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
             Container(
@@ -26,13 +26,7 @@ class CoctailDetailsInstrictions extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
             ),
-            Expanded(
-                child: ListView.builder(
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: _instructions.length,
-              itemBuilder: (ctx, i) =>
-                  CoctailInstruction(instruction: _instructions.elementAt(i)),
-            )),
+            ..._instructions.map((e) => CoctailInstruction(e)),
           ],
         ));
   }
@@ -41,17 +35,17 @@ class CoctailDetailsInstrictions extends StatelessWidget {
 class CoctailInstruction extends StatelessWidget {
   final String instruction;
 
-  CoctailInstruction({this.instruction});
+  CoctailInstruction(this.instruction);
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 10),
+      padding: const EdgeInsets.only(top: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('\u2022', style: TextStyle(color: Colors.white)),
-          SizedBox(
+          const SizedBox(
             width: 5,
           ),
           Expanded(

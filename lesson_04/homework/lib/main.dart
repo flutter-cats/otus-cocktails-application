@@ -9,6 +9,6 @@ void main() {
 
   runApp(MaterialApp(
     title: 'Flutter Demo',
-    home: Material(child: CocktailDetailPageWithSliver(cocktail)),
+    home: Material(child: CocktailDetailPage(cocktail)),
   ));
 }

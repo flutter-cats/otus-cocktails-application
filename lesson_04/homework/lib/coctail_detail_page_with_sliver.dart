@@ -30,88 +30,81 @@ class CocktailDetailPageWithSliver extends StatelessWidget {
     return AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
         child: Scaffold(
-          body: Container(
-            color: Colors.black,
-            child: SafeArea(
-                child: CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(
-                    child: Column(
-                  children: [
-                    SizedBox(
-                      height: 343,
-                      child: CoctailDetailsHeader(
-                        imageUrl: cocktail.drinkThumbUrl,
-                      ),
-                    ),
-                    Container(
-                      width: deviceSize.width,
-                      height: 312,
-                      child: CoctailDetailsInfo(
-                        title: cocktail.name,
-                        id: cocktail.id,
-                        isFavorit: cocktail.isFavourite,
-                        category: cocktail.category,
-                        typeCoctail: cocktail.cocktailType,
-                        typeGlass: cocktail.glassType,
-                      ),
-                    ),
-                  ],
-                )),
-                SliverToBoxAdapter(
-                  child: Container(
-                    padding: EdgeInsets.only(top: 24),
-                    child: Text(
-                      "Ингредиенты:",
-                      textAlign: TextAlign.center,
-                      style:
-                          TextStyle(color: HexColor('#B1AFC6'), fontSize: 16),
+          backgroundColor: Colors.black,
+          body: SafeArea(
+              child: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                  child: Column(
+                children: [
+                  SizedBox(
+                    height: 343,
+                    child: CoctailDetailsHeader(
+                      imageUrl: cocktail.drinkThumbUrl,
                     ),
                   ),
-                ),
-                SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                      (context, index) => Padding(
-                            padding: const EdgeInsets.fromLTRB(32, 10, 32, 5),
-                            child: CoctailIngridient(
-                                ingridient:
-                                    cocktail.ingredients.elementAt(index)),
-                          ),
-                      childCount: cocktail.ingredients.length),
-                ),
-                SliverToBoxAdapter(
-                    child: SizedBox(
-                  height: 30,
-                )),
-                SliverToBoxAdapter(
-                  child: Container(
-                    color: HexColor('#201F2C'),
-                    padding: const EdgeInsets.fromLTRB(42, 20, 32, 10),
-                    child: Text(
-                      "Инструкция для приготовления:",
-                      style: TextStyle(color: Colors.white),
+                  Container(
+                    width: deviceSize.width,
+                    child: CoctailDetailsInfo(
+                      title: cocktail.name,
+                      id: cocktail.id,
+                      isFavorit: cocktail.isFavourite,
+                      category: cocktail.category,
+                      typeCoctail: cocktail.cocktailType,
+                      typeGlass: cocktail.glassType,
                     ),
                   ),
+                ],
+              )),
+              SliverToBoxAdapter(
+                child: Container(
+                  padding: const EdgeInsets.only(top: 24),
+                  child: Text(
+                    "Ингредиенты:",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: HexColor('#B1AFC6'), fontSize: 16),
+                  ),
                 ),
-                SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                      (context, index) => Container(
-                            color: HexColor('#201F2C'),
-                            padding: const EdgeInsets.fromLTRB(32, 10, 32, 0),
-                            child: CoctailInstruction(
-                                instruction: _instructions.elementAt(index)),
-                          ),
-                      childCount: _instructions.length),
+              ),
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                    (context, index) => Padding(
+                          padding: const EdgeInsets.fromLTRB(32, 10, 32, 5),
+                          child: CoctailIngridient(
+                              cocktail.ingredients.elementAt(index)),
+                        ),
+                    childCount: cocktail.ingredients.length),
+              ),
+              SliverToBoxAdapter(
+                  child: const SizedBox(
+                height: 30,
+              )),
+              SliverToBoxAdapter(
+                child: Container(
+                  color: HexColor('#201F2C'),
+                  padding: const EdgeInsets.fromLTRB(42, 20, 32, 10),
+                  child: Text(
+                    "Инструкция для приготовления:",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
-                SliverToBoxAdapter(
-                  child: Flexible(
-                      child: StarRatingWidjet(
-                    stars: 3,
-                  )),
-                ),
-              ],
-            )),
-          ),
+              ),
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                    (context, index) => Container(
+                          color: HexColor('#201F2C'),
+                          padding: const EdgeInsets.fromLTRB(32, 10, 32, 0),
+                          child: CoctailInstruction(
+                              _instructions.elementAt(index)),
+                        ),
+                    childCount: _instructions.length),
+              ),
+              SliverToBoxAdapter(
+                  child: StarRatingWidjet(
+                stars: 3,
+              )),
+            ],
+          )),
         ));
   }
 }
