@@ -1,11 +1,11 @@
+import 'dart:math' as math;
 import 'dart:ui';
 
 import 'package:flutter/painting.dart';
 import 'package:vector_math/vector_math_64.dart';
-import 'dart:math' as math;
 
 void main() {
-  window.onBeginFrame = animateFrame;
+  window.onBeginFrame = beginFrame;
   window.scheduleFrame();
 }
 
@@ -18,7 +18,8 @@ void beginFrame(Duration timeStamp) {
 
   final Rect physicalBounds = Offset.zero & (logicalSize * devicePixelRatio);
   final PictureRecorder recorder = PictureRecorder();
-  final Canvas canvas = Canvas(recorder, physicalBounds)..scale(devicePixelRatio, devicePixelRatio);
+  final Canvas canvas = Canvas(recorder, physicalBounds)
+    ..scale(devicePixelRatio, devicePixelRatio);
 
   final paint = Paint()
     ..style = PaintingStyle.fill
@@ -65,16 +66,15 @@ void beginFrame(Duration timeStamp) {
     ..pushOffset(0, 1000)
     ..pushOpacity(0xFF)
     ..pushTransform((Matrix4.identity()
-      ..setEntry(3, 2, 0.002)
-      ..rotateX(radians(10))
-      ..rotateY(radians(10)))
+          ..setEntry(3, 2, 0.002)
+          ..rotateX(radians(10))
+          ..rotateY(radians(10)))
         .storage)
     ..addPicture(Offset.zero, picture)
     ..pop();
 
   window.render(sceneBuilder.build());
 }
-
 
 ///
 /// uncomment this
