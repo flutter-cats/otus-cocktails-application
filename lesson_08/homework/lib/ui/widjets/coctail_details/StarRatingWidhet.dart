@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../extensions/Color+Extensions.dart';
+import '../../../core/src/extensions/Color+Extensions.dart';
+
+
 
 class StarRatingWidjet extends StatelessWidget {
   final int stars;

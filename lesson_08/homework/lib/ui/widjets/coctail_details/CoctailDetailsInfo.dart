@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import '../model/cocktail_type.dart';
-import '../model/cocktail_category.dart';
-import '../model/glass_type.dart';
-import '../extensions/Color+Extensions.dart';
+
+import '../../../core/src/extensions/Color+Extensions.dart';
+import '../../../core/models.dart';
 
 class CoctailDetailsInfo extends StatelessWidget {
   final String title;

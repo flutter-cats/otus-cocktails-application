@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart';
 
-import '../core/src/widjets/CoctailDetailsHeader.dart';
-import '../core/src/widjets/CoctailDetailsInfo.dart';
-import '../core/src/widjets/CoctailDetailsInstrictions.dart';
-import '../core/src/widjets/CoctailDetailsIngridients.dart';
-import '../core/src/widjets/StarRatingWidhet.dart';
+import './widjets/coctail_details/CoctailDetailsHeader.dart';
+import './widjets/coctail_details/CoctailDetailsInfo.dart';
+import './widjets/coctail_details/CoctailDetailsInstrictions.dart';
+import './widjets/coctail_details/CoctailDetailsIngridients.dart';
+import './widjets/coctail_details/StarRatingWidhet.dart';
 import '../core/models.dart';
 
 class CocktailDetailPage extends StatelessWidget {

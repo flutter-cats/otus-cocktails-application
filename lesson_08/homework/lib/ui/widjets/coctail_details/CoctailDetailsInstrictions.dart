@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import '../extensions/Color+Extensions.dart';
+import '../../../core/src/extensions/Color+Extensions.dart';
+
+
+
 
 class CoctailDetailsInstrictions extends StatelessWidget {
   final String instruction;

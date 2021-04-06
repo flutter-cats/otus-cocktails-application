@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../model/ingredient_definition.dart';
-import '../extensions/Color+Extensions.dart';
+import '../../../core/src/extensions/Color+Extensions.dart';
+import '../../../core/models.dart';
 
 class CoctailDetailsIngridients extends StatelessWidget {
   final Iterable<IngredientDefinition> ingridens;
