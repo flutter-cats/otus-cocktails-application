@@ -29,6 +29,10 @@ class _SearchFiedlWidjetState extends State<SearchFiedlWidjet> {
     super.dispose();
   }
 
+  void _unFocus() {
+    FocusScope.of(context).unfocus();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -38,6 +42,7 @@ class _SearchFiedlWidjetState extends State<SearchFiedlWidjet> {
           style: TextStyle(color: Colors.white, fontSize: 13),
           cursorColor: Colors.white,
           cursorHeight: 10,
+          textAlign: TextAlign.left,
           decoration: InputDecoration(
             isDense: true,
             focusedBorder: borderStyle,
@@ -59,7 +64,6 @@ class _SearchFiedlWidjetState extends State<SearchFiedlWidjet> {
                     ),
                     onPressed: () {
                       _searchTextController.clear();
-                      print("Cancel text");
                     },
                   )
                 : null,
@@ -73,7 +77,7 @@ class _SearchFiedlWidjetState extends State<SearchFiedlWidjet> {
             });
           },
           onSubmitted: (value) {
-            FocusScope.of(context).unfocus();
+            _unFocus();
             setState(() {
               isTapTextField = false;
             });

@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:cocktail/core/src/extensions/Color+Extensions.dart';
 import 'package:flutter/material.dart';
 import '../ui/widjets/filter_page/search_widjet.dart';
+import '../ui/widjets/filter_page/filters_collection_widjet.dart';
 
 class CocktailsFilterScreen extends StatelessWidget {
   @override
@@ -11,16 +12,24 @@ class CocktailsFilterScreen extends StatelessWidget {
     return AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
         child: Scaffold(
-            backgroundColor: HexColor("#1A1926"),
-            body: SafeArea(
+          backgroundColor: HexColor("#1A1926"),
+          body: SafeArea(
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: () {
+                FocusScope.of(context).unfocus();
+              },
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 13),
                 child: Column(
                   children: [
                     SearchFiedlWidjet(),
+                    FiltersCollectionWidjet(),
                   ],
                 ),
               ),
-            )));
+            ),
+          ),
+        ));
   }
 }
