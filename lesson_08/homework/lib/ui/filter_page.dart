@@ -29,9 +29,11 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
       .toList();
 
   List<FilterModel> _filters;
-  List<CocktailDefinition> _coctails;
+  List<CocktailDefinition> _coctails = [];
 
   String errorMessage;
+
+  String selectedFilterName;
 
   @override
   void initState() {
@@ -39,11 +41,11 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
     super.initState();
   }
 
-  @override
+  // @override
   void didChangeDependencies() {
-    final firstFilter = _filters.first;
     _filters[0].isSelected = true;
-    fetchCoctailsByFilter(firstFilter.name);
+    selectedFilterName = _filters[0].name;
+
     super.didChangeDependencies();
   }
 
@@ -62,121 +64,104 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
     final index = _filters.indexWhere((element) => element.name == filterName);
     _filters[index].isSelected = true;
 
-    // Also Should Fetch Data
-    fetchCoctailsByFilter(filterName);
+    selectedFilterName = filterName;
+
     setState(() {});
   }
 
-  Future<void> fetchCoctailsByFilter(String filterName) async {
-    final category = CocktailCategory.parse(filterName);
+  Future<List<CocktailDefinition>> fetchCoctailsByFilter() async {
+    final category = CocktailCategory.parse(selectedFilterName);
     final result = await AsyncCocktailRepository()
-        .fetchCocktailsByCocktailCategory(category)
-        .catchError((error) {
-      print(error);
-      final err = error as HttpException;
-      errorMessage = err.message;
-    });
+        .fetchCocktailsByCocktailCategory(category);
+
     _coctails = result;
-    setState(() {});
+
+    return result;
   }
 
   @override
   Widget build(BuildContext context) {
     // Sliver Card delegate
 
-    final coctailCardDelegate = SliverChildListDelegate(
-      List.generate(
-          _coctails == null ? 0 : _coctails.length,
-          (index) => CoctailCollectionItemWidjet(
-                coctail: _coctails[index],
-              )),
-    );
-
     return AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
         child: Scaffold(
           backgroundColor: HexColor("#1A1926"),
           body: SafeArea(
-            child: GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () {
-                  FocusScope.of(context).unfocus();
-                },
-                child: CustomScrollView(
-                  shrinkWrap: true,
-                  slivers: [
-                    SliverToBoxAdapter(
-                      child: SearchFiedlWidjet(
-                        handleSubmitText: _submitCoctailname,
+            child: FutureBuilder(
+                future: fetchCoctailsByFilter(),
+                builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  final coctailCardDelegate = SliverChildListDelegate(
+                    List.generate(
+                        _coctails == null ? 0 : _coctails.length,
+                        (index) => CoctailCollectionItemWidjet(
+                              coctail: _coctails[index],
+                            )),
+                  );
+
+                  if (snapshot.hasError || snapshot.hasData == null) {
+                    return Center(
+                      child: Text(
+                        snapshot.error.toString(),
+                        style: TextStyle(color: Colors.white),
+                        textAlign: TextAlign.center,
                       ),
-                    ),
-                    SliverToBoxAdapter(
-                      child: const SizedBox(
-                        height: 22,
-                      ),
-                    ),
-                    SliverToBoxAdapter(
-                      child: FiltersCollectionWidjet(
-                        filters: _filters,
-                        tapFilter: _tapFilter,
-                      ),
-                    ),
-                    SliverToBoxAdapter(
-                      child: const SizedBox(
-                        height: 22,
-                      ),
-                    ),
-                    SliverPadding(
-                      padding: EdgeInsets.fromLTRB(26, 0, 26, 0),
-                      sliver: errorMessage != null
-                          ? SliverToBoxAdapter(
-                              child: Center(child: Text(errorMessage)))
-                          : SliverGrid(
-                              delegate: coctailCardDelegate,
-                              gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
-                                childAspectRatio: 0.85,
-                                crossAxisCount: 2,
-                                crossAxisSpacing: 5,
-                                mainAxisSpacing: 20,
-                              ),
+                    );
+                  }
+
+                  print("Fetcy ${snapshot.connectionState}");
+                  // print("SnapSHot ${snapshot.data}");
+                  return GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      onTap: () {
+                        FocusScope.of(context).unfocus();
+                      },
+                      child: CustomScrollView(
+                        slivers: [
+                          SliverToBoxAdapter(
+                            child: SearchFiedlWidjet(
+                              handleSubmitText: _submitCoctailname,
                             ),
-                    ),
-                  ],
-                )),
+                          ),
+                          SliverToBoxAdapter(
+                            child: const SizedBox(
+                              height: 22,
+                            ),
+                          ),
+                          SliverToBoxAdapter(
+                            child: FiltersCollectionWidjet(
+                              filters: _filters,
+                              tapFilter: _tapFilter,
+                            ),
+                          ),
+                          SliverToBoxAdapter(
+                            child: const SizedBox(
+                              height: 22,
+                            ),
+                          ),
+                          snapshot.connectionState == ConnectionState.waiting
+                              ? SliverToBoxAdapter(
+                                  child: Center(
+                                      child: CircularProgressIndicator()),
+                                )
+                              : SliverPadding(
+                                  padding: EdgeInsets.fromLTRB(26, 0, 26, 0),
+                                  sliver: SliverGrid(
+                                    delegate: coctailCardDelegate,
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                      childAspectRatio: 0.85,
+                                      crossAxisCount: 2,
+                                      crossAxisSpacing: 5,
+                                      mainAxisSpacing: 20,
+                                    ),
+                                  ),
+                                )
+                        ],
+                      ));
+                  // snapshot has data
+                }),
           ),
         ));
   }
 }
-
-final cardSliverListDelegate = SliverChildListDelegate(List.generate(
-  4,
-  (index) => Card(
-    child: Container(
-      padding: const EdgeInsets.fromLTRB(23, 0, 23, 0),
-      child: Center(child: Text('$index')),
-    ),
-  ),
-));
-
-// Container(
-//                 padding: const EdgeInsets.symmetric(horizontal: 13),
-//                 child: Column(
-//                   children: [
-//                     SearchFiedlWidjet(
-//                       handleSubmitText: _submitCoctailname,
-//                     ),
-//                     const SizedBox(
-//                       height: 22,
-//                     ),
-// FiltersCollectionWidjet(
-//   filters: _filters,
-//   tapFilter: _tapFilter,
-// ),
-//                     const SizedBox(
-//                       height: 22,
-//                     ),
-//                     CoctailCollectionWidjet()
-//                   ],
-//                 ),
-//               ),
