@@ -20,11 +20,12 @@ class SliversListSamplePage extends StatelessWidget {
           //         children: cardSliverListDelegate.children,
           //       ),
           //     )),
-          // SliverFillRemaining(
-          //   child: Container(
-          //     color: Colors.lightBlue,
-          //     child: Center(child: Text('Text')),),
-          // ),
+          SliverFillRemaining(
+            child: Container(
+              color: Colors.lightBlue,
+              child: Center(child: Text('Text')),
+            ),
+          ),
           SliverGrid(
             delegate: cardSliverListDelegate,
             gridDelegate:

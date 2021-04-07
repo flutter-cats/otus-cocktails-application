@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class SearchFiedlWidjet extends StatefulWidget {
+  final Function(String) handleSubmitText;
+
+  SearchFiedlWidjet({@required this.handleSubmitText});
+
   @override
   _SearchFiedlWidjetState createState() => _SearchFiedlWidjetState();
 }
@@ -81,6 +85,7 @@ class _SearchFiedlWidjetState extends State<SearchFiedlWidjet> {
             setState(() {
               isTapTextField = false;
             });
+            widget.handleSubmitText(value);
           },
         ));
   }
