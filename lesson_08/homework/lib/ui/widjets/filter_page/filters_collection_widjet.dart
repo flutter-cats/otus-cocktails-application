@@ -11,6 +11,7 @@ class FiltersCollectionWidjet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 13),
       height: 46,
       child: Directionality(
         textDirection: TextDirection.ltr,

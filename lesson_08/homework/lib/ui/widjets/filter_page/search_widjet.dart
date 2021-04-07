@@ -40,6 +40,7 @@ class _SearchFiedlWidjetState extends State<SearchFiedlWidjet> {
   @override
   Widget build(BuildContext context) {
     return Container(
+        padding: const EdgeInsets.symmetric(horizontal: 13),
         height: 45,
         child: TextField(
           controller: _searchTextController,

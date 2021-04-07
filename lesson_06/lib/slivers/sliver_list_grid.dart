@@ -20,6 +20,7 @@ class SliversListSamplePage extends StatelessWidget {
           //         children: cardSliverListDelegate.children,
           //       ),
           //     )),
+
           SliverFillRemaining(
             child: Container(
               color: Colors.lightBlue,
