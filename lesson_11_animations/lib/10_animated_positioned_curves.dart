@@ -7,7 +7,8 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
   }
@@ -38,7 +39,9 @@ class _MyHomePageState extends State<MyHomePage> {
               AnimatedPositioned(
                 duration: const Duration(seconds: 1),
                 left: _left,
-                child: FlutterIcon(),
+                child: FlutterIcon(
+                  color: Colors.indigoAccent,
+                ),
               ),
             ],
           ),

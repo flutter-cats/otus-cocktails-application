@@ -5,12 +5,12 @@ import 'dart:math' as math;
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
   }
 }
-
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -18,6 +18,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  double begin = 0;
+  double end = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,8 +29,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: TweenAnimationBuilder<double>(
-          tween: Tween<double>(begin: 0, end: 1),
-          duration: Duration(seconds: 2),
+          tween: Tween<double>(begin: begin, end: end),
+          duration: Duration(seconds: 1),
           curve: Curves.bounceOut,
           builder: (_, double tweenValue, Widget? child) {
             return Transform.rotate(
@@ -47,6 +50,16 @@ class _MyHomePageState extends State<MyHomePage> {
             );
           },
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            final temp = end;
+            end = begin;
+            begin = temp;
+          });
+        },
+        child: Icon(Icons.play_circle_fill),
       ),
     );
   }

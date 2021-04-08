@@ -5,7 +5,8 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
   }
@@ -37,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Container(
         child: TweenAnimationBuilder<String>(
-          tween: TypeWriterTween(begin: '', end: 'test ' * 50),
+          tween: TypeWriterTween(begin: '', end: 'Lorem Ipsum ' * 50),
           duration: Duration(seconds: 5),
           builder: (_, String colorValue, Widget? child) {
             return Text(colorValue);

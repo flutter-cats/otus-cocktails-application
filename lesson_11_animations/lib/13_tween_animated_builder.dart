@@ -19,9 +19,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  static final colorTween = Tween<Color>(
+  static final colorTween = ColorTween(
     begin: Colors.red,
-    end: Colors.blue,
+    end: Colors.yellow,
   );
 
   @override
@@ -31,11 +31,11 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('Implicit Animations - TweenAnimationBuilder'),
       ),
       body: Center(
-        child: TweenAnimationBuilder<Color>(
+        child: TweenAnimationBuilder(
           tween: colorTween,
           duration: Duration(seconds: 2),
-          builder: (_, Color colorValue, Widget? child) {
-            return FlutterIcon(color: colorValue);
+          builder: (_, Color? colorValue, Widget? child) {
+            return FlutterIcon(color: colorValue ?? Colors.red);
           },
         ),
       ),

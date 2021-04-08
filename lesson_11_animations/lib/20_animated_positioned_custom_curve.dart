@@ -13,19 +13,37 @@ class CustomCurve extends Curve {
   /// The given parametric value `t` will be between 0.0 and 1.0, inclusive.
   ///
   @override
-  double transform(double t) {
+  double transformInternal(double t) {
+    // return _bounce(t);
+
     ///
     /// y=sin(x * 2p * 2) * .5 + .5
     ///
-    final y = math.sin(t * 5 * math.pi * 2) * .5 + .5;
+
+    final y = math.sin(t * math.pi * 2 * 5) * .5 + .5;
     return y;
+  }
+
+  double _bounce(double t) {
+    if (t < 1.0 / 2.75) {
+      return 7.5625 * t * t;
+    } else if (t < 2 / 2.75) {
+      t -= 1.5 / 2.75;
+      return 7.5625 * t * t + 0.75;
+    } else if (t < 2.5 / 2.75) {
+      t -= 2.25 / 2.75;
+      return 7.5625 * t * t + 0.9375;
+    }
+    t -= 2.625 / 2.75;
+    return 7.5625 * t * t + 0.984375;
   }
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
   }

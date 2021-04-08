@@ -10,7 +10,7 @@ double randomBorderRadius() => Random().nextDouble() * 64;
 Color randomColor() {
   final random = Random();
   return Color.fromARGB(
-    random.nextInt(255),
+    200 + (random.nextDouble() * 55).toInt(),
     random.nextInt(255),
     random.nextInt(255),
     random.nextInt(255),
@@ -36,11 +36,9 @@ class ImplicitAnimationGameWidgetState
   Alignment _alignment = Alignment(0, 0);
 
   int _score = 0;
-
   Timer? _timer;
-
-  int _countDown = 10;
-
+  int _totalGameDurationSec = 20;
+  late int _restSeconds;
   bool _isPlaying = false;
 
   @override
@@ -73,7 +71,7 @@ class ImplicitAnimationGameWidgetState
             : Align(
                 alignment: Alignment(0, -.9),
                 child: Text(
-                  '$_countDown',
+                  '$_restSeconds',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 28,
@@ -118,7 +116,7 @@ class ImplicitAnimationGameWidgetState
     _isPlaying = true;
 
     _score = 0;
-    _countDown = 10;
+    _restSeconds = _totalGameDurationSec;
 
     _randomize();
     _startTimer();
@@ -144,12 +142,11 @@ class ImplicitAnimationGameWidgetState
       const Duration(seconds: 1),
       (Timer timer) => setState(
         () {
-          print(_countDown);
-          if (_countDown < 1) {
+          if (_restSeconds < 1) {
             _finishGame();
             timer.cancel();
           } else {
-            _countDown -= 1;
+            _restSeconds -= 1;
           }
         },
       ),

@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: AnimatedContainer(
           width: 200,
           height: 200,
-          color: Colors.green,
+          color: Colors.blue,
           duration: const Duration(seconds: 1),
           child: FlutterIcon(),
         ),

@@ -2,6 +2,26 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
+class AnimatedTextWriterState
+    extends AnimatedWidgetBaseState<AnimatedTextWriterWidget> {
+  TypeWriterTween? _textWriterTween;
+
+  @override
+  Widget build(BuildContext context) =>
+      Text(_textWriterTween?.evaluate(animation)?.toString() ?? '');
+
+  @override
+  void forEachTween(TweenVisitor<dynamic?> visitor) {
+    _textWriterTween = visitor(
+      _textWriterTween,
+      widget.text,
+      (dynamic value) {
+        return TypeWriterTween(begin: value);
+      },
+    ) as TypeWriterTween;
+  }
+}
+
 class AnimatedTextWriterWidget extends ImplicitlyAnimatedWidget {
   final String text;
 
@@ -14,13 +34,14 @@ class AnimatedTextWriterWidget extends ImplicitlyAnimatedWidget {
 
   @override
   ImplicitlyAnimatedWidgetState<ImplicitlyAnimatedWidget> createState() =>
-      _AnimatedTextWriterState();
+      AnimatedTextWriterState();
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -48,24 +69,6 @@ class TypeWriterTween extends Tween<String> {
   }
 }
 
-class _AnimatedTextWriterState
-    extends AnimatedWidgetBaseState<AnimatedTextWriterWidget> {
-  TypeWriterTween? _textWriterTween;
-
-  @override
-  Widget build(BuildContext context) =>
-      Text(_textWriterTween?.evaluate(animation)?.toString() ?? '');
-
-  @override
-  void forEachTween(TweenVisitor<dynamic?> visitor) {
-    _textWriterTween = visitor(
-      _textWriterTween,
-      widget.text,
-      (dynamic value) => TypeWriterTween(begin: value),
-    ) as TypeWriterTween;
-  }
-}
-
 class _MyHomePageState extends State<MyHomePage> {
   String currentValue = 'Lorem Ipsum ';
   @override
@@ -77,7 +80,8 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         child: AnimatedTextWriterWidget(
           text: currentValue,
-          // curve: Curves.bounceOut,
+          //  uncomment this
+          //  curve: Curves.bounceOut,
           duration: Duration(seconds: 2),
         ),
       ),
