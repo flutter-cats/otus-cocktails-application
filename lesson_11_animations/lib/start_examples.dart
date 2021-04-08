@@ -27,5 +27,5 @@ import 'package:lesson_11_animations/41_implicitly_animated_widget.dart'
     as animations_41;
 
 void main() {
-  runApp(animations_32.MyApp());
+  runApp(animations_12.MyApp());
 }
