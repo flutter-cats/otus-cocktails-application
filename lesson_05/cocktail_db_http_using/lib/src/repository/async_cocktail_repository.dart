@@ -157,8 +157,25 @@ class AsyncCocktailRepository {
   /// api operation is:
   /// https://the-cocktail-db.p.rapidapi.com/lookup.php
   ///
-  Future<Ingredient?> lookupIngredientById() async {
-    return null;
+  Future<Ingredient?> lookupIngredientById(String id) async {
+    Ingredient? result;
+
+    var client = http.Client();
+    try {
+      final url = 'https://the-cocktail-db.p.rapidapi.com/lookup.php?iid=$id';
+      var response = await http.get(Uri.parse(url), headers: _headers);
+      if (response.statusCode == 200) {
+        final jsonResponse = convert.jsonDecode(response.body)['ingredients'][0];
+        result = Ingredient(id:jsonResponse['idIngredient'],name: jsonResponse['strIngredient'],ingredientType: jsonResponse['strType'], isAlcoholic: jsonResponse['strAlcohol']=='Yes'?true:false);
+      } else {
+        throw HttpException(
+            'Request failed with status: ${response.statusCode}');
+      }
+    } finally {
+      client.close();
+    }
+
+    return result;
   }
 
   Cocktail _createCocktailFromDto(CocktailDto dto) {
