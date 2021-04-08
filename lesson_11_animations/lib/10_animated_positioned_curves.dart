@@ -7,7 +7,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp(debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
   }
@@ -37,7 +37,6 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               AnimatedPositioned(
                 duration: const Duration(seconds: 1),
-                curve: Curves.bounceOut, //  <- curve to set physics behaviour
                 left: _left,
                 child: FlutterIcon(),
               ),

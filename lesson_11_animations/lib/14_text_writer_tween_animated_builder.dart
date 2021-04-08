@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:lesson_11_animations/common/flutter_icon.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp(debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
   }

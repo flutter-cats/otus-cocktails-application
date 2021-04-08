@@ -6,6 +6,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
   }
@@ -20,7 +21,8 @@ class CatLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Image.network('https://cdn1.ozone.ru/multimedia/wc1200/1027466419.jpg'),
+      child: Image.network(
+          'https://cdn1.ozone.ru/multimedia/wc1200/1027466419.jpg'),
       width: 200.0,
       height: 200.0,
     );
@@ -47,9 +49,14 @@ class _MyHomePageState extends State<MyHomePage> {
         child: AnimatedSwitcher(
           duration: const Duration(seconds: 1),
           child: _widget,
-          transitionBuilder: (widget, animation ) {
-            return RotationTransition(child: widget, turns: animation);
-          },
+
+
+          // uncomment
+          /// transitionBuilder: (widget, animation) {
+          ///   return RotationTransition(child: widget, turns: animation);
+          /// },
+
+
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -64,6 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget _buildSwitchedWidget() =>
-      _showFirstChild ? const FlutterLogo(style: FlutterLogoStyle.horizontal, size: 200.0) : CatLogo();
+  Widget _buildSwitchedWidget() => _showFirstChild
+      ? const FlutterLogo(style: FlutterLogoStyle.horizontal, size: 200.0)
+      : CatLogo();
 }

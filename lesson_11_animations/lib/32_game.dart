@@ -33,7 +33,7 @@ class ImplicitAnimationGameWidgetState
   double _width = 100;
   double _height = 100;
   double _radius = 50;
-  Alignment _alignment = Alignment(0.5, 0.5);
+  Alignment _alignment = Alignment(0, 0);
 
   int _score = 0;
 
@@ -51,7 +51,7 @@ class ImplicitAnimationGameWidgetState
         Align(
           alignment: Alignment(0, -.1),
           child: Text(
-            'Points $_score',
+            'Score $_score',
             style: TextStyle(color: Colors.white, fontSize: 70),
           ),
         ),
@@ -61,7 +61,7 @@ class ImplicitAnimationGameWidgetState
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      _beginGame();
+                      _startGame();
                     });
                   },
                   child: Text(
@@ -114,10 +114,12 @@ class ImplicitAnimationGameWidgetState
     super.dispose();
   }
 
-  void _beginGame() {
+  void _startGame() {
+    _isPlaying = true;
+
     _score = 0;
     _countDown = 10;
-    _isPlaying = true;
+
     _randomize();
     _startTimer();
   }

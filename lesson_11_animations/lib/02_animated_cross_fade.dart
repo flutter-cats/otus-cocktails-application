@@ -6,6 +6,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
   }
@@ -20,7 +21,8 @@ class CatLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Image.network('https://cdn1.ozone.ru/multimedia/wc1200/1027466419.jpg'),
+      child: Image.network(
+          'https://cdn1.ozone.ru/multimedia/wc1200/1027466419.jpg'),
       width: 200.0,
       height: 200.0,
     );
@@ -53,9 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
             _showFirstChild = !_showFirstChild;
           });
         },
-        child: _showFirstChild
-            ? Icon(Icons.last_page)
-            : Icon(Icons.first_page),
+        child: _showFirstChild ? Icon(Icons.last_page) : Icon(Icons.first_page),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }

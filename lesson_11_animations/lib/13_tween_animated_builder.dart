@@ -7,6 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
   }
@@ -18,7 +19,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  static final colorTween = Tween<Color>(begin: Colors.red, end: Colors.blue);
+  static final colorTween = Tween<Color>(
+    begin: Colors.red,
+    end: Colors.blue,
+  );
 
   @override
   Widget build(BuildContext context) {

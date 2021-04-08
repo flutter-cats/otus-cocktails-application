@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 class FlutterIcon extends StatelessWidget {
   final Color _color;
 
-  const FlutterIcon({Key? key, Color color = Colors.green})
+  const FlutterIcon({Key? key, Color color = Colors.transparent})
       : _color = color,
         super(key: key);
 

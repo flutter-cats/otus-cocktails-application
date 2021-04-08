@@ -6,6 +6,8 @@ import 'package:lesson_11_animations/02_animated_cross_fade.dart'
     as animations_02;
 import 'package:lesson_11_animations/03_animated_switcher.dart'
     as animations_03;
+import 'package:lesson_11_animations/04_animated_container.dart'
+as animations_04;
 import 'package:lesson_11_animations/05_animated_container.dart'
     as animations_05;
 import 'package:lesson_11_animations/10_animated_positioned_curves.dart'
@@ -27,5 +29,6 @@ import 'package:lesson_11_animations/41_implicitly_animated_widget.dart'
     as animations_41;
 
 void main() {
-  runApp(animations_12.MyApp());
+  runApp(animations_03.MyApp());
+    // animations_11.main();
 }
