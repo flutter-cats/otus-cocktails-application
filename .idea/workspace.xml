@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:evgeny_smirnov_hw1" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2d8fe6d1-d076-43fa-b596-1dc13b681754" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/$CACHE_FILE$" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/otus-cocktails-application.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson_04/homework/lib/components/cocktail_description_chip.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_04/homework/lib/cocktail_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_04/homework/lib/cocktail_detail_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_04/homework/lib/components/cocktail_description.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_04/homework/lib/components/cocktail_description.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_04/homework/lib/components/cocktail_description_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_04/homework/lib/components/cocktail_description_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_04/homework/lib/components/cocktail_ingridiets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_04/homework/lib/components/cocktail_ingridiets.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_04/homework/lib/components/cocktail_ranked_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_04/homework/lib/components/cocktail_ranked_widget.dart" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="evgeny_smirnov_hw2" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1q1mplH73ootIMPnUFvrYRc6EOj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="FlutterRunConfigurationType" factoryName="Flutter" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lesson_04/homework/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2d8fe6d1-d076-43fa-b596-1dc13b681754" name="Default Changelist" comment="" />
+      <created>1616255655964</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616255655964</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="evgeny_smirnov_hw1" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="364" y="185" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616256004429">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="364" y="185" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616256004429" />
+    <state x="639" y="320" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1616255999088">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="639" y="320" key="#com.intellij.ide.util.TreeFileChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616255999088" />
+    <state x="250" y="148" width="1320" height="765" key="AVDManager" timestamp="1616260668998">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="250" y="148" width="1320" height="765" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1616260668998" />
+    <state width="1460" height="254" key="GridCell.Tab.0.bottom" timestamp="1616263063767">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1460" height="254" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1616263063767" />
+    <state width="1460" height="254" key="GridCell.Tab.0.center" timestamp="1616263063766">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1460" height="254" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1616263063766" />
+    <state width="1460" height="254" key="GridCell.Tab.0.left" timestamp="1616263063766">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1460" height="254" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1616263063766" />
+    <state width="1460" height="254" key="GridCell.Tab.0.right" timestamp="1616263063766">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1460" height="254" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1616263063766" />
+  </component>
+</project>
