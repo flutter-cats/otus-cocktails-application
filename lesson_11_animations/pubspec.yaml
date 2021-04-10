@@ -1,0 +1,20 @@
+name: lesson_11_animations
+description: Flutter Mobile Developer. Animations. Implicit Animations.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
