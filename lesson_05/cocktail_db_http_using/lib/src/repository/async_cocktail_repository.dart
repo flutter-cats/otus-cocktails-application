@@ -166,8 +166,7 @@ class AsyncCocktailRepository {
       final url = 'https://the-cocktail-db.p.rapidapi.com/lookup.php?iid=$id';
       var response = await client.get(Uri.parse(url), headers: _headers);
       if (response.statusCode == 200) {
-        final jsonResponse =
-            convert.jsonDecode(response.body);
+        final jsonResponse = convert.jsonDecode(response.body);
 
         var ingredients = jsonResponse['ingredients'] as Iterable<dynamic>;
 
