@@ -1,6 +1,5 @@
+import 'package:examples/widgets/path_example.dart';
 import 'package:flutter/material.dart';
-
-import 'widgets/custom_paint_example.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +14,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home:CustomPaintExample(),
+      // home:CustomPaintExample(),
+      home: PathExample(),
       // home: FormExample(),
     );
   }
