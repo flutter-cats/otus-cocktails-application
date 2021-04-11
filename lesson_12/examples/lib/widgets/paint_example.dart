@@ -1,6 +1,7 @@
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
 class PaintExample extends StatelessWidget {
@@ -10,22 +11,38 @@ class PaintExample extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SizedBox(
-          height: 200,
-          width: 200,
-          child: CustomPaint(
-            painter: LinearGradientPainter(),
-            // painter: RadialGradientPainter(),
-            // painter: SweepGradientPainter(),
-          ),
-        ),
+        padding: const EdgeInsets.all(32),
+        child: _buildGradientPainter(),
+        // child: ImageShaderExample(),
+        // child: _buildMaskFilterPainter(),
+        // child: ImageFilterExample(),
+      ),
+    );
+  }
+
+  Widget _buildGradientPainter() {
+    return SizedBox(
+      height: 200,
+      width: 200,
+      child: CustomPaint(
+        painter: LinearGradientPainter(),
+        // painter: RadialGradientPainter(),
+        // painter: SweepGradientPainter(),
+      ),
+    );
+  }
+
+  Widget _buildMaskFilterPainter() {
+    return SizedBox(
+      height: 200,
+      width: 200,
+      child: CustomPaint(
+        painter: MaskFilterPainter(),
+        // painter: DropShadowPainter(),
       ),
     );
   }
 }
-
-//todo image shader example
 
 class LinearGradientPainter extends CustomPainter {
   @override
@@ -39,14 +56,7 @@ class LinearGradientPainter extends CustomPainter {
         [0, 0.5, 1],
       );
 
-    final path = Path();
-    path.moveTo(0, 0);
-    path.lineTo(size.width, 0);
-    path.lineTo(size.width, size.height);
-    path.lineTo(0, size.height);
-    path.close();
-
-    canvas.drawPath(path, paint);
+    canvas.drawRect(Offset.zero & size, paint);
   }
 
   @override
@@ -66,20 +76,12 @@ class RadialGradientPainter extends CustomPainter {
         // TileMode.mirror,
       );
 
-    final path = Path();
-    path.moveTo(0, 0);
-    path.lineTo(size.width, 0);
-    path.lineTo(size.width, size.height);
-    path.lineTo(0, size.height);
-    path.close();
-
-    canvas.drawPath(path, paint);
+    canvas.drawRect(Offset.zero & size, paint);
   }
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
-
 
 class SweepGradientPainter extends CustomPainter {
   @override
@@ -93,16 +95,182 @@ class SweepGradientPainter extends CustomPainter {
         // TileMode.mirror,
       );
 
-    final path = Path();
-    path.moveTo(0, 0);
-    path.lineTo(size.width, 0);
-    path.lineTo(size.width, size.height);
-    path.lineTo(0, size.height);
-    path.close();
-
-    canvas.drawPath(path, paint);
+    canvas.drawRect(Offset.zero & size, paint);
   }
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+
+class ImageShaderExample extends StatefulWidget {
+  @override
+  _ImageShaderExampleState createState() => _ImageShaderExampleState();
+}
+
+class _ImageShaderExampleState extends State<ImageShaderExample> {
+  late Future<ui.Image> _imageFuture;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _imageFuture = _loadImage();
+  }
+
+  Future<ui.Image> _loadImage() async {
+    final bytes = await rootBundle.load('assets/image.jpg');
+    final list = bytes.buffer.asUint8List();
+    final codec = await ui.instantiateImageCodec(list);
+    return (await codec.getNextFrame()).image;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: _imageFuture,
+      builder: (BuildContext context, AsyncSnapshot<ui.Image> snapshot) {
+        if (!snapshot.hasData) return Container();
+
+        return Container(
+          height: 500,
+          width: 500,
+          child: CustomPaint(
+            painter: ImageShaderPainter(snapshot.data!),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class ImageShaderPainter extends CustomPainter {
+  final ui.Image image;
+
+  ImageShaderPainter(this.image);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..style = PaintingStyle.fill
+      ..shader = ImageShader(
+        image,
+        TileMode.repeated,
+        TileMode.repeated,
+        Matrix4.identity().storage,
+      );
+
+    canvas.drawRect(Offset.zero & size, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant ImageShaderPainter oldDelegate) =>
+      this.image != oldDelegate.image;
+}
+
+class MaskFilterPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..style = PaintingStyle.fill
+      ..shader = ui.Gradient.linear(
+        Offset(0, size.height),
+        Offset(size.width, 0),
+        [Colors.red, Colors.yellow, Colors.blue],
+        [0, 0.5, 1],
+      )
+      ..maskFilter = MaskFilter.blur(BlurStyle.outer, 10);
+
+    canvas.drawRect(Offset.zero & size, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+
+class DropShadowPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final shadowPaint = Paint()
+      ..style = PaintingStyle.fill
+      ..color = Colors.black
+      ..maskFilter = MaskFilter.blur(BlurStyle.normal, 6);
+    final shadowRect = Offset(20, 10) & (size / 2);
+    canvas.drawRect(shadowRect, shadowPaint);
+
+    final rect = Offset.zero & (size / 2);
+    final mainPaint = Paint()
+      ..style = PaintingStyle.fill
+      ..color = Colors.red;
+    canvas.drawRect(rect, mainPaint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+
+class ImageFilterExample extends StatefulWidget {
+  @override
+  _ImageFilterExampleState createState() => _ImageFilterExampleState();
+}
+
+class _ImageFilterExampleState extends State<ImageFilterExample> {
+  late Future<ui.Image> _imageFuture;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _imageFuture = _loadImage();
+  }
+
+  Future<ui.Image> _loadImage() async {
+    final bytes = await rootBundle.load('assets/image.jpg');
+    final list = bytes.buffer.asUint8List();
+    final codec = await ui.instantiateImageCodec(list);
+    return (await codec.getNextFrame()).image;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: _imageFuture,
+      builder: (BuildContext context, AsyncSnapshot<ui.Image> snapshot) {
+        if (!snapshot.hasData) return Container();
+
+        return Container(
+          height: 500,
+          width: 500,
+          child: CustomPaint(
+            painter: ImageFilterPainter(snapshot.data!),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class ImageFilterPainter extends CustomPainter {
+  final ui.Image image;
+
+  ImageFilterPainter(this.image);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+          ..style = PaintingStyle.fill
+          ..shader = ImageShader(
+            image,
+            TileMode.repeated,
+            TileMode.repeated,
+            Matrix4.identity().storage,
+          )
+        // ..imageFilter = ui.ImageFilter.blur(sigmaX: 10, sigmaY: 10)
+        ;
+
+    canvas.drawRect(Offset.zero & size, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant ImageFilterPainter oldDelegate) =>
+      this.image != oldDelegate.image;
 }
