@@ -11,11 +11,12 @@ class PaintExample extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(),
       body: Padding(
-        padding: const EdgeInsets.all(32),
-        child: _buildGradientPainter(),
+        padding: const EdgeInsets.all(40),
+        // child: _buildGradientPainter(),
         // child: ImageShaderExample(),
         // child: _buildMaskFilterPainter(),
         // child: ImageFilterExample(),
+        child: _buildStrokePainter(),
       ),
     );
   }
@@ -39,6 +40,16 @@ class PaintExample extends StatelessWidget {
       child: CustomPaint(
         painter: MaskFilterPainter(),
         // painter: DropShadowPainter(),
+      ),
+    );
+  }
+
+  Widget _buildStrokePainter() {
+    return SizedBox(
+      height: 200,
+      width: 200,
+      child: CustomPaint(
+        painter: StrokePainter(),
       ),
     );
   }
@@ -273,4 +284,36 @@ class ImageFilterPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant ImageFilterPainter oldDelegate) =>
       this.image != oldDelegate.image;
+}
+
+
+class StrokePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 30
+      ..strokeCap = StrokeCap.round
+      // ..strokeCap = StrokeCap.square
+      ..strokeJoin = StrokeJoin.miter
+      // ..strokeJoin = StrokeJoin.round
+      // ..strokeJoin = StrokeJoin.bevel
+      ..color = Colors.red
+      // ..shader = ui.Gradient.sweep(
+      //   Offset(size.width / 2, size.height / 2),
+      //   [Colors.red, Colors.yellow, Colors.blue, Colors.red],
+      //   [0, 0.3, 0.7, 1],
+      // )
+    ;
+
+    final path = Path();
+    path.moveTo(0, size.height);
+    path.lineTo(size.width / 2, 0);
+    path.lineTo(size.width, size.height);
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
