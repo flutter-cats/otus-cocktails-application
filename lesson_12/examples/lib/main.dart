@@ -1,7 +1,6 @@
-import 'package:examples/widgets/bezier_curve_example.dart';
 import 'package:flutter/material.dart';
 
-import 'widgets/paint_example.dart';
+import 'widgets/path_operation_example.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,7 +17,9 @@ class MyApp extends StatelessWidget {
       ),
       // home:CustomPaintExample(),
       // home: BezierCurveExample(),
-      home: PaintExample(),
+      // home: PaintExample(),
+      // home: ClipPathExample(),
+      home: PathOperationExample(),
     );
   }
 }
