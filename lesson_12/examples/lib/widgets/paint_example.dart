@@ -268,15 +268,14 @@ class ImageFilterPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-          ..style = PaintingStyle.fill
-          ..shader = ImageShader(
-            image,
-            TileMode.repeated,
-            TileMode.repeated,
-            Matrix4.identity().storage,
-          )
-        // ..imageFilter = ui.ImageFilter.blur(sigmaX: 10, sigmaY: 10)
-        ;
+      ..style = PaintingStyle.fill
+      ..shader = ImageShader(
+        image,
+        TileMode.repeated,
+        TileMode.repeated,
+        Matrix4.identity().storage,
+      )
+      ..imageFilter = ui.ImageFilter.blur(sigmaX: 10, sigmaY: 10);
 
     canvas.drawRect(Offset.zero & size, paint);
   }
@@ -286,25 +285,24 @@ class ImageFilterPainter extends CustomPainter {
       this.image != oldDelegate.image;
 }
 
-
 class StrokePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 30
-      ..strokeCap = StrokeCap.round
-      // ..strokeCap = StrokeCap.square
-      ..strokeJoin = StrokeJoin.miter
-      // ..strokeJoin = StrokeJoin.round
-      // ..strokeJoin = StrokeJoin.bevel
-      ..color = Colors.red
-      // ..shader = ui.Gradient.sweep(
-      //   Offset(size.width / 2, size.height / 2),
-      //   [Colors.red, Colors.yellow, Colors.blue, Colors.red],
-      //   [0, 0.3, 0.7, 1],
-      // )
-    ;
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 30
+          ..strokeCap = StrokeCap.round
+          // ..strokeCap = StrokeCap.square
+          ..strokeJoin = StrokeJoin.miter
+          // ..strokeJoin = StrokeJoin.round
+          // ..strokeJoin = StrokeJoin.bevel
+          ..color = Colors.red
+        // ..shader = ui.Gradient.sweep(
+        //   Offset(size.width / 2, size.height / 2),
+        //   [Colors.red, Colors.yellow, Colors.blue, Colors.red],
+        //   [0, 0.3, 0.7, 1],
+        // )
+        ;
 
     final path = Path();
     path.moveTo(0, size.height);

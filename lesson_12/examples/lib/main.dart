@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'widgets/blend_mode_example.dart';
 import 'widgets/path_operation_example.dart';
+import 'widgets/save_layer_example.dart';
 import 'widgets/transform_example.dart';
 
 void main() {
@@ -21,7 +23,8 @@ class MyApp extends StatelessWidget {
       // home: PaintExample(),
       // home: ClipPathExample(),
       // home: PathOperationExample(),
-      home: TransformExample(),
+      // home: TransformExample(),
+      home: BlendModeExample(),
     );
   }
 }
