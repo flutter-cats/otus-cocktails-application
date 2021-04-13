@@ -45,16 +45,16 @@ class __AnimatedGradientState extends State<_AnimatedGradient>
       height: 200,
       width: 200,
       child: CustomPaint(
-        painter: _GradientPainter(0.5), //_animation.value
+        painter: _GradientPainter(tick: 0.5), //_animation.value
       ),
     );
   }
 }
 
 class _GradientPainter extends CustomPainter {
-  final double _tick;
+  final double tick;
 
-  _GradientPainter(this._tick);
+  _GradientPainter({required this.tick});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -64,13 +64,13 @@ class _GradientPainter extends CustomPainter {
         Offset(0, size.height),
         Offset(size.width, 0),
         [Colors.red, Colors.yellowAccent, Colors.red],
-        [_tick - 0.3, _tick, _tick + 0.3],
-        TileMode.decal,
+        [tick - 0.3, tick, tick + 0.3],
       );
 
     canvas.drawRect(Offset.zero & size, paint);
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
+  bool shouldRepaint(covariant _GradientPainter oldPainter) =>
+      this.tick != oldPainter.tick;
 }
