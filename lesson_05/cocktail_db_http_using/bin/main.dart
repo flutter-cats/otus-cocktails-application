@@ -3,10 +3,12 @@ import 'dart:developer';
 
 Future<void> main() async {
   final repository = AsyncCocktailRepository();
-  final cocktail = await repository.getRandomCocktail();
+  // final cocktail = await repository.getRandomCocktail();
   // print(cocktail);
 
-  final ingridient = await repository.lookupIngredientById("552");
-
-  inspect(ingridient);
+  final ingredient =
+      await repository.lookupIngredientById("552").catchError((error) {
+    print("Show error $error for client");
+  });
+  inspect(ingredient);
 }

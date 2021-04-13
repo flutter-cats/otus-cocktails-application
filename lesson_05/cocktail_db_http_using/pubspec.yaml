@@ -12,10 +12,10 @@ dependencies:
       ref: master
       path: lesson_03/lesson/cocktail_app_models/
   json_annotation: ^4.0.1
+  http: ^0.13.0
 
 dev_dependencies:
   build_runner: ^1.12.2
-  http: ^0.13.0
-  json_annotation: ^4.0.1
   json_serializable: ^4.0.3
-  pedantic: ^1.9.0
+  
+publish_to: none

@@ -1,13 +1,11 @@
 import 'dart:convert' as convert;
 import 'dart:io';
-import 'dart:developer';
 import 'package:cocktail_app_models/models.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_definition_dto.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_dto.dart';
 import 'package:cocktail_db_http_using/src/dto/ingridient_dto.dart';
 import 'package:http/http.dart' as http;
 
-import '../dto/ingridient_dto.dart';
 import '../dto/ingridient_dto.dart';
 
 class AsyncCocktailRepository {
@@ -168,12 +166,14 @@ class AsyncCocktailRepository {
     var client = http.Client();
     try {
       final url = 'https://the-cocktail-db.p.rapidapi.com/lookup.php?iid=$id';
+
       var response = await http.get(Uri.parse(url), headers: _headers);
-      if (response.statusCode == 200) {
+
+      if (response.statusCode == HttpStatus.ok) {
         final jsonResponse = convert.jsonDecode(response.body);
 
         var ingredients = jsonResponse['ingredients'] as Iterable<dynamic>;
-
+        print('ingrdidients $ingredients');
         final dtos = ingredients
             .cast<Map<String, dynamic>>()
             .map((json) => IngridientDto.fromJson(json));
@@ -185,6 +185,13 @@ class AsyncCocktailRepository {
         throw HttpException(
             'Request failed with status: ${response.statusCode}');
       }
+      // Make catch error
+    } on http.ClientException catch (error) {
+      throw HttpException('Request failed with status: $error');
+    } on SocketException catch (_) {
+      throw HttpException('Bad connection');
+    } catch (error) {
+      throw HttpException('Some error $error');
     } finally {
       client.close();
     }
@@ -193,7 +200,8 @@ class AsyncCocktailRepository {
   }
 
   Ingredient _createIngridientFromDto(IngridientDto ingriddientDto) {
-    final isAlcohol = (ingriddientDto.strAlcohol != null);
+    final isAlcohol = ingriddientDto.strAlcohol == "Alcoholic";
+
     return Ingredient(
         id: ingriddientDto.idIngredient,
         name: ingriddientDto.strIngredient,
