@@ -5,14 +5,13 @@ class SaveLayerExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Center(
           child: Container(
-            width: 300,
-            height: 200,
+            width: 200,
+            height: 100,
             child: CustomPaint(
               painter: SaveLayerPainter(),
             ),
@@ -24,9 +23,10 @@ class SaveLayerExample extends StatelessWidget {
 }
 
 class SaveLayerPainter extends CustomPainter {
-  final _shadowOffset = Offset(70, 50);
-  final _shadowColor = Colors.grey;
+  final _shadowOffset = Offset(70, 30);
+  final _shadowColor = Colors.black;
   final _shadowBlur = const MaskFilter.blur(BlurStyle.normal, 4);
+  final _shadowOpacity = 1.0; //0.5
 
   SaveLayerPainter();
 
@@ -57,7 +57,7 @@ class SaveLayerPainter extends CustomPainter {
 
   void _paintShadowWithoutSaveLayer(Canvas canvas, Size size) {
     final shadowPaint = Paint()
-      ..color = _shadowColor.withOpacity(0.5)
+      ..color = _shadowColor.withOpacity(_shadowOpacity)
       ..maskFilter = _shadowBlur;
 
     _paintObjects(
@@ -69,22 +69,23 @@ class SaveLayerPainter extends CustomPainter {
   }
 
   void _paintShadowWithSaveLayer(Canvas canvas, Size size) {
-    final shadowPaint = Paint()..color = _shadowColor.withOpacity(0.5);
+    // final layerPaint = Paint()
+    //   ..color = _shadowColor.withOpacity(_shadowOpacity);
+    //
+    // canvas.saveLayer(null, layerPaint);
 
-    final blurPaint = Paint()
+    final shadowPaint = Paint()
       ..color = _shadowColor
       ..maskFilter = _shadowBlur;
-
-    canvas.saveLayer(null, shadowPaint);
 
     _paintObjects(
       canvas,
       size,
-      circlePaint: blurPaint,
-      rectPaint: blurPaint,
+      circlePaint: shadowPaint,
+      rectPaint: shadowPaint,
     );
 
-    canvas.restore();
+    // canvas.restore();
   }
 
   @override
