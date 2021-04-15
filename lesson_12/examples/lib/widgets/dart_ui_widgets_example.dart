@@ -11,7 +11,7 @@ class DartUiWidgetsExample extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(32),
         children: [
-          _buildGradientText(),
+          AnimatedGradientText(),
           const SizedBox(height: 100),
           // _buildTransformedContainer(),
           const SizedBox(height: 100),
@@ -109,4 +109,54 @@ class _RhombusClipper extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(covariant CustomClipper<dynamic> oldClipper) => false;
+}
+
+
+class AnimatedGradientText extends StatefulWidget {
+  @override
+  _AnimatedGradientTextState createState() => _AnimatedGradientTextState();
+}
+
+class _AnimatedGradientTextState extends State<AnimatedGradientText>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller = _controller = AnimationController(
+    vsync: this,
+    duration: const Duration(seconds: 3),
+  )..repeat();
+  late Animation<double> _animation = Tween<double>(begin: 0, end: 1).animate(
+    _controller,
+  )..addListener(() => setState(() {}));
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final animationValue = _animation.value;
+    final shader = ui.Gradient.linear(
+      Offset.zero,
+      Offset(360, 0),
+      <Color>[Colors.deepPurple, Colors.purpleAccent, Colors.deepPurple],
+      [
+        animationValue - 0.25,
+        animationValue,
+        animationValue + 0.25,
+      ],
+    );
+    final paint = Paint()..shader = shader;
+
+    return Text(
+      "Welcome back, commander!",
+      style: TextStyle(
+        fontSize: 42,
+        fontWeight: FontWeight.w900,
+        inherit: false,
+        height: 1,
+        foreground: paint,
+      ),
+    );
+  }
 }
