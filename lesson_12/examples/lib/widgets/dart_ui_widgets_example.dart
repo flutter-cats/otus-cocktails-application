@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -12,25 +13,24 @@ class DartUiWidgetsExample extends StatelessWidget {
         children: [
           _buildGradientText(),
           const SizedBox(height: 100),
-          _buildTransformedContainer(),
+          // _buildTransformedContainer(),
           const SizedBox(height: 100),
-          _buildClipPath(),
+          // _buildClipPath(),
           const SizedBox(height: 100),
-          _buildColored(),
+          // _buildColored(),
         ],
       ),
     );
   }
 
   Widget _buildGradientText() {
-    final linearGradient = LinearGradient(
-      colors: <Color>[
+    final shader = ui.Gradient.linear(
+      Offset.zero,
+      Offset(360, 0),
+      <Color>[
         Colors.purpleAccent,
         Colors.deepPurple,
       ],
-    );
-    final shader = linearGradient.createShader(
-      const Rect.fromLTWH(0.0, 0.0, 360.0, 70.0),
     );
     final paint = Paint()..shader = shader;
 
@@ -50,7 +50,7 @@ class DartUiWidgetsExample extends StatelessWidget {
     return Container(
       transform: matrix,
       child: Text(
-        "You have 5 new messages",
+        "You have new replies",
         style: TextStyle(
           fontSize: 36,
           fontWeight: FontWeight.w700,
