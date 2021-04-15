@@ -26,10 +26,7 @@ class CustomPaintExample extends StatelessWidget {
     return Container(
       width: 300,
       height: 200,
-      // width: double.infinity,
-      // height: double.infinity,
       child: CustomPaint(
-        // painter: const SimpleSquarePainter(),
         painter: const AdvancedRectanglePainter(color: Colors.cyan),
       ),
     );
@@ -67,7 +64,6 @@ class AdvancedRectanglePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final path = Path();
-    path.moveTo(0, 0);
     path.lineTo(size.width, 0);
     path.lineTo(size.width, size.height);
     path.lineTo(0, size.height);

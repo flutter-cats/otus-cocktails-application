@@ -12,7 +12,7 @@ class BezierCurveExample extends StatelessWidget {
         child: CustomPaint(
           painter: WavePainter(),
           child: Padding(
-            padding: const EdgeInsets.only(left: 30, top: 50),
+            padding: const EdgeInsets.only(left: 30, top: 70),
             child: Text(
               "Good morning",
               style: Theme.of(context)
@@ -40,7 +40,7 @@ class WavePainter extends CustomPainter {
     path.lineTo(0.0, size.height - 50);
 
     var firstEndPoint = Offset(size.width * 0.6, size.height - 29 - 50);
-    var firstControlPoint = Offset(size.width * .25, size.height - 60 - 50);
+    var firstControlPoint = Offset(size.width * 0.25, size.height - 60 - 50);
     path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
         firstEndPoint.dx, firstEndPoint.dy);
 
@@ -59,8 +59,8 @@ class WavePainter extends CustomPainter {
     final path = Path();
     path.lineTo(0.0, size.height - 50);
 
-    var firstEndPoint = Offset(size.width * .7, size.height - 40);
-    var firstControlPoint = Offset(size.width * .25, size.height);
+    var firstEndPoint = Offset(size.width * 0.7, size.height - 40);
+    var firstControlPoint = Offset(size.width * 0.25, size.height);
     path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
         firstEndPoint.dx, firstEndPoint.dy);
 
@@ -79,7 +79,7 @@ class WavePainter extends CustomPainter {
     path.lineTo(0.0, size.height - 50);
 
     var firstEndPoint = Offset(size.width * 0.6, size.height - 15 - 50);
-    var firstControlPoint = Offset(size.width * .25, size.height - 60 - 50);
+    var firstControlPoint = Offset(size.width * 0.25, size.height - 60 - 50);
     path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
         firstEndPoint.dx, firstEndPoint.dy);
 
