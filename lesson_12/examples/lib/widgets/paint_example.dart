@@ -190,7 +190,7 @@ class MaskFilterPainter extends CustomPainter {
         [Colors.red, Colors.yellow, Colors.blue],
         [0, 0.5, 1],
       )
-      ..maskFilter = MaskFilter.blur(BlurStyle.outer, 10);
+      ..maskFilter = MaskFilter.blur(BlurStyle.normal, 10);
 
     canvas.drawRect(Offset.zero & size, paint);
   }
@@ -206,7 +206,7 @@ class DropShadowPainter extends CustomPainter {
       ..style = PaintingStyle.fill
       ..color = Colors.black
       ..maskFilter = MaskFilter.blur(BlurStyle.normal, 6);
-    final shadowRect = Offset(20, 10) & (size / 2);
+    final shadowRect = Offset(30, 20) & (size / 2);
     canvas.drawRect(shadowRect, shadowPaint);
 
     final rect = Offset.zero & (size / 2);
@@ -250,8 +250,8 @@ class _ImageFilterExampleState extends State<ImageFilterExample> {
         if (!snapshot.hasData) return Container();
 
         return Container(
-          height: 500,
-          width: 500,
+          height: 200,
+          width: 300,
           child: CustomPaint(
             painter: ImageFilterPainter(snapshot.data!),
           ),
