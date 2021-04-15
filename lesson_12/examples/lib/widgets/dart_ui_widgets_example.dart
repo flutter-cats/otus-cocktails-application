@@ -74,9 +74,20 @@ class DartUiWidgetsExample extends StatelessWidget {
         child: ColorFiltered(
           colorFilter: ColorFilter.mode(
             Colors.yellowAccent,
-            BlendMode.overlay,
+            BlendMode.multiply,
           ),
-          child: Image.asset("assets/image.jpg"),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Image.asset("assets/image.jpg"),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text("Press me"),
+              ),
+              const SizedBox(height: 8),
+            ],
+          ),
         ),
       ),
     );
