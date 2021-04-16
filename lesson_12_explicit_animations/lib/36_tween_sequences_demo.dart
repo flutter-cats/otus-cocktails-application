@@ -27,6 +27,7 @@ class _TweenAnimateMethodDemoWidgetState
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _sizeAnimation;
+  late Animation<Color?> _colorAnimation;
 
   @override
   Widget build(BuildContext context) {
@@ -34,22 +35,65 @@ class _TweenAnimateMethodDemoWidgetState
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(
-              child: Container(
-                height: 300,
-                color: Colors.amberAccent,
-                child: Stack(children: <Widget>[
+            Container(
+              height: 200,
+              width: 200,
+              child: Stack(
+                children: <Widget>[
                   Positioned(
                     child: Container(
                       width: _sizeAnimation.value,
                       height: _sizeAnimation.value,
-                      color: Colors.green,
+                      color: _colorAnimation.value,
                     ),
                     left: 0,
                     bottom: 0,
-                  )
-                ]),
+                  ),
+                  Positioned(
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.indigoAccent,
+                          width: 1.0,
+                        ),
+                      ),
+                    ),
+                    left: 0,
+                    bottom: 0,
+                  ),
+                  Positioned(
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.indigoAccent,
+                          width: 1.0,
+                        ),
+                      ),
+                    ),
+                    left: 0,
+                    bottom: 0,
+                  ),
+                  Positioned(
+                    child: Container(
+                      width: 200,
+                      height: 200,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.indigoAccent,
+                          width: 1.0,
+                        ),
+                      ),
+                    ),
+                    left: 0,
+                    bottom: 0,
+                  ),
+                ],
               ),
             ),
           ],
@@ -84,7 +128,7 @@ class _TweenAnimateMethodDemoWidgetState
   @override
   void initState() {
     _controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 1));
+        AnimationController(vsync: this, duration: Duration(seconds: 4));
     _controller.addListener(() {
       setState(() {});
     });
@@ -92,10 +136,27 @@ class _TweenAnimateMethodDemoWidgetState
 
     _sizeAnimation = TweenSequence(
       [
+        TweenSequenceItem(tween: Tween(begin: 50.0, end: 200.0), weight: 1),
+        TweenSequenceItem(tween: Tween(begin: 200.0, end: 50.0), weight: 1),
         TweenSequenceItem(tween: Tween(begin: 50.0, end: 100.0), weight: 1),
         TweenSequenceItem(tween: Tween(begin: 100.0, end: 50.0), weight: 1),
-        TweenSequenceItem(tween: Tween(begin: 50.0, end: 75.0), weight: 1),
-        TweenSequenceItem(tween: Tween(begin: 75.0, end: 50.0), weight: 1),
+      ],
+    ).animate(_controller);
+
+    _colorAnimation = TweenSequence(
+      [
+        TweenSequenceItem(
+            tween: ColorTween(begin: Colors.green, end: Colors.redAccent),
+            weight: 1),
+        TweenSequenceItem(
+            tween: ColorTween(begin: Colors.redAccent, end: Colors.blueAccent),
+            weight: 1),
+        TweenSequenceItem(
+            tween: ColorTween(begin: Colors.blueAccent, end: Colors.purpleAccent),
+            weight: 1),
+        TweenSequenceItem(
+            tween: ColorTween(begin: Colors.purpleAccent, end: Colors.green),
+            weight: 1),
       ],
     ).animate(_controller);
 

@@ -38,25 +38,26 @@ import 'package:lesson_12_explicit_animations/40_advanced_animation_extensions.d
     as $40_advanced_animation_extensions;
 
 void main() {
-  $02_explicit_animations_timer_based.main();
-  return;
+  //  todo: transitions between pages example
+  //  todo: chains
 
-  $04_explicit_animations_timer_based_clock_widget.main();
-  $05_ticker_based_solution.main();
-  $06_animation_controller_scenario.main();
-  $07_animation_controller_status_listener.main();
-  $08_animation_controller_animate_to.main();
-  $12_transitions_animated_positioned.main();
-  $13_explicit_animations_positioned_transition.main();
-  $14_explicit_animations_positioned_transition_curve.main();
-  $15_explicit_animations_rotation_transition.main();
-  $17_explicit_animated_builder.main();
-  $18_explicit_animated_widget.main();
-  $30_tween_evaluate_method.main();
-  $31_tween_animate_method.main();
-  $33_custom_tween_animation.main();
-  $35_tween_chain_and_sequences.sizeAnimation;
+  // $02_explicit_animations_timer_based.main();
+  // $04_explicit_animations_timer_based_clock_widget.main();
+  // $05_ticker_based_solution.main();
+  // $06_animation_controller_scenario.main();
+  // $07_animation_controller_status_listener.main();
+  // $08_animation_controller_animate_to.main();
+  // $12_transitions_animated_positioned.main();
+  // $13_explicit_animations_positioned_transition.main();
+  // $14_explicit_animations_positioned_transition_curve.main();
+  // $15_explicit_animations_rotation_transition.main();
+  // $17_explicit_animated_builder.main();
+  // $18_explicit_animated_widget.main();
+  // $30_tween_evaluate_method.main();
+  // $31_tween_animate_method.main();
+  // $33_custom_tween_animation.main();
+  // $35_tween_chain_and_sequences.sizeAnimation;
   $36_tween_sequences_demo.main();
-  $37_tween_several_animations_composed.main();
-  $40_advanced_animation_extensions.main();
+  // $37_tween_several_animations_composed.main();
+  // $40_advanced_animation_extensions.main();
 }
