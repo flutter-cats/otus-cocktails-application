@@ -13,6 +13,8 @@ import 'package:lesson_13_explicit_animations/08.1_animation_controller_animate_
     as $08_1_animation_controller_animate_to;
 import 'package:lesson_13_explicit_animations/08.2_animation_controller_animate_to.dart'
     as $08_2_animation_controller_animate_to;
+import 'package:lesson_13_explicit_animations/10_animation_controller_scenario_with_animations.dart'
+    as $10_animation_controller_scenario_with_animations;
 import 'package:lesson_13_explicit_animations/12_transitions_animated_positioned.dart'
     as $12_transitions_animated_positioned;
 import 'package:lesson_13_explicit_animations/13_explicit_animations_positioned_transition.dart'
@@ -41,10 +43,11 @@ import 'package:lesson_13_explicit_animations/37_interval_curves_animations_comp
     as $37_interval_curves_animations_composed;
 import 'package:lesson_13_explicit_animations/40_advanced_animation_extensions.dart'
     as $40_advanced_animation_extensions;
+import 'package:lesson_13_explicit_animations/50_custom_painter_progress_loader.dart'
+    as $50_custom_painter_progress_loader;
 
 void main() {
   //  todo: transitions between pages example
-  //  todo: chains
 
   // $02_explicit_animations_timer_based.main();
   // $03_explicit_animations_timer_based_clock_widget.main();
@@ -54,6 +57,7 @@ void main() {
   // $07_animation_controller_status_listener.main();
   // $08_1_animation_controller_animate_to.main();
   // $08_2_animation_controller_animate_to.main();
+  // $10_animation_controller_scenario_with_animations.MyHomePage;
   // $12_transitions_animated_positioned.main();
   // $13_explicit_animations_positioned_transition.main();
   // $14_explicit_animations_positioned_transition_curve.main();
@@ -67,5 +71,6 @@ void main() {
   // $35_tween_chain_and_sequences.sizeAnimation;
   // $36_tween_sequences_demo.main();
   // $37_interval_curves_animations_composed.main();
-  $40_advanced_animation_extensions.main();
+  // $40_advanced_animation_extensions.main();
+  // $50_custom_painter_progress_loader.main();
 }
