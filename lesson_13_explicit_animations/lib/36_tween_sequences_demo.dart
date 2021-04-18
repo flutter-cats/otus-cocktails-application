@@ -104,7 +104,9 @@ class _TweenAnimateMethodDemoWidgetState
             IconButton(
               icon: Icon(Icons.play_arrow),
               onPressed: () {
-                _controller.forward();
+                _controller
+                  ..reset()
+                  ..forward();
               },
             ),
             IconButton(
@@ -152,7 +154,8 @@ class _TweenAnimateMethodDemoWidgetState
             tween: ColorTween(begin: Colors.redAccent, end: Colors.blueAccent),
             weight: 1),
         TweenSequenceItem(
-            tween: ColorTween(begin: Colors.blueAccent, end: Colors.purpleAccent),
+            tween:
+                ColorTween(begin: Colors.blueAccent, end: Colors.purpleAccent),
             weight: 1),
         TweenSequenceItem(
             tween: ColorTween(begin: Colors.purpleAccent, end: Colors.green),
@@ -166,9 +169,9 @@ class _TweenAnimateMethodDemoWidgetState
   void _handleAnimationStatusChange(AnimationStatus status) {
     print(status);
     if (status == AnimationStatus.completed) {
-      _controller.reverse();
+      // _controller.reverse();
     } else if (status == AnimationStatus.dismissed) {
-      _controller.forward();
+      // _controller.forward();
     }
   }
 }

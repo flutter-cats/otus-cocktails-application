@@ -3,7 +3,10 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 
+bool _showDebug = false;
+
 void main() {
+
   runApp(
     MaterialApp(home: IntervalCurvesDemo()),
   );
@@ -114,9 +117,7 @@ class _IntervalCurvesDemoState extends State<IntervalCurvesDemo>
     with TickerProviderStateMixin {
   late AnimationController _controller;
 
-  bool _showDebug = false;
-
-  @override
+   @override
   Widget build(BuildContext context) {
     timeDilation = 1.0; // 1.0 is normal animation speed.
     return Scaffold(

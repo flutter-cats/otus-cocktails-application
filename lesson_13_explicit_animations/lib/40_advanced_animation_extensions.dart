@@ -13,8 +13,10 @@ class MyApp extends StatelessWidget {
         ),
         body: Center(
           child: Container(
-            child: Text('Hello World')
-                .scaleAnimation, // here we call the bounce extension
+            child: Text(
+              'Hello World',
+              style: TextStyle(fontSize: 30),
+            ).scaleAnimation, // here we call the bounce extension
           ),
         ),
       ), // and here!
@@ -32,6 +34,7 @@ class _BounceDownAnimation extends StatefulWidget {
 
 class _BounceDownAnimationState extends State<_BounceDownAnimation>
     with SingleTickerProviderStateMixin {
+
   static final TweenSequence<double> _offsetTween = TweenSequence(
     <TweenSequenceItem<double>>[
       TweenSequenceItem<double>(

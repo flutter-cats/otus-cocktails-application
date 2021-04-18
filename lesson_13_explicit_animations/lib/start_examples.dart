@@ -33,7 +33,7 @@ import 'package:lesson_13_explicit_animations/31_tween_animate_method.dart'
     as $31_tween_animate_method;
 import 'package:lesson_13_explicit_animations/33_custom_tween_animation.dart'
     as $33_custom_tween_animation;
-import 'package:lesson_13_explicit_animations/35_tween_chain_and_sequences.dart'
+import 'package:lesson_13_explicit_animations/35_tween_and_sequences.dart'
     as $35_tween_chain_and_sequences;
 import 'package:lesson_13_explicit_animations/36_tween_sequences_demo.dart'
     as $36_tween_sequences_demo;
@@ -60,12 +60,12 @@ void main() {
   // $15_explicit_animations_rotation_transition.main();
   // $17_explicit_animated_builder.main();
   // $18_explicit_animated_widget.main();
-  $30_1_tween_evaluate_method.main();
+  // $30_1_tween_evaluate_method.main();
   // $30_2_tween_evaluate_method.main();
   // $31_tween_animate_method.main();
   // $33_custom_tween_animation.main();
   // $35_tween_chain_and_sequences.sizeAnimation;
   // $36_tween_sequences_demo.main();
   // $37_interval_curves_animations_composed.main();
-  // $40_advanced_animation_extensions.main();
+  $40_advanced_animation_extensions.main();
 }
