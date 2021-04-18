@@ -18,10 +18,12 @@ class MyApp extends StatelessWidget {
 class TweenAnimateMethodDemoWidget extends StatefulWidget {
   TweenAnimateMethodDemoWidget({Key? key}) : super(key: key);
 
-  _TweenAnimateMethodDemoWidgetState createState() => _TweenAnimateMethodDemoWidgetState();
+  _TweenAnimateMethodDemoWidgetState createState() =>
+      _TweenAnimateMethodDemoWidgetState();
 }
 
-class _TweenAnimateMethodDemoWidgetState extends State<TweenAnimateMethodDemoWidget>
+class _TweenAnimateMethodDemoWidgetState
+    extends State<TweenAnimateMethodDemoWidget>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
@@ -86,7 +88,8 @@ class _TweenAnimateMethodDemoWidgetState extends State<TweenAnimateMethodDemoWid
 
   @override
   void initState() {
-    _controller = AnimationController(vsync: this, duration: Duration(seconds: 1));
+    _controller =
+        AnimationController(vsync: this, duration: Duration(seconds: 1));
     _controller.addListener(() {
       setState(() {});
     });

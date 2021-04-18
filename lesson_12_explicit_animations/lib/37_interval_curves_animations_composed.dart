@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -6,14 +5,11 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 
 void main() {
   runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: StaggerDemo(),
-    ),
+    MaterialApp(home: IntervalCurvesDemo()),
   );
 }
 
-class StaggerAnimation extends StatelessWidget {
+class IntervalCurvesAnimation extends StatelessWidget {
   final Animation<double> parentAnimation;
   final Animation<double> canvasSize;
   final Animation<double> size;
@@ -21,14 +17,26 @@ class StaggerAnimation extends StatelessWidget {
   final Animation<double> borderRadius;
   final Animation<Color?> color;
 
-  StaggerAnimation({Key? key, required this.parentAnimation})
+  static const Curve curve = Curves.ease;
+
+  IntervalCurvesAnimation({Key? key, required this.parentAnimation})
       : canvasSize = Tween<double>(begin: 50.0, end: 200.0).animate(
           CurvedAnimation(
             parent: parentAnimation,
             curve: Interval(
               0,
               0.5,
-              curve: Curves.ease,
+              curve: curve,
+            ),
+          ),
+        ),
+        rotation = Tween<double>(begin: 0, end: -2 * (2 * pi)).animate(
+          CurvedAnimation(
+            parent: parentAnimation,
+            curve: Interval(
+              0,
+              1,
+              curve: curve,
             ),
           ),
         ),
@@ -38,40 +46,30 @@ class StaggerAnimation extends StatelessWidget {
             curve: Interval(
               0.5,
               1.0,
-              curve: Curves.ease,
+              curve: curve,
             ),
           ),
         ),
-        rotation = Tween<double>(begin: 0, end: 4 * pi).animate(
+        borderRadius = Tween<double>(begin: 50, end: 10).animate(
           CurvedAnimation(
             parent: parentAnimation,
             curve: Interval(
               0,
               1,
-              curve: Curves.ease,
-            ),
-          ),
-        ),
-        borderRadius = Tween<double>(begin: 30, end: 10).animate(
-          CurvedAnimation(
-            parent: parentAnimation,
-            curve: Interval(
-              0.25,
-              1,
-              curve: Curves.ease,
+              curve: curve,
             ),
           ),
         ),
         color = ColorTween(
-          begin: Colors.indigo[300],
-          end: Colors.orange[400],
+          begin: Colors.indigoAccent,
+          end: Colors.deepOrangeAccent,
         ).animate(
           CurvedAnimation(
             parent: parentAnimation,
             curve: Interval(
-              0.500,
-              0.750,
-              curve: Curves.ease,
+              0.5,
+              0.75,
+              curve: curve,
             ),
           ),
         ),
@@ -92,7 +90,7 @@ class StaggerAnimation extends StatelessWidget {
       child: Transform.rotate(
         angle: rotation.value,
         child: Align(
-          alignment: Alignment.topCenter,
+          alignment: Alignment.bottomCenter,
           child: Container(
             width: size.value,
             height: size.value,
@@ -107,29 +105,56 @@ class StaggerAnimation extends StatelessWidget {
   }
 }
 
-class StaggerDemo extends StatefulWidget {
+class IntervalCurvesDemo extends StatefulWidget {
   @override
-  _StaggerDemoState createState() => _StaggerDemoState();
+  _IntervalCurvesDemoState createState() => _IntervalCurvesDemoState();
 }
 
-class _StaggerDemoState extends State<StaggerDemo>
+class _IntervalCurvesDemoState extends State<IntervalCurvesDemo>
     with TickerProviderStateMixin {
   late AnimationController _controller;
+
+  bool _showDebug = false;
 
   @override
   Widget build(BuildContext context) {
     timeDilation = 1.0; // 1.0 is normal animation speed.
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Staggered Animation'),
+        title: const Text('Interval Curves Animation'),
       ),
       body: GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: () {
-          _playAnimation();
+        onTap: () async {
+          await _controller.forward();
+          await _controller.reverse();
         },
-        child: Center(
-          child: StaggerAnimation(parentAnimation: _controller.view),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.indigoAccent,
+                      width: 1.0,
+                      style: _showDebug ? BorderStyle.solid : BorderStyle.none,
+                    ),
+                  ),
+                  child: IntervalCurvesAnimation(
+                    parentAnimation: _controller,
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                if (_showDebug) Text(_controller.value.toStringAsFixed(2)),
+              ],
+            ),
+          ],
         ),
       ),
     );
@@ -146,18 +171,10 @@ class _StaggerDemoState extends State<StaggerDemo>
     super.initState();
 
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 2000),
+      duration: Duration(milliseconds: (_showDebug ? 10000 : 2000)),
       vsync: this,
     );
-  }
 
-  Future<void> _playAnimation() async {
-    try {
-      await _controller.forward().orCancel;
-      await _controller.reverse().orCancel;
-    } on TickerCanceled {
-      print('canceled');
-      // the animation got canceled, probably because we were disposed
-    }
+    _controller.addListener(() => setState(() {}));
   }
 }

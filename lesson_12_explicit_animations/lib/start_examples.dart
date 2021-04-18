@@ -32,8 +32,8 @@ import 'package:lesson_12_explicit_animations/35_tween_chain_and_sequences.dart'
     as $35_tween_chain_and_sequences;
 import 'package:lesson_12_explicit_animations/36_tween_sequences_demo.dart'
     as $36_tween_sequences_demo;
-import 'package:lesson_12_explicit_animations/37_tween_several_animations_composed.dart'
-    as $37_tween_several_animations_composed;
+import 'package:lesson_12_explicit_animations/37_interval_curves_animations_composed.dart'
+    as $37_interval_curves_animations_composed;
 import 'package:lesson_12_explicit_animations/40_advanced_animation_extensions.dart'
     as $40_advanced_animation_extensions;
 
@@ -54,10 +54,10 @@ void main() {
   // $17_explicit_animated_builder.main();
   // $18_explicit_animated_widget.main();
   // $30_tween_evaluate_method.main();
-  // $31_tween_animate_method.main();
+  $31_tween_animate_method.main();
   // $33_custom_tween_animation.main();
   // $35_tween_chain_and_sequences.sizeAnimation;
-  $36_tween_sequences_demo.main();
-  // $37_tween_several_animations_composed.main();
+  // $36_tween_sequences_demo.main();
+  // $37_interval_curves_animations_composed.main();
   // $40_advanced_animation_extensions.main();
 }
