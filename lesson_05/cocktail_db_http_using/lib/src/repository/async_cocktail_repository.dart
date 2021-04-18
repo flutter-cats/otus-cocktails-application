@@ -184,7 +184,7 @@ class AsyncCocktailRepository {
       name: data.name,
       description: data.description,
       ingredientType: data.ingredientType,
-      isAlcoholic: data.isAlcoholic,
+      isAlcoholic: data.isAlcoholic == 'true',
     );
   }
 
