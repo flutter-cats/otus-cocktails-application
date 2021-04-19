@@ -11,7 +11,6 @@ Future<void> main() async {
   runApp(Center());
 
   tickerCreationDemo();
-
 }
 
 void tickerCreationDemo() {
@@ -22,7 +21,8 @@ void tickerCreationDemo() {
 Duration? previous;
 void _onTick(Duration elapsed) {
   if (previous != null) {
-    print((elapsed - previous!).inMicroseconds);
+    final frameDurationInMicroSecs = (elapsed - previous!).inMicroseconds;
+    print('frameDurationInMicroSecs is $frameDurationInMicroSecs');
   }
   previous = elapsed;
 }

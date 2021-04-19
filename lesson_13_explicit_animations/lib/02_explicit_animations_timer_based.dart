@@ -65,7 +65,10 @@ class _MyHomePageState extends State<MyHomePage> {
           setState(() {
             currentLeft = 0;
             interpolate(start, end!);
-            Timer.periodic(const Duration(milliseconds: 16), move);
+            Timer.periodic(
+              const Duration(microseconds: 16667),
+              move,
+            );
           });
         },
         child: Icon(Icons.play_arrow),
@@ -85,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void move(Timer t) async {
+  void move(Timer timer) async {
     final width = 40;
     final endPosition = end! - width;
 
@@ -94,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
         currentLeft += increment;
       });
     } else {
-      t.cancel();
+      timer.cancel();
     }
   }
 }

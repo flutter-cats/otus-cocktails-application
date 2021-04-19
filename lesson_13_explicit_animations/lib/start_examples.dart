@@ -55,12 +55,10 @@ import 'package:lesson_13_explicit_animations/51_page_route_transition.dart'
     as $51_page_route_transition;
 
 void main() {
-  //  todo: transitions between pages example
-
   // $02_explicit_animations_timer_based.main();
   // $03_explicit_animations_timer_based_clock_widget.main();
   // $04_ticker.main();
-  // $05_ticker_based_solution.main();
+  $05_ticker_based_solution.main();
   // $06_animation_controller_scenario.main();
   // $07_animation_controller_status_listener.main();
   // $08_1_animation_controller_animate_to.main();
@@ -84,5 +82,5 @@ void main() {
   // $37_interval_curves_animations_composed.main();
   // $40_advanced_animation_extensions.main();
   // $50_custom_painter_progress_loader.main();
-  $51_page_route_transition.main();
+  // $51_page_route_transition.main();
 }

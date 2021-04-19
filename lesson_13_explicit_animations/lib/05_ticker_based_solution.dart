@@ -18,7 +18,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class SecondPage extends StatelessWidget {
-  const SecondPage({Key? key}) : super(key: key);
+  final Ticker ticker;
+  const SecondPage({
+    Key? key,
+    required this.ticker,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +51,8 @@ class SecondPage extends StatelessWidget {
 ///
 /// SingleTickerProviderStateMixin позволяет нам получить доступ к Ticker
 ///
-class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
   late DateTime _startTime;
   String _currentTime = 'empty';
   Ticker? _ticker;
@@ -66,7 +71,9 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
             ElevatedButton(
               child: Text('Second Page'),
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (_) => SecondPage()));
+                Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                  return SecondPage(ticker: _ticker!);
+                }));
               },
             ),
           ]),
@@ -93,9 +100,15 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
         _currentTime = _startTime.toString();
         _currentTime = (_startTime.add(elapsed)).toString();
       });
-    })..start();
+    });
 
-    print('isMuted: ${_ticker?.muted}');
+    print('init state');
+    print('isActive: ${_ticker?.isActive}');
+    print('isTicking: ${_ticker?.isTicking}');
+
+    _ticker!.start();
+
+    print('after starting the ticker');
     print('isActive: ${_ticker?.isActive}');
     print('isTicking: ${_ticker?.isTicking}');
   }
