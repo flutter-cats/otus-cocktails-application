@@ -1,3 +1,5 @@
+import 'package:flutter/animation.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:lesson_13_explicit_animations/02_explicit_animations_timer_based.dart'
     as $02_explicit_animations_timer_based;
 import 'package:lesson_13_explicit_animations/03_explicit_animations_timer_based_clock_widget.dart'
@@ -55,8 +57,24 @@ import 'package:lesson_13_explicit_animations/51_page_route_transition.dart'
     as $51_page_route_transition;
 
 void main() {
+  ///
+  /// timer based solutions
+  ///
   $02_explicit_animations_timer_based.main();
   // $03_explicit_animations_timer_based_clock_widget.main();
+
+  ///
+  /// animation classes
+  ///
+  // Animation<double> animation;
+  // AnimationController animationController;
+  // SchedulerBinding!.instance.scheduleFrame();
+  // Ticker ticker;
+  // animationController = AnimationController(vsync: ticker);
+
+  ///
+  /// дальше
+  ///
   // $04_ticker.main();
   // $05_ticker_based_solution.main();
   // $06_animation_controller_scenario.main();
