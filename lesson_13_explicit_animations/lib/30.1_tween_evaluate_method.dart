@@ -18,10 +18,8 @@ void evaluateMethod() {
 
   final doublesTween = Tween<double>(begin: 0, end: 1);
   final colorTween = ColorTween(begin: Colors.red, end: Colors.green);
-  // .chain(ConstantTween(1));
 
-  final animation =
-      CurvedAnimation(parent: controller, curve: Curves.linear);
+  final animation = CurvedAnimation(parent: controller, curve: Curves.linear);
 
   controller.addListener(() {
     print('controller.value is ${controller.value}');

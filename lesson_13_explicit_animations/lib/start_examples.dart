@@ -31,8 +31,14 @@ import 'package:lesson_13_explicit_animations/30.1_tween_evaluate_method.dart'
     as $30_1_tween_evaluate_method;
 import 'package:lesson_13_explicit_animations/30.2_tween_evaluate_method.dart'
     as $30_2_tween_evaluate_method;
-import 'package:lesson_13_explicit_animations/31_tween_animate_method.dart'
-    as $31_tween_animate_method;
+import 'package:lesson_13_explicit_animations/31.1_tween_animate_method.dart'
+    as $31_1_tween_animate_method;
+import 'package:lesson_13_explicit_animations/31.2_tween_animate_method.dart'
+    as $31_2_tween_animate_method;
+import 'package:lesson_13_explicit_animations/32.1_tween_chain_method.dart'
+    as $32_1_tween_chain_method;
+import 'package:lesson_13_explicit_animations/32.2_tween_chain_and_drive_methods.dart'
+    as $32_2_tween_chain_and_drive_methods;
 import 'package:lesson_13_explicit_animations/33_custom_tween_animation.dart'
     as $33_custom_tween_animation;
 import 'package:lesson_13_explicit_animations/35_tween_and_sequences.dart'
@@ -66,7 +72,10 @@ void main() {
   // $18_explicit_animated_widget.main();
   // $30_1_tween_evaluate_method.main();
   // $30_2_tween_evaluate_method.main();
-  // $31_tween_animate_method.main();
+  // $31_1_tween_animate_method.main();
+  // $31_2_tween_animate_method.main();
+  // $32_1_tween_chain_method.main();
+  // $32_2_tween_chain_and_drive_methods.main();
   // $33_custom_tween_animation.main();
   // $35_tween_chain_and_sequences.sizeAnimation;
   // $36_tween_sequences_demo.main();
