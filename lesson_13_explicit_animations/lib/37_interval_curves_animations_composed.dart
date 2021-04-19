@@ -6,26 +6,26 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 bool _showDebug = false;
 
 void main() {
-
   runApp(
     MaterialApp(home: IntervalCurvesDemo()),
   );
 }
 
 class IntervalCurvesAnimation extends StatelessWidget {
-  final Animation<double> parentAnimation;
-  final Animation<double> canvasSize;
-  final Animation<double> size;
-  final Animation<double> rotation;
-  final Animation<double> borderRadius;
-  final Animation<Color?> color;
+  final Animation<double> parentAnimationController;
+
+  final Animation<double> parentSizeAnimation;
+  final Animation<double> sizeAnimation;
+  final Animation<double> rotationAnimation;
+  final Animation<double> borderRadiusAnimation;
+  final Animation<Color?> colorAnimation;
 
   static const Curve curve = Curves.ease;
 
-  IntervalCurvesAnimation({Key? key, required this.parentAnimation})
-      : canvasSize = Tween<double>(begin: 50.0, end: 200.0).animate(
+  IntervalCurvesAnimation({Key? key, required this.parentAnimationController})
+      : parentSizeAnimation = Tween<double>(begin: 50.0, end: 200.0).animate(
           CurvedAnimation(
-            parent: parentAnimation,
+            parent: parentAnimationController,
             curve: Interval(
               0,
               0.5,
@@ -33,9 +33,9 @@ class IntervalCurvesAnimation extends StatelessWidget {
             ),
           ),
         ),
-        rotation = Tween<double>(begin: 0, end: -2 * (2 * pi)).animate(
+        rotationAnimation = Tween<double>(begin: 0, end: -2 * (2 * pi)).animate(
           CurvedAnimation(
-            parent: parentAnimation,
+            parent: parentAnimationController,
             curve: Interval(
               0,
               1,
@@ -43,9 +43,9 @@ class IntervalCurvesAnimation extends StatelessWidget {
             ),
           ),
         ),
-        size = Tween<double>(begin: 30.0, end: 200.0).animate(
+        sizeAnimation = Tween<double>(begin: 30.0, end: 200.0).animate(
           CurvedAnimation(
-            parent: parentAnimation,
+            parent: parentAnimationController,
             curve: Interval(
               0.5,
               1.0,
@@ -53,9 +53,9 @@ class IntervalCurvesAnimation extends StatelessWidget {
             ),
           ),
         ),
-        borderRadius = Tween<double>(begin: 50, end: 10).animate(
+        borderRadiusAnimation = Tween<double>(begin: 50, end: 10).animate(
           CurvedAnimation(
-            parent: parentAnimation,
+            parent: parentAnimationController,
             curve: Interval(
               0,
               1,
@@ -63,12 +63,12 @@ class IntervalCurvesAnimation extends StatelessWidget {
             ),
           ),
         ),
-        color = ColorTween(
+        colorAnimation = ColorTween(
           begin: Colors.indigoAccent,
           end: Colors.deepOrangeAccent,
         ).animate(
           CurvedAnimation(
-            parent: parentAnimation,
+            parent: parentAnimationController,
             curve: Interval(
               0.5,
               0.75,
@@ -82,24 +82,24 @@ class IntervalCurvesAnimation extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       builder: _buildAnimation,
-      animation: parentAnimation,
+      animation: parentAnimationController,
     );
   }
 
   Widget _buildAnimation(BuildContext context, Widget? child) {
     return SizedBox(
-      height: canvasSize.value,
-      width: canvasSize.value,
+      height: parentSizeAnimation.value,
+      width: parentSizeAnimation.value,
       child: Transform.rotate(
-        angle: rotation.value,
+        angle: rotationAnimation.value,
         child: Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            width: size.value,
-            height: size.value,
+            width: sizeAnimation.value,
+            height: sizeAnimation.value,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(borderRadius.value),
-              color: color.value,
+              borderRadius: BorderRadius.circular(borderRadiusAnimation.value),
+              color: colorAnimation.value,
             ),
           ),
         ),
@@ -117,7 +117,7 @@ class _IntervalCurvesDemoState extends State<IntervalCurvesDemo>
     with TickerProviderStateMixin {
   late AnimationController _controller;
 
-   @override
+  @override
   Widget build(BuildContext context) {
     timeDilation = 1.0; // 1.0 is normal animation speed.
     return Scaffold(
@@ -144,7 +144,7 @@ class _IntervalCurvesDemoState extends State<IntervalCurvesDemo>
                     ),
                   ),
                   child: IntervalCurvesAnimation(
-                    parentAnimation: _controller,
+                    parentAnimationController: _controller,
                   ),
                 ),
               ],

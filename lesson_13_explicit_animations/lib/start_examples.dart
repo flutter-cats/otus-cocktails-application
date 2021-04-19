@@ -51,6 +51,8 @@ import 'package:lesson_13_explicit_animations/40_advanced_animation_extensions.d
     as $40_advanced_animation_extensions;
 import 'package:lesson_13_explicit_animations/50_custom_painter_progress_loader.dart'
     as $50_custom_painter_progress_loader;
+import 'package:lesson_13_explicit_animations/51_page_route_transition.dart'
+    as $51_page_route_transition;
 
 void main() {
   //  todo: transitions between pages example
@@ -82,4 +84,5 @@ void main() {
   // $37_interval_curves_animations_composed.main();
   // $40_advanced_animation_extensions.main();
   // $50_custom_painter_progress_loader.main();
+  $51_page_route_transition.main();
 }
