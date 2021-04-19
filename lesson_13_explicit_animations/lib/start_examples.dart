@@ -55,10 +55,10 @@ import 'package:lesson_13_explicit_animations/51_page_route_transition.dart'
     as $51_page_route_transition;
 
 void main() {
-  // $02_explicit_animations_timer_based.main();
+  $02_explicit_animations_timer_based.main();
   // $03_explicit_animations_timer_based_clock_widget.main();
   // $04_ticker.main();
-  $05_ticker_based_solution.main();
+  // $05_ticker_based_solution.main();
   // $06_animation_controller_scenario.main();
   // $07_animation_controller_status_listener.main();
   // $08_1_animation_controller_animate_to.main();
