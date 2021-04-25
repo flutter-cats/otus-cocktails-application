@@ -1,4 +1,4 @@
-import 'package:flare_dart/math/mat2d.dart';
+import 'package:flare_flutter/base/animation/actor_animation.dart';
 import 'package:flare_flutter/flare.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flare_flutter/flare_controller.dart';
@@ -75,7 +75,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin impleme
   @override
   void initialize(FlutterActorArtboard artBoard) {
     _artBoard = artBoard;
-    _startProgressAnimation = artBoard.getAnimation(_startProgressAnimationName);
+    _startProgressAnimation = artBoard.getAnimation(_startProgressAnimationName)!;
     _startProgressAnimation.apply(_startProgressAnimation.duration * _currentProgress, _artBoard, _mix);
   }
 
