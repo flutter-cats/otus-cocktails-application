@@ -1,21 +1,12 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-void main() => runApp(
-      DevicePreview(
-        enabled: !kReleaseMode,
-        builder: (context) => MyApp(),
-      ),
-    );
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      locale: DevicePreview.locale(context), // <--- /!\ Add the locale
-      builder: DevicePreview.appBuilder, // <--- /!\ Add the builder
       home: MyHomePage(),
     );
   }
@@ -38,8 +29,8 @@ class _MyHomePageState extends State<MyHomePage> {
           height: 300,
           child: Stack(
             children: <Widget>[
-              Lottie.asset('assets/lottie/cat-preloader.json'),
-              // Lottie.asset('assets/lottie/circle-venn-diagram-spherical-octahedron.json'),
+              Lottie.asset('assets/lottie/data.json'),
+              // Lottie.asset('assets/lottie/circle-spherical.json'),
             ],
           ),
         ),

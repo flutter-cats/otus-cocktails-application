@@ -1,26 +1,22 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 
-void main() => runApp(
-      DevicePreview(
-        enabled: !kReleaseMode,
-        builder: (context) => MyApp(),
-      ),
-    );
+void main() => runApp(MyApp());
 
 class CustomDrawer extends StatelessWidget {
   final LottieComposition composition;
+  final int frame;
 
-  const CustomDrawer(this.composition, {Key? key}) : super(key: key);
+  const CustomDrawer(this.composition, this.frame, {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return CustomPaint(
-      painter: _Painter(composition),
+      painter: _Painter(composition, frame),
       size: size,
     );
   }
@@ -30,8 +26,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      locale: DevicePreview.locale(context), // <--- /!\ Add the locale
-      builder: DevicePreview.appBuilder, // <--- /!\ Add the builder
       home: MyHomePage(),
     );
   }
@@ -42,8 +36,10 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
   late LottieComposition _composition;
+  late double _frames;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +48,27 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
         title: Text('Advanced Animations - Lottie'),
       ),
       body: Center(
-        child: CustomDrawer(_composition),
+        child: ListView.separated(
+          itemCount: _frames.toInt(),
+          itemBuilder: (_, index) {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text((index + 1).toString()),
+                SizedBox(
+                  height: 200,
+                  width: 200,
+                  child: Container(
+                    child: CustomDrawer(_composition, index),
+                    decoration: BoxDecoration(color: Colors.grey),
+                  ),
+                ),
+              ],
+            );
+          },
+          separatorBuilder: (BuildContext context, int index) => Divider(),
+        ),
       ),
     );
   }
@@ -66,25 +82,25 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
   Future<void> _loadComposition() async {
     var assetData = await rootBundle.load('assets/lottie/cat-preloader.json');
     _composition = await LottieComposition.fromByteData(assetData);
+    _frames = _composition.durationFrames;
     setState(() {});
   }
 }
 
 class _Painter extends CustomPainter {
   final LottieDrawable drawable;
+  final int frame;
 
-  _Painter(LottieComposition composition) : drawable = LottieDrawable(composition);
+  _Painter(LottieComposition composition, this.frame)
+      : drawable = LottieDrawable(composition);
 
   @override
   void paint(Canvas canvas, Size size) {
-    var frameCount = 40;
-    var columns = 5;
-    for (var i = 0; i < frameCount; i++) {
-      var destRect = Offset(i % columns * 140.0, i ~/ 5 * 140.0) & (size / 5);
-      drawable
-        ..setProgress(i / frameCount)
-        ..draw(canvas, destRect);
-    }
+    var frameCount = 49;
+    var destRect = Offset(0, 0) & (size);
+    drawable
+      ..setProgress(frame / frameCount)
+      ..draw(canvas, destRect);
   }
 
   @override

@@ -1,21 +1,12 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-void main() => runApp(
-      DevicePreview(
-        enabled: !kReleaseMode,
-        builder: (context) => MyApp(),
-      ),
-    );
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      locale: DevicePreview.locale(context), // <--- /!\ Add the locale
-      builder: DevicePreview.appBuilder, // <--- /!\ Add the builder
       home: MyHomePage(),
     );
   }
@@ -26,7 +17,8 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
   @override
@@ -34,7 +26,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 5000),
+      duration: Duration(milliseconds: ((48.99 / 24) * 1000).toInt() ),
     );
   }
 
@@ -56,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
           child: Stack(
             children: <Widget>[
               Lottie.asset(
-                'assets/lottie/cat-preloader.json',
+                'assets/lottie/data.json',
                 controller: _controller,
                 onLoaded: (LottieComposition composition) {
                   ///
@@ -80,12 +72,11 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
           if (_controller.isAnimating) {
             _controller.stop();
           } else {
-            _controller.repeat();
+            _controller.forward(from: 0);
           }
-
-          setState(() {});
         },
-        child: _controller.isAnimating ? Icon(Icons.stop) : Icon(Icons.play_arrow),
+        child:
+            _controller.isAnimating ? Icon(Icons.stop) : Icon(Icons.play_arrow),
       ),
     );
   }
