@@ -1,22 +1,14 @@
 import 'dart:math';
 
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(
-      DevicePreview(
-        enabled: !kReleaseMode,
-        builder: (context) => MyApp(),
-      ),
-    );
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      locale: DevicePreview.locale(context), // <--- /!\ Add the locale
-      builder: DevicePreview.appBuilder, // <--- /!\ Add the builder
       home: MyHomePage(),
     );
   }
@@ -96,8 +88,8 @@ class ProgressBarPainter extends CustomPainter {
       final currentAngle = _angleStep * (i + (_steps * rotation).toInt());
 
       final currentRadius = maxPaintRadius * (i / allSteps);
-      final offset =
-          Offset(center.dx + mainCircleRadius * cos(currentAngle), center.dy + mainCircleRadius * sin(currentAngle));
+      final offset = Offset(center.dx + mainCircleRadius * cos(currentAngle),
+          center.dy + mainCircleRadius * sin(currentAngle));
       canvas.drawCircle(offset, currentRadius, paint);
     }
   }
@@ -115,7 +107,8 @@ class ProgressLoader extends StatefulWidget {
   _ProgressLoaderState createState() => _ProgressLoaderState();
 }
 
-class _ProgressLoaderState extends State<ProgressLoader> with SingleTickerProviderStateMixin {
+class _ProgressLoaderState extends State<ProgressLoader>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
   @override
@@ -161,10 +154,13 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Container(
-          height: 400,
-          width: 400,
+          height: 300,
+          width: 300,
           decoration: BoxDecoration(color: Colors.blueAccent),
-          child: ProgressLoader(color: Colors.white),
+          child: Padding(
+            padding: const EdgeInsets.all(40.0),
+            child: ProgressLoader(color: Colors.white),
+          ),
         ),
       ),
     );
