@@ -33,73 +33,81 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     _products.addAll(Iterable.generate(7, (int index) => 'Laptop $index'));
   }
 
-  Rect get mainButtonRect => Rect.fromLTWH(0, _currentActorHeight - 90, ACTOR_WIDTH, 65);
-  Rect get recycleBinButtonRect => _isExpanded ? Rect.fromLTWH(0, 40, ACTOR_WIDTH, 62) : Rect.zero;
-  Rect get orgButtonRect => _isExpanded ? recycleBinButtonRect.translate(0, 62) : Rect.zero;
-  Rect get lampButtonRect => _isExpanded ? orgButtonRect.translate(0, 62) : Rect.zero;
-  Rect get galleryButtonRect => _isExpanded ? lampButtonRect.translate(0, 62) : Rect.zero;
-  Rect get checkButtonRect => _isExpanded ? galleryButtonRect.translate(0, 62) : Rect.zero;
+  Rect get mainButtonRect =>
+      Rect.fromLTWH(0, _currentActorHeight - 90, ACTOR_WIDTH, 65);
+  Rect get recycleBinButtonRect =>
+      _isExpanded ? Rect.fromLTWH(0, 40, ACTOR_WIDTH, 62) : Rect.zero;
+  Rect get orgButtonRect =>
+      _isExpanded ? recycleBinButtonRect.translate(0, 62) : Rect.zero;
+  Rect get lampButtonRect =>
+      _isExpanded ? orgButtonRect.translate(0, 62) : Rect.zero;
+  Rect get galleryButtonRect =>
+      _isExpanded ? lampButtonRect.translate(0, 62) : Rect.zero;
+  Rect get checkButtonRect =>
+      _isExpanded ? galleryButtonRect.translate(0, 62) : Rect.zero;
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.bottomCenter,
-      children: <Widget>[
-        Container(
-          margin: EdgeInsets.only(bottom: 0, right: 0),
-          alignment: Alignment.center,
-          child: Products(_products),
-        ),
-        Positioned(
-          child: GestureDetector(
-            onTapUp: (TapUpDetails info) {
-              if (mainButtonRect.contains(info.localPosition)) {
-                setState(() {
-                  _isExpanded = !_isExpanded;
-                  _currentAnimation = _isExpanded ? 'showing' : 'hiding';
-                  if (_isExpanded) {
-                    _currentActorHeight = IS_EXPANDED_ACTOR_HEIGHT;
-                  }
-                });
-              } else if (recycleBinButtonRect.contains(info.localPosition)) {
-                _currentAnimation = 'tapped_recyclebin';
-                _flareController.play(_currentAnimation);
-              } else if (orgButtonRect.contains(info.localPosition)) {
-                _currentAnimation = 'tapped_org';
-                _flareController.play(_currentAnimation);
-              } else if (lampButtonRect.contains(info.localPosition)) {
-                _currentAnimation = 'tapped_lamp';
-                _flareController.play(_currentAnimation);
-              } else if (galleryButtonRect.contains(info.localPosition)) {
-                _currentAnimation = 'tapped_gallery';
-                _flareController.play(_currentAnimation);
-              } else if (checkButtonRect.contains(info.localPosition)) {
-                _currentAnimation = 'tapped_checkthetext';
-                _flareController.play(_currentAnimation);
-              }
-            },
-            child: FlareActor(
-              'assets/flare/justtry.actions.panel.flr',
-              fit: BoxFit.scaleDown,
-              controller: _flareController,
-              animation: _currentAnimation,
-              alignment: Alignment.bottomCenter,
-              callback: (String animationName) {
-                if (animationName == 'hiding') {
+    return SafeArea(
+      child: Stack(
+        alignment: Alignment.bottomCenter,
+        children: <Widget>[
+          Container(
+            margin: EdgeInsets.only(bottom: 0, right: 0),
+            alignment: Alignment.center,
+            child: Products(_products),
+          ),
+          Positioned(
+            child: GestureDetector(
+              onTapUp: (TapUpDetails info) {
+                if (mainButtonRect.contains(info.localPosition)) {
                   setState(() {
-                    _currentAnimation = 'idle';
-                    _currentActorHeight = IS_COLLAPSED_ACTOR_HEIGHT;
+                    _isExpanded = !_isExpanded;
+                    _currentAnimation = _isExpanded ? 'showing' : 'hiding';
+                    if (_isExpanded) {
+                      _currentActorHeight = IS_EXPANDED_ACTOR_HEIGHT;
+                    }
                   });
+                } else if (recycleBinButtonRect.contains(info.localPosition)) {
+                  _currentAnimation = 'tapped_recyclebin';
+                  _flareController.play(_currentAnimation);
+                } else if (orgButtonRect.contains(info.localPosition)) {
+                  _currentAnimation = 'tapped_org';
+                  _flareController.play(_currentAnimation);
+                } else if (lampButtonRect.contains(info.localPosition)) {
+                  _currentAnimation = 'tapped_lamp';
+                  _flareController.play(_currentAnimation);
+                } else if (galleryButtonRect.contains(info.localPosition)) {
+                  _currentAnimation = 'tapped_gallery';
+                  _flareController.play(_currentAnimation);
+                } else if (checkButtonRect.contains(info.localPosition)) {
+                  _currentAnimation = 'tapped_checkthetext';
+                  _flareController.play(_currentAnimation);
                 }
               },
+              child: FlareActor(
+                'assets/flare/justtry.actions.panel.flr',
+                fit: BoxFit.scaleDown,
+                controller: _flareController,
+                animation: _currentAnimation,
+                alignment: Alignment.bottomCenter,
+                callback: (String animationName) {
+                  if (animationName == 'hiding') {
+                    setState(() {
+                      _currentAnimation = 'idle';
+                      _currentActorHeight = IS_COLLAPSED_ACTOR_HEIGHT;
+                    });
+                  }
+                },
+              ),
             ),
-          ),
-          height: _currentActorHeight,
-          width: ACTOR_WIDTH,
-          bottom: 0,
-          right: 0,
-        )
-      ],
+            height: _currentActorHeight,
+            width: ACTOR_WIDTH,
+            bottom: 0,
+            right: 0,
+          )
+        ],
+      ),
     );
   }
 }

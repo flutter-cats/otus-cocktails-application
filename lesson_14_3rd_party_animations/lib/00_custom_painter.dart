@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
 class MyCustomPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    Paint paint_0 = new Paint()
+    Paint paint_0 = Paint()
       ..color = Colors.white
       ..style = PaintingStyle.fill
       ..strokeWidth = 1;
