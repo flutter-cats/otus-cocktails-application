@@ -6,6 +6,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
   }
@@ -333,8 +334,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Container(
-          height: 300,
-          width: 300,
+          height: 200,
+          width: 200,
           decoration: BoxDecoration(color: Colors.orange.withOpacity(.4)),
           child: Padding(
             padding: const EdgeInsets.all(30.0),

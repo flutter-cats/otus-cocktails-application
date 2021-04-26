@@ -9,6 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
   }
@@ -33,27 +34,27 @@ class ProgressBarPainter extends CustomPainter {
   /// y = cy + r * sin(a)
   ///
   @override
-  // void paint0(Canvas canvas, Size size) {
-  //   final maxPaintRadius = size.width / 10;
-  //   final mainCircleRadius = size.width / 2 - maxPaintRadius;
-  //   final center = Offset(size.width / 2, size.height / 2);
-  //   final paint = Paint()..color = color.withAlpha(0xD0);
-  //
-  //   for (int i = 0; i < 12; i++) {
-  //     final currentAngle = i * _angleStep;
-  //
-  //     final offset =
-  //         Offset(center.dx + mainCircleRadius * cos(currentAngle), center.dy + mainCircleRadius * sin(currentAngle));
-  //     canvas.drawCircle(offset, maxPaintRadius, paint);
-  //   }
-  // }
+  void paint(Canvas canvas, Size size) {
+    final maxPaintRadius = size.width / 10;
+    final mainCircleRadius = size.width / 2 - maxPaintRadius;
+    final center = Offset(size.width / 2, size.height / 2);
+    final paint = Paint()..color = color.withAlpha(0xD0);
+
+    for (int i = 0; i < 12; i++) {
+      final currentAngle = i * _angleStep;
+
+      final offset = Offset(center.dx + mainCircleRadius * cos(currentAngle),
+          center.dy + mainCircleRadius * sin(currentAngle));
+      canvas.drawCircle(offset, maxPaintRadius, paint);
+    }
+  }
 
   ///
   /// x = cx + r * cos(a)
   /// y = cy + r * sin(a)
   ///
   // @override
-  // void paint1(Canvas canvas, Size size) {
+  // void paint(Canvas canvas, Size size) {
   //   final maxPaintRadius = size.width / 10;
   //   final mainCircleRadius = size.width / 2 - maxPaintRadius;
   //
@@ -71,28 +72,28 @@ class ProgressBarPainter extends CustomPainter {
   //   }
   // }
 
-  @override
-  void paint(Canvas canvas, Size size) {
-    if (size.isEmpty) {
-      return;
-    }
-
-    final maxPaintRadius = size.width / 10;
-    final mainCircleRadius = size.width / 2 - maxPaintRadius;
-    final center = Offset(size.width / 2, size.height / 2);
-    final paint = Paint()..color = color;
-
-    final allSteps = _steps; // + _steps ~/ 4;
-
-    for (int i = 0; i < allSteps; i++) {
-      final currentAngle = _angleStep * (i + (_steps * rotation).toInt());
-
-      final currentRadius = maxPaintRadius * (i / allSteps);
-      final offset = Offset(center.dx + mainCircleRadius * cos(currentAngle),
-          center.dy + mainCircleRadius * sin(currentAngle));
-      canvas.drawCircle(offset, currentRadius, paint);
-    }
-  }
+  // @override
+  // void paint(Canvas canvas, Size size) {
+  //   if (size.isEmpty) {
+  //     return;
+  //   }
+  //
+  //   final maxPaintRadius = size.width / 10;
+  //   final mainCircleRadius = size.width / 2 - maxPaintRadius;
+  //   final center = Offset(size.width / 2, size.height / 2);
+  //   final paint = Paint()..color = color;
+  //
+  //   final allSteps = _steps;
+  //
+  //   for (int i = 0; i < allSteps; i++) {
+  //     final currentAngle = _angleStep * (i + (_steps * rotation).toInt());
+  //
+  //     final currentRadius = maxPaintRadius * (i / allSteps);
+  //     final offset = Offset(center.dx + mainCircleRadius * cos(currentAngle),
+  //         center.dy + mainCircleRadius * sin(currentAngle));
+  //     canvas.drawCircle(offset, currentRadius, paint);
+  //   }
+  // }
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
@@ -122,7 +123,7 @@ class _ProgressLoaderState extends State<ProgressLoader>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1000),
+      duration: const Duration(milliseconds: 1300),
     )..repeat();
   }
 
@@ -148,7 +149,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.orangeAccent,
       appBar: AppBar(
         title: Text('Advanced Animations - Custom Painter Demo'),
       ),

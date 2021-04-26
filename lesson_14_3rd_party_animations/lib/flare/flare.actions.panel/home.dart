@@ -30,7 +30,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     super.initState();
 
     _currentAnimation = widget.initialAnimation;
-    _products.addAll(Iterable.generate(7, (int index) => 'Laptop $index'));
+    _products.addAll(
+      Iterable.generate(7, (int index) => 'Mac Pro ${((10 - index) * 100)}\$ '),
+    );
   }
 
   Rect get mainButtonRect =>

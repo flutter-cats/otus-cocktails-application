@@ -5,11 +5,11 @@ import 'package:lottie/lottie.dart';
 
 void main() => runApp(MyApp());
 
-class CustomDrawer extends StatelessWidget {
+class LottieFramePainer extends StatelessWidget {
   final LottieComposition composition;
   final int frame;
 
-  const CustomDrawer(this.composition, this.frame, {Key? key})
+  const LottieFramePainer(this.composition, this.frame, {Key? key})
       : super(key: key);
 
   @override
@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
   }
@@ -60,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage>
                   height: 200,
                   width: 200,
                   child: Container(
-                    child: CustomDrawer(_composition, index),
+                    child: LottieFramePainer(_composition, index),
                     decoration: BoxDecoration(color: Colors.grey),
                   ),
                 ),
@@ -81,8 +82,10 @@ class _MyHomePageState extends State<MyHomePage>
 
   Future<void> _loadComposition() async {
     var assetData = await rootBundle.load('assets/lottie/cat-preloader.json');
+
     _composition = await LottieComposition.fromByteData(assetData);
     _frames = _composition.durationFrames;
+
     setState(() {});
   }
 }

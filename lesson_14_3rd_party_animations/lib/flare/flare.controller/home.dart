@@ -12,7 +12,9 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> with SingleTickerProviderStateMixin implements FlareController {
+class _HomeState extends State<Home>
+    with SingleTickerProviderStateMixin
+    implements FlareController {
   @override
   void initState() {
     super.initState();
@@ -41,7 +43,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin impleme
                 ),
               ),
             ),
-            Positioned(bottom: 250, child: Text(_currentProgress.toStringAsFixed(2))),
+            Positioned(
+                bottom: 250, child: Text(_currentProgress.toStringAsFixed(2))),
             Positioned(
               bottom: 200,
               child: Slider(
@@ -52,7 +55,12 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin impleme
                 onChanged: (current) {
                   setState(() {
                     _currentProgress = current;
-                    _startProgressAnimation.apply(_startProgressAnimation.duration * _currentProgress, _artBoard, _mix);
+
+                    _startProgressAnimation.apply(
+                      _startProgressAnimation.duration * _currentProgress,
+                      _artBoard,
+                      _mix,
+                    );
                   });
                 },
                 value: _currentProgress,
@@ -77,8 +85,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin impleme
   @override
   void initialize(FlutterActorArtboard artBoard) {
     _artBoard = artBoard;
-    _startProgressAnimation = artBoard.getAnimation(_startProgressAnimationName)!;
-    _startProgressAnimation.apply(_startProgressAnimation.duration * _currentProgress, _artBoard, _mix);
+    _startProgressAnimation =
+        artBoard.getAnimation(_startProgressAnimationName)!;
+    _startProgressAnimation.apply(
+        _startProgressAnimation.duration * _currentProgress, _artBoard, _mix);
   }
 
   @override

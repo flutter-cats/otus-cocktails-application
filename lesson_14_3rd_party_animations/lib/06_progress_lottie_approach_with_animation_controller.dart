@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:lottie/lottie.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  // debugPaintLayerBordersEnabled = true;
+  // debugProfilePaintsEnabled = true;
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -20,7 +26,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
-  bool _isAnimated = false;
+  late AnimationController _animationController;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +41,11 @@ class _MyHomePageState extends State<MyHomePage>
             children: <Widget>[
               Lottie.asset(
                 'assets/lottie/cat-preloader.json',
-                animate: _isAnimated,
+                controller: _animationController,
+
+                // addRepaintBoundary: false,
+                // height: 200,
+                // width: 200,
               ),
             ],
           ),
@@ -43,12 +53,27 @@ class _MyHomePageState extends State<MyHomePage>
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() {
-            _isAnimated = !_isAnimated;
-          });
+          if (_animationController.isAnimating) {
+            _animationController.stop();
+          } else {
+            _animationController
+              ..reset()
+              ..forward();
+          }
         },
-        child: _isAnimated ? Icon(Icons.stop) : Icon(Icons.play_arrow),
+        child: _animationController.isAnimating
+            ? Icon(Icons.stop)
+            : Icon(Icons.play_arrow),
       ),
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 5),
     );
   }
 }
