@@ -25,7 +25,7 @@ class CocktailDetailPage extends StatelessWidget {
           color: Colors.black,
         ),
         _cocktailThumb(),
-        _cocktailDetails(),
+        _cocktailDetails(context),
         _cocktailIngredients(),
         _cocktailInstruction(),
         _cocktailRate(),
@@ -109,14 +109,15 @@ class CocktailDetailPage extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
+            Flexible(
+                child: Text(
               ingredientName,
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 14,
                 decoration: TextDecoration.underline,
               ),
-            ),
+            )),
             Text(
               measure,
               style: TextStyle(
@@ -128,7 +129,7 @@ class CocktailDetailPage extends StatelessWidget {
         ));
   }
 
-  Widget _cocktailDetails() {
+  Widget _cocktailDetails(context) {
     return Container(
         color: Color(0xFF1A1927),
         height: 345,
@@ -139,31 +140,34 @@ class CocktailDetailPage extends StatelessWidget {
             alignment: Alignment.topCenter,
             fit: StackFit.expand,
             children: [
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text(
-                  cocktail.name,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
-                ),
-                Padding(
-                    padding: EdgeInsets.only(top: 10),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width-90,
                     child: Text(
-                      'Id:' + cocktail.id,
-                      style: TextStyle(
-                        color: Color(0xFF848396),
-                        fontSize: 13,
-                      ),
-                    )),
-                _detailTitleText(
-                    'Категория коктейля', 20, Color(0xFFEAEAEA), 14),
-                _detailDataText(cocktail.category.value),
-                _detailTitleText('Тип коктейля', 24, Color(0xFFEAEAEA), 14),
-                _detailDataText(cocktail.cocktailType.value),
-                _detailTitleText('Тип стекла', 24, Color(0xFFEAEAEA), 14),
-                _detailDataText(cocktail.glassType.value),
-              ]),
+                    cocktail.name,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  )),
+                  Padding(
+                      padding: EdgeInsets.only(top: 10),
+                      child: Text(
+                        'Id:' + cocktail.id,
+                        style: TextStyle(
+                          color: Color(0xFF848396),
+                          fontSize: 13,
+                        ),
+                      )),
+                  _detailTitleText(
+                      'Категория коктейля', 20, Color(0xFFEAEAEA), 14),
+                  _detailDataText(cocktail.category.value),
+                  _detailTitleText('Тип коктейля', 24, Color(0xFFEAEAEA), 14),
+                  _detailDataText(cocktail.cocktailType.value),
+                  _detailTitleText('Тип стекла', 24, Color(0xFFEAEAEA), 14),
+                  _detailDataText(cocktail.glassType.value),
+                ],
+              ),
               if (cocktail.isFavourite)
                 Positioned(
                     top: 4,
