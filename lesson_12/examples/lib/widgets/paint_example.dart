@@ -12,11 +12,12 @@ class PaintExample extends StatelessWidget {
       appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(40),
-        // child: _buildGradientPainter(),
+        child: _buildGradientPainter(),
         // child: ImageShaderExample(),
+        // ==========
         // child: _buildMaskFilterPainter(),
         // child: ImageFilterExample(),
-        child: _buildStrokePainter(),
+        // child: _buildStrokePainter(),
       ),
     );
   }
@@ -67,7 +68,8 @@ class LinearGradientPainter extends CustomPainter {
         [0, 0.5, 1],
       );
 
-    canvas.drawRect(Offset.zero & size, paint);
+    final rect = Offset.zero & size;
+    canvas.drawRect(rect, paint);
   }
 
   @override
@@ -81,8 +83,8 @@ class RadialGradientPainter extends CustomPainter {
       ..style = PaintingStyle.fill
       ..shader = ui.Gradient.radial(
         Offset(size.width / 2, size.height / 2),
-        size.width / 4,
-        [Colors.red, Colors.yellow, Colors.blue],
+        size.width / 2,
+        [Colors.red, Colors.yellow, Colors.orangeAccent],
         [0, 0.5, 1],
         // TileMode.mirror,
       );
@@ -101,9 +103,8 @@ class SweepGradientPainter extends CustomPainter {
       ..style = PaintingStyle.fill
       ..shader = ui.Gradient.sweep(
         Offset(size.width / 2, size.height / 2),
-        [Colors.red, Colors.yellow, Colors.blue, Colors.red],
+        [Colors.red, Colors.yellow, Colors.blueAccent, Colors.red],
         [0, 0.3, 0.7, 1],
-        // TileMode.mirror,
       );
 
     canvas.drawRect(Offset.zero & size, paint);
@@ -165,7 +166,7 @@ class ImageShaderPainter extends CustomPainter {
       ..style = PaintingStyle.fill
       ..shader = ImageShader(
         image,
-        TileMode.repeated,
+        TileMode.decal,
         TileMode.repeated,
         Matrix4.identity().storage,
       );
@@ -189,7 +190,7 @@ class MaskFilterPainter extends CustomPainter {
         [Colors.red, Colors.yellow, Colors.blue],
         [0, 0.5, 1],
       )
-      ..maskFilter = MaskFilter.blur(BlurStyle.outer, 10);
+      ..maskFilter = MaskFilter.blur(BlurStyle.normal, 10);
 
     canvas.drawRect(Offset.zero & size, paint);
   }
@@ -205,7 +206,7 @@ class DropShadowPainter extends CustomPainter {
       ..style = PaintingStyle.fill
       ..color = Colors.black
       ..maskFilter = MaskFilter.blur(BlurStyle.normal, 6);
-    final shadowRect = Offset(20, 10) & (size / 2);
+    final shadowRect = Offset(30, 20) & (size / 2);
     canvas.drawRect(shadowRect, shadowPaint);
 
     final rect = Offset.zero & (size / 2);
@@ -249,8 +250,8 @@ class _ImageFilterExampleState extends State<ImageFilterExample> {
         if (!snapshot.hasData) return Container();
 
         return Container(
-          height: 500,
-          width: 500,
+          height: 200,
+          width: 300,
           child: CustomPaint(
             painter: ImageFilterPainter(snapshot.data!),
           ),
