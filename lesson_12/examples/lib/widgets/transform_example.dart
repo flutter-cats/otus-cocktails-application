@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
@@ -39,27 +40,15 @@ class TransformPainter extends CustomPainter {
         [0, 0.5, 1],
       );
 
-    // canvas.save();
-
     // canvas.translate(0, -200);
 
     final matrix = Matrix4.skewX(2);
-    matrix.scale(1, 2);
-    matrix.translate(100);
-    matrix.rotateY(20);
+    matrix.scale(1, 1.1);
+    matrix.translate(300);
+    matrix.rotateY(pi);
     canvas.transform(matrix.storage);
 
     canvas.drawRect(Offset.zero & size, paint);
-
-    // canvas.restore();
-
-    // canvas.drawRect(
-    //   Offset.zero & size,
-    //   Paint()
-    //     ..style = PaintingStyle.stroke
-    //     ..strokeWidth = 4
-    //     ..color = Colors.black,
-    // );
   }
 
   @override

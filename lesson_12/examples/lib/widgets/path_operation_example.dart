@@ -27,11 +27,13 @@ class PathOperationPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final circle = Path()..addOval(Offset.zero & (size / 2));
-    canvas.drawPath(circle, Paint()..color = Colors.cyan);
+    final square = Path()
+      ..addRect(
+        Offset(size.width / 4, size.height / 4) & (size / 2),
+      );
 
-    final rectangle = Path()
-      ..addRect(Offset(size.width / 4, size.height / 4) & (size / 2));
-    canvas.drawPath(rectangle, Paint()..color = Colors.deepOrange);
+    canvas.drawPath(circle, Paint()..color = Colors.cyan);
+    canvas.drawPath(square, Paint()..color = Colors.deepOrange);
 
     final combinedPath = Path.combine(
       PathOperation.intersect,
@@ -40,7 +42,7 @@ class PathOperationPainter extends CustomPainter {
       // PathOperation.union,
       // PathOperation.xor,
       circle,
-      rectangle,
+      square,
     );
     // canvas.drawPath(combinedPath, Paint()..color = Colors.purpleAccent);
   }

@@ -5,16 +5,15 @@ class SaveLayerExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Center(
           child: Container(
-            width: 300,
-            height: 200,
+            width: 200,
+            height: 100,
             child: CustomPaint(
-              painter: const SaveLayerPainter(),
+              painter: SaveLayerPainter(),
             ),
           ),
         ),
@@ -24,22 +23,67 @@ class SaveLayerExample extends StatelessWidget {
 }
 
 class SaveLayerPainter extends CustomPainter {
-  const SaveLayerPainter();
+  final _shadowOffset = Offset(70, 30);
+  final _shadowColor = Colors.black;
+  final _shadowBlur = const MaskFilter.blur(BlurStyle.normal, 4);
+  final _shadowOpacity = 1.0; //0.5
+
+  SaveLayerPainter();
 
   @override
   void paint(Canvas canvas, Size size) {
+    canvas.save();
+    canvas.translate(_shadowOffset.dx, _shadowOffset.dy);
+
+    _paintShadowWithoutSaveLayer(canvas, size);
+    // _paintShadowWithSaveLayer(canvas, size);
+
+    canvas.restore();
+
+    final pinkPaint = Paint()..color = Colors.pink;
+    final greenPaint = Paint()..color = Colors.lightGreenAccent;
+    _paintObjects(canvas, size, circlePaint: pinkPaint, rectPaint: greenPaint);
+  }
+
+  void _paintObjects(
+    Canvas canvas,
+    Size size, {
+    required Paint rectPaint,
+    required Paint circlePaint,
+  }) {
+    canvas.drawRect(Offset.zero & (size / 2), rectPaint);
+    canvas.drawCircle(Offset.zero, size.shortestSide / 2, circlePaint);
+  }
+
+  void _paintShadowWithoutSaveLayer(Canvas canvas, Size size) {
     final shadowPaint = Paint()
-      ..color = Colors.grey.withOpacity(0.5)
-      ..maskFilter = MaskFilter.blur(BlurStyle.normal, 4);
+      ..color = _shadowColor.withOpacity(_shadowOpacity)
+      ..maskFilter = _shadowBlur;
 
-    // canvas.saveLayer(Rect.largest, shadowPaint);
+    _paintObjects(
+      canvas,
+      size,
+      circlePaint: shadowPaint,
+      rectPaint: shadowPaint,
+    );
+  }
 
-    // final opaquePaint = Paint()
-    //   ..color = Colors.grey
-    //   ..maskFilter = MaskFilter.blur(BlurStyle.normal, 4);
+  void _paintShadowWithSaveLayer(Canvas canvas, Size size) {
+    // final layerPaint = Paint()
+    //   ..color = _shadowColor.withOpacity(_shadowOpacity);
+    //
+    // canvas.saveLayer(null, layerPaint);
 
-    canvas.drawRect(Offset.zero & (size / 2), shadowPaint); // opaquePaint
-    canvas.drawCircle(Offset.zero, size.shortestSide / 2, shadowPaint); // opaquePaint
+    final shadowPaint = Paint()
+      ..color = _shadowColor
+      ..maskFilter = _shadowBlur;
+
+    _paintObjects(
+      canvas,
+      size,
+      circlePaint: shadowPaint,
+      rectPaint: shadowPaint,
+    );
 
     // canvas.restore();
   }
