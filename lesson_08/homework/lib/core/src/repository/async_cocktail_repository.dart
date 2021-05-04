@@ -5,31 +5,35 @@ import 'package:http/http.dart' as http;
 
 import '../../models.dart';
 
-
 class AsyncCocktailRepository {
-  static const String _apiKey = 'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b';
+  static const String _apiKey =
+      'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b';
 
   static const Map<String, String> _headers = const {
     'x-rapidapi-key': _apiKey,
   };
 
-  Future<Cocktail> fetchCocktailDetails(String id) async {
-    Cocktail result;
+  Future<Cocktail?> fetchCocktailDetails(String id) async {
+    Cocktail? result;
 
     var client = http.Client();
     try {
       final url = 'https://the-cocktail-db.p.rapidapi.com/lookup.php?i=$id';
-      var response = await http.get(url, headers: _headers);
+      final uri = Uri(path: url);
+      var response = await http.get(uri, headers: _headers);
       if (response.statusCode == 200) {
         final jsonResponse = convert.jsonDecode(response.body);
         var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
 
-        final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDto.fromJson(json));
+        final dtos = drinks
+            .cast<Map<String, dynamic>>()
+            .map((json) => CocktailDto.fromJson(json));
         if (dtos.length > 0) {
           result = _createCocktailFromDto(dtos.first);
         }
       } else {
-        throw HttpException('Request failed with status: ${response.statusCode}');
+        throw HttpException(
+            'Request failed with status: ${response.statusCode}');
       }
     } finally {
       client.close();
@@ -38,23 +42,29 @@ class AsyncCocktailRepository {
     return result;
   }
 
-  Future<Iterable<CocktailDefinition>> fetchCocktailsByCocktailType(CocktailType cocktailType) async {
+  Future<Iterable<CocktailDefinition>> fetchCocktailsByCocktailType(
+      CocktailType cocktailType) async {
     var result = <CocktailDefinition>[];
 
     var client = http.Client();
     try {
-      final url = 'https://the-cocktail-db.p.rapidapi.com/filter.php?a=${cocktailType.value}';
+      final url =
+          'https://the-cocktail-db.p.rapidapi.com/filter.php?a=${cocktailType.value}';
+      final uri = Uri(path: url);
       var response = await http.get(
-        url,
+        uri,
         headers: {
-          'x-rapidapi-key': 'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
+          'x-rapidapi-key':
+              'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
         },
       );
       if (response.statusCode == 200) {
         final jsonResponse = convert.jsonDecode(response.body);
         var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
 
-        final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDefinitionDto.fromJson(json));
+        final dtos = drinks
+            .cast<Map<String, dynamic>>()
+            .map((json) => CocktailDefinitionDto.fromJson(json));
 
         for (final dto in dtos) {
           result.add(CocktailDefinition(
@@ -65,7 +75,8 @@ class AsyncCocktailRepository {
           ));
         }
       } else {
-        throw HttpException('Request failed with status: ${response.statusCode}');
+        throw HttpException(
+            'Request failed with status: ${response.statusCode}');
       }
     } finally {
       client.close();
@@ -74,23 +85,35 @@ class AsyncCocktailRepository {
     return result;
   }
 
-  Future<Iterable<CocktailDefinition>> fetchCocktailsByCocktailCategory(CocktailCategory category) async {
+  Future<Iterable<CocktailDefinition>> fetchCocktailsByCocktailCategory(
+      CocktailCategory? category) async {
     var result = <CocktailDefinition>[];
 
     var client = http.Client();
     try {
-      final url = 'https://the-cocktail-db.p.rapidapi.com/filter.php?c=${category.value}';
+      // final url =
+      //     'https://the-cocktail-db.p.rapidapi.com/filter.php?c=${category?.value';
+      // final uri = Uri(path: url);
+      print("Category Value ${category?.value}");
+      final categoryValue = category?.value ?? '';
+      final uri = Uri.https(
+          "the-cocktail-db.p.rapidapi.com", "filter.php", {'c': categoryValue});
+
+      print("URI ${uri}");
       var response = await http.get(
-        url,
+        uri,
         headers: {
-          'x-rapidapi-key': 'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
+          'x-rapidapi-key':
+              'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
         },
       );
       if (response.statusCode == 200) {
         final jsonResponse = convert.jsonDecode(response.body);
         var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
 
-        final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDefinitionDto.fromJson(json));
+        final dtos = drinks
+            .cast<Map<String, dynamic>>()
+            .map((json) => CocktailDefinitionDto.fromJson(json));
 
         for (final dto in dtos) {
           result.add(CocktailDefinition(
@@ -101,7 +124,8 @@ class AsyncCocktailRepository {
           ));
         }
       } else {
-        throw HttpException('Request failed with status: ${response.statusCode}');
+        throw HttpException(
+            'Request failed with status: ${response.statusCode}');
       }
     } finally {
       client.close();
@@ -116,24 +140,29 @@ class AsyncCocktailRepository {
     var client = http.Client();
     try {
       const url = 'https://the-cocktail-db.p.rapidapi.com/popular.php';
+      final uri = Uri(path: url);
       var response = await http.get(
-        url,
+        uri,
         headers: {
-          'x-rapidapi-key': 'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
+          'x-rapidapi-key':
+              'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
         },
       );
       if (response.statusCode == 200) {
         final jsonResponse = convert.jsonDecode(response.body);
         var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
 
-        final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDto.fromJson(json));
+        final dtos = drinks
+            .cast<Map<String, dynamic>>()
+            .map((json) => CocktailDto.fromJson(json));
 
         for (final dto in dtos) {
           final cocktail = _createCocktailFromDto(dto);
           result.add(cocktail);
         }
       } else {
-        throw HttpException('Request failed with status: ${response.statusCode}');
+        throw HttpException(
+            'Request failed with status: ${response.statusCode}');
       }
     } finally {
       client.close();
@@ -142,23 +171,27 @@ class AsyncCocktailRepository {
     return result;
   }
 
-  Future<Cocktail> getRandomCocktail() async {
-    Cocktail result;
+  Future<Cocktail?> getRandomCocktail() async {
+    Cocktail? result;
 
     var client = http.Client();
     try {
       const url = 'https://the-cocktail-db.p.rapidapi.com/random.php';
-      var response = await http.get(url, headers: _headers);
+      final uri = Uri(path: url);
+      var response = await http.get(uri, headers: _headers);
       if (response.statusCode == 200) {
         final jsonResponse = convert.jsonDecode(response.body);
         var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
 
-        final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDto.fromJson(json));
+        final dtos = drinks
+            .cast<Map<String, dynamic>>()
+            .map((json) => CocktailDto.fromJson(json));
         if (dtos.length > 0) {
           result = _createCocktailFromDto(dtos.first);
         }
       } else {
-        throw HttpException('Request failed with status: ${response.statusCode}');
+        throw HttpException(
+            'Request failed with status: ${response.statusCode}');
       }
     } finally {
       client.close();
@@ -166,16 +199,14 @@ class AsyncCocktailRepository {
 
     return result;
   }
-
 
   ///
   /// TODO: implement Lookup ingredient by ID operation to get all details about Ingredient
   /// using an endpoint https://rapidapi.com/thecocktaildb/api/the-cocktail-db?endpoint=apiendpoint_0ee9572a-a259-4b6e-9e53-b97aa3d42b18
   ///
-  Future<Ingredient> lookupIngredientById() async {
+  Future<Ingredient?> lookupIngredientById() async {
     return null;
   }
-
 
   Cocktail _createCocktailFromDto(CocktailDto dto) {
     final glass = GlassType.parse(dto.strGlass);
@@ -184,7 +215,8 @@ class AsyncCocktailRepository {
 
     var ingredients = <IngredientDefinition>[];
 
-    _getIngredients(dto).forEach((key, value) => ingredients.add(IngredientDefinition(key, value)));
+    _getIngredients(dto).forEach(
+        (key, value) => ingredients.add(IngredientDefinition(key, value)));
 
     return Cocktail(
       id: dto.idDrink,

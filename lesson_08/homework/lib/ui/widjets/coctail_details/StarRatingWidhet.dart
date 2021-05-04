@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../../core/src/extensions/Color+Extensions.dart';
 
-
-
 class StarRatingWidjet extends StatelessWidget {
   final int stars;
   final int maxRatingCount = 5;
-  StarRatingWidjet({this.stars});
+  const StarRatingWidjet({required this.stars});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +25,7 @@ class StarRatingWidjet extends StatelessWidget {
 class StarRatingItemWidget extends StatelessWidget {
   const StarRatingItemWidget(
     this.isLiked, {
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   final bool isLiked;

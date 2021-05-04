@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class CoctailDetailsHeader extends StatelessWidget {
   final String imageUrl;
 
-  CoctailDetailsHeader({this.imageUrl});
+  const CoctailDetailsHeader({required this.imageUrl, Key? key});
 
   @override
   Widget build(BuildContext context) {

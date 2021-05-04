@@ -15,7 +15,7 @@ import '../ui/widjets/filter_page/coctail_collection_item_widjet.dart';
 class FilterModel {
   String name;
   bool isSelected;
-  FilterModel({@required this.name, @required this.isSelected});
+  FilterModel({required this.name, required this.isSelected});
 }
 
 class CocktailsFilterScreen extends StatefulWidget {
@@ -28,12 +28,12 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
       .map((e) => FilterModel(name: e.value, isSelected: false))
       .toList();
 
-  List<FilterModel> _filters;
+  late List<FilterModel> _filters;
   List<CocktailDefinition> _coctails = [];
 
-  String errorMessage;
+  late String errorMessage;
 
-  String selectedFilterName;
+  late String selectedFilterName;
 
   @override
   void initState() {
@@ -74,9 +74,9 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
     final result = await AsyncCocktailRepository()
         .fetchCocktailsByCocktailCategory(category);
 
-    _coctails = result;
+    _coctails = result.toList();
 
-    return result;
+    return result.toList();
   }
 
   @override
@@ -91,6 +91,7 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
             child: FutureBuilder(
                 future: fetchCoctailsByFilter(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  // Card Delegate
                   final coctailCardDelegate = SliverChildListDelegate(
                     List.generate(
                         _coctails == null ? 0 : _coctails.length,
@@ -142,6 +143,7 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
                           snapshot.connectionState == ConnectionState.waiting
                               ? SliverToBoxAdapter(
                                   child: Center(
+                                      // Here we need to set custom Activity Indicator!
                                       child: CircularProgressIndicator()),
                                 )
                               : SliverPadding(

@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 class SearchFiedlWidjet extends StatefulWidget {
   final Function(String) handleSubmitText;
 
-  SearchFiedlWidjet({@required this.handleSubmitText});
+  SearchFiedlWidjet({required this.handleSubmitText});
 
   @override
   _SearchFiedlWidjetState createState() => _SearchFiedlWidjetState();

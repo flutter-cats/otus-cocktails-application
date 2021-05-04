@@ -5,7 +5,7 @@ import '../../../core/models.dart';
 class CoctailDetailsIngridients extends StatelessWidget {
   final Iterable<IngredientDefinition> ingridens;
 
-  CoctailDetailsIngridients({this.ingridens});
+  const CoctailDetailsIngridients({required this.ingridens});
 
   @override
   Widget build(BuildContext context) {

@@ -12,7 +12,7 @@ import '../core/models.dart';
 class CocktailDetailPage extends StatelessWidget {
   const CocktailDetailPage(
     this.cocktail, {
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   final Cocktail cocktail;

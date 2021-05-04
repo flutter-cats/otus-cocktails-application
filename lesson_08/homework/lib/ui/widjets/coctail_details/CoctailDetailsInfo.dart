@@ -7,17 +7,18 @@ class CoctailDetailsInfo extends StatelessWidget {
   final String title;
   final String id;
   final bool isFavorit;
-  final CocktailCategory category;
-  final CocktailType typeCoctail;
-  final GlassType typeGlass;
+  final CocktailCategory? category;
+  final CocktailType? typeCoctail;
+  final GlassType? typeGlass;
 
-  CoctailDetailsInfo(
-      {this.title,
-      this.id,
-      this.isFavorit,
-      this.category,
-      this.typeCoctail,
-      this.typeGlass});
+  const CoctailDetailsInfo(
+      {Key? key,
+      required this.title,
+      required this.id,
+      required this.isFavorit,
+      required this.category,
+      required this.typeCoctail,
+      required this.typeGlass});
 
   @override
   Widget build(BuildContext context) {
@@ -34,15 +35,15 @@ class CoctailDetailsInfo extends StatelessWidget {
           ),
           CoctailDetailsTypeItem(
             title: "Категория коктейля",
-            value: category.name,
+            value: category?.name ?? 'No Category',
           ),
           CoctailDetailsTypeItem(
             title: 'Тип Коктейля',
-            value: typeCoctail.name,
+            value: typeCoctail?.name ?? 'No type Coctail',
           ),
           CoctailDetailsTypeItem(
             title: 'Тип стекла',
-            value: typeGlass.name,
+            value: typeGlass?.name ?? 'no tyep glass',
           )
         ],
       ),
@@ -53,7 +54,10 @@ class CoctailDetailsInfo extends StatelessWidget {
 class CoctailDetailsTypeItem extends StatelessWidget {
   final String title;
   final String value;
-  CoctailDetailsTypeItem({this.title, this.value});
+
+  const CoctailDetailsTypeItem(
+      {Key? key, required this.title, required this.value});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -88,7 +92,11 @@ class CoctailDetailsInfoHeader extends StatelessWidget {
   final String id;
   final String title;
   final bool isFavorit;
-  CoctailDetailsInfoHeader({this.id, this.title, this.isFavorit});
+  const CoctailDetailsInfoHeader(
+      {Key? key,
+      required this.id,
+      required this.title,
+      required this.isFavorit});
   @override
   Widget build(BuildContext context) {
     return Container(

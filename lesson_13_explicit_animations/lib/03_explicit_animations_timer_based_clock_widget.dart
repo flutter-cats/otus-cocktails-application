@@ -19,7 +19,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late String _currentTime;
+  late String _currentTime = DateTime.now().toString();
 
   @override
   Widget build(BuildContext context) {
@@ -49,11 +49,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Icon(Icons.play_arrow),
       ),
     );
-  }
-
-  void initState() {
-    super.initState();
-    _currentTime = DateTime.now().toString();
   }
 
   void refreshTime(Timer t) {

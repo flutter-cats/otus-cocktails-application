@@ -60,7 +60,7 @@ void main() {
   ///
   /// timer based solutions
   ///
-  $02_explicit_animations_timer_based.main();
+  // $02_explicit_animations_timer_based.main();
   // $03_explicit_animations_timer_based_clock_widget.main();
 
   ///
@@ -100,5 +100,5 @@ void main() {
   // $37_interval_curves_animations_composed.main();
   // $40_advanced_animation_extensions.main();
   // $50_custom_painter_progress_loader.main();
-  // $51_page_route_transition.main();
+  $51_page_route_transition.main();
 }
