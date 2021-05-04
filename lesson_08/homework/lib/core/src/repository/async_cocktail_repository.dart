@@ -18,8 +18,8 @@ class AsyncCocktailRepository {
 
     var client = http.Client();
     try {
-      final url = 'https://the-cocktail-db.p.rapidapi.com/lookup.php?i=$id';
-      final uri = Uri(path: url);
+      final uri = Uri.https(
+          "the-cocktail-db.p.rapidapi.com", "lookup.php", {'i': '$id'});
       var response = await http.get(uri, headers: _headers);
       if (response.statusCode == 200) {
         final jsonResponse = convert.jsonDecode(response.body);
@@ -48,9 +48,9 @@ class AsyncCocktailRepository {
 
     var client = http.Client();
     try {
-      final url =
-          'https://the-cocktail-db.p.rapidapi.com/filter.php?a=${cocktailType.value}';
-      final uri = Uri(path: url);
+      final uri = Uri.https("the-cocktail-db.p.rapidapi.com", "filter.php",
+          {'a': '${cocktailType.value}'});
+
       var response = await http.get(
         uri,
         headers: {
@@ -91,15 +91,10 @@ class AsyncCocktailRepository {
 
     var client = http.Client();
     try {
-      // final url =
-      //     'https://the-cocktail-db.p.rapidapi.com/filter.php?c=${category?.value';
-      // final uri = Uri(path: url);
-      print("Category Value ${category?.value}");
       final categoryValue = category?.value ?? '';
       final uri = Uri.https(
           "the-cocktail-db.p.rapidapi.com", "filter.php", {'c': categoryValue});
 
-      print("URI ${uri}");
       var response = await http.get(
         uri,
         headers: {
@@ -139,8 +134,7 @@ class AsyncCocktailRepository {
 
     var client = http.Client();
     try {
-      const url = 'https://the-cocktail-db.p.rapidapi.com/popular.php';
-      final uri = Uri(path: url);
+      final uri = Uri.https("the-cocktail-db.p.rapidapi.com", "popular.php");
       var response = await http.get(
         uri,
         headers: {
@@ -176,8 +170,7 @@ class AsyncCocktailRepository {
 
     var client = http.Client();
     try {
-      const url = 'https://the-cocktail-db.p.rapidapi.com/random.php';
-      final uri = Uri(path: url);
+      final uri = Uri.https("the-cocktail-db.p.rapidapi.com", "random.php");
       var response = await http.get(uri, headers: _headers);
       if (response.statusCode == 200) {
         final jsonResponse = convert.jsonDecode(response.body);

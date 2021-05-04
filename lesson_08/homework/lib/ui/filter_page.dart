@@ -6,6 +6,7 @@ import 'package:cocktail/core/src/extensions/Color+Extensions.dart';
 import 'package:flutter/material.dart';
 import '../ui/widjets/filter_page/search_widjet.dart';
 import '../ui/widjets/filter_page/filters_collection_widjet.dart';
+import '../ui/widjets/custom_widjets/proggress_loader.dart';
 import 'dart:io';
 
 import '../ui/widjets/filter_page/coctail_collection_item_widjet.dart';
@@ -144,7 +145,12 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
                               ? SliverToBoxAdapter(
                                   child: Center(
                                       // Here we need to set custom Activity Indicator!
-                                      child: CircularProgressIndicator()),
+                                      child: Container(
+                                    margin: EdgeInsets.only(top: 100),
+                                    height: 50,
+                                    width: 50,
+                                    child: ProgressLoader(color: Colors.white),
+                                  )),
                                 )
                               : SliverPadding(
                                   padding: EdgeInsets.fromLTRB(26, 0, 26, 0),

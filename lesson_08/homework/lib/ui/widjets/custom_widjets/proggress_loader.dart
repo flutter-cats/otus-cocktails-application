@@ -42,6 +42,7 @@ class ProgressBarPainter extends CustomPainter {
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
 }
 
+// Widjet
 class ProgressLoader extends StatefulWidget {
   final Color color;
 
