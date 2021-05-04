@@ -23,7 +23,7 @@ class CoctailDetailsHeader extends StatelessWidget {
             Icons.arrow_back,
             color: Colors.white,
           ),
-          onPressed: () => {print("Back Tapped")},
+          onPressed: () => Navigator.of(context).maybePop(),
         ),
       ),
       Positioned(

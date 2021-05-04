@@ -10,6 +10,7 @@ import '../ui/widjets/custom_widjets/proggress_loader.dart';
 import 'dart:io';
 
 import '../ui/widjets/filter_page/coctail_collection_item_widjet.dart';
+import '../ui/coctail_detail_page.dart';
 
 // Models
 //
@@ -55,6 +56,34 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
     print("Submit $text");
   }
 
+  // Routing
+  void _tapCoctail(int index) async {
+    print("Tap Coctail Index $index");
+    final coctailID = _coctails[index].id;
+
+    final coctailDefinitaion =
+        await AsyncCocktailRepository().fetchCocktailDetails(coctailID);
+    // Need
+
+    if (coctailDefinitaion != null) {
+      Navigator.of(context).push(MaterialPageRoute(
+          settings: RouteSettings(name: "Cocatil Details"),
+          builder: (context) {
+            return CocktailDetailPage(coctailDefinitaion);
+          }));
+    }
+  }
+
+  Future<List<CocktailDefinition>> fetchCoctailsByFilter() async {
+    final category = CocktailCategory.parse(selectedFilterName);
+    final result = await AsyncCocktailRepository()
+        .fetchCocktailsByCocktailCategory(category);
+
+    _coctails = result.toList();
+
+    return result.toList();
+  }
+
   void _tapFilter(String filterName) {
     print("name $filterName");
 
@@ -68,16 +97,6 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
     selectedFilterName = filterName;
 
     setState(() {});
-  }
-
-  Future<List<CocktailDefinition>> fetchCoctailsByFilter() async {
-    final category = CocktailCategory.parse(selectedFilterName);
-    final result = await AsyncCocktailRepository()
-        .fetchCocktailsByCocktailCategory(category);
-
-    _coctails = result.toList();
-
-    return result.toList();
   }
 
   @override
@@ -95,9 +114,12 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
                   // Card Delegate
                   final coctailCardDelegate = SliverChildListDelegate(
                     List.generate(
-                        _coctails == null ? 0 : _coctails.length,
-                        (index) => CoctailCollectionItemWidjet(
-                              coctail: _coctails[index],
+                        _coctails.length,
+                        (index) => GestureDetector(
+                              onTap: () => _tapCoctail(index),
+                              child: CoctailCollectionItemWidjet(
+                                coctail: _coctails[index],
+                              ),
                             )),
                   );
 
