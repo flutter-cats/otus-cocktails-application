@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../core/src/extensions/Color+Extensions.dart';
+import "../../../core/src/extensions/String+Extensions.dart";
 
 class CoctailDetailsInstrictions extends StatelessWidget {
   final String instruction;
@@ -10,6 +11,7 @@ class CoctailDetailsInstrictions extends StatelessWidget {
     return instruction
         .split('. ')
         .where((element) => element.isNotEmpty)
+        .map((e) => e.capitalize())
         .toList();
   }
 
