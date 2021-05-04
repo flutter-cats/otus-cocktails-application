@@ -23,8 +23,6 @@ class AsyncCocktailRepository {
       var response = await http.get(uri, headers: _headers);
       if (response.statusCode == 200) {
         final jsonResponse = convert.jsonDecode(response.body);
-
-        print("Coctail Details result Response $jsonResponse");
         var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
 
         final dtos = drinks
@@ -226,38 +224,40 @@ class AsyncCocktailRepository {
     );
   }
 
+  var defaultMesuarment = 'Up to you';
+
   Map<String, String> _getIngredients(CocktailDto dto) {
     return <String, String>{
       if (dto.strIngredient1 != null)
-        dto.strIngredient1!: dto.strMeasure1 ?? "",
+        dto.strIngredient1!: dto.strMeasure1 ?? defaultMesuarment,
       if (dto.strIngredient2 != null)
-        dto.strIngredient2!: dto.strMeasure2 ?? "",
+        dto.strIngredient2!: dto.strMeasure2 ?? defaultMesuarment,
       if (dto.strIngredient3 != null)
-        dto.strIngredient3!: dto.strMeasure3 ?? "",
+        dto.strIngredient3!: dto.strMeasure3 ?? defaultMesuarment,
       if (dto.strIngredient4 != null)
-        dto.strIngredient4!: dto.strMeasure4 ?? "",
+        dto.strIngredient4!: dto.strMeasure4 ?? defaultMesuarment,
       if (dto.strIngredient5 != null)
-        dto.strIngredient5!: dto.strMeasure5 ?? "",
+        dto.strIngredient5!: dto.strMeasure5 ?? defaultMesuarment,
       if (dto.strIngredient6 != null)
-        dto.strIngredient6!: dto.strMeasure6 ?? "",
+        dto.strIngredient6!: dto.strMeasure6 ?? defaultMesuarment,
       if (dto.strIngredient7 != null)
-        dto.strIngredient7!: dto.strMeasure7 ?? "",
+        dto.strIngredient7!: dto.strMeasure7 ?? defaultMesuarment,
       if (dto.strIngredient8 != null)
-        dto.strIngredient8!: dto.strMeasure8 ?? "",
+        dto.strIngredient8!: dto.strMeasure8 ?? defaultMesuarment,
       if (dto.strIngredient9 != null)
-        dto.strIngredient9!: dto.strMeasure9 ?? "",
+        dto.strIngredient9!: dto.strMeasure9 ?? defaultMesuarment,
       if (dto.strIngredient10 != null)
-        dto.strIngredient10!: dto.strMeasure10 ?? "",
+        dto.strIngredient10!: dto.strMeasure10 ?? defaultMesuarment,
       if (dto.strIngredient11 != null)
-        dto.strIngredient11!: dto.strMeasure11 ?? "",
+        dto.strIngredient11!: dto.strMeasure11 ?? defaultMesuarment,
       if (dto.strIngredient12 != null)
-        dto.strIngredient12!: dto.strMeasure12 ?? "",
+        dto.strIngredient12!: dto.strMeasure12 ?? defaultMesuarment,
       if (dto.strIngredient13 != null)
-        dto.strIngredient13!: dto.strMeasure13 ?? "",
+        dto.strIngredient13!: dto.strMeasure13 ?? defaultMesuarment,
       if (dto.strIngredient14 != null)
-        dto.strIngredient14!: dto.strMeasure14 ?? "",
+        dto.strIngredient14!: dto.strMeasure14 ?? defaultMesuarment,
       if (dto.strIngredient15 != null)
-        dto.strIngredient15!: dto.strMeasure15 ?? "",
+        dto.strIngredient15!: dto.strMeasure15 ?? defaultMesuarment,
     };
   }
 }

@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import '../../../core/src/extensions/Color+Extensions.dart';
 
-
-
-
 class CoctailDetailsInstrictions extends StatelessWidget {
   final String instruction;
 
   CoctailDetailsInstrictions(this.instruction);
 
   List<String> get _instructions {
-    return instruction.split('- ').sublist(1).toList();
+    return instruction
+        .split('. ')
+        .where((element) => element.isNotEmpty)
+        .toList();
   }
 
   @override
   Widget build(BuildContext context) {
+    print("Instructions $_instructions");
     return Container(
-        color: HexColor('#201F2C'),
+        // color: Colors.black,
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [

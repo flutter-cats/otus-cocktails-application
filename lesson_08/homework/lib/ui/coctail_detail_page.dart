@@ -8,6 +8,7 @@ import './widjets/coctail_details/CoctailDetailsInstrictions.dart';
 import './widjets/coctail_details/CoctailDetailsIngridients.dart';
 import './widjets/coctail_details/StarRatingWidhet.dart';
 import '../core/models.dart';
+import '../core/src/extensions/Color+Extensions.dart';
 
 class CocktailDetailPage extends StatelessWidget {
   const CocktailDetailPage(
@@ -21,10 +22,12 @@ class CocktailDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
 
+    print("Coctail Details Info $cocktail");
+
     return AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
         child: Scaffold(
-          backgroundColor: Colors.black,
+          backgroundColor: HexColor('#1A1927'),
           body: SafeArea(
             child: SingleChildScrollView(
               child: Container(
@@ -52,7 +55,8 @@ class CocktailDetailPage extends StatelessWidget {
                     CoctailDetailsIngridients(
                       ingridens: cocktail.ingredients,
                     ),
-                    CoctailDetailsInstrictions(cocktail.instruction),
+                    if (cocktail.instruction.isNotEmpty)
+                      CoctailDetailsInstrictions(cocktail.instruction),
                     StarRatingWidjet(
                       stars: 3,
                     )

@@ -11,7 +11,7 @@ class CoctailDetailsIngridients extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         color: Colors.black,
-        padding: const EdgeInsets.fromLTRB(32, 0, 32, 10),
+        padding: const EdgeInsets.fromLTRB(32, 0, 32, 30),
         child: Column(
           children: [
             Container(
