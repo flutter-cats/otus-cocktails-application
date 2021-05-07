@@ -14,11 +14,23 @@ class CocktailDefinitionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      // clipBehavior: Clip.antiAliasWithSaveLayer,
+      color: AppColors.surface,
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
       child: Stack(
         children: [
           CoctailImage(
             image: cocktailDefinition.drinkThumbUrl,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [AppColors.surface, Colors.transparent],
+                begin: Alignment.bottomRight,
+              ),
+            ),
           ),
           Positioned(
             left: 10,
