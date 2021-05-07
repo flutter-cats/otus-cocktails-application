@@ -213,7 +213,7 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     mainAxisSpacing: 5,
-                    childAspectRatio: 0.85,
+                    childAspectRatio: 0.75,
                   ),
                 ),
               );

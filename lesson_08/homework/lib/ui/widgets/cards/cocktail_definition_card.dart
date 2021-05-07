@@ -23,14 +23,7 @@ class CocktailDefinitionCard extends StatelessWidget {
         children: [
           CoctailImage(
             image: cocktailDefinition.drinkThumbUrl,
-          ),
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [AppColors.surface, Colors.transparent],
-                begin: Alignment.bottomRight,
-              ),
-            ),
+            imageFit: CoctailImageFit.fitHeight,
           ),
           Positioned(
             left: 10,

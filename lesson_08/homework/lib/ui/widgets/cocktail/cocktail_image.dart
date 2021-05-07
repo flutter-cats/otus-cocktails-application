@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:cocktail/style/style.dart';
 
 class CoctailImage extends StatelessWidget {
-  const CoctailImage({
+  CoctailImage({
     Key key,
     @required this.image,
+    this.imageFit = CoctailImageFit.fitWidth,
   }) : super(key: key);
 
   final String image;
   final String errorLoadingMessage = 'Loading image error';
+  CoctailImageFit imageFit;
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +18,11 @@ class CoctailImage extends StatelessWidget {
       children: [
         Image.network(
           image,
-          fit: BoxFit.fitWidth,
+          fit: this.imageFit == CoctailImageFit.fitWidth
+              ? BoxFit.fitWidth
+              : BoxFit.fitHeight,
           width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
           loadingBuilder: (BuildContext context, Widget child,
               ImageChunkEvent loadingProgress) {
             if (loadingProgress == null) return child;
@@ -60,4 +65,34 @@ class CoctailImage extends StatelessWidget {
       ],
     );
   }
+}
+
+class CoctailImageFit {
+  static const CoctailImageFit fitWidth =
+      CoctailImageFit._('fitWidth', 'Fit width');
+  static const CoctailImageFit fitHeight =
+      CoctailImageFit._('height', 'Fit height');
+
+  static const Iterable<CoctailImageFit> values = [
+    fitWidth,
+    fitHeight,
+  ];
+
+  final String value;
+  final String name;
+
+  const CoctailImageFit._(this.name, this.value);
+
+  @override
+  int get hashCode => value.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is CoctailImageFit &&
+          runtimeType == other.runtimeType &&
+          value == other.value;
+
+  @override
+  String toString() => 'CoctailImageFit{value: $value, name: $name}';
 }
