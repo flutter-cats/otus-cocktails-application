@@ -24,7 +24,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: ButtonsExample(),
+      home: TextFieldsExample(),
+      // home: ButtonsExample()
       // home: InkWidgetsExample(),
       // home: GestureDetectorExample(),
       // home: RawGestureDetectorExample(),

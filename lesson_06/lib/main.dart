@@ -3,6 +3,7 @@ import 'package:lesson_05/scroll_controller/fixed_extend_scroll_controller.dart'
 import 'package:lesson_05/scroll_controller/tracking_scroll.dart';
 import 'package:lesson_05/slivers/sliver_flexible_space.dart';
 import 'package:lesson_05/slivers/sliver_header.dart';
+import 'package:lesson_05/scroll_view/single_text.dart';
 
 import 'list/grid_view.dart';
 import 'list/list_view.dart';
@@ -20,6 +21,6 @@ void main() {
     theme: ThemeData(
         appBarTheme: AppBarTheme(
             textTheme: TextTheme(button: TextStyle(color: Colors.white)))),
-    home: ListViewSamplePage(),
+    home: SliversListSamplePage(),
   ));
 }

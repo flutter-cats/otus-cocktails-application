@@ -7,7 +7,7 @@ class SingleChildScrollViewSample extends StatelessWidget {
       appBar: AppBar(
         title: Text('SingleChildScrollView'),
       ),
-      body: _buildWithoutScrollWidget(),
+      body: _buildHorizontalSingleChildScrollView(),
     );
   }
 
@@ -25,10 +25,7 @@ class SingleChildScrollViewSample extends StatelessWidget {
       height: 56,
     );
     return Column(
-      children: [
-        appBar,
-        Flexible(child: _buildWithSingleChildScrollView())
-      ],
+      children: [appBar, Flexible(child: _buildWithSingleChildScrollView())],
     );
   }
 
