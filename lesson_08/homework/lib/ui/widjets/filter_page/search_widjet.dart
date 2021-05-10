@@ -1,9 +1,10 @@
 import 'package:cocktail/core/src/extensions/Color+Extensions.dart';
+import 'package:cocktail/ui/style/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class SearchFiedlWidjet extends StatefulWidget {
-  final Function(String) handleSubmitText;
+  final ValueChanged<String> handleSubmitText;
 
   SearchFiedlWidjet({required this.handleSubmitText});
 
@@ -12,6 +13,9 @@ class SearchFiedlWidjet extends StatefulWidget {
 }
 
 class _SearchFiedlWidjetState extends State<SearchFiedlWidjet> {
+  bool isTapTextField = false;
+  final _searchTextController = TextEditingController();
+
   OutlineInputBorder get borderStyle {
     return OutlineInputBorder(
       borderSide: BorderSide(color: HexColor("#464551")),
@@ -19,13 +23,9 @@ class _SearchFiedlWidjetState extends State<SearchFiedlWidjet> {
     );
   }
 
-  bool isTapTextField = false;
-
   bool get isTextEmpty {
     return _searchTextController.text.isEmpty;
   }
-
-  final _searchTextController = TextEditingController();
 
   @override
   void dispose() {
@@ -53,20 +53,11 @@ class _SearchFiedlWidjetState extends State<SearchFiedlWidjet> {
             focusedBorder: borderStyle,
             enabledBorder: borderStyle,
             prefixIcon: Padding(
-              padding: const EdgeInsets.fromLTRB(15, 0, 10, 0),
-              child: Image.asset(
-                'assets/images/search.png',
-                width: 25,
-                height: 25,
-              ),
-            ),
+                padding: const EdgeInsets.fromLTRB(15, 0, 10, 0),
+                child: CustomImages.search),
             suffixIcon: isTapTextField && isTextEmpty == false
                 ? IconButton(
-                    icon: Image.asset(
-                      'assets/images/close.png',
-                      width: 20,
-                      height: 20,
-                    ),
+                    icon: CustomImages.close,
                     onPressed: () {
                       _searchTextController.clear();
                     },

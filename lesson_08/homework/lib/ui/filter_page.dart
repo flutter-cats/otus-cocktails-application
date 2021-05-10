@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import '../ui/widjets/filter_page/search_widjet.dart';
 import '../ui/widjets/filter_page/filters_collection_widjet.dart';
 import '../ui/widjets/custom_widjets/proggress_loader.dart';
-import 'dart:io';
 
 import '../ui/widjets/filter_page/coctail_collection_item_widjet.dart';
 import '../ui/coctail_detail_page.dart';

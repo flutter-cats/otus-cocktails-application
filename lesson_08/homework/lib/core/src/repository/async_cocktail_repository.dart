@@ -224,7 +224,7 @@ class AsyncCocktailRepository {
     );
   }
 
-  var defaultMesuarment = 'Up to you';
+  final defaultMesuarment = 'Up to you';
 
   Map<String, String> _getIngredients(CocktailDto dto) {
     return <String, String>{
