@@ -167,7 +167,7 @@ class AsyncCocktailRepository {
     try {
       final url = 'https://the-cocktail-db.p.rapidapi.com/lookup.php?iid=$id';
 
-      var response = await http.get(Uri.parse(url), headers: _headers);
+      var response = await client.get(Uri.parse(url), headers: _headers);
 
       if (response.statusCode == HttpStatus.ok) {
         final jsonResponse = convert.jsonDecode(response.body);
