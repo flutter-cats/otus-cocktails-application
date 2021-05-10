@@ -8,7 +8,7 @@ class AnimatedTextWriterState
 
   @override
   Widget build(BuildContext context) =>
-      Text(_textWriterTween?.evaluate(animation)?.toString() ?? '');
+      Text(_textWriterTween?.evaluate(animation).toString() ?? '');
 
   @override
   void forEachTween(TweenVisitor<dynamic?> visitor) {

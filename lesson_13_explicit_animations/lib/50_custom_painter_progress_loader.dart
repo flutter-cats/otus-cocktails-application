@@ -19,6 +19,7 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
+// Progress Bar painter
 class ProgressBarPainter extends CustomPainter {
   static const int _steps = 8;
 
@@ -32,21 +33,21 @@ class ProgressBarPainter extends CustomPainter {
   /// x = cx + r * cos(a)
   /// y = cy + r * sin(a)
   ///
-  @override
-  void paint(Canvas canvas, Size size) {
-    final maxPaintRadius = size.width / 10;
-    final mainCircleRadius = size.width / 2 - maxPaintRadius;
-    final center = Offset(size.width / 2, size.height / 2);
-    final paint = Paint()..color = color.withAlpha(0xD0);
+  // @override
+  // void paint(Canvas canvas, Size size) {
+  //   final maxPaintRadius = size.width / 10;
+  //   final mainCircleRadius = size.width / 2 - maxPaintRadius;
+  //   final center = Offset(size.width / 2, size.height / 2);
+  //   final paint = Paint()..color = color.withAlpha(0xD0);
 
-    for (int i = 0; i < 12; i++) {
-      final currentAngle = i * _angleStep;
+  //   for (int i = 0; i < 12; i++) {
+  //     final currentAngle = i * _angleStep;
 
-      final offset = Offset(center.dx + mainCircleRadius * cos(currentAngle),
-          center.dy + mainCircleRadius * sin(currentAngle));
-      canvas.drawCircle(offset, maxPaintRadius, paint);
-    }
-  }
+  //     final offset = Offset(center.dx + mainCircleRadius * cos(currentAngle),
+  //         center.dy + mainCircleRadius * sin(currentAngle));
+  //     canvas.drawCircle(offset, maxPaintRadius, paint);
+  //   }
+  // }
 
   ///
   /// x = cx + r * cos(a)
@@ -71,28 +72,28 @@ class ProgressBarPainter extends CustomPainter {
   //   }
   // }
 
-  // @override
-  // void paint(Canvas canvas, Size size) {
-  //   if (size.isEmpty) {
-  //     return;
-  //   }
-  //
-  //   final maxPaintRadius = size.width / 10;
-  //   final mainCircleRadius = size.width / 2 - maxPaintRadius;
-  //   final center = Offset(size.width / 2, size.height / 2);
-  //   final paint = Paint()..color = color;
-  //
-  //   final allSteps = _steps; // + _steps ~/ 4;
-  //
-  //   for (int i = 0; i < allSteps; i++) {
-  //     final currentAngle = _angleStep * (i + (_steps * rotation).toInt());
-  //
-  //     final currentRadius = maxPaintRadius * (i / allSteps);
-  //     final offset = Offset(center.dx + mainCircleRadius * cos(currentAngle),
-  //         center.dy + mainCircleRadius * sin(currentAngle));
-  //     canvas.drawCircle(offset, currentRadius, paint);
-  //   }
-  // }
+  @override
+  void paint(Canvas canvas, Size size) {
+    if (size.isEmpty) {
+      return;
+    }
+
+    final maxPaintRadius = size.width / 10;
+    final mainCircleRadius = size.width / 2 - maxPaintRadius;
+    final center = Offset(size.width / 2, size.height / 2);
+    final paint = Paint()..color = color;
+
+    final allSteps = _steps; // + _steps ~/ 4;
+
+    for (int i = 0; i < allSteps; i++) {
+      final currentAngle = _angleStep * (i + (_steps * rotation).toInt());
+
+      final currentRadius = maxPaintRadius * (i / allSteps);
+      final offset = Offset(center.dx + mainCircleRadius * cos(currentAngle),
+          center.dy + mainCircleRadius * sin(currentAngle));
+      canvas.drawCircle(offset, currentRadius, paint);
+    }
+  }
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
@@ -107,26 +108,7 @@ class ProgressLoader extends StatefulWidget {
   _ProgressLoaderState createState() => _ProgressLoaderState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.orangeAccent,
-      appBar: AppBar(
-        title: Text('Advanced Animations - Custom Painter Demo'),
-      ),
-      body: Center(
-        child: Container(
-          height: 400,
-          width: 400,
-          decoration: BoxDecoration(color: Colors.blueAccent),
-          child: ProgressLoader(color: Colors.white),
-        ),
-      ),
-    );
-  }
-}
-
+// Progress Loader State
 class _ProgressLoaderState extends State<ProgressLoader>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
@@ -161,5 +143,25 @@ class _ProgressLoaderState extends State<ProgressLoader>
       vsync: this,
       duration: const Duration(milliseconds: 1000),
     )..repeat();
+  }
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.orangeAccent,
+      appBar: AppBar(
+        title: Text('Advanced Animations - Custom Painter Demo'),
+      ),
+      body: Center(
+        child: Container(
+          height: 400,
+          width: 400,
+          decoration: BoxDecoration(color: Colors.blueAccent),
+          child: ProgressLoader(color: Colors.white),
+        ),
+      ),
+    );
   }
 }

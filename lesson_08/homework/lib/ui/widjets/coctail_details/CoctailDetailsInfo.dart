@@ -7,17 +7,18 @@ class CoctailDetailsInfo extends StatelessWidget {
   final String title;
   final String id;
   final bool isFavorit;
-  final CocktailCategory category;
-  final CocktailType typeCoctail;
-  final GlassType typeGlass;
+  final CocktailCategory? category;
+  final CocktailType? typeCoctail;
+  final GlassType? typeGlass;
 
-  CoctailDetailsInfo(
-      {this.title,
-      this.id,
-      this.isFavorit,
-      this.category,
-      this.typeCoctail,
-      this.typeGlass});
+  const CoctailDetailsInfo(
+      {Key? key,
+      required this.title,
+      required this.id,
+      required this.isFavorit,
+      required this.category,
+      required this.typeCoctail,
+      required this.typeGlass});
 
   @override
   Widget build(BuildContext context) {
@@ -34,15 +35,15 @@ class CoctailDetailsInfo extends StatelessWidget {
           ),
           CoctailDetailsTypeItem(
             title: "Категория коктейля",
-            value: category.name,
+            value: category?.name ?? 'No Category',
           ),
           CoctailDetailsTypeItem(
             title: 'Тип Коктейля',
-            value: typeCoctail.name,
+            value: typeCoctail?.name ?? 'No type Coctail',
           ),
           CoctailDetailsTypeItem(
             title: 'Тип стекла',
-            value: typeGlass.name,
+            value: typeGlass?.name ?? 'no tyep glass',
           )
         ],
       ),
@@ -53,7 +54,10 @@ class CoctailDetailsInfo extends StatelessWidget {
 class CoctailDetailsTypeItem extends StatelessWidget {
   final String title;
   final String value;
-  CoctailDetailsTypeItem({this.title, this.value});
+
+  const CoctailDetailsTypeItem(
+      {Key? key, required this.title, required this.value});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -84,38 +88,92 @@ class CoctailDetailsTypeItem extends StatelessWidget {
 }
 
 // Info Header
-class CoctailDetailsInfoHeader extends StatelessWidget {
+class CoctailDetailsInfoHeader extends StatefulWidget {
   final String id;
   final String title;
-  final bool isFavorit;
-  CoctailDetailsInfoHeader({this.id, this.title, this.isFavorit});
+  bool isFavorit;
+  CoctailDetailsInfoHeader(
+      {Key? key,
+      required this.id,
+      required this.title,
+      required this.isFavorit});
+
+  @override
+  _CoctailDetailsInfoHeaderState createState() =>
+      _CoctailDetailsInfoHeaderState();
+}
+
+class _CoctailDetailsInfoHeaderState extends State<CoctailDetailsInfoHeader>
+    with TickerProviderStateMixin {
+  late final AnimationController _controller = AnimationController(
+    vsync: this,
+    duration: Duration(milliseconds: 200),
+    lowerBound: 0.0,
+    upperBound: 0.2,
+  )..addListener(() {
+      setState(() {});
+    });
+
+  late double _scale;
+
+  // late final Animation<double> _animation = CurvedAnimation(
+  //   parent: _controller,
+  //   curve: Curves.fastOutSlowIn,
+  // );
+
+  void _updateFavorit() {
+    if (widget.isFavorit) {
+      widget.isFavorit = false;
+      _controller.forward();
+    } else {
+      widget.isFavorit = true;
+      _controller.reverse();
+    }
+  }
+
+  // @override
+  // void initState() {
+  //   _controller.addListener(() {
+  //     setState(() {});
+  //   });
+  //   super.initState();
+  // }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    _scale = 1 - _controller.value;
+
     return Container(
       padding: const EdgeInsets.fromLTRB(0, 23, 0, 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Flexible(
-                child: Text(
-                  title,
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            Flexible(
+              child: Text(
+                widget.title,
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+            ),
+            IconButton(
+                icon: Transform.scale(
+                  scale: _scale,
+                  child: Icon(
+                    widget.isFavorit ? Icons.favorite : Icons.favorite_border,
+                    color: Colors.white,
+                    size: 30,
+                  ),
                 ),
-              ),
-              IconButton(
-                onPressed: () {
-                  print("Toggle favorit");
-                },
-                icon: Icon(isFavorit ? Icons.favorite : Icons.favorite_border),
-                color: Colors.white,
-              ),
-            ],
-          ),
+                onPressed: () => _updateFavorit())
+          ]),
           Text(
-            'id: ${id}',
+            'id: ${widget.id}',
             style: TextStyle(color: HexColor('#848396'), fontSize: 13),
           ) // ${id}
         ],

@@ -6,16 +6,18 @@ import 'package:cocktail/core/src/extensions/Color+Extensions.dart';
 import 'package:flutter/material.dart';
 import '../ui/widjets/filter_page/search_widjet.dart';
 import '../ui/widjets/filter_page/filters_collection_widjet.dart';
+import '../ui/widjets/custom_widjets/proggress_loader.dart';
 import 'dart:io';
 
 import '../ui/widjets/filter_page/coctail_collection_item_widjet.dart';
+import '../ui/coctail_detail_page.dart';
 
 // Models
 //
 class FilterModel {
   String name;
   bool isSelected;
-  FilterModel({@required this.name, @required this.isSelected});
+  FilterModel({required this.name, required this.isSelected});
 }
 
 class CocktailsFilterScreen extends StatefulWidget {
@@ -28,12 +30,12 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
       .map((e) => FilterModel(name: e.value, isSelected: false))
       .toList();
 
-  List<FilterModel> _filters;
+  late List<FilterModel> _filters;
   List<CocktailDefinition> _coctails = [];
 
-  String errorMessage;
+  late String errorMessage;
 
-  String selectedFilterName;
+  late String selectedFilterName;
 
   @override
   void initState() {
@@ -54,6 +56,34 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
     print("Submit $text");
   }
 
+  // Routing
+  void _tapCoctail(int index) async {
+    print("Tap Coctail Index $index");
+    final coctailID = _coctails[index].id;
+
+    final coctailDefinitaion =
+        await AsyncCocktailRepository().fetchCocktailDetails(coctailID);
+    // Need
+
+    if (coctailDefinitaion != null) {
+      Navigator.of(context).push(MaterialPageRoute(
+          settings: RouteSettings(name: "Cocatil Details"),
+          builder: (context) {
+            return CocktailDetailPage(coctailDefinitaion);
+          }));
+    }
+  }
+
+  Future<List<CocktailDefinition>> fetchCoctailsByFilter() async {
+    final category = CocktailCategory.parse(selectedFilterName);
+    final result = await AsyncCocktailRepository()
+        .fetchCocktailsByCocktailCategory(category);
+
+    _coctails = result.toList();
+
+    return result.toList();
+  }
+
   void _tapFilter(String filterName) {
     print("name $filterName");
 
@@ -69,16 +99,6 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
     setState(() {});
   }
 
-  Future<List<CocktailDefinition>> fetchCoctailsByFilter() async {
-    final category = CocktailCategory.parse(selectedFilterName);
-    final result = await AsyncCocktailRepository()
-        .fetchCocktailsByCocktailCategory(category);
-
-    _coctails = result;
-
-    return result;
-  }
-
   @override
   Widget build(BuildContext context) {
     // Sliver Card delegate
@@ -91,11 +111,15 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
             child: FutureBuilder(
                 future: fetchCoctailsByFilter(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  // Card Delegate
                   final coctailCardDelegate = SliverChildListDelegate(
                     List.generate(
-                        _coctails == null ? 0 : _coctails.length,
-                        (index) => CoctailCollectionItemWidjet(
-                              coctail: _coctails[index],
+                        _coctails.length,
+                        (index) => GestureDetector(
+                              onTap: () => _tapCoctail(index),
+                              child: CoctailCollectionItemWidjet(
+                                coctail: _coctails[index],
+                              ),
                             )),
                   );
 
@@ -142,7 +166,13 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
                           snapshot.connectionState == ConnectionState.waiting
                               ? SliverToBoxAdapter(
                                   child: Center(
-                                      child: CircularProgressIndicator()),
+                                      // Here we need to set custom Activity Indicator!
+                                      child: Container(
+                                    margin: EdgeInsets.only(top: 100),
+                                    height: 50,
+                                    width: 50,
+                                    child: ProgressLoader(color: Colors.white),
+                                  )),
                                 )
                               : SliverPadding(
                                   padding: EdgeInsets.fromLTRB(26, 0, 26, 0),

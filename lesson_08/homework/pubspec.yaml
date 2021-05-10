@@ -3,13 +3,12 @@ description: Dart Async lesson
 version: 0.0.1
 
 environment:
-  sdk: ">=2.9.0 <3.0.0"
-  flutter: ">=1.17.0 <2.12.0"
-
+  sdk: ">=2.12.0 <3.0.0"
+ 
 dependencies:
   flutter:
     sdk: flutter
-  json_annotation: ^3.0.1
+  json_annotation: ^4.0.1
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -18,9 +17,9 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   pedantic: ^1.9.0
-  http: ^0.12.2
+  http: ^0.13.3
   build_runner: ^1.10.1
-  json_serializable: ^3.4.1
+  json_serializable: ^4.1.1
 
 flutter:
 

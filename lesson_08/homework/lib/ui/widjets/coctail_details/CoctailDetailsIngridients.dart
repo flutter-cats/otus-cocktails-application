@@ -5,13 +5,13 @@ import '../../../core/models.dart';
 class CoctailDetailsIngridients extends StatelessWidget {
   final Iterable<IngredientDefinition> ingridens;
 
-  CoctailDetailsIngridients({this.ingridens});
+  const CoctailDetailsIngridients({required this.ingridens});
 
   @override
   Widget build(BuildContext context) {
     return Container(
         color: Colors.black,
-        padding: const EdgeInsets.fromLTRB(32, 0, 32, 10),
+        padding: const EdgeInsets.fromLTRB(32, 0, 32, 30),
         child: Column(
           children: [
             Container(

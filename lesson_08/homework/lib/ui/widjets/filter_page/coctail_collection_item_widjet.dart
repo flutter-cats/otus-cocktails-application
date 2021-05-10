@@ -6,7 +6,7 @@ import 'package:cocktail/core/src/extensions/Color+Extensions.dart';
 class CoctailCollectionItemWidjet extends StatelessWidget {
   final CocktailDefinition coctail;
 
-  CoctailCollectionItemWidjet({@required this.coctail});
+  CoctailCollectionItemWidjet({required this.coctail});
 
   @override
   Widget build(BuildContext context) {

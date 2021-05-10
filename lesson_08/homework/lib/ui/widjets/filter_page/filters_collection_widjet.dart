@@ -6,7 +6,7 @@ import 'package:flutter/widgets.dart';
 class FiltersCollectionWidjet extends StatelessWidget {
   final List<FilterModel> filters;
   final Function tapFilter;
-  FiltersCollectionWidjet({@required this.filters, @required this.tapFilter});
+  FiltersCollectionWidjet({required this.filters, required this.tapFilter});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,9 @@ class FilterCollectionItemWidjet extends StatelessWidget {
   final bool isSelected;
 
   FilterCollectionItemWidjet(
-      {@required this.filterName, this.tapFilter, @required this.isSelected});
+      {required this.filterName,
+      required this.tapFilter,
+      required this.isSelected});
 
   @override
   Widget build(BuildContext context) {

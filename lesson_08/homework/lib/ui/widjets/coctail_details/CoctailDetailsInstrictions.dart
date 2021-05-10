@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../core/src/extensions/Color+Extensions.dart';
-
-
-
+import "../../../core/src/extensions/String+Extensions.dart";
 
 class CoctailDetailsInstrictions extends StatelessWidget {
   final String instruction;
@@ -10,13 +8,18 @@ class CoctailDetailsInstrictions extends StatelessWidget {
   CoctailDetailsInstrictions(this.instruction);
 
   List<String> get _instructions {
-    return instruction.split('- ').sublist(1).toList();
+    return instruction
+        .split('. ')
+        .where((element) => element.isNotEmpty)
+        .map((e) => e.capitalize())
+        .toList();
   }
 
   @override
   Widget build(BuildContext context) {
+    print("Instructions $_instructions");
     return Container(
-        color: HexColor('#201F2C'),
+        // color: Colors.black,
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
