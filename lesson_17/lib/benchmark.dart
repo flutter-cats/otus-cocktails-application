@@ -10,14 +10,15 @@ class _Benchmark {
     }
   }
 
-  void end(dynamic id) {
+  double end(dynamic id) {
     final String benchId = id.toString();
     if (!_starts.containsKey(benchId)) {
-      print('In Benchmark not placed comparing with id=$benchId');
-    } else {
-      print('$benchId need ${(DateTime.now().microsecondsSinceEpoch - _starts[benchId]!) / 1000}ms');
-      _starts.remove(benchId);
+      throw Exception('In Benchmark not placed comparing with id=$benchId');
     }
+    final double diff = (DateTime.now().microsecondsSinceEpoch - _starts[benchId]!) / 1000;
+    print('$benchId need ${diff}ms');
+    _starts.remove(benchId);
+    return diff;
   }
 }
 
