@@ -8,7 +8,7 @@ import 'package:lesson_17/repository/cocktail/sql_cocktail_repository.dart';
 import 'package:lesson_17/repository/entity_repository.dart';
 import 'package:lesson_17/repository_testing_view.dart';
 
-const int INITIAL_INDEX = 1;
+const int INITIAL_INDEX = 0;
 
 void main() {
   EntityFabric().init();
