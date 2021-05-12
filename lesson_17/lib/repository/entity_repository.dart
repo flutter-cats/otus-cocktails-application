@@ -1,5 +1,9 @@
 import 'package:lesson_17/model/entity.dart';
 
+const String ITEMS_BY_ID_COLLECTION = 'itemsByIds';
+const String ITEMS_BY_KEY_COLLECTION = 'itemsByKey';
+const String INDEX_STORAGE = 'indexStorage';
+
 abstract class EntityRepository<T extends Entity> {
   Future<void> init();
   Future<T> save(T entity);

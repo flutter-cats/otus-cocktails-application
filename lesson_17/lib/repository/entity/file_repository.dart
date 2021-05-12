@@ -6,10 +6,6 @@ import 'package:lesson_17/model/entity.dart';
 import 'package:lesson_17/repository/entity_repository.dart';
 import 'package:path_provider/path_provider.dart';
 
-const String ITEMS_BY_ID_COLLECTION = 'itemsByIds';
-const String ITEMS_BY_KEY_COLLECTION = 'itemsByKey';
-const String INDEX_STORAGE = 'indexStorage';
-
 abstract class FileRepository<T extends Entity> implements EntityRepository<T> {
   late File _file;
 
@@ -124,7 +120,9 @@ abstract class FileRepository<T extends Entity> implements EntityRepository<T> {
 
   @override
   Future<int> readIndex() async {
+    bench.start('ReadIndex $runtimeType repo');
     final Map<String, dynamic> collections = await _readFile();
+    bench.end('ReadIndex $runtimeType repo');
     return collections[INDEX_STORAGE] as int;
   }
 }
