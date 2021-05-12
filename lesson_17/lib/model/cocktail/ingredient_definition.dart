@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
+import 'package:hive/hive.dart';
 import 'package:lesson_17/model/entity.dart';
 
+part 'ingredient_definition.g.dart';
+
 @immutable
+@HiveType(typeId: 5)
 class IngredientDefinition implements Entity {
   const IngredientDefinition({
     required this.id,
@@ -18,8 +22,13 @@ class IngredientDefinition implements Entity {
   }
 
   @override
+  @HiveField(0)
   final String id;
+
+  @HiveField(1)
   final String ingredientName;
+
+  @HiveField(2)
   final String measure;
 
   @override

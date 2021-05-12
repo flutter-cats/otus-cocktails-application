@@ -1,8 +1,14 @@
+import 'package:flutter/cupertino.dart';
+import 'package:hive/hive.dart';
 import 'package:lesson_17/model/entity.dart';
+
+part 'cocktail_type.g.dart';
 
 ///
 /// curl https://the-cocktail-db.p.rapidapi.com/list.php\?c\=list
 ///
+@immutable
+@HiveType(typeId: 3)
 class CocktailType implements Entity {
   const CocktailType({
     required this.id,
@@ -15,8 +21,13 @@ class CocktailType implements Entity {
   }
 
   @override
+  @HiveField(0)
   final String id;
+
+  @HiveField(1)
   final String value;
+
+  @HiveField(2)
   final String name;
 
   @override

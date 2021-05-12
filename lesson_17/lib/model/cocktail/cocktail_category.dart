@@ -1,8 +1,14 @@
+import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:lesson_17/model/entity.dart';
+
+part 'cocktail_category.g.dart';
 
 ///
 /// curl https://the-cocktail-db.p.rapidapi.com/list.php\?c\=list
 ///
+@HiveType(typeId: 2)
+@immutable
 class CocktailCategory implements Entity {
   const CocktailCategory({
     required this.id,
@@ -15,8 +21,13 @@ class CocktailCategory implements Entity {
   }
 
   @override
+  @HiveField(0)
   final String id;
+
+  @HiveField(1)
   final String value;
+
+  @HiveField(2)
   final String name;
 
   @override

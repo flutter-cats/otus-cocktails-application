@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
+import 'package:hive/hive.dart';
 import 'package:lesson_17/model/cocktail/cocktail_category.dart';
 import 'package:lesson_17/model/cocktail/cocktail_type.dart';
 import 'package:lesson_17/model/cocktail/glass_type.dart';
 import 'package:lesson_17/model/cocktail/ingredient_definition.dart';
 import 'package:lesson_17/model/entity.dart';
 
+part 'cocktail.g.dart';
+
+@HiveType(typeId: 1)
 @immutable
 class Cocktail implements Entity {
   const Cocktail({
@@ -34,14 +38,31 @@ class Cocktail implements Entity {
   }
 
   @override
+  @HiveField(0)
   final String id;
+
+  @HiveField(1)
   final String name;
+
+  @HiveField(2)
   final String instruction;
+
+  @HiveField(3)
   final CocktailCategory category;
+
+  @HiveField(4)
   final GlassType glassType;
+
+  @HiveField(5)
   final CocktailType cocktailType;
+
+  @HiveField(6)
   final Iterable<IngredientDefinition> ingredients;
+
+  @HiveField(7)
   final String drinkThumbUrl;
+
+  @HiveField(8)
   final bool isFavourite;
 
   @override

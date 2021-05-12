@@ -1,8 +1,14 @@
+import 'package:flutter/cupertino.dart';
+import 'package:hive/hive.dart';
 import 'package:lesson_17/model/entity.dart';
+
+part 'glass_type.g.dart';
 
 ///
 /// curl https://the-cocktail-db.p.rapidapi.com/list.php\?c\=list
 ///
+@immutable
+@HiveType(typeId: 4)
 class GlassType implements Entity {
   const GlassType({
     required this.id,
@@ -15,8 +21,13 @@ class GlassType implements Entity {
   }
 
   @override
+  @HiveField(0)
   final String id;
+
+  @HiveField(1)
   final String value;
+
+  @HiveField(2)
   final String name;
 
   @override
