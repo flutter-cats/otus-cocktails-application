@@ -11,6 +11,7 @@ import 'package:lesson_17/repository_testing_view.dart';
 const int INITIAL_INDEX = 1;
 
 void main() {
+  EntityFabric().init();
   runApp(const MyApp());
 }
 
@@ -55,14 +56,13 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
     await Future.wait(repositories.map((EntityRepository<Entity> repo) => repo.init()));
     final int savedIndex = await repositories[index].readIndex();
     selectRepository(savedIndex);
-    tabController!.index = savedIndex;
+    tabController!.animateTo(savedIndex);
     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Repositories initialized')));
   }
 
   @override
   void initState() {
     super.initState();
-    EntityFabric().init();
     repositories.addAll([FileCocktailRepository(), SharedPrefsCocktailRepository(), HiveCocktailRepository(), SqlCocktailRepository()]);
     tabController = TabController(length: repositories.length, vsync: this, initialIndex: index);
     WidgetsBinding.instance?.addPostFrameCallback((_) => initRepositories());
