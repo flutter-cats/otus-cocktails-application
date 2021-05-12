@@ -9,7 +9,6 @@ import 'package:lesson_14_animations_homework/core/src/model/cocktail_category.d
 import 'package:lesson_14_animations_homework/core/src/model/cocktail_definition.dart';
 import 'package:lesson_14_animations_homework/core/src/model/cocktail_type.dart';
 import 'package:lesson_14_animations_homework/core/src/model/glass_type.dart';
-import 'package:lesson_14_animations_homework/core/src/model/ingredient.dart';
 import 'package:lesson_14_animations_homework/core/src/model/ingredient_definition.dart';
 
 class AsyncCocktailRepository {

@@ -1,6 +1,6 @@
-import 'package:lesson_14_animations_homework/ui/aplication/adaptive_app_bar.dart';
-import 'package:lesson_14_animations_homework/ui/aplication/adaptive_navigation_bar.dart';
-import 'package:lesson_14_animations_homework/ui/aplication/application_drawer.dart';
+import 'package:lesson_14_animations_homework/ui/application/adaptive_app_bar.dart';
+import 'package:lesson_14_animations_homework/ui/application/adaptive_navigation_bar.dart';
+import 'package:lesson_14_animations_homework/ui/application/application_drawer.dart';
 import 'package:flutter/material.dart';
 
 class ApplicationScaffold extends StatelessWidget {
