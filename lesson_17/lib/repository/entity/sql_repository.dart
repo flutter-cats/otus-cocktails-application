@@ -1,56 +1,29 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:lesson_17/benchmark.dart';
 import 'package:lesson_17/main.dart';
 import 'package:lesson_17/model/entity.dart';
 import 'package:lesson_17/repository/entity_repository.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:sqflite/sqflite.dart';
 
-class SqlRepository<T extends Entity> implements EntityRepository<T> {
+abstract class SqlRepository<T extends Entity> implements EntityRepository<T> {
+  @protected
+  late Database db;
+
+  @protected
+  int get version;
+
+  @protected
+  Future<void> onCreate(Database db, int version);
+
   @override
   Future<void> init() async {
     bench.start('Init $runtimeType repo');
-    // TODO(alphamikle): Continue there
+    final Directory dir = await getApplicationDocumentsDirectory();
+    db = await openDatabase('${dir.path}/${T.hashCode}.db', onCreate: onCreate, version: version);
     bench.end('Init $runtimeType repo');
-  }
-
-  @override
-  Future<List<T>> readAll() async {
-    // TODO(alphamikle): Delete error and continue there
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<T> readById(String id) async {
-    // TODO(alphamikle): Delete error and continue there
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<T> readByKey(String key) async {
-    // TODO(alphamikle): Delete error and continue there
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<List<T>> replaceAll(List<T> entities) async {
-    // TODO(alphamikle): Delete error and continue there
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<T> save(T entity) async {
-    // TODO(alphamikle): Delete error and continue there
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<T> saveByKey(String key, T entity) async {
-    // TODO(alphamikle): Delete error and continue there
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<List<T>> saveMany(List<T> entities) async {
-    // TODO(alphamikle): Delete error and continue there
-    throw UnimplementedError();
   }
 
   @override

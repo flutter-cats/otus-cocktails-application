@@ -39,7 +39,7 @@ class _RepositoryTestingViewState<T extends Entity> extends State<RepositoryTest
       try {
         await operation();
       } catch (error) {
-        // DO NOTHING
+        print('Error on operation "$code" -> $error');
       }
       final double micros = bench.end('Operation "$code" of "${repository.runtimeType}" take');
       ScaffoldMessenger.of(context).hideCurrentSnackBar(reason: SnackBarClosedReason.timeout);
