@@ -3,6 +3,8 @@ import 'package:lesson_14_animations_homework/core/models.dart';
 import 'package:lesson_14_animations_homework/main.dart';
 import 'package:lesson_14_animations_homework/ui/pages/details/cocktail_detail_page.dart';
 import 'package:lesson_14_animations_homework/ui/style/custom_colors.dart';
+import 'package:lesson_14_animations_homework/ui/custom_widjets/proggress_loader.dart';
+import 'package:lesson_14_animations_homework/ui/custom_widjets/favorit_widjet.dart';
 
 class CocktailGridItem extends StatelessWidget {
   static const double aspectRatio = 170 / 215;
@@ -43,7 +45,7 @@ class CocktailGridItem extends StatelessWidget {
                 /// (в местах отмеченных///todo:)
                 ///
                 return Center(
-                  child: CircularProgressIndicator(),
+                  child: ProgressLoaderWidjet(),
                 );
               },
             ),
@@ -122,16 +124,17 @@ class CocktailGridItem extends StatelessWidget {
   /// Можно добавить свою физику за счет Curves (ease, elastic, bounce).
   ///
   Widget _getIsFavoriteIcon(bool isFavourite) {
-    if (isFavourite) {
-      return IconButton(
-        icon: Icon(Icons.favorite, color: Colors.white),
-        onPressed: () {},
-      );
-    } else {
-      return IconButton(
-        icon: Icon(Icons.favorite_border, color: Colors.white),
-        onPressed: () {},
-      );
-    }
+    // if (isFavourite) {
+    //   return IconButton(
+    //     icon: Icon(Icons.favorite, color: Colors.white),
+    //     onPressed: () {},
+    //   );
+    // } else {
+    //   return IconButton(
+    //     icon: Icon(Icons.favorite_border, color: Colors.white),
+    //     onPressed: () {},
+    //   );
+    // }
+    return FavoritWidjet(isFavorit: isFavourite);
   }
 }
