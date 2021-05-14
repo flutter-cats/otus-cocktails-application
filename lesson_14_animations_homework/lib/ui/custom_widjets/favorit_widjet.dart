@@ -48,20 +48,6 @@ class _FavoritWidjetState extends State<FavoritWidjet>
   Widget build(BuildContext context) {
     _scale = 1 - _controller.value;
 
-    // return Container(
-    //   child: IconButton(
-    //       icon: Transform.scale(
-    //         scale: _scale,
-    //         child: Icon(
-    //           widget.isFavorit ? Icons.favorite : Icons.favorite_border,
-    //           color: Colors.white,
-    //           size: 30,
-    //         ),
-    //       ),
-    //       onPressed: () => _updateFavorit()),
-    // );
-
-    // custom Paint Heart
     return Container(
       child: GestureDetector(
         onTap: () => _updateFavorit(),
@@ -78,6 +64,7 @@ class _FavoritWidjetState extends State<FavoritWidjet>
   }
 }
 
+// HEart painter
 class HeartPainter extends CustomPainter {
   final Color color;
   bool isFill;
