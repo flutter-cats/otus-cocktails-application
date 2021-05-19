@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
 class FavoritWidjet extends StatefulWidget {
-  bool isFavorit;
+  final bool isFavorit;
   FavoritWidjet({Key? key, required this.isFavorit});
 
   @override
-  _FavoritWidjetState createState() => _FavoritWidjetState();
+  _FavoritWidjetState createState() =>
+      _FavoritWidjetState(isFavorit: isFavorit);
 }
 
 class _FavoritWidjetState extends State<FavoritWidjet>
     with TickerProviderStateMixin {
+  bool isFavorit;
+  _FavoritWidjetState({required this.isFavorit});
+
   late final AnimationController _controller = AnimationController(
     vsync: this,
     duration: Duration(milliseconds: 200),
@@ -35,13 +39,15 @@ class _FavoritWidjetState extends State<FavoritWidjet>
   }
 
   void _updateFavorit() {
-    if (widget.isFavorit) {
-      widget.isFavorit = false;
-      _controller.forward();
-    } else {
-      widget.isFavorit = true;
-      _controller.reverse();
-    }
+    setState(() {
+      if (isFavorit) {
+        isFavorit = false;
+        _controller.forward();
+      } else {
+        isFavorit = true;
+        _controller.reverse();
+      }
+    });
   }
 
   @override
@@ -55,8 +61,7 @@ class _FavoritWidjetState extends State<FavoritWidjet>
           scale: _scale,
           child: CustomPaint(
             size: Size(30, 35),
-            painter:
-                HeartPainter(color: Colors.white, isFill: widget.isFavorit),
+            painter: HeartPainter(color: Colors.white, isFill: isFavorit),
           ),
         ),
       ),
