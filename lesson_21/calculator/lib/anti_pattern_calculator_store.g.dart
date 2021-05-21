@@ -8,15 +8,16 @@ part of 'anti_pattern_calculator_store.dart';
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
-mixin _$AntiPatternCalculatorStore on _BaseCalculatorStore, Store {
-  Computed<int> _$resultComputed;
+mixin _$AntiPatternCalculatorStore on _AntiPatternCalculatorStoreBase, Store {
+  Computed<int>? _$resultComputed;
 
   @override
   int get result => (_$resultComputed ??= Computed<int>(() => super.result,
-          name: '_BaseCalculatorStore.result'))
+          name: '_AntiPatternCalculatorStoreBase.result'))
       .value;
 
-  final _$firstNumberAtom = Atom(name: '_BaseCalculatorStore.firstNumber');
+  final _$firstNumberAtom =
+      Atom(name: '_AntiPatternCalculatorStoreBase.firstNumber');
 
   @override
   int get firstNumber {
@@ -31,7 +32,8 @@ mixin _$AntiPatternCalculatorStore on _BaseCalculatorStore, Store {
     });
   }
 
-  final _$secondNumberAtom = Atom(name: '_BaseCalculatorStore.secondNumber');
+  final _$secondNumberAtom =
+      Atom(name: '_AntiPatternCalculatorStoreBase.secondNumber');
 
   @override
   int get secondNumber {
@@ -46,28 +48,28 @@ mixin _$AntiPatternCalculatorStore on _BaseCalculatorStore, Store {
     });
   }
 
-  final _$_BaseCalculatorStoreActionController =
-      ActionController(name: '_BaseCalculatorStore');
+  final _$_AntiPatternCalculatorStoreBaseActionController =
+      ActionController(name: '_AntiPatternCalculatorStoreBase');
 
   @override
   void setFirstNumber(int value) {
-    final _$actionInfo = _$_BaseCalculatorStoreActionController.startAction(
-        name: '_BaseCalculatorStore.setFirstNumber');
+    final _$actionInfo = _$_AntiPatternCalculatorStoreBaseActionController
+        .startAction(name: '_AntiPatternCalculatorStoreBase.setFirstNumber');
     try {
       return super.setFirstNumber(value);
     } finally {
-      _$_BaseCalculatorStoreActionController.endAction(_$actionInfo);
+      _$_AntiPatternCalculatorStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   void setSecondNumber(int value) {
-    final _$actionInfo = _$_BaseCalculatorStoreActionController.startAction(
-        name: '_BaseCalculatorStore.setSecondNumber');
+    final _$actionInfo = _$_AntiPatternCalculatorStoreBaseActionController
+        .startAction(name: '_AntiPatternCalculatorStoreBase.setSecondNumber');
     try {
       return super.setSecondNumber(value);
     } finally {
-      _$_BaseCalculatorStoreActionController.endAction(_$actionInfo);
+      _$_AntiPatternCalculatorStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 

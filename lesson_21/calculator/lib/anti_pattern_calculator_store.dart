@@ -2,10 +2,10 @@ import 'package:mobx/mobx.dart';
 
 part 'anti_pattern_calculator_store.g.dart';
 
-class AntiPatternCalculatorStore extends _BaseCalculatorStore
-    with _$AntiPatternCalculatorStore {}
+class AntiPatternCalculatorStore = _AntiPatternCalculatorStoreBase
+    with _$AntiPatternCalculatorStore;
 
-abstract class _BaseCalculatorStore with Store {
+abstract class _AntiPatternCalculatorStoreBase with Store {
   @observable
   int firstNumber = 0;
 
@@ -17,15 +17,21 @@ abstract class _BaseCalculatorStore with Store {
 
   @action
   void setFirstNumber(int value) {
-    assert(value != null);
+    _validateValue(value);
 
     firstNumber = value;
   }
 
   @action
   void setSecondNumber(int value) {
-    assert(value != null);
+    _validateValue(value);
 
     secondNumber = value;
+  }
+
+  bool _validateValue(int value) {
+    if (value < 0) throw ArgumentError();
+
+    return true;
   }
 }

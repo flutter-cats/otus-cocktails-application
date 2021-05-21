@@ -2,13 +2,10 @@ import 'package:mobx/mobx.dart';
 
 part 'calculator_store.g.dart';
 
-class _CalculatorStoreImpl extends CalculatorStore with _$_CalculatorStoreImpl {
-}
+class CalculatorStore = _CalculatorStoreBase with _$CalculatorStore;
 
-abstract class CalculatorStore with Store {
-  factory CalculatorStore.create() => _CalculatorStoreImpl();
-
-  CalculatorStore();
+abstract class _CalculatorStoreBase with Store {
+  _CalculatorStoreBase();
 
   final firstNumber = Observable(0);
 
@@ -19,15 +16,11 @@ abstract class CalculatorStore with Store {
 
   @action
   void setFirstNumber(int value) {
-    assert(value != null);
-
     firstNumber.value = value;
   }
 
   @action
   void setSecondNumber(int value) {
-    assert(value != null);
-
     secondNumber.value = value;
   }
 }

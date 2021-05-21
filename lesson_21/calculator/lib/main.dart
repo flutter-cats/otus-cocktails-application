@@ -6,8 +6,9 @@ import 'package:numberpicker/numberpicker.dart';
 import 'calculator_store.dart';
 
 void main() {
-  mainContext.config =
-      ReactiveConfig.main.clone(writePolicy: ReactiveWritePolicy.always);
+  mainContext.config = ReactiveConfig.main.clone(
+    writePolicy: ReactiveWritePolicy.always,
+  );
 
   runApp(MyApp());
 }
@@ -27,16 +28,16 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
   final String title;
+
+  MyHomePage({Key? key, required this.title}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final store = CalculatorStore.create();
+  final store = CalculatorStore();
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +54,8 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Observer(
                   builder: (context) {
-                    return NumberPicker.integer(
-                      initialValue: store.firstNumber.value,
+                    return NumberPicker(
+                      value: store.firstNumber.value,
                       minValue: 0,
                       maxValue: 100,
                       onChanged: (newValue) {
@@ -66,8 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Icon(Icons.add),
                 Observer(
                   builder: (context) {
-                    return NumberPicker.integer(
-                      initialValue: store.secondNumber.value,
+                    return NumberPicker(
+                      value: store.secondNumber.value,
                       minValue: 0,
                       maxValue: 100,
                       onChanged: (newValue) {
