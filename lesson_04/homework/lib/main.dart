@@ -6,9 +6,13 @@ import 'models/src/repository/sync_cocktail_repository.dart';
 void main() {
   final cocktail = SyncCocktailRepository().getHomeworkCocktail();
   runApp( MaterialApp(
+    theme: materialSampleThemeData,
     title: 'Flutter Demo',
     home: Material(child: CocktailDetailPage(cocktail)),
   ));
 }
+
+ThemeData get materialSampleThemeData => ThemeData(
+     brightness: Brightness.dark);
 
 
