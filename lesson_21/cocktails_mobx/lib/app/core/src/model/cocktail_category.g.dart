@@ -8,8 +8,8 @@ part of 'cocktail_category.dart';
 
 CocktailCategory _$CocktailCategoryFromJson(Map<String, dynamic> json) {
   return CocktailCategory(
-    json['value'] as String,
-    json['name'] as String,
+    name: json['name'] as String,
+    value: json['value'] as String,
   );
 }
 

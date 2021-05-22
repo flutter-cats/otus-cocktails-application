@@ -1,42 +1,56 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:lesson_17/app/bloc_sample/cocktails/cocktails_bloc.dart';
+import 'package:lesson_17/app/state/categories/categories_store.dart';
 import 'package:lesson_17/app/ui/style/theme.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
 
-import 'app/bloc_sample/categories/categories_bloc.dart';
-import 'app/bloc_sample/categories/categories_events.dart';
-import 'app/bloc_sample/favorites/favorites_cubit.dart';
 import 'app/core/src/repository/async_cocktail_repository.dart';
+import 'app/state/cocktails/cocktails_store.dart';
+import 'app/state/favorites/favorites_store.dart';
+import 'app/state/store_initializer.dart';
 import 'app/ui/root_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  HydratedBloc.storage = await HydratedStorage.build(
-      storageDirectory: await getApplicationDocumentsDirectory());
-  runApp(MultiProvider(
-    providers: [
-      RepositoryProvider(create: (context) => AsyncCocktailRepository()),
-      //Categories
-      BlocProvider(
-          create: (context) => CategoriesBloc()..add(CategoriesFetched())),
-      //CustomBloc
-      Provider<CocktailsBloc>(
-          dispose: (context, value) {
-            value.close();
-          },
-          create: (context) => CocktailsBloc(
-              RepositoryProvider.of<AsyncCocktailRepository>(context),
-              BlocProvider.of<CategoriesBloc>(context))),
-      //Favorites
-      BlocProvider(create: (context) => FavoritesCubit())
-    ],
-    child: MaterialApp(
-      theme: mainThemeData,
-      home: RootPage(),
-    ),
-  ));
+
+  mainContext.config = ReactiveConfig.main.clone(
+    writePolicy: ReactiveWritePolicy.always,
+  );
+
+  runApp(App());
+}
+
+class App extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        Provider(
+          create: (context) => AsyncCocktailRepository(),
+        ),
+        Provider(
+          create: (context) => CategoriesStore(),
+        ),
+        Provider<CocktailsStore>(
+          create: (context) => CocktailsStore(
+            Provider.of<AsyncCocktailRepository>(context, listen: false),
+            Provider.of<CategoriesStore>(context, listen: false),
+          ),
+          dispose: (context, value) => value.dispose(),
+        ),
+        Provider(
+          create: (context) => FavoritesStore(
+            Provider.of<CocktailsStore>(context, listen: false),
+          ),
+        )
+      ],
+      child: StoreInitializer<CocktailsStore>(
+        child: MaterialApp(
+          theme: mainThemeData,
+          home: RootPage(),
+        ),
+      ),
+    );
+  }
 }

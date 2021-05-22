@@ -70,7 +70,7 @@ import 'ingredient_definition.dart';
 ///
 part 'cocktail.g.dart';
 
-@JsonSerializable(nullable: false)
+@JsonSerializable()
 class Cocktail {
   final String id;
   final String name;

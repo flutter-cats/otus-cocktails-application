@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lesson_17/app/bloc_sample/favorites/favorites_cubit.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:lesson_17/app/core/models.dart';
+import 'package:lesson_17/app/state/favorites/favorites_store.dart';
+import 'package:provider/provider.dart';
 
 class FavoritesButton extends StatelessWidget {
   const FavoritesButton(
@@ -13,24 +14,20 @@ class FavoritesButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FavoritesCubit, FavoritesState>(
-      // buildWhen: (a, b) {
-      //   return b.isFavorites(cocktailDefinition.id) !=
-      //       a.isFavorites(cocktailDefinition.id);
-      // },
-      builder: (ctx, state) {
-        print('FavoritesButton builder: ${cocktailDefinition.id}');
-        final _cubit = BlocProvider.of<FavoritesCubit>(context);
-        if (state.isFavorites(cocktailDefinition.id)) {
+    return Observer(
+      builder: (context) {
+        final favoritesStore = Provider.of<FavoritesStore>(context);
+
+        if (favoritesStore.isFavorite(cocktailDefinition.id)) {
           return IconButton(
               onPressed: () {
-                _cubit.removeFromFavorites(cocktailDefinition.id);
+                favoritesStore.removeFromFavorites(cocktailDefinition.id);
               },
               icon: Icon(Icons.favorite, color: Colors.red));
         }
         return IconButton(
             onPressed: () {
-              _cubit.addToFavorites(cocktailDefinition);
+              favoritesStore.addToFavorites(cocktailDefinition);
             },
             icon: Icon(Icons.favorite_border));
       },

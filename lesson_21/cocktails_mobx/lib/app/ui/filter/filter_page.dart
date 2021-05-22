@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lesson_17/app/bloc_sample/categories/categories_bloc.dart';
-import 'package:lesson_17/app/bloc_sample/categories/categories_events.dart';
-import 'package:lesson_17/app/bloc_sample/categories/categories_states.dart';
-import 'package:lesson_17/app/bloc_sample/cocktails/cocktails_bloc.dart';
-import 'package:lesson_17/app/bloc_sample/cocktails/cocktails_states.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:lesson_17/app/core/models.dart';
+import 'package:lesson_17/app/state/categories/categories_store.dart';
+import 'package:lesson_17/app/state/cocktails/cocktails_store.dart';
 import 'package:provider/provider.dart';
 
 import '../cocktails/cocktail_grid_item.dart';
 import '../cocktails/cocktails_grid_delegate.dart';
-import 'fitler_bar.dart';
+import 'filter_bar.dart';
 
 class CocktailsFilterScreenCustomBlocStyle extends StatelessWidget {
   const CocktailsFilterScreenCustomBlocStyle({Key? key}) : super(key: key);
@@ -32,43 +29,31 @@ class CocktailsFilterScreenCustomBlocStyle extends StatelessWidget {
   }
 
   Widget _buildFilterBar(BuildContext context) {
-    return BlocBuilder<CategoriesBloc, CategoriesState>(builder: (ctx, state) {
-      if (state is CategoriesLoadSuccess) {
+    return Observer(
+      builder: (context) {
+        final categoriesStore = Provider.of<CategoriesStore>(context);
+
         return SliverPersistentHeader(
           delegate: CategoriesFilterBarDelegate(
-            state.categories,
+            categoriesStore.categories.value,
             onCategorySelected: (category) {
-              context
-                  .read<CategoriesBloc>()
-                  .add(CategoriesCategorySelected(category));
+              categoriesStore.selectCategory(category);
             },
-            selectedCategory: state.selectedCategory,
+            selectedCategory: categoriesStore.selectedCategory,
           ),
           floating: true,
         );
-      }
-      //todo inProgressState and ErrorState
-      return SliverToBoxAdapter(
-        child: Container(),
-      );
-    });
+      },
+    );
   }
 
   Widget _buildCocktailItems(BuildContext context) {
-    final cocktailsBloc = Provider.of<CocktailsBloc>(context);
-    return StreamBuilder<CocktailsState>(
-        stream: cocktailsBloc.stream,
-        initialData: cocktailsBloc.state,
-        builder: (context, snapshot) {
-          final state = snapshot.data;
-          if (state is CocktailsLoadSuccess) {
-            return _buildItems(state.cocktails);
-          }
-          //todo inProgressState and ErrorState
-          return SliverToBoxAdapter(
-            child: Container(),
-          );
-        });
+    return Observer(
+      builder: (context) {
+        final cocktailsStore = Provider.of<CocktailsStore>(context);
+        return _buildItems(cocktailsStore.cocktails);
+      },
+    );
   }
 
   Widget _buildItems(Iterable<CocktailDefinition> cocktails) {

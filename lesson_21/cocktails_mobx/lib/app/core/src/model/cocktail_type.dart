@@ -28,12 +28,9 @@ class CocktailType {
   CocktailType(this.value, this.name);
 
   factory CocktailType.fromJson(Map<String, dynamic> json) =>
-      CocktailType._(json['name'], json['value']);
+      _$CocktailTypeFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        'value': value,
-        'name': name,
-      };
+  Map<String, dynamic> toJson() => _$CocktailTypeToJson(this);
 
   @override
   int get hashCode => value.hashCode;

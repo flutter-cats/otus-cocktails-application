@@ -47,15 +47,12 @@ class CocktailCategory {
 
   const CocktailCategory._(this.name, this.value);
 
-  CocktailCategory(this.value, this.name);
+  CocktailCategory({required this.name, required this.value});
 
   factory CocktailCategory.fromJson(Map<String, dynamic> json) =>
-      CocktailCategory._(json['name'], json['value']);
+      _$CocktailCategoryFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        'value': value,
-        'name': name,
-      };
+  Map<String, dynamic> toJson() => _$CocktailCategoryToJson(this);
 
   @override
   int get hashCode => value.hashCode;

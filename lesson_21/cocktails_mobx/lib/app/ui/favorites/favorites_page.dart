@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lesson_17/app/bloc_sample/favorites/favorites_cubit.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:lesson_17/app/state/favorites/favorites_store.dart';
+import 'package:provider/provider.dart';
 
 import '../cocktails/cocktail_grid_item.dart';
 import '../cocktails/cocktails_grid_delegate.dart';
@@ -19,21 +20,24 @@ class FavoritesPage extends StatelessWidget {
   }
 
   Widget _buildBody(BuildContext context) {
-    return BlocBuilder<FavoritesCubit, FavoritesState>(
-        builder: (context, state) {
-      final favorites = state.favoritesMap.values;
-      if (favorites.isNotEmpty) {
-        return GridView.builder(
-          padding: const EdgeInsets.all(8.0),
-          gridDelegate: cocktailsGridDelegate,
-          itemCount: favorites.length,
-          itemBuilder: (context, index) {
-            return CocktailGridItem(favorites.elementAt(index));
-          },
-        );
-      }
+    return Observer(
+      builder: (context) {
+        final favoritesStore = Provider.of<FavoritesStore>(context);
+        final favorites = favoritesStore.favoritesMap.values;
 
-      return Center(child: Text('Ничего не добавлено'));
-    });
+        if (favorites.isNotEmpty) {
+          return GridView.builder(
+            padding: const EdgeInsets.all(8.0),
+            gridDelegate: cocktailsGridDelegate,
+            itemCount: favorites.length,
+            itemBuilder: (context, index) {
+              return CocktailGridItem(favorites.elementAt(index));
+            },
+          );
+        }
+
+        return Center(child: Text('Ничего не добавлено'));
+      },
+    );
   }
 }

@@ -102,12 +102,9 @@ class GlassType {
   GlassType(this.value, this.name);
 
   factory GlassType.fromJson(Map<String, dynamic> json) =>
-      GlassType._(json['name'], json['value']);
+      _$GlassTypeFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        'value': value,
-        'name': name,
-      };
+  Map<String, dynamic> toJson() => _$GlassTypeToJson(this);
 
   @override
   int get hashCode => value.hashCode;
