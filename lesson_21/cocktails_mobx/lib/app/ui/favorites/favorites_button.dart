@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:lesson_17/app/core/models.dart';
-import 'package:lesson_17/app/state/favorites/favorites_store.dart';
+import 'package:cocktails_mobx/app/core/models.dart';
+import 'package:cocktails_mobx/app/state/favorites/favorites_store.dart';
 import 'package:provider/provider.dart';
 
 class FavoritesButton extends StatelessWidget {

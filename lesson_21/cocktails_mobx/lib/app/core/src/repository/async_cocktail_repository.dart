@@ -2,7 +2,7 @@ import 'dart:convert' as convert;
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
-import 'package:lesson_17/app/repository/cocktail_repository.dart';
+import 'package:cocktails_mobx/app/repository/cocktail_repository.dart';
 
 import '../../models.dart';
 

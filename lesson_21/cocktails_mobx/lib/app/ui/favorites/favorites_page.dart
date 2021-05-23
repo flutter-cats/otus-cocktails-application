@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:lesson_17/app/state/favorites/favorites_store.dart';
+import 'package:cocktails_mobx/app/state/favorites/favorites_store.dart';
 import 'package:provider/provider.dart';
 
 import '../cocktails/cocktail_grid_item.dart';

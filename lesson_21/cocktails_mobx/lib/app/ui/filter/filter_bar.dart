@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lesson_17/app/core/models.dart';
-import 'package:lesson_17/app/ui/style/colors.dart';
+import 'package:cocktails_mobx/app/core/models.dart';
+import 'package:cocktails_mobx/app/ui/style/colors.dart';
 
 class CategoriesFilterBar extends StatelessWidget {
   const CategoriesFilterBar(

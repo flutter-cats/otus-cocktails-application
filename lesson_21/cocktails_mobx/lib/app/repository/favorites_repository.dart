@@ -1,4 +1,4 @@
-import 'package:lesson_17/app/core/models.dart';
+import 'package:cocktails_mobx/app/core/models.dart';
 
 abstract class FavoritesRepository {
   Future<Iterable<CocktailDefinition>> fetchFavorites();

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lesson_17/app/core/models.dart';
+import 'package:cocktails_mobx/app/core/models.dart';
 
 import '../favorites/favorites_button.dart';
 
@@ -18,7 +18,6 @@ class CocktailGridItem extends StatelessWidget {
         alignment: Alignment.center,
         fit: StackFit.expand,
         children: [
-          //todo set empty holder
           DecoratedBox(
             decoration: const BoxDecoration(
                 gradient: LinearGradient(

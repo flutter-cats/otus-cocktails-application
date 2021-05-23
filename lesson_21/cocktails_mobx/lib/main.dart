@@ -1,7 +1,7 @@
+import 'package:cocktails_mobx/app/state/categories/categories_store.dart';
+import 'package:cocktails_mobx/app/ui/style/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lesson_17/app/state/categories/categories_store.dart';
-import 'package:lesson_17/app/ui/style/theme.dart';
 import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
 
@@ -40,9 +40,7 @@ class App extends StatelessWidget {
           dispose: (context, value) => value.dispose(),
         ),
         Provider(
-          create: (context) => FavoritesStore(
-            Provider.of<CocktailsStore>(context, listen: false),
-          ),
+          create: (context) => FavoritesStore(),
         )
       ],
       child: StoreInitializer<CocktailsStore>(

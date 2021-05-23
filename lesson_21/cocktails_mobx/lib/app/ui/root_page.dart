@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lesson_17/app/ui/filter/filter_page.dart';
+import 'package:cocktails_mobx/app/ui/filter/filter_page.dart';
 
 import 'favorites/favorites_page.dart';
 

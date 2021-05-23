@@ -1,4 +1,4 @@
-package com.example.lesson_17
+package com.example.cocktails_mobx
 
 import io.flutter.embedding.android.FlutterActivity
 
