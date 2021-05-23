@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mobx/mobx.dart';
-import 'package:numberpicker/numberpicker.dart';
 
-import 'calculator_store.dart';
+import 'calculator_page.dart';
+import 'trial_calculator_page.dart';
 
 void main() {
   mainContext.config = ReactiveConfig.main.clone(
@@ -22,75 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Calculator'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  final String title;
-
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  final store = CalculatorStore();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Observer(
-                  builder: (context) {
-                    return NumberPicker(
-                      value: store.firstNumber.value,
-                      minValue: 0,
-                      maxValue: 100,
-                      onChanged: (newValue) {
-                        store.setFirstNumber(newValue);
-                      },
-                    );
-                  },
-                ),
-                Icon(Icons.add),
-                Observer(
-                  builder: (context) {
-                    return NumberPicker(
-                      value: store.secondNumber.value,
-                      minValue: 0,
-                      maxValue: 100,
-                      onChanged: (newValue) {
-                        store.setSecondNumber(newValue);
-                      },
-                    );
-                  },
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            Observer(
-              builder: (context) {
-                return Text(
-                  "Result: ${store.result}",
-                  style: Theme.of(context).textTheme.headline4,
-                );
-              },
-            ),
-          ],
-        ),
-      ),
+      home: TrialCalculatorPage(),
     );
   }
 }
