@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:cocktails_mobx/app/core/models.dart';
 import 'package:cocktails_mobx/app/state/categories/categories_store.dart';
 import 'package:cocktails_mobx/app/state/cocktails/cocktails_store.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
 import '../cocktails/cocktail_grid_item.dart';
@@ -35,7 +35,7 @@ class CocktailsFilterScreenCustomBlocStyle extends StatelessWidget {
 
         return SliverPersistentHeader(
           delegate: CategoriesFilterBarDelegate(
-            categoriesStore.categories.value,
+            categoriesStore.categories,
             onCategorySelected: (category) {
               categoriesStore.selectCategory(category);
             },

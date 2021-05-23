@@ -14,6 +14,7 @@ import 'app/ui/root_page.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  // Меняем writePolicy, чтобы Observable могли быть изменены только внутри экшенов
   mainContext.config = ReactiveConfig.main.clone(
     writePolicy: ReactiveWritePolicy.always,
   );
@@ -34,8 +35,8 @@ class App extends StatelessWidget {
         ),
         Provider<CocktailsStore>(
           create: (context) => CocktailsStore(
-            Provider.of<AsyncCocktailRepository>(context, listen: false),
-            Provider.of<CategoriesStore>(context, listen: false),
+            context.read<AsyncCocktailRepository>(),
+            context.read<CategoriesStore>(),
           ),
           dispose: (context, value) => value.dispose(),
         ),

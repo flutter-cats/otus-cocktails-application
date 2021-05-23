@@ -21,7 +21,7 @@ class _StoreInitializerState<T extends Initable>
   void initState() {
     super.initState();
 
-    final store = Provider.of<T>(context, listen: false);
+    final store = context.read<T>();
     _initFuture = store.init();
   }
 

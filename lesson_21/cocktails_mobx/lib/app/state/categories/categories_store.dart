@@ -9,12 +9,10 @@ class CategoriesStore = _CategoriesStoreBase with _$CategoriesStore;
 abstract class _CategoriesStoreBase with Store {
   _CategoriesStoreBase();
 
-  //todo built list?
-  final categories =
-      Observable<Iterable<CocktailCategory>>(CocktailCategory.values);
+  final categories = ObservableList.of(CocktailCategory.values);
 
   late final Observable<CocktailCategory> _selectedCategory =
-      Observable<CocktailCategory>(categories.value.first);
+      Observable<CocktailCategory>(categories.first);
 
   // Можно создавать геттер над Observable для упрощения доступа
   CocktailCategory get selectedCategory => _selectedCategory.value;

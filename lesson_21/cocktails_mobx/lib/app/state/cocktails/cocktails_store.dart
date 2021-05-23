@@ -10,21 +10,20 @@ part 'cocktails_store.g.dart';
 class CocktailsStore = _CocktailsStoreBase with _$CocktailsStore;
 
 abstract class _CocktailsStoreBase with Store implements Initable {
-  _CocktailsStoreBase(this.cocktailRepository, this.categoriesStore) {
-    // Добавляем реакцию: при изменении выбранной категории запускаем загрузку коктейлей
+  _CocktailsStoreBase(this.cocktailRepository, this._categoriesStore) {
+    // Добавляем реакцию: при изменении выбранной категории автоматически запустится загрузка коктейлей
     _disposers.add(
       reaction(
-        (_) => categoriesStore.selectedCategory,
+        (_) => _categoriesStore.selectedCategory,
         (_) => loadCocktails(),
       ),
     );
   }
 
   final CocktailRepository cocktailRepository;
-  final CategoriesStore categoriesStore;
+  final CategoriesStore _categoriesStore;
   final _disposers = <ReactionDisposer>[];
 
-  // comment
   final cocktails = ObservableList<CocktailDefinition>();
 
   @override
@@ -43,7 +42,7 @@ abstract class _CocktailsStoreBase with Store implements Initable {
   Future<void> loadCocktails() async {
     final loadedCocktails =
         await cocktailRepository.fetchCocktailsByCocktailCategory(
-            this.categoriesStore.selectedCategory);
+            this._categoriesStore.selectedCategory);
 
     cocktails.clear();
     cocktails.addAll(loadedCocktails);
