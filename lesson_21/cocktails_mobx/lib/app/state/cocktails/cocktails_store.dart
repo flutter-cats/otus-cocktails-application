@@ -37,7 +37,6 @@ abstract class _CocktailsStoreBase with Store implements Initable {
     }
   }
 
-  //todo result, error handling
   @action
   Future<void> loadCocktails() async {
     final loadedCocktails =
