@@ -37,6 +37,8 @@ abstract class _CocktailsStoreBase with Store implements Initable {
     }
   }
 
+  // Возвращаемый Future можно использовать в UI: отображать индикатор прогресса.
+  // Или же его можно положить в Observable<Future>.
   @action
   Future<void> loadCocktails() async {
     final loadedCocktails =
