@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class CocktailRatingStar extends StatelessWidget {
   final bool isFilled;
 
-  CocktailRatingStar({this.isFilled});
+  CocktailRatingStar({required this.isFilled});
 
   @override
   Widget build(BuildContext context) {

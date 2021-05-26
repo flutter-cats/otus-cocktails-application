@@ -1,12 +1,12 @@
-import 'package:lesson_21_animations_homework/ui/style/custom_colors.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:lesson_21_animations_homework/ui/style/custom_colors.dart';
 
 import 'cocktail_rating_star.dart';
 
 class CocktailRatingBar extends StatelessWidget {
   final int rating;
 
-  CocktailRatingBar({this.rating});
+  CocktailRatingBar({required this.rating});
 
   @override
   Widget build(BuildContext context) {

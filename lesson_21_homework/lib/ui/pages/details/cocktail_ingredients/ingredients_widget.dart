@@ -7,7 +7,7 @@ import 'cocktail_ingredient_row.dart';
 class CocktailIngredients extends StatelessWidget {
   final Iterable<IngredientDefinition> cocktailIngredients;
 
-  CocktailIngredients({this.cocktailIngredients});
+  CocktailIngredients({required this.cocktailIngredients});
 
   @override
   Widget build(BuildContext context) => Container(
@@ -21,8 +21,8 @@ class CocktailIngredients extends StatelessWidget {
               Text('Ингредиенты:', style: Theme.of(context).textTheme.headline6),
               ...cocktailIngredients
                   .map((ingredient) => CocktailIngredientRow(
-                      cocktailIngredientName: ingredient.ingredientName ?? '',
-                      cocktailIngredientMeasure: ingredient.measure ?? ''))
+                      cocktailIngredientName: ingredient.ingredientName,
+                      cocktailIngredientMeasure: ingredient.measure))
                   .toList(growable: false)
             ],
           ),

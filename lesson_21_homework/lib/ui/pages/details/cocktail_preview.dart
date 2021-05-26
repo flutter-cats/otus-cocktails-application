@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class CocktailPreview extends StatelessWidget {
   final String imageUrl;
 
-  CocktailPreview({this.imageUrl});
+  CocktailPreview({required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -17,15 +17,17 @@ class CocktailPreview extends StatelessWidget {
         ),
         Positioned(
           bottom: 0,
-          child: AspectRatio(
-            aspectRatio: 375 / 172,
-            child: Container(
-              color: Colors.transparent,
-              foregroundDecoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                      colors: [CustomColors.gradient_first, CustomColors.gradient_second],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter)),
+          child: Container(
+            color: Colors.red,
+            foregroundDecoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [
+                  CustomColors.gradient_first,
+                  CustomColors.gradient_second
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
             ),
           ),
         ),

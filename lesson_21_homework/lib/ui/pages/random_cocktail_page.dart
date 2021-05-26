@@ -8,10 +8,11 @@ import 'package:flutter/material.dart';
 class RandomCocktailPageWidget extends StatefulWidget {
   final AsyncCocktailRepository repository;
 
-  const RandomCocktailPageWidget(this.repository, {Key key}) : super(key: key);
+  const RandomCocktailPageWidget(this.repository, {Key? key}) : super(key: key);
 
   @override
-  _RandomCocktailPageWidgetState createState() => _RandomCocktailPageWidgetState();
+  _RandomCocktailPageWidgetState createState() =>
+      _RandomCocktailPageWidgetState();
 }
 
 class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
@@ -29,7 +30,9 @@ class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
               onCategorySelected: (category) {
                 Navigator.of(context).push(
                   MaterialPageRoute<void>(
-                    builder: (context) => FilterResultsPageWidget(selectedCategory: category),
+                    builder: (context) => FilterResultsPageWidget(
+                      selectedCategory: category,
+                    ),
                   ),
                 );
               },
@@ -44,7 +47,7 @@ class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
   }
 
   Widget _buildRandomCocktailPage(BuildContext context) {
-    return FutureBuilder<Cocktail>(
+    return FutureBuilder<Cocktail?>(
         future: widget.repository.getRandomCocktail(),
         builder: (ctx, snapshot) {
           if (snapshot.hasError) {
@@ -56,7 +59,7 @@ class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
           }
 
           if (snapshot.hasData) {
-            final cocktail = snapshot.data;
+            final cocktail = snapshot.data!;
             final cocktailDefinition = CocktailDefinition(
               id: cocktail.id,
               name: cocktail.name,
@@ -69,7 +72,10 @@ class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
               sliver: SliverGrid(
                 delegate: SliverChildBuilderDelegate(
                   (ctx, index) {
-                    return CocktailGridItem(cocktailDefinition, selectedCategory: cocktail.category);
+                    return CocktailGridItem(
+                      cocktailDefinition,
+                      selectedCategory: cocktail.category!,
+                    );
                   },
                   childCount: 1,
                 ),
@@ -83,7 +89,21 @@ class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
             );
           }
 
-          return SliverFillRemaining(child: const SizedBox());
+          ///
+          /// todo:
+          /// отрефакторить использование CircularProgressIndicator
+          /// в пользу реализации своего кастомного виджета progress indicator
+          /// Этот виджет нужно реализовать самостоятельно,
+          /// используя стандартные средства Flutter для работы
+          /// с графическим canvas и средства анимации.
+          /// И затем переиспользовать вместо CircularProgressIndicator
+          /// (в местах отмеченных///todo:)
+          ///
+          return SliverFillRemaining(
+            child: Center(
+              child: const CircularProgressIndicator(),
+            ),
+          );
         });
   }
 }

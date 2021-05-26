@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 class CocktailInstruction extends StatelessWidget {
   final String cocktailInstruction;
 
-  CocktailInstruction({this.cocktailInstruction});
+  CocktailInstruction({required this.cocktailInstruction});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class CocktailInstruction extends StatelessWidget {
             ),
             ...cocktailInstruction
                 .split('\n')
-                .map((step) => _getCustomText(step, Theme.of(context).textTheme.headline5))
+                .map((step) => _getCustomText(step, Theme.of(context).textTheme.headline5!))
                 .toList(growable: false)
           ],
         ),

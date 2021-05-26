@@ -8,10 +8,12 @@ import 'package:flutter/material.dart';
 class FilterResultsPageWidget extends StatefulWidget {
   final CocktailCategory selectedCategory;
 
-  const FilterResultsPageWidget({Key key, @required this.selectedCategory}) : super(key: key);
+  const FilterResultsPageWidget({Key? key, required this.selectedCategory})
+      : super(key: key);
 
   @override
-  _FilterResultsPageWidgetState createState() => _FilterResultsPageWidgetState(selectedCategory);
+  _FilterResultsPageWidgetState createState() =>
+      _FilterResultsPageWidgetState(selectedCategory);
 }
 
 class _FilterResultsPageWidgetState extends State<FilterResultsPageWidget> {
@@ -52,30 +54,55 @@ class _FilterResultsPageWidgetState extends State<FilterResultsPageWidget> {
   }
 
   Widget _buildCocktailItems(BuildContext context) {
-    return FutureBuilder<Iterable<CocktailDefinition>>(
-        future: repository.fetchCocktailsByCocktailCategory(_categoryNotifier.value),
+    return FutureBuilder<Iterable<CocktailDefinition?>>(
+        future: repository
+            .fetchCocktailsByCocktailCategory(_categoryNotifier.value),
         builder: (ctx, snapshot) {
           if (snapshot.hasError) {
-            return SliverFillRemaining(child: Center(child: Text(snapshot.error.toString())));
+            return SliverFillRemaining(
+              child: Center(
+                child: Text(
+                  snapshot.error.toString(),
+                ),
+              ),
+            );
           }
 
           if (snapshot.hasData) {
             return SliverPadding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               sliver: SliverGrid(
-                  delegate: SliverChildBuilderDelegate((ctx, index) {
-                    return CocktailGridItem(snapshot.data.elementAt(index), selectedCategory: _categoryNotifier.value);
-                  }, childCount: snapshot.data.length),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      childAspectRatio: CocktailGridItem.aspectRatio,
-                      crossAxisSpacing: 6,
-                      mainAxisSpacing: 6,
-                      crossAxisCount: 2)),
+                delegate: SliverChildBuilderDelegate((ctx, index) {
+                  return CocktailGridItem(
+                    snapshot.data!.elementAt(index)!,
+                    selectedCategory: _categoryNotifier.value,
+                  );
+                }, childCount: snapshot.data!.length),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  childAspectRatio: CocktailGridItem.aspectRatio,
+                  crossAxisSpacing: 6,
+                  mainAxisSpacing: 6,
+                  crossAxisCount: 2,
+                ),
+              ),
             );
           }
 
-          //  todo set loader
-          return SliverFillRemaining(child: const SizedBox());
+          ///
+          /// todo:
+          /// отрефакторить использование CircularProgressIndicator
+          /// в пользу реализации своего кастомного виджета progress indicator
+          /// Этот виджет нужно реализовать самостоятельно,
+          /// используя стандартные средства Flutter для работы
+          /// с графическим canvas и средства анимации.
+          /// И затем переиспользовать вместо CircularProgressIndicator
+          /// (в местах отмеченных///todo:)
+          ///
+          return SliverFillRemaining(
+            child: Center(
+              child: const CircularProgressIndicator(),
+            ),
+          );
         });
   }
 }

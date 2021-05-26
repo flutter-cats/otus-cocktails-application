@@ -7,8 +7,10 @@ class CocktailCharacteristicText extends StatelessWidget {
   final String characteristicName;
   final String characteristicValue;
 
-  CocktailCharacteristicText(
-      {this.characteristicName, this.characteristicValue});
+  CocktailCharacteristicText({
+    required this.characteristicName,
+    required this.characteristicValue,
+  });
 
   @override
   Widget build(BuildContext context) {

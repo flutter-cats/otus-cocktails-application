@@ -24,7 +24,7 @@ class CocktailTitle extends StatelessWidget {
   final String cocktailTitle;
   final bool isFavorite;
 
-  CocktailTitle({this.cocktailTitle, this.isFavorite});
+  CocktailTitle({required this.cocktailTitle, required this.isFavorite});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class CocktailTitle extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          cocktailTitle ?? '',
+          cocktailTitle,
           style: Theme.of(context).textTheme.headline3,
         ),
         _getIsFavoriteIcon()
