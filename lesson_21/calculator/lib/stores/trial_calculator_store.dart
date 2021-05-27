@@ -11,15 +11,15 @@ abstract class _TrialCalculatorStoreBase with Store {
     _disposer = reaction((_) => result, onResultUpdated);
   }
 
+  dispose() {
+    _disposer();
+  }
+
   late final ReactionDisposer _disposer;
 
   final firstNumber = Observable(0);
 
   final secondNumber = Observable(0);
-
-  dispose() {
-    _disposer();
-  }
 
   @computed
   int get result => firstNumber.value + secondNumber.value;
