@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a86b4f6-e92e-4184-b43a-773e96ef905a" name="Default Changelist" comment="animations module homework">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lesson_21_homework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_21_homework/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/aplication/adaptive_navigation_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/aplication/adaptive_navigation_bar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/aplication/application_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/aplication/application_drawer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/pages/cocktail_grid_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/pages/cocktail_grid_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/pages/filter_results_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/pages/filter_results_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson_21_homework/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_21_homework/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +52,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
