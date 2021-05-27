@@ -3,17 +3,19 @@ import 'package:mobx/mobx.dart';
 
 import '../../core/models.dart';
 import '../../repository/cocktail_repository.dart';
-import '../initable.dart';
 
 part 'cocktails_store.g.dart';
 
 class CocktailsStore = _CocktailsStoreBase with _$CocktailsStore;
 
-abstract class _CocktailsStoreBase with Store implements Initable {
+abstract class _CocktailsStoreBase with Store {
   static ObservableFuture<Iterable<CocktailDefinition>> emptyResponse =
       ObservableFuture.value([]);
 
-  _CocktailsStoreBase(this.cocktailRepository, this._categoriesStore) {
+  _CocktailsStoreBase(this._cocktailRepository, this._categoriesStore) {
+    // При создании стора - запускаем загрузку коктейлей
+    loadCocktails();
+
     // Добавляем реакцию: при изменении выбранной категории автоматически запустится загрузка коктейлей
     _disposers.add(
       reaction(
@@ -23,7 +25,7 @@ abstract class _CocktailsStoreBase with Store implements Initable {
     );
   }
 
-  final CocktailRepository cocktailRepository;
+  final CocktailRepository _cocktailRepository;
   final CategoriesStore _categoriesStore;
   final _disposers = <ReactionDisposer>[];
 
@@ -38,11 +40,7 @@ abstract class _CocktailsStoreBase with Store implements Initable {
       _cocktailsFuture != emptyResponse &&
       _cocktailsFuture.status == FutureStatus.fulfilled;
 
-  @override
-  Future<void> init() {
-    return loadCocktails();
-  }
-
+  // Не забыть закрыть реакции
   dispose() {
     for (var disposer in _disposers) {
       disposer();
@@ -52,7 +50,7 @@ abstract class _CocktailsStoreBase with Store implements Initable {
   @action
   Future<void> loadCocktails() async {
     // Альтернативный вариант: использовать в UI Future, который возвращается этим экшеном
-    final future = cocktailRepository.fetchCocktailsByCocktailCategory(
+    final future = _cocktailRepository.fetchCocktailsByCocktailCategory(
       this._categoriesStore.selectedCategory,
     );
     _cocktailsFuture = ObservableFuture(future);

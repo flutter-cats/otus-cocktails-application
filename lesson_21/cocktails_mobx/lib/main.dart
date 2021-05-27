@@ -8,7 +8,6 @@ import 'package:provider/provider.dart';
 import 'app/core/src/repository/async_cocktail_repository.dart';
 import 'app/state/cocktails/cocktails_store.dart';
 import 'app/state/favorites/favorites_store.dart';
-import 'app/state/store_initializer.dart';
 import 'app/ui/root_page.dart';
 
 Future<void> main() async {
@@ -44,11 +43,9 @@ class App extends StatelessWidget {
           create: (context) => FavoritesStore(),
         )
       ],
-      child: StoreInitializer<CocktailsStore>(
-        child: MaterialApp(
-          theme: mainThemeData,
-          home: RootPage(),
-        ),
+      child: MaterialApp(
+        theme: mainThemeData,
+        home: RootPage(),
       ),
     );
   }
