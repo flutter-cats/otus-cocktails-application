@@ -37,6 +37,7 @@ class App extends StatelessWidget {
             context.read<AsyncCocktailRepository>(),
             context.read<CategoriesStore>(),
           ),
+          // !!!
           dispose: (context, value) => value.dispose(),
         ),
         Provider(
