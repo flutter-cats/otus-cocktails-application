@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a86b4f6-e92e-4184-b43a-773e96ef905a" name="Default Changelist" comment="animations module homework">
-      <change afterPath="$PROJECT_DIR$/.idea/markdown-navigator-enh.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/markdown-navigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lesson_21_homework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_21_homework/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/aplication/application_scaffold.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/aplication/application_scaffold.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/pages/categories_fitler_bar_delegate.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/pages/categories_fitler_bar_delegate.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/pages/cocktail_details_loader_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/pages/cocktail_details_loader_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/aplication/adaptive_navigation_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/aplication/adaptive_navigation_bar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/aplication/application_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/aplication/application_drawer.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/pages/cocktail_grid_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/pages/cocktail_grid_item.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/pages/filter_results_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/pages/filter_results_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/pages/random_cocktail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_21_homework/lib/ui/pages/random_cocktail_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

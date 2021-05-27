@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lesson_21_animations_homework/ui/pages/favorite_cocktails_page.dart';
 import 'package:lesson_21_animations_homework/ui/style/custom_colors.dart';
 import 'package:lesson_21_animations_homework/ui/style/svg_icons.dart';
 
@@ -47,6 +48,18 @@ class ApplicationDrawer extends StatelessWidget {
             ListTile(
               title: Text('Язык'),
               leading: SvgIcons.language(CustomColors.headline1),
+            ),
+            divider,
+            ListTile(
+              title: Text('Избранное'),
+              leading: SvgIcons.favorite(CustomColors.headline1),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (context) => FavouriteCocktailsPage(),
+                  ),
+                );
+              },
             ),
           ],
         ),
