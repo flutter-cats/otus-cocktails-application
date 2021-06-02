@@ -1,9 +1,12 @@
 import 'dart:convert' as convert;
+import 'dart:html';
 import 'dart:io';
 
 import 'package:cocktail_app_models/models.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_definition_dto.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_dto.dart';
+import 'package:cocktail_db_http_using/src/dto/ingredient_dto.dart';
+import 'package:cocktail_db_http_using/src/repository/cocktail_error.dart';
 import 'package:http/http.dart' as http;
 
 class AsyncCocktailRepository {
@@ -148,18 +151,32 @@ class AsyncCocktailRepository {
     return result;
   }
 
-  ///
-  /// TODO: implement Lookup ingredient by ID operation to get all details about Ingredient
-  /// using an endpoint
-  /// description is available here
-  /// https://rapidapi.com/thecocktaildb/api/the-cocktail-db?endpoint=apiendpoint_0ee9572a-a259-4b6e-9e53-b97aa3d42b18
-  ///
-  /// api operation is:
-  /// https://the-cocktail-db.p.rapidapi.com/lookup.php
-  ///
-  Future<Ingredient?> lookupIngredientById() async {
-    return null;
+  Future<Ingredient?> lookupIngredientById(String ingredientId) => http
+          .get(
+              Uri.parse(
+                  "https://the-cocktail-db.p.rapidapi.com/lookup.php?=$ingredientId"),
+              headers: _headers)
+          .then((value) => _handleResponse(value))
+          .catchError((exception) {
+        _mapInputExceptionToCocktailException(exception.message);
+      });
+
+  Ingredient? _handleResponse(http.Response response) {
+    Ingredient? ingredient = null;
+    if (response.statusCode == HttpStatus.ok) {
+      final ingredientsResponse = convert.jsonDecode(response.body);
+      final ingredients =
+          ingredientsResponse['ingredients'] as Iterable<dynamic>;
+      ingredient = _mapDtoToModel(IngredientDto.fromJson(
+          ingredients.cast<Map<String, dynamic>>().first));
+    } else {
+      throw HttpException('Request failed with status: ${response.statusCode}');
+    }
+    return ingredient;
   }
+
+  CocktailException _mapInputExceptionToCocktailException(String message) =>
+      CocktailException(message);
 
   Cocktail _createCocktailFromDto(CocktailDto dto) {
     final glass = GlassType.parse(dto.strGlass!);
@@ -203,4 +220,16 @@ class AsyncCocktailRepository {
       if (dto.strIngredient15 != null) dto.strIngredient15!: dto.strMeasure15!,
     };
   }
+
+  Ingredient _mapDtoToModel(IngredientDto dto) {
+    return Ingredient(
+      id: dto.idIngredient,
+      name: dto.strIngredient,
+      description: dto.strDescription,
+      ingredientType: dto.strType,
+      isAlcoholic: _convertStringToBool(dto.strAlcohol),
+    );
+  }
+
+  bool _convertStringToBool(String? value) => value == 'true';
 }
