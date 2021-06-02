@@ -29,7 +29,7 @@ import 'package:lesson_11_animations/41_implicitly_animated_widget.dart'
     as animations_41;
 
 void main() {
-  animations_00_0.main();
+  // animations_00_0.main();
   // animations_00_1.main();
   // runApp(animations_01.MyApp());
   // runApp(animations_02.MyApp());
@@ -45,5 +45,5 @@ void main() {
   // runApp(animations_20.MyApp());
   // runApp(animations_30.MyApp());
   // runApp(animations_32.MyApp());
-  // runApp(animations_41.MyApp());
+  runApp(animations_41.MyApp());
 }

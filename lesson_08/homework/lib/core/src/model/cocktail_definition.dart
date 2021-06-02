@@ -23,9 +23,9 @@ class CocktailDefinition {
   final bool isFavourite;
 
   CocktailDefinition({
-    @required this.id,
-    @required this.name,
-    @required this.drinkThumbUrl,
-    @required this.isFavourite,
+    required this.id,
+    required this.name,
+    required this.drinkThumbUrl,
+    required this.isFavourite,
   });
 }

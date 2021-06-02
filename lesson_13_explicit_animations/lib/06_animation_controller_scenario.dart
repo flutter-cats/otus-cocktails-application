@@ -16,18 +16,18 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller = AnimationController(
+    vsync: this,
+    lowerBound: 0, //  default value
+    upperBound: 1000, //  default value
+    duration: const Duration(seconds: 1),
+  );
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      lowerBound: 0, //  default value
-      upperBound: 1000, //  default value
-      duration: const Duration(seconds: 1),
-    );
 
     _controller.addListener(() {
       print(_controller.value.toStringAsFixed(4));
@@ -55,7 +55,8 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
             height: 300,
             child: Column(
               children: [
-                Text('${_controller.value.toStringAsFixed(4)} -> Check console output'),
+                Text(
+                    '${_controller.value.toStringAsFixed(4)} -> Check console output'),
                 Text('${_controller.status} -> Check console output'),
               ],
             )),

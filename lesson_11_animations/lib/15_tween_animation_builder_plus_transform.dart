@@ -41,13 +41,13 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             );
 
-            return Transform(
-              origin: Offset(100, 100),
-              transform: Matrix4.identity()
-                ..setEntry(3, 2, 0.001)
-                ..rotateY(tweenValue * math.pi * 2),
-              child: FlutterIcon(color: Colors.red),
-            );
+            // return Transform(
+            //   origin: Offset(100, 100),
+            //   transform: Matrix4.identity()
+            //     ..setEntry(3, 2, 0.001)
+            //     ..rotateY(tweenValue * math.pi * 2),
+            //   child: FlutterIcon(color: Colors.red),
+            // );
           },
         ),
       ),

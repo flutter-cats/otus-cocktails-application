@@ -1,10 +1,12 @@
 import 'dart:convert' as convert;
 import 'dart:io';
-
 import 'package:cocktail_app_models/models.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_definition_dto.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_dto.dart';
+import 'package:cocktail_db_http_using/src/dto/ingridient_dto.dart';
 import 'package:http/http.dart' as http;
+
+import '../dto/ingridient_dto.dart';
 
 class AsyncCocktailRepository {
   static const String _apiKey =
@@ -157,8 +159,55 @@ class AsyncCocktailRepository {
   /// api operation is:
   /// https://the-cocktail-db.p.rapidapi.com/lookup.php
   ///
-  Future<Ingredient?> lookupIngredientById() async {
-    return null;
+
+  Future<Ingredient?> lookupIngredientById(String id) async {
+    Ingredient? result;
+
+    var client = http.Client();
+    try {
+      final url = 'https://the-cocktail-db.p.rapidapi.com/lookup.php?iid=$id';
+
+      var response = await http.get(Uri.parse(url), headers: _headers);
+
+      if (response.statusCode == HttpStatus.ok) {
+        final jsonResponse = convert.jsonDecode(response.body);
+
+        var ingredients = jsonResponse['ingredients'] as Iterable<dynamic>;
+        print('ingrdidients $ingredients');
+        final dtos = ingredients
+            .cast<Map<String, dynamic>>()
+            .map((json) => IngridientDto.fromJson(json));
+
+        if (dtos.length > 0) {
+          result = _createIngridientFromDto(dtos.first);
+        }
+      } else {
+        throw HttpException(
+            'Request failed with status: ${response.statusCode}');
+      }
+      // Make catch error
+    } on http.ClientException catch (error) {
+      throw HttpException('Request failed with status: $error');
+    } on SocketException catch (_) {
+      throw HttpException('Bad connection');
+    } catch (error) {
+      throw HttpException('Some error $error');
+    } finally {
+      client.close();
+    }
+
+    return result;
+  }
+
+  Ingredient _createIngridientFromDto(IngridientDto ingriddientDto) {
+    final isAlcohol = ingriddientDto.strAlcohol == "Alcoholic";
+
+    return Ingredient(
+        id: ingriddientDto.idIngredient,
+        name: ingriddientDto.strIngredient,
+        description: ingriddientDto.strDescription,
+        ingredientType: ingriddientDto.strType,
+        isAlcoholic: isAlcohol);
   }
 
   Cocktail _createCocktailFromDto(CocktailDto dto) {

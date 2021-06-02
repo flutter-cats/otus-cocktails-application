@@ -21,7 +21,7 @@ class _ScrollControllerSamplePageState
   @override
   void initState() {
     controller.addListener(() {
-     // print(controller.offset);
+      // print(controller.offset);
     });
     super.initState();
   }
@@ -36,14 +36,14 @@ class _ScrollControllerSamplePageState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      body: _buildWithNotificationListener(),
+      body: _buildListView(),
     );
   }
 
   // ScrollPhysics
   Widget _buildListView() {
-    final physics = ClampingScrollPhysics();
-    //final physics = BouncingScrollPhysics();
+    // final physics = ClampingScrollPhysics();
+    final physics = BouncingScrollPhysics();
     //final physics = NeverScrollableScrollPhysics();
     return ListView.builder(
       controller: controller,
