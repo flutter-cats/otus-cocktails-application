@@ -160,39 +160,35 @@ class AsyncCocktailRepository {
   ///
   Future<Ingredient?> lookupIngredientById(String cocktailID) async {
     Ingredient? result;
-    var client = http.Client();
-    try {
-      final url = 'https://the-cocktail-db.p.rapidapi.com/lookup.php?iid=$cocktailID';
+    final url =
+        'https://the-cocktail-db.p.rapidapi.com/lookup.php?iid=$cocktailID';
 
-      var response = await http.get(Uri.parse(url), headers: _headers);
-      if (response.statusCode == 200) {
-        final jsonResponse = convert.jsonDecode(response.body);
-          print (jsonResponse);
+    var response = await http.get(Uri.parse(url), headers: _headers);
+    if (response.statusCode == HttpStatus.ok) {
+      final jsonResponse = convert.jsonDecode(response.body);
+      print(jsonResponse);
 
-        var ingredients = jsonResponse['ingredients'] as Iterable<dynamic>;
+      var ingredients = jsonResponse['ingredients'] as Iterable<dynamic>;
 
-        final dtos = ingredients.cast<Map<String, dynamic>>().map((json) => IngredientDto.fromJson(json));
-            if (dtos.length > 0) {
-          result = _createIngredientFromDto(dtos.first);
-        }
-      } else {
-        throw HttpException(
-            'Request failed with status: ${response.statusCode}');
+      final dtos = ingredients
+          .cast<Map<String, dynamic>>()
+          .map((json) => IngredientDto.fromJson(json));
+      if (dtos.length > 0) {
+        result = _createIngredientFromDto(dtos.first);
       }
-    } finally {
-      client.close();
+    } else {
+      throw HttpException('Request failed with status: ${response.statusCode}');
     }
     return result;
   }
 
   Ingredient _createIngredientFromDto(IngredientDto dto) {
     return Ingredient(
-      id: dto.idIngredient,
+        id: dto.idIngredient,
         name: dto.strIngredient,
         description: dto.strDescription,
         ingredientType: dto.strType,
-        isAlcoholic: (dto.strAlcohol == null ? true : dto.strAlcohol as bool)
-    );
+        isAlcoholic: (dto.strAlcohol?.toLowerCase() == 'true' ? true : false));
   }
 
   Cocktail _createCocktailFromDto(CocktailDto dto) {
