@@ -1,10 +1,8 @@
+import 'package:cocktail/res/application_colors.dart';
+import 'package:cocktail/res/strings.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:homework/res/application_colors.dart';
-import 'package:homework/res/strings.dart';
-import 'package:homework/utils/show_toast.dart';
-
 
 class CocktailDescription extends StatelessWidget {
   const CocktailDescription(
@@ -22,9 +20,7 @@ class CocktailDescription extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final nameStyle = TextStyle(color: Colors.white, fontSize: 20);
-    final idStyle = TextStyle(
-        color: ApplicationColors.idColor,
-        fontSize: 13);
+    final idStyle = TextStyle(color: ApplicationColors.idColor, fontSize: 13);
 
     return Container(
         color: ApplicationColors.backgroundDescription,
@@ -55,14 +51,10 @@ class CocktailDescription extends StatelessWidget {
 Widget _isFavorite(BuildContext context) {
   final String widgetName = 'assets/images/icon_hart.svg';
 
-  return IconButton(
-      onPressed: () => showToast("isFavorite Button Pressed", context),
-      icon: SvgPicture.asset(widgetName)
-  ); //
+  return IconButton(onPressed: () => {}, icon: SvgPicture.asset(widgetName)); //
 }
 
 Widget _descriptionItem(String itemName, String itemValue) {
-
   final nameStyle = TextStyle(color: Colors.white70, fontSize: 14);
   final valueStyle = TextStyle(color: Colors.white, fontSize: 15);
 
@@ -71,21 +63,23 @@ Widget _descriptionItem(String itemName, String itemValue) {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(itemName, style: nameStyle,),
+        Text(
+          itemName,
+          style: nameStyle,
+        ),
         DecoratedBox(
           decoration: BoxDecoration(
               color: ApplicationColors.itemDescriptionBackground,
-              borderRadius: BorderRadius.all(Radius.circular(20))
-            ),
+              borderRadius: BorderRadius.all(Radius.circular(20))),
           child: Container(
             padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-            child: Text(itemValue, style: valueStyle,),
+            child: Text(
+              itemValue,
+              style: valueStyle,
+            ),
           ),
         ),
-
       ],
     ),
   );
 }
-
-

@@ -1,7 +1,11 @@
 import 'package:cocktail/core/models.dart';
 import 'package:flutter/material.dart';
 
+import 'cocktail_description_widget.dart';
 import 'cocktail_image_widget.dart';
+import 'ingredients_widget.dart';
+import 'instruction_widget.dart';
+import 'rating_widget.dart';
 
 class CocktailDetailPage extends StatelessWidget {
   const CocktailDetailPage(

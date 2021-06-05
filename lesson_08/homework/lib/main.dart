@@ -1,3 +1,5 @@
+import 'package:cocktail/core/models.dart';
+import 'package:cocktail/ui/cocktail_detail_page/cocktail_detail_page.dart';
 import 'package:cocktail/ui/filter_page.dart';
 import 'package:flutter/material.dart';
 

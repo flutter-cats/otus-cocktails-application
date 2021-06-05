@@ -1,7 +1,7 @@
+import 'package:cocktail/res/application_colors.dart';
+import 'package:cocktail/res/strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:homework/res/application_colors.dart';
-import 'package:homework/res/strings.dart';
 
 class InstructionsWidget extends StatelessWidget {
   const InstructionsWidget(this.instruction, {Key key}) : super(key: key);
@@ -17,13 +17,12 @@ class InstructionsWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                padding: EdgeInsets.only(bottom: 24),
-                child: Text(
-                Strings.instruction,
-                textAlign: TextAlign.start,
-                style: TextStyle(color: Colors.white, fontSize: 14),
-                )
-              )
+                  padding: EdgeInsets.only(bottom: 24),
+                  child: Text(
+                    Strings.instruction,
+                    textAlign: TextAlign.start,
+                    style: TextStyle(color: Colors.white, fontSize: 14),
+                  ))
             ]..addAll(instruction
                 .split('-')
                 .sublist(1)

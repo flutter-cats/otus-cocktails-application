@@ -1,8 +1,7 @@
+import 'package:cocktail/res/application_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:homework/res/application_colors.dart';
 
 class RatingWidget extends StatelessWidget {
-
   static const maxCount = 5;
   final rating = 3;
 
@@ -19,21 +18,18 @@ class RatingWidget extends StatelessWidget {
   }
 }
 
-
 Widget _ratingItem(bool isActive) {
   return Container(
-    height: 48,
-    width: 48,
-    decoration: BoxDecoration(
-      shape: BoxShape.circle,
-      color: ApplicationColors.itemRating
-    ),
-    child: Icon(
-     Icons.star,
-      size: 32,
-      color: isActive ? Colors.white : ApplicationColors.backgroundDescription,
-    )
-  );
+      height: 48,
+      width: 48,
+      decoration: BoxDecoration(
+          shape: BoxShape.circle, color: ApplicationColors.itemRating),
+      child: Icon(
+        Icons.star,
+        size: 32,
+        color:
+            isActive ? Colors.white : ApplicationColors.backgroundDescription,
+      ));
 }
 
 List<Widget> _getRating(int rating, int maxCount) {

@@ -1,8 +1,8 @@
+import 'package:cocktail/core/models.dart';
+import 'package:cocktail/res/application_colors.dart';
+import 'package:cocktail/res/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:homework/models/models.dart';
-import 'package:homework/res/application_colors.dart';
-import 'package:homework/res/strings.dart';
 
 class IngredientsWidget extends StatelessWidget {
   const IngredientsWidget(this.ingredients, {Key key}) : super(key: key);
@@ -29,23 +29,21 @@ class IngredientsWidget extends StatelessWidget {
 
 Widget _ingredientItem(String name, String value) {
   return Container(
-    padding: EdgeInsets.fromLTRB(32, 0, 32, 20),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          name,
-          style: TextStyle(
-            fontSize: 14,
-            decoration: TextDecoration.underline,
-            color: Colors.white),
-        ),
-        Text(
-          value,
-          style: TextStyle(fontSize: 14, color: Colors.white),
-        )
-      ],
-    )
-  );
+      padding: EdgeInsets.fromLTRB(32, 0, 32, 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            name,
+            style: TextStyle(
+                fontSize: 14,
+                decoration: TextDecoration.underline,
+                color: Colors.white),
+          ),
+          Text(
+            value,
+            style: TextStyle(fontSize: 14, color: Colors.white),
+          )
+        ],
+      ));
 }
-
