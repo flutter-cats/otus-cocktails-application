@@ -27,6 +27,7 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
   @override
   void dispose() {
     _cocktailsStreamController.close();
+    _controller.dispose();
     super.dispose();
   }
 
