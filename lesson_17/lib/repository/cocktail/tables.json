@@ -1,0 +1,100 @@
+[
+  {
+    "type": "table",
+    "name": "android_metadata",
+    "tbl_name": "android_metadata",
+    "rootpage": 3,
+    "sql": "CREATE TABLE android_metadata (locale TEXT)"
+  },
+  {
+    "type": "table",
+    "name": "Category",
+    "tbl_name": "Category",
+    "rootpage": 4,
+    "sql": "CREATE TABLE Category (id TEXT PRIMARY KEY, value TEXT NOT NULL, name TEXT NOT NULL)"
+  },
+  {
+    "type": "index",
+    "name": "sqlite_autoindex_Category_1",
+    "tbl_name": "Category",
+    "rootpage": 5,
+    "sql": null
+  },
+  {
+    "type": "table",
+    "name": "GlassType",
+    "tbl_name": "GlassType",
+    "rootpage": 6,
+    "sql": "CREATE TABLE GlassType (id TEXT PRIMARY KEY, value TEXT NOT NULL, name TEXT NOT NULL)"
+  },
+  {
+    "type": "index",
+    "name": "sqlite_autoindex_GlassType_1",
+    "tbl_name": "GlassType",
+    "rootpage": 7,
+    "sql": null
+  },
+  {
+    "type": "table",
+    "name": "CocktailType",
+    "tbl_name": "CocktailType",
+    "rootpage": 8,
+    "sql": "CREATE TABLE CocktailType (id TEXT PRIMARY KEY, value TEXT NOT NULL, name TEXT NOT NULL)"
+  },
+  {
+    "type": "index",
+    "name": "sqlite_autoindex_CocktailType_1",
+    "tbl_name": "CocktailType",
+    "rootpage": 9,
+    "sql": null
+  },
+  {
+    "type": "table",
+    "name": "Cocktail",
+    "tbl_name": "Cocktail",
+    "rootpage": 10,
+    "sql": "CREATE TABLE Cocktail (\n        id TEXT PRIMARY KEY,\n        name TEXT NOT NULL,\n        instruction TEXT NOT NULL,\n        categoryId TEXT NOT NULL,\n        glassTypeId TEXT NOT NULL,\n        cocktailTypeId TEXT NOT NULL,\n        thumbUrl TEXT NOT NULL,\n        isFavourite INTEGER NOT NULL,\n        FOREIGN KEY (categoryId) REFERENCES Category (id),\n        FOREIGN KEY (glassTypeId) REFERENCES GlassType (id),\n        FOREIGN KEY (cocktailTypeId) REFERENCES CocktailType (id)\n      )"
+  },
+  {
+    "type": "index",
+    "name": "sqlite_autoindex_Cocktail_1",
+    "tbl_name": "Cocktail",
+    "rootpage": 11,
+    "sql": null
+  },
+  {
+    "type": "table",
+    "name": "Ingredient",
+    "tbl_name": "Ingredient",
+    "rootpage": 12,
+    "sql": "CREATE TABLE Ingredient (id TEXT PRIMARY KEY, ingredientName TEXT NOT NULL, measure TEXT NOT NULL, cocktailId TEXT NOT NULL, FOREIGN KEY (cocktailId) REFERENCES Cocktail (id))"
+  },
+  {
+    "type": "index",
+    "name": "sqlite_autoindex_Ingredient_1",
+    "tbl_name": "Ingredient",
+    "rootpage": 13,
+    "sql": null
+  },
+  {
+    "type": "table",
+    "name": "Settings",
+    "tbl_name": "Settings",
+    "rootpage": 14,
+    "sql": "CREATE TABLE Settings (tabIndex INTEGER)"
+  },
+  {
+    "type": "table",
+    "name": "CocktailKey",
+    "tbl_name": "CocktailKey",
+    "rootpage": 15,
+    "sql": "CREATE TABLE CocktailKey (key TEXT PRIMARY KEY, cocktailId TEXT, FOREIGN KEY (cocktailId) REFERENCES Cocktail (id))"
+  },
+  {
+    "type": "index",
+    "name": "sqlite_autoindex_CocktailKey_1",
+    "tbl_name": "CocktailKey",
+    "rootpage": 16,
+    "sql": null
+  }
+]
