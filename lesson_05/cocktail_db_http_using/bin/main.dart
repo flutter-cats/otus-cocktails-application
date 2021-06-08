@@ -14,7 +14,7 @@ Future<void> main() async {
   print(cocktail?.cocktailType);
   print(cocktail?.instruction);
   print('');
-  final ingredient = await repository.lookupIngredientById('11149');
+  final ingredient = await repository.lookupIngredientById('152');
   print(ingredient?.id);
   print(ingredient?.name);
   print(ingredient?.description);
