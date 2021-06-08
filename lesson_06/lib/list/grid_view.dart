@@ -29,7 +29,7 @@ class GridViewSamplePage extends StatelessWidget {
 
   // Создает GridView размещая crossAxisCount элементов по основной оси
   Widget _buildCountGridView() {
-    final crossAxisCount = 4;
+    final crossAxisCount = 2;
     return GridView.count(
       crossAxisCount: crossAxisCount,
       children: items.map((item) => _GridItem(item)).toList(growable: false),
@@ -40,7 +40,7 @@ class GridViewSamplePage extends StatelessWidget {
     return GridView(
         children: items.map((item) => _GridItem(item)).toList(growable: false),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 1,
+          crossAxisCount: 2,
           mainAxisSpacing: 8,
           childAspectRatio: 1.0,
         ));

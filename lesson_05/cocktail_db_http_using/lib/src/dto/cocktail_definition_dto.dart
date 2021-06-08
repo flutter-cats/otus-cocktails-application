@@ -15,5 +15,6 @@ class CocktailDefinitionDto {
 
   CocktailDefinitionDto(this.strDrink, this.strDrinkThumb, this.idDrink);
 
-  factory CocktailDefinitionDto.fromJson(Map<String, dynamic> json) => _$CocktailDefinitionDtoFromJson(json);
+  factory CocktailDefinitionDto.fromJson(Map<String, dynamic> json) =>
+      _$CocktailDefinitionDtoFromJson(json);
 }
