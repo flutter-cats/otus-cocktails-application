@@ -12,11 +12,11 @@ class DescriptionWidget extends StatelessWidget {
   final String glassType;
 
   const DescriptionWidget({
-    this.id,
-    this.name,
-    this.type,
-    this.glassType,
-    this.category
+    @required this.id,
+    @required this.name,
+    @required this.type,
+    @required this.glassType,
+    @required this.category
   });
 
   @override

@@ -33,13 +33,11 @@ class InstructionWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            margin: EdgeInsets.only(bottom: 24.0),
-            child: DescriptionItemWidget(
+          DescriptionItemWidget(
               label: 'Инструкция по приготовлению',
               textStyle: cooklistTitleStyle,
-            ),
           ),
+          const SizedBox(height: 24.0),
           _cooklistInstruction(instruction),
         ],
       ),
