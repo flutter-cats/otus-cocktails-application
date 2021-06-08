@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1559a543-d24b-47b8-9ff9-c1143998a9a6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
+  </component>
+  <component name="ProjectId" id="1t5ipo6ubbYgRDUvS6UHoht82Fb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description" />
+      <recent name="$PROJECT_DIR$/lib/ui/pages/details" />
+      <recent name="$PROJECT_DIR$/lib/ui/pages" />
+      <recent name="$PROJECT_DIR$/lib/ui/aplication" />
+      <recent name="$PROJECT_DIR$/lib" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1559a543-d24b-47b8-9ff9-c1143998a9a6" name="Default Changelist" comment="" />
+      <created>1622065536585</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1622065536585</updated>
+    </task>
+    <task id="LOCAL-00001" summary="lesson_21 homework">
+      <created>1622067000385</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1622067000386</updated>
+    </task>
+    <task id="LOCAL-00002" summary="lesson_21 homework">
+      <created>1622067601072</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1622067601072</updated>
+    </task>
+    <task id="LOCAL-00003" summary="lesson_21 homework">
+      <created>1622074456387</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1622074456387</updated>
+    </task>
+    <task id="LOCAL-00004" summary="lesson_21 homework">
+      <created>1622075275648</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1622075275649</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="lesson_21 homework" />
+    <option name="LAST_COMMIT_MESSAGE" value="lesson_21 homework" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="114" y="40" key="CommitChangelistDialog2" timestamp="1622075275167">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="114" y="40" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1622075275167" />
+    <state width="1019" height="468" key="GridCell.Tab.0.bottom" timestamp="1622075278707">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1019" height="468" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1622075278707" />
+    <state width="1019" height="468" key="GridCell.Tab.0.center" timestamp="1622075278706">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1019" height="468" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1622075278706" />
+    <state width="1019" height="468" key="GridCell.Tab.0.left" timestamp="1622075278706">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1019" height="468" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1622075278706" />
+    <state width="1019" height="468" key="GridCell.Tab.0.right" timestamp="1622075278707">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1019" height="468" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1622075278707" />
+    <state width="1019" height="468" key="GridCell.Tab.1.bottom" timestamp="1622075278708">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1019" height="468" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1622075278708" />
+    <state width="1019" height="468" key="GridCell.Tab.1.center" timestamp="1622075278708">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1019" height="468" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1622075278708" />
+    <state width="1019" height="468" key="GridCell.Tab.1.left" timestamp="1622075278707">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1019" height="468" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1622075278707" />
+    <state width="1019" height="468" key="GridCell.Tab.1.right" timestamp="1622075278708">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1019" height="468" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1622075278708" />
+    <state width="527" height="445" key="SwitcherDM" timestamp="1622074079015">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="527" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1622074079015" />
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1622075277498">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1622075277498" />
+    <state x="151" y="18" width="1142" height="879" key="find.popup" timestamp="1622068123103">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="151" y="18" width="1142" height="879" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1622068123103" />
+  </component>
+</project>

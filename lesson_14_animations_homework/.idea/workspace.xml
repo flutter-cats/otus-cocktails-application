@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0a86b4f6-e92e-4184-b43a-773e96ef905a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1622065399" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="pm_homework_14" />
+                    <option name="lastUsedInstant" value="1622065398" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$/.." />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ryTMI8GlQJMOAIKQVB1Hiq5Hz9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/core/src/model" />
+      <recent name="$PROJECT_DIR$/lib" />
+      <recent name="$PROJECT_DIR$/lib/ui" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0a86b4f6-e92e-4184-b43a-773e96ef905a" name="Default Changelist" comment="" />
+      <created>1619947279468</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1619947279468</updated>
+    </task>
+    <task id="LOCAL-00001" summary="animations module homework">
+      <created>1620807069906</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1620807069906</updated>
+    </task>
+    <task id="LOCAL-00002" summary="animations module homework">
+      <created>1620809199820</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1620809199821</updated>
+    </task>
+    <task id="LOCAL-00003" summary="animations module homework">
+      <created>1620810123230</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1620810123230</updated>
+    </task>
+    <task id="LOCAL-00004" summary="animations module homework">
+      <created>1622077123898</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1622077123898</updated>
+    </task>
+    <task id="LOCAL-00005" summary="animations module homework">
+      <created>1622077180529</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1622077180529</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="animations module homework" />
+    <option name="LAST_COMMIT_MESSAGE" value="animations module homework" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="230" y="201" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1620804603942">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="230" y="201" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1620804603942" />
+    <state x="0" y="40" key="CommitChangelistDialog2" timestamp="1622077180283">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="0" y="40" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1622077180283" />
+    <state x="13" y="13" width="1355" height="874" maximized="true" key="DiffContextDialog" timestamp="1621285245618">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="13" y="13" width="1355" height="874" maximized="true" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1621285245618" />
+    <state width="1006" height="462" key="GridCell.Tab.0.bottom" timestamp="1621286819993">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1006" height="462" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1621286819993" />
+    <state width="1006" height="462" key="GridCell.Tab.0.center" timestamp="1621286819993">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1006" height="462" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1621286819993" />
+    <state width="1006" height="462" key="GridCell.Tab.0.left" timestamp="1621286819982">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1006" height="462" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1621286819982" />
+    <state width="1006" height="462" key="GridCell.Tab.0.right" timestamp="1621286819993">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1006" height="462" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1621286819993" />
+    <state width="1006" height="462" key="GridCell.Tab.1.bottom" timestamp="1621286819994">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1006" height="462" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1621286819994" />
+    <state width="1006" height="462" key="GridCell.Tab.1.center" timestamp="1621286819994">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1006" height="462" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1621286819994" />
+    <state width="1006" height="462" key="GridCell.Tab.1.left" timestamp="1621286819993">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1006" height="462" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1621286819993" />
+    <state width="1006" height="462" key="GridCell.Tab.1.right" timestamp="1621286819994">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1006" height="462" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1621286819994" />
+    <state x="221" y="86" key="SettingsEditor" timestamp="1620810154600">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="221" y="86" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1620810154600" />
+    <state x="251" y="200" width="540" height="524" key="StructurePopup" timestamp="1620686552443">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="251" y="200" width="540" height="524" key="StructurePopup/0.0.1440.900@0.0.1440.900" timestamp="1620686552443" />
+    <state x="170" y="187" key="Vcs.Push.Dialog.v2" timestamp="1622077181727">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="170" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1622077181727" />
+    <state x="25" y="188" key="VcsDiffUtil.ChangesDialog" timestamp="1621285239653">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="25" y="188" key="VcsDiffUtil.ChangesDialog/0.0.1440.900@0.0.1440.900" timestamp="1621285239653" />
+    <state x="185" y="111" width="856" height="767" key="find.popup" timestamp="1620809173121">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="185" y="111" width="856" height="767" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1620809173121" />
+    <state x="235" y="112" width="670" height="676" key="search.everywhere.popup" timestamp="1620809165491">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="235" y="112" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1620809165491" />
+  </component>
+</project>
