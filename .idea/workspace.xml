@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="cf8589ba-2505-41eb-b5e1-abbd6982daf0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lesson_22/lesson_platform_channels/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson_22/lesson_platform_channels/android/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_22/lesson_platform_channels/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_22/lesson_platform_channels/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_22/lesson_platform_channels/ios/Classes/SwiftLessonPlatformChannelsPlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_22/lesson_platform_channels/ios/Classes/SwiftLessonPlatformChannelsPlugin.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/otus-cocktails-application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/otus-cocktails-application.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_15_dialogs/homework/lib/core/src/dto/cocktail_dto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_15_dialogs/homework/lib/core/src/dto/cocktail_dto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_15_dialogs/homework/lib/core/src/repository/async_cocktail_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_15_dialogs/homework/lib/core/src/repository/async_cocktail_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_15_dialogs/homework/lib/ui/cocktail_grid_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_15_dialogs/homework/lib/ui/cocktail_grid_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_15_dialogs/homework/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_15_dialogs/homework/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,9 +42,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lesson_15_dialogs/homework" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="cf8589ba-2505-41eb-b5e1-abbd6982daf0" name="Default Changelist" comment="" />
@@ -49,5 +57,20 @@
       <workItem from="1623082371121" duration="2000" />
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/lesson_22/lesson_platform_channels" />
+    </ignored-roots>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="3303" y="487" width="424" height="491" key="FileChooserDialogImpl" timestamp="1623178769292">
+      <screen x="2560" y="189" width="1920" height="1080" />
+    </state>
+    <state x="3303" y="487" width="424" height="491" key="FileChooserDialogImpl/0.32.2560.1408/2560.189.1920.1080@2560.189.1920.1080" timestamp="1623178769292" />
+    <state x="3009" y="364" width="1022" height="737" key="SettingsEditor" timestamp="1623178749655">
+      <screen x="2560" y="189" width="1920" height="1080" />
+    </state>
+    <state x="3009" y="364" width="1022" height="737" key="SettingsEditor/0.32.2560.1408/2560.189.1920.1080@2560.189.1920.1080" timestamp="1623178749655" />
   </component>
 </project>
