@@ -124,12 +124,8 @@ class CocktailGridItem extends StatelessWidget {
   /// возвращаться в исходное состояние.
   /// Можно добавить свою физику за счет Curves (ease, elastic, bounce).
   ///
-  Widget _getIsFavoriteIcon(bool isFavourite) {
-    if (isFavourite) {
-      return AnimatedHeart(PaintingStyle.fill);
-    } else {
-      return AnimatedHeart(PaintingStyle.stroke);
-    }
+  Widget _getIsFavoriteIcon(bool isFavorite) {
+    return AnimatedHeart(isFavorite);
   }
 }
 

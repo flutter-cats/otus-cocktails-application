@@ -32,6 +32,7 @@ class HeartPainter extends CustomPainter {
     path_0.close();
 
 
+
     final paint = Paint()
       ..color = Colors.white
       ..style = paintingStyle

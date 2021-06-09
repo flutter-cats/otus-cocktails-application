@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lesson_14_animations_homework/ui/application/animated_heart.dart';
 
 class CocktailTitle extends StatelessWidget {
   final String cocktailTitle;
@@ -37,13 +38,5 @@ class CocktailTitle extends StatelessWidget {
   /// возвращаться в исходное состояние.
   /// Можно добавить свою физику за счет Curves (ease, elastic, bounce).
   ///
-  Widget _getIsFavoriteIcon() => isFavorite
-      ? IconButton(
-          icon: Icon(Icons.favorite, color: Colors.white),
-          onPressed: () {},
-        )
-      : IconButton(
-          icon: Icon(Icons.favorite_border, color: Colors.white),
-          onPressed: () {},
-        );
+  Widget _getIsFavoriteIcon() => AnimatedHeart(isFavorite);
 }

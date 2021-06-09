@@ -4,7 +4,7 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 import 'heart_painter.dart';
 
 class HeartAnimation extends StatelessWidget {
-  final PaintingStyle paintingStyle;
+  final bool isFavorite;
   final Animation<double> parentAnimationController;
   final Animation<double> sizeAnimation;
 
@@ -13,7 +13,7 @@ class HeartAnimation extends StatelessWidget {
   HeartAnimation(
       {Key? key,
       required this.parentAnimationController,
-      required this.paintingStyle})
+      required this.isFavorite})
       : sizeAnimation = Tween<double>(begin: 1, end: 1.2).animate(
           CurvedAnimation(
             parent: parentAnimationController,
@@ -42,14 +42,14 @@ class HeartAnimation extends StatelessWidget {
             padding: EdgeInsets.all(4 - (sizeAnimation.value - 1) * 16),
             child: CustomPaint(
                 size: Size(sizeAnimation.value * 16, sizeAnimation.value * 16),
-                painter: HeartPainter(paintingStyle))));
+                painter: HeartPainter(isFavorite?PaintingStyle.fill:PaintingStyle.stroke))));
   }
 }
 
 class AnimatedHeart extends StatefulWidget {
-  final PaintingStyle paintingStyle;
+  final bool isFavorite;
 
-  AnimatedHeart(this.paintingStyle);
+  AnimatedHeart(this.isFavorite);
 
   @override
   _AnimatedHeart createState() => _AnimatedHeart();
@@ -69,7 +69,7 @@ class _AnimatedHeart extends State<AnimatedHeart>
       },
       child: HeartAnimation(
         parentAnimationController: _controller,
-        paintingStyle: widget.paintingStyle,
+        isFavorite: widget.isFavorite,
       ),
     );
   }
