@@ -3,7 +3,6 @@ import 'package:lesson_14_animations_homework/core/models.dart';
 import 'package:lesson_14_animations_homework/main.dart';
 import 'package:lesson_14_animations_homework/ui/application/animated_heart.dart';
 import 'package:lesson_14_animations_homework/ui/application/custom_progress_indicator.dart';
-import 'package:lesson_14_animations_homework/ui/application/heart_painter.dart';
 import 'package:lesson_14_animations_homework/ui/pages/details/cocktail_detail_page.dart';
 import 'package:lesson_14_animations_homework/ui/style/custom_colors.dart';
 
