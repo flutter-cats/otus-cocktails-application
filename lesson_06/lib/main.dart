@@ -20,6 +20,6 @@ void main() {
     theme: ThemeData(
         appBarTheme: AppBarTheme(
             textTheme: TextTheme(button: TextStyle(color: Colors.white)))),
-    home: ListViewSamplePage(),
+    home: PageViewSample(),
   ));
 }

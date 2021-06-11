@@ -16,7 +16,7 @@ class _ValueKeysStatefulSampleState extends State<ValueKeysStatefulSample> {
         children: _data
             .map((color) => ColorBox(
                   color,
-                  // key: ValueKey(color), // TODO: - Sample Ch. 3
+                  key: ValueKey(color), // TODO: - Sample Ch. 3
                 ))
             .toList(),
       ),
@@ -47,7 +47,7 @@ class _ColorBoxState extends State<ColorBox> {
   void initState() {
     super.initState();
     print('${widget.color}  init state');
-    // color = widget.color; // TODO: - Sample Ch. 2
+    color = widget.color; // TODO: - Sample Ch. 2
   }
 
   @override
