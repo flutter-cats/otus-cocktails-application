@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lesson_23/features_example.dart';
 
-import 'gesture_detector_example.dart';
-import 'mouse_region_example.dart';
-import 'simple_example.dart';
+import 'density_example.dart';
+import 'focus_node_example.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,7 +18,9 @@ class MyApp extends StatelessWidget {
       // home: SimpleExample(),
       // home: FeaturesExample(),
       // home: MouseRegionExample(),
-      home: GestureDetectorExample(),
+      // home: GestureDetectorExample(),
+      // home: DensityExample(),todo
+        home: FocusNodeExample(),
     );
   }
 }
