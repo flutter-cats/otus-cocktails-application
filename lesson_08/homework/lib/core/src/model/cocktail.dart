@@ -71,23 +71,23 @@ class Cocktail {
   final String id;
   final String name;
   final String instruction;
-  final CocktailCategory category;
-  final GlassType glassType;
-  final CocktailType cocktailType;
+  final CocktailCategory? category;
+  final GlassType? glassType;
+  final CocktailType? cocktailType;
   final Iterable<IngredientDefinition> ingredients;
   final String drinkThumbUrl;
   final bool isFavourite;
 
   Cocktail({
-    @required this.id,
-    @required this.name,
-    @required this.instruction,
-    @required this.category,
-    @required this.glassType,
-    @required this.cocktailType,
-    @required this.ingredients,
-    @required this.drinkThumbUrl,
-    @required this.isFavourite,
+    required this.id,
+    required this.name,
+    required this.instruction,
+    required this.category,
+    required this.glassType,
+    required this.cocktailType,
+    required this.ingredients,
+    required this.drinkThumbUrl,
+    required this.isFavourite,
   });
 
   @override

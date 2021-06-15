@@ -15,7 +15,7 @@ class _ListViewSamplePageState extends State<ListViewSamplePage> {
         appBar: AppBar(
           title: Text('ListView'),
         ),
-        body: _buildListView(context));
+        body: _buildCustomListView3(context));
   }
 
   // AutomaticKeepAliveClientMixin
@@ -64,9 +64,7 @@ class _ListViewSamplePageState extends State<ListViewSamplePage> {
   }
 
   Widget _buildCustomListView3(BuildContext context) {
-    return ListView.custom(
-      childrenDelegate: cardSliverDelegate
-    );
+    return ListView.custom(childrenDelegate: cardSliverDelegate);
   }
 
   Widget _buildItem(BuildContext context, int index) {

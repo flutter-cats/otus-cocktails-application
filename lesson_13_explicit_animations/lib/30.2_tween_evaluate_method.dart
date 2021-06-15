@@ -27,8 +27,12 @@ class _TweenEvaluateMethodDemoWidgetState
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
-  Tween<double> _leftTween = Tween<double>(begin: 0, end: 300);
-  ColorTween _colorTween = ColorTween(begin: Colors.red, end: Colors.green);
+  late double widthScreen = MediaQuery.of(context).size.width;
+
+  late Tween<double> _leftTween =
+      Tween<double>(begin: 0, end: widthScreen - 50);
+  late ColorTween _colorTween =
+      ColorTween(begin: Colors.red, end: Colors.green);
 
   @override
   Widget build(BuildContext context) {

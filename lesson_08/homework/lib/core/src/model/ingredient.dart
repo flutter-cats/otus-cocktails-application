@@ -25,10 +25,10 @@ class Ingredient {
   final bool isAlcoholic;
 
   Ingredient({
-    this.id,
-    this.name,
-    this.description,
-    this.ingredientType,
-    this.isAlcoholic,
+    required this.id,
+    required this.name,
+    required this.description,
+    required this.ingredientType,
+    required this.isAlcoholic,
   });
 }

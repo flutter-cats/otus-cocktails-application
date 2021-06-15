@@ -25,7 +25,7 @@ class _FixedScrollControllerSamplePageState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      body: _buildListWheelView(context),
+      body: _buildListView(context),
     );
   }
 
