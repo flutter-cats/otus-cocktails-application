@@ -174,7 +174,6 @@ class AsyncCocktailRepository {
           headers: _headers
       );
       if (response.statusCode == HttpStatus.ok) {
-        print(response.body);
         final jsonResponse = convert.jsonDecode(response.body);
         if (jsonResponse['ingredients'] != null) {
           final ingredients = jsonResponse['ingredients'] as Iterable<dynamic>;
