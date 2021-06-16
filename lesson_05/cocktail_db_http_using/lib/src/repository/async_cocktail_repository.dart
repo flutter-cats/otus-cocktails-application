@@ -174,6 +174,7 @@ class AsyncCocktailRepository {
           headers: _headers
       );
       if (response.statusCode == HttpStatus.ok) {
+        print(response.body);
         final jsonResponse = convert.jsonDecode(response.body);
         if (jsonResponse['ingredients'] != null) {
           final ingredients = jsonResponse['ingredients'] as Iterable<dynamic>;
@@ -215,7 +216,7 @@ class AsyncCocktailRepository {
       name: dto.strIngredient,
       description: dto.strDescription,
       ingredientType: dto.strType,
-      isAlcoholic: dto.strAlcohol?.toLowerCase() == 'true',
+      isAlcoholic: dto.strAlcohol?.toLowerCase() == 'yes' ? true : false,
     );
   }
 
