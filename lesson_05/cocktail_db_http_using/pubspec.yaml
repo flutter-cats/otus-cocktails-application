@@ -1,6 +1,8 @@
 name: cocktail_db_http_using
 description: Dart Async lesson
-version: 0.0.1
+version: 0.0.2
+
+publish_to: 'none'
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -11,7 +13,7 @@ dependencies:
   # и конкретный путь к фолдеру/директории
   cocktail_app_models:
     git:
-      url: git@github.com:flutter-cats/otus-cocktails-application.git
+      url: https://andreyfalko:dfnhf220376@github.com/flutter-cats/otus-cocktails-application.git
       ref: master
       path: lesson_03/lesson/cocktail_app_models/
 
