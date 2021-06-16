@@ -6,6 +6,7 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  http: ^0.13.0
   json_annotation: ^4.0.0
   # обратите внимание - я могу указать зависимость на репозиторий из git с указанием отдельной ветки
   # и конкретный путь к фолдеру/директории
@@ -17,6 +18,5 @@ dependencies:
 
 dev_dependencies:
   pedantic: ^1.9.0
-  http: ^0.13.0
   build_runner: ^1.12.2
   json_serializable: ^4.0.3
