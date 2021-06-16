@@ -32,6 +32,8 @@ class CocktailDetailPage extends StatelessWidget {
     );
   }
 
+  //class _ImageWidget extends StatelessWidget {
+  //const _NonsenseWidget();
   Widget _buildImage() {
     return Stack(
       children: [
