@@ -6,12 +6,12 @@ class AdaptiveFavoriteWidget extends StatefulWidget {
   final Color backgroundColor;
   final bool isFavorite;
 
-  AdaptiveFavoriteWidget(
-      {Key? key,
-      this.isFavorite = false,
-      this.color = Colors.white,
-      this.backgroundColor = Colors.grey})
-      : super(key: key);
+  AdaptiveFavoriteWidget({
+    Key? key,
+    this.isFavorite = false,
+    this.color = Colors.white,
+    this.backgroundColor = Colors.grey,
+  }) : super(key: key);
 
   @override
   _AdaptiveFavoriteWidgetState createState() => _AdaptiveFavoriteWidgetState();
@@ -23,6 +23,7 @@ class _AdaptiveFavoriteWidgetState extends State<AdaptiveFavoriteWidget>
   late Animation<double> _sizeAnimation;
 
   bool isFavorite = false;
+
   void _handleAnimationStatusChange(AnimationStatus status) {
     if (status == AnimationStatus.completed) {
       _controller.reset();
@@ -51,23 +52,26 @@ class _AdaptiveFavoriteWidgetState extends State<AdaptiveFavoriteWidget>
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        child: Container(
-          padding: EdgeInsets.all(20),
-          child: CustomPaint(
-            painter: FavoriteWidgetPainter(
-              scale: _sizeAnimation.value,
-              isFavorite: isFavorite,
-              color: widget.color,
-              backgroundColor: widget.backgroundColor,
-            ),
+      child: Container(
+        padding: EdgeInsets.all(20),
+        child: CustomPaint(
+          painter: FavoriteWidgetPainter(
+            scale: _sizeAnimation.value,
+            isFavorite: isFavorite,
+            color: widget.color,
+            backgroundColor: widget.backgroundColor,
           ),
         ),
-        onTap: () {
-          setState(() {
+      ),
+      onTap: () {
+        setState(
+          () {
             isFavorite = !isFavorite;
             _controller.forward();
-          });
-        });
+          },
+        );
+      },
+    );
   }
 
   @override
@@ -92,31 +96,32 @@ class FavoriteWidgetPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    Paint paint = new Paint()
+    final paintHeart = Paint()
       ..color = color
       ..style = isFavorite ? PaintingStyle.fill : PaintingStyle.stroke
       ..strokeWidth = 2;
 
-    var _sc = scale / 100.0 + 1;
-    Path path = Path()
-      ..moveTo(0, -6 * _sc)
-      ..cubicTo(0, -6 * _sc, 8 * _sc, -18 * _sc, 12 * _sc, -3 * _sc)
-      ..cubicTo(12 * _sc, -3 * _sc, 12 * _sc, 4 * _sc, 0, 10 * _sc)
-      ..moveTo(0, -6 * _sc)
-      ..cubicTo(0, -6 * _sc, -8 * _sc, -18 * _sc, -12 * _sc, -3 * _sc)
-      ..cubicTo(-12 * _sc, -3 * _sc, -12 * _sc, 4 * _sc, 0, 10 * _sc);
+    var sc = scale / 100.0 + 1;
+    final path = Path()
+      ..moveTo(0, -6 * sc)
+      ..cubicTo(0, -6 * sc, 8 * sc, -18 * sc, 12 * sc, -3 * sc)
+      ..cubicTo(12 * sc, -3 * sc, 12 * sc, 4 * sc, 0, 10 * sc)
+      ..moveTo(0, -6 * sc)
+      ..cubicTo(0, -6 * sc, -8 * sc, -18 * sc, -12 * sc, -3 * sc)
+      ..cubicTo(-12 * sc, -3 * sc, -12 * sc, 4 * sc, 0, 10 * sc);
 
-    canvas.drawPath(path, paint);
+    canvas.drawPath(path, paintHeart);
 
     if (scale != 0) {
-      Paint paint1 = new Paint()
+      final paintCircle = Paint()
         ..color = backgroundColor
         ..style = PaintingStyle.stroke
         ..strokeWidth = 5;
-      canvas.drawCircle(Offset(0, 0), scale / 3, paint1);
+      canvas.drawCircle(Offset(0, 0), scale / 3, paintCircle);
     }
   }
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
 }
+

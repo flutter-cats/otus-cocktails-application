@@ -6,11 +6,11 @@ class AdaptiveProgressIndicator extends StatefulWidget {
   final Color color;
   final Color backgroundColor;
 
-  const AdaptiveProgressIndicator(
-      {Key? key,
-      this.color = Colors.white,
-      this.backgroundColor = Colors.grey})
-      : super(key: key);
+  const AdaptiveProgressIndicator({
+    Key? key,
+    this.color = Colors.white,
+    this.backgroundColor = Colors.grey,
+  }) : super(key: key);
 
   @override
   _AdaptiveProgressIndicatorState createState() =>
@@ -27,18 +27,20 @@ class _AdaptiveProgressIndicatorState extends State<AdaptiveProgressIndicator>
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-        animation: _controller,
-        builder: (BuildContext context, Widget? child) {
-          return Container(
-              child: CustomPaint(
+      animation: _controller,
+      builder: (BuildContext context, Widget? child) {
+        return Container(
+          child: CustomPaint(
             child: child,
             painter: ProgressIndicatorPainter(
               rotation: _controller.value,
               color: widget.color,
               backgroundColor: widget.backgroundColor,
             ),
-          ));
-        });
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -87,8 +89,9 @@ class ProgressIndicatorPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2;
 
-    canvas.drawCircle(center, radius, paintCircle);
-    canvas.drawArc(rect, startAngle, sweepAngle, false, paintArc);
+    canvas
+    ..drawCircle(center, radius, paintCircle)
+    ..drawArc(rect, startAngle, sweepAngle, false, paintArc);
   }
 
   @override
