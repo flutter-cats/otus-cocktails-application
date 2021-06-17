@@ -15,7 +15,7 @@ class FeaturesExample extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                SelectableText("Selectable text"),
+                SelectableText("Ordinary text (Roboto)"),
                 const SizedBox(height: 16),
                 SelectableText(
                   "Custom font: orange juice",
