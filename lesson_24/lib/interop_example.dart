@@ -1,7 +1,11 @@
+import 'dart:js' as js;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class ShortcutsExample extends StatelessWidget {
+import 'interop/js_utils.dart';
+
+class InteropExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,25 +19,62 @@ class ShortcutsExample extends StatelessWidget {
               filled: true,
             ),
           ),
-          child: _SimpleFormContent(),
+          // child: _CallMethodExample(),
+          // child: _ExternalExample(),
+          child: _DisabledShortcutExample(),
         ),
       ),
     );
   }
 }
 
-class _SimpleFormContent extends StatefulWidget {
-  const _SimpleFormContent({Key? key}) : super(key: key);
+class _CallMethodExample extends StatelessWidget {
+  const _CallMethodExample({Key? key}) : super(key: key);
 
   @override
-  __SimpleFormContentState createState() => __SimpleFormContentState();
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        js.context.callMethod('log', ['Logged message from Flutter']);
+      },
+      child: Text("Log"),
+    );
+  }
 }
 
-class __SimpleFormContentState extends State<_SimpleFormContent> {
+class _ExternalExample extends StatelessWidget {
+  const _ExternalExample({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        logToConsole("Logged message");
+      },
+      child: Text("Log 2"),
+    );
+  }
+}
+
+class _DisabledShortcutExample extends StatefulWidget {
+  const _DisabledShortcutExample({Key? key}) : super(key: key);
+
+  @override
+  __DisabledShortcutExampleState createState() => __DisabledShortcutExampleState();
+}
+
+class __DisabledShortcutExampleState extends State<_DisabledShortcutExample> {
+  @override
+  void initState() {
+    super.initState();
+
+    disableSaveShortcut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Shortcuts(
-      shortcuts: {LogicalKeySet(LogicalKeyboardKey.meta, LogicalKeyboardKey.keyA): _SaveIntent()},
+      shortcuts: {LogicalKeySet(LogicalKeyboardKey.meta, LogicalKeyboardKey.keyS): _SaveIntent()},
       child: Actions(
         actions: {_SaveIntent: _SubmitFormAction()},
         child: Padding(
