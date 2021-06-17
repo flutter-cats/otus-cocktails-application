@@ -1,6 +1,9 @@
 import 'dart:html' as html;
+
+// import 'package:universal_html/html.dart' as html;
 import 'dart:ui' as ui;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class EmbedExample extends StatelessWidget {
@@ -17,21 +20,21 @@ class EmbedExample extends StatelessWidget {
               filled: true,
             ),
           ),
-          child: _Example(),
+          child: _WebVideoPlayer(),
         ),
       ),
     );
   }
 }
 
-class _Example extends StatefulWidget {
-  const _Example({Key? key}) : super(key: key);
+class _WebVideoPlayer extends StatefulWidget {
+  const _WebVideoPlayer({Key? key}) : super(key: key);
 
   @override
-  __ExampleState createState() => __ExampleState();
+  _WebVideoPlayerState createState() => _WebVideoPlayerState();
 }
 
-class __ExampleState extends State<_Example> {
+class _WebVideoPlayerState extends State<_WebVideoPlayer> {
   @override
   void initState() {
     super.initState();
@@ -57,6 +60,28 @@ class __ExampleState extends State<_Example> {
       child: HtmlElementView(
         viewType: "video",
       ),
+    );
+  }
+}
+
+class ResponsiveBuilder extends StatelessWidget {
+  final WidgetBuilder desktopBuilder;
+  final WidgetBuilder mobileBuilder;
+
+  const ResponsiveBuilder({
+    Key? key,
+    required this.desktopBuilder,
+    required this.mobileBuilder,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return constraints.maxWidth < 600 ?
+              mobileBuilder(context) :
+              desktopBuilder(context);
+      },
     );
   }
 }

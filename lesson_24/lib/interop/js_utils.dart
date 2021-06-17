@@ -1,10 +1,1 @@
-@JS()
-library js_utils;
-
-import 'package:js/js.dart';
-
-@JS('log')
-external void logToConsole(String text);
-
-@JS('disableSaveShortcut')
-external void disableSaveShortcut();
+export 'js_utils.mobile.dart' if (dart.library.html) 'js_utils.web.dart';

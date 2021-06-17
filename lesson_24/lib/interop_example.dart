@@ -3,7 +3,7 @@ import 'dart:js' as js;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'interop/js_utils.dart';
+import 'interop/js_utils.web.dart';
 
 class InteropExample extends StatelessWidget {
   @override

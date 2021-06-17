@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'density_example.dart';
 import 'embed_example.dart';
 import 'focus_node_example.dart';
+import 'gesture_detector_example.dart';
 import 'interop_example.dart';
+import 'raw_keyboard_listener_example.dart';
 import 'shortcuts_example.dart';
 
 void main() {
@@ -20,13 +22,13 @@ class MyApp extends StatelessWidget {
       ),
       // home: SimpleExample(),
       // home: FeaturesExample(),
-      // home: GestureDetectorExample(),
+      home: GestureDetectorExample(),
       // home: MouseRegionExample(),
       //   home: FocusNodeExample(),
-      //todo raw listener
+      // home: RawKeyboardListenerExample(),
       // home: ShortcutsExample(),
       // home: InteropExample(),
-      home: EmbedExample(),
+      // home: EmbedExample(),
     );
   }
 }
