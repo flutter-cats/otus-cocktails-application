@@ -77,13 +77,30 @@
       <recent name="$PROJECT_DIR$/lib/ui" />
     </key>
   </component>
-  <component name="RunManager" selected="Flutter.golden_test_demo.dart">
-    <configuration name="golden_test_demo.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
-      <option name="filePath" value="$PROJECT_DIR$/lib/uikit/golden_test_demo.dart" />
+  <component name="RunManager" selected="Flutter Test.tests in 03_cocktail_title_test_resolving_the_problem_with_stateful.dart">
+    <configuration name="tests in widget_tests" type="DartTestRunConfigurationType" factoryName="Dart Test" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/test/widget_tests" />
+      <option name="scope" value="FOLDER" />
       <method v="2" />
     </configuration>
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
       <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tests in 00_cocktail_title_test.dart" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testFile" value="$PROJECT_DIR$/test/widget_tests/pages/details/cocktail_description/00_cocktail_title_test.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tests in 01_cocktail_title_test_by_semantics.dart" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testFile" value="$PROJECT_DIR$/test/widget_tests/pages/details/cocktail_description/01_cocktail_title_test_by_semantics.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tests in 02_cocktail_title_test_the_problem_with_stateful.dart" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testFile" value="$PROJECT_DIR$/test/widget_tests/pages/details/cocktail_description/02_cocktail_title_test_the_problem_with_stateful.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tests in 03_cocktail_title_test_resolving_the_problem_with_stateful.dart" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testFile" value="$PROJECT_DIR$/test/widget_tests/pages/details/cocktail_description/03_cocktail_title_test_resolving_the_problem_with_stateful.dart" />
       <method v="2" />
     </configuration>
     <configuration name="tests in fancy_button_test.dart" type="FlutterTestConfigType" factoryName="Flutter Test" nameIsGenerated="true">
@@ -98,13 +115,21 @@
     </configuration>
     <list>
       <item itemvalue="Flutter.main.dart" />
-      <item itemvalue="Flutter.golden_test_demo.dart" />
       <item itemvalue="Flutter Test.tests in test" />
       <item itemvalue="Flutter Test.tests in fancy_button_test.dart" />
+      <item itemvalue="Dart Test.tests in widget_tests" />
+      <item itemvalue="Flutter Test.tests in 00_cocktail_title_test.dart" />
+      <item itemvalue="Flutter Test.tests in 01_cocktail_title_test_by_semantics.dart" />
+      <item itemvalue="Flutter Test.tests in 03_cocktail_title_test_resolving_the_problem_with_stateful.dart" />
+      <item itemvalue="Flutter Test.tests in 02_cocktail_title_test_the_problem_with_stateful.dart" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Flutter.golden_test_demo.dart" />
+        <item itemvalue="Flutter Test.tests in 03_cocktail_title_test_resolving_the_problem_with_stateful.dart" />
+        <item itemvalue="Flutter Test.tests in 02_cocktail_title_test_the_problem_with_stateful.dart" />
+        <item itemvalue="Flutter Test.tests in 01_cocktail_title_test_by_semantics.dart" />
+        <item itemvalue="Flutter Test.tests in 00_cocktail_title_test.dart" />
+        <item itemvalue="Dart Test.tests in widget_tests" />
       </list>
     </recent_temporary>
   </component>
@@ -181,22 +206,22 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="13" y="13" width="1355" height="874" maximized="true" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1621285245618" />
-    <state width="1038" height="465" key="GridCell.Tab.0.bottom" timestamp="1624269213039">
+    <state width="1440" height="448" key="GridCell.Tab.0.bottom" timestamp="1624284388371">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1038" height="465" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1624269213039" />
-    <state width="1038" height="465" key="GridCell.Tab.0.center" timestamp="1624269213038">
+    <state width="1440" height="448" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1624284388371" />
+    <state width="1440" height="448" key="GridCell.Tab.0.center" timestamp="1624284388369">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1038" height="465" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1624269213038" />
-    <state width="1038" height="465" key="GridCell.Tab.0.left" timestamp="1624269213036">
+    <state width="1440" height="448" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1624284388369" />
+    <state width="1440" height="448" key="GridCell.Tab.0.left" timestamp="1624284388368">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1038" height="465" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1624269213036" />
-    <state width="1038" height="465" key="GridCell.Tab.0.right" timestamp="1624269213039">
+    <state width="1440" height="448" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1624284388368" />
+    <state width="1440" height="448" key="GridCell.Tab.0.right" timestamp="1624284388370">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1038" height="465" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1624269213038" />
+    <state width="1440" height="448" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1624284388370" />
     <state width="1038" height="465" key="GridCell.Tab.1.bottom" timestamp="1624269213043">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -237,6 +262,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="0" y="0" width="612" height="247" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1440.900@0.0.1440.900" timestamp="1624263977443" />
+    <state x="385" y="210" key="run.anything.popup" timestamp="1624279878393">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="210" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1624279878393" />
     <state x="235" y="112" width="670" height="676" key="search.everywhere.popup" timestamp="1624279638119">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
