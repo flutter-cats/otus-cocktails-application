@@ -88,16 +88,6 @@ class _FilterResultsPageWidgetState extends State<FilterResultsPageWidget> {
             );
           }
 
-          ///
-          /// todo:
-          /// отрефакторить использование CircularProgressIndicator
-          /// в пользу реализации своего кастомного виджета progress indicator
-          /// Этот виджет нужно реализовать самостоятельно,
-          /// используя стандартные средства Flutter для работы
-          /// с графическим canvas и средства анимации.
-          /// И затем переиспользовать вместо CircularProgressIndicator
-          /// (в местах отмеченных///todo:)
-          ///
           return SliverFillRemaining(
             child: Center(
               child: const CircularProgressIndicator(),
