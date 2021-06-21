@@ -6,6 +6,9 @@ import 'package:cocktail_app/src/continue_to_cover_test_classes/utilites/http_se
 import 'package:cocktail_app/src/core/models.dart';
 import 'package:mockito/mockito.dart';
 
+///
+/// https://pub.dev/packages/mockito
+///
 void main() {
   HttpService httpServiceMock;
   FavoritesStorage favoritesStorage;
