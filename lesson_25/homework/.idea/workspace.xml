@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a86b4f6-e92e-4184-b43a-773e96ef905a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/lib/ui/application_semantics.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_title.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_title.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_title_with_progress_indicator.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_title_with_progress_indicator.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/cocktail_grid_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/cocktail_grid_item.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622077180529</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="lesson 25 homework">
+      <created>1624273808533</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1624273808533</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -169,7 +174,8 @@
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
     <MESSAGE value="animations module homework" />
-    <option name="LAST_COMMIT_MESSAGE" value="animations module homework" />
+    <MESSAGE value="lesson 25 homework" />
+    <option name="LAST_COMMIT_MESSAGE" value="lesson 25 homework" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="109" width="1071" height="730" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1624260146994">
@@ -180,10 +186,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="230" y="201" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1620804603942" />
-    <state x="0" y="40" key="CommitChangelistDialog2" timestamp="1622077180283">
+    <state x="0" y="40" key="CommitChangelistDialog2" timestamp="1624273808219">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="0" y="40" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1622077180283" />
+    <state x="0" y="40" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1624273808219" />
     <state x="13" y="13" width="1355" height="874" maximized="true" key="DiffContextDialog" timestamp="1621285245618">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -228,10 +234,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="251" y="200" width="540" height="524" key="StructurePopup/0.0.1440.900@0.0.1440.900" timestamp="1624259040603" />
-    <state x="170" y="187" key="Vcs.Push.Dialog.v2" timestamp="1622077181727">
+    <state x="170" y="187" key="Vcs.Push.Dialog.v2" timestamp="1624273810290">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="170" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1622077181727" />
+    <state x="170" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1624273810290" />
     <state x="25" y="188" key="VcsDiffUtil.ChangesDialog" timestamp="1621285239653">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -240,10 +246,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="521" y="368" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1624273689352" />
-    <state x="185" y="111" width="856" height="767" key="find.popup" timestamp="1624272677140">
+    <state x="185" y="111" width="856" height="767" key="find.popup" timestamp="1624274006109">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="185" y="111" width="856" height="767" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1624272677140" />
+    <state x="185" y="111" width="856" height="767" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1624274006109" />
     <state x="0" y="0" width="612" height="247" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1624263977443">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
