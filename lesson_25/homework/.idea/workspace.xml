@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a86b4f6-e92e-4184-b43a-773e96ef905a" name="Default Changelist" comment="" />
+    <list default="true" id="0a86b4f6-e92e-4184-b43a-773e96ef905a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/lib/ui/application_semantics.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_title.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_title.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_title_with_progress_indicator.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_title_with_progress_indicator.dart" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +62,7 @@
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="emulator" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -161,6 +165,9 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
     <MESSAGE value="animations module homework" />
     <option name="LAST_COMMIT_MESSAGE" value="animations module homework" />
   </component>
@@ -213,10 +220,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1038" height="465" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1624269213042" />
-    <state x="442" y="172" width="982" height="728" key="SettingsEditor" timestamp="1624264083918">
+    <state x="442" y="172" width="982" height="728" key="SettingsEditor" timestamp="1624273758845">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="442" y="172" width="982" height="728" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1624264083918" />
+    <state x="442" y="172" width="982" height="728" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1624273758845" />
     <state x="251" y="200" width="540" height="524" key="StructurePopup" timestamp="1624259040603">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -229,6 +236,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="25" y="188" key="VcsDiffUtil.ChangesDialog/0.0.1440.900@0.0.1440.900" timestamp="1621285239653" />
+    <state x="521" y="368" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1624273689352">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="521" y="368" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1624273689352" />
     <state x="185" y="111" width="856" height="767" key="find.popup" timestamp="1624272677140">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

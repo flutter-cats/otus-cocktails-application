@@ -1,4 +1,3 @@
-import 'package:cocktail_app_tests/ui/application_semantics.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +26,6 @@ class _CocktailTitleState extends State<CocktailTitle>
           if (_controller.isCompleted)
             Text(
               widget.cocktailTitle,
-              semanticsLabel: ApplicationSemantics.cocktailTitleLabel,
               style: Theme.of(context).textTheme.headline3,
             ),
           _getIsFavoriteIcon(),
