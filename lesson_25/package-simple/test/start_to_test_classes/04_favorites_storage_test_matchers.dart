@@ -1,6 +1,6 @@
+@TestOn('vm')
 import 'package:cocktail_app/src/core/models.dart';
 import 'package:cocktail_app/src/start_to_test_classes/00_favorites_storage.dart';
-@TestOn('vm')
 import 'package:test/test.dart';
 
 void main() {
@@ -17,6 +17,16 @@ void main() {
   });
 
   group('Favorites storage should', () {
+    test('contain cocktail definition after its storing in the storage', () {
+      expect(favoritesStorage.contains(cocktailDefinition1), isFalse);
+
+      favoritesStorage.add(cocktailDefinition1);
+
+      expect(favoritesStorage.getAll().first, cocktailDefinition2);
+    });
+
+    // uncomment here:
+
     test('contain cocktail definition after its storing in the storage', () {
       expect(favoritesStorage.contains(cocktailDefinition1), isFalse);
 
@@ -51,7 +61,7 @@ class CocktailDefinitionMatcher extends Matcher {
           );
 
   String formatFieldMatchError(String fieldName, String expectedValue, String actualValue) =>
-      '\n CocktailDefinition.$fieldName to be \'$expectedValue\', but \'$actualValue\' found;';
+      '\n CocktailDefinition.$fieldName should be equal \'$expectedValue\', but \'$actualValue\' found;';
 
   @override
   bool matches(dynamic item, Map matchState) {
