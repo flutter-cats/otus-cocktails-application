@@ -5,12 +5,10 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   testWidgets("Fancy button's golden test", (WidgetTester tester) async {
     await tester.pumpWidget(
-      MaterialApp(
-        home: Center(
-          child: FancyButton(
-            title: "Title",
-            onTap: () {},
-          ),
+      _wrap(
+        FancyButton(
+          title: "Title",
+          onTap: () {},
         ),
       ),
     );
@@ -22,3 +20,11 @@ void main() {
     );
   });
 }
+
+Widget _wrap(Widget child) => MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: child,
+        ),
+      ),
+    );

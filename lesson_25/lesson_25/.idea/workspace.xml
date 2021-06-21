@@ -77,10 +77,9 @@
       <recent name="$PROJECT_DIR$/lib/ui" />
     </key>
   </component>
-  <component name="RunManager" selected="Flutter Test.tests in 03_cocktail_title_test_resolving_the_problem_with_stateful.dart">
-    <configuration name="tests in widget_tests" type="DartTestRunConfigurationType" factoryName="Dart Test" temporary="true" nameIsGenerated="true">
-      <option name="filePath" value="$PROJECT_DIR$/test/widget_tests" />
-      <option name="scope" value="FOLDER" />
+  <component name="RunManager" selected="Flutter.golden_test_demo.dart">
+    <configuration name="golden_test_demo.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lib/uikit/golden_test_demo.dart" />
       <method v="2" />
     </configuration>
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
@@ -117,19 +116,19 @@
       <item itemvalue="Flutter.main.dart" />
       <item itemvalue="Flutter Test.tests in test" />
       <item itemvalue="Flutter Test.tests in fancy_button_test.dart" />
-      <item itemvalue="Dart Test.tests in widget_tests" />
       <item itemvalue="Flutter Test.tests in 00_cocktail_title_test.dart" />
       <item itemvalue="Flutter Test.tests in 01_cocktail_title_test_by_semantics.dart" />
       <item itemvalue="Flutter Test.tests in 03_cocktail_title_test_resolving_the_problem_with_stateful.dart" />
       <item itemvalue="Flutter Test.tests in 02_cocktail_title_test_the_problem_with_stateful.dart" />
+      <item itemvalue="Flutter.golden_test_demo.dart" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Flutter.golden_test_demo.dart" />
         <item itemvalue="Flutter Test.tests in 03_cocktail_title_test_resolving_the_problem_with_stateful.dart" />
         <item itemvalue="Flutter Test.tests in 02_cocktail_title_test_the_problem_with_stateful.dart" />
         <item itemvalue="Flutter Test.tests in 01_cocktail_title_test_by_semantics.dart" />
         <item itemvalue="Flutter Test.tests in 00_cocktail_title_test.dart" />
-        <item itemvalue="Dart Test.tests in widget_tests" />
       </list>
     </recent_temporary>
   </component>
@@ -206,22 +205,22 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="13" y="13" width="1355" height="874" maximized="true" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1621285245618" />
-    <state width="1440" height="448" key="GridCell.Tab.0.bottom" timestamp="1624284388371">
+    <state width="918" height="448" key="GridCell.Tab.0.bottom" timestamp="1624285394998">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1440" height="448" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1624284388371" />
-    <state width="1440" height="448" key="GridCell.Tab.0.center" timestamp="1624284388369">
+    <state width="918" height="448" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1624285394998" />
+    <state width="918" height="448" key="GridCell.Tab.0.center" timestamp="1624285394996">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1440" height="448" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1624284388369" />
-    <state width="1440" height="448" key="GridCell.Tab.0.left" timestamp="1624284388368">
+    <state width="918" height="448" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1624285394996" />
+    <state width="918" height="448" key="GridCell.Tab.0.left" timestamp="1624285394995">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1440" height="448" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1624284388368" />
-    <state width="1440" height="448" key="GridCell.Tab.0.right" timestamp="1624284388370">
+    <state width="918" height="448" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1624285394995" />
+    <state width="918" height="448" key="GridCell.Tab.0.right" timestamp="1624285394997">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1440" height="448" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1624284388370" />
+    <state width="918" height="448" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1624285394997" />
     <state width="1038" height="465" key="GridCell.Tab.1.bottom" timestamp="1624269213043">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -242,10 +241,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="442" y="172" width="982" height="728" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1624264083918" />
-    <state x="251" y="200" width="540" height="524" key="StructurePopup" timestamp="1624259040603">
+    <state x="251" y="200" width="540" height="524" key="StructurePopup" timestamp="1624284783184">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="251" y="200" width="540" height="524" key="StructurePopup/0.0.1440.900@0.0.1440.900" timestamp="1624259040603" />
+    <state x="251" y="200" width="540" height="524" key="StructurePopup/0.0.1440.900@0.0.1440.900" timestamp="1624284783184" />
     <state x="170" y="187" key="Vcs.Push.Dialog.v2" timestamp="1622077181727">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
