@@ -14,15 +14,15 @@ abstract class _FavoritesStoreBase with Store {
     _loadFavoritesMap();
   }
 
-  late SharedPreferences prefs;
+  late SharedPreferences _prefs;
   final favoritesMap = ObservableMap<String, CocktailDefinition>();
 
   void _loadFavoritesMap() async {
-    prefs = await SharedPreferences.getInstance();
-    final keys = prefs.getKeys();
+    _prefs = await SharedPreferences.getInstance();
+    final keys = _prefs.getKeys();
 
     for (String key in keys) {
-      final def = jsonDecode(prefs.get(key).toString());
+      final def = jsonDecode(_prefs.get(key).toString());
       favoritesMap[key] = CocktailDefinition.fromJson(def);
     }
   }
@@ -35,8 +35,8 @@ abstract class _FavoritesStoreBase with Store {
       favoritesMap[str] = cocktailDefinition;
 
       //Альтернатива - при выходе из приложения сохранять сразу все
-      if (prefs.containsKey(str) == false)
-        prefs.setString(str, jsonEncode(cocktailDefinition));
+      if (_prefs.containsKey(str) == false)
+        _prefs.setString(str, jsonEncode(cocktailDefinition));
     }
   }
 
@@ -44,8 +44,8 @@ abstract class _FavoritesStoreBase with Store {
   void removeFromFavorites(String id) {
     favoritesMap.remove(id);
 
-    if (prefs.containsKey(id))
-      prefs.remove(id);
+    if (_prefs.containsKey(id))
+      _prefs.remove(id);
   }
 
   bool isFavorite(String id) => favoritesMap.containsKey(id);

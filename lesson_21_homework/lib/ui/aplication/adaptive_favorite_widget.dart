@@ -8,11 +8,11 @@ import 'package:provider/provider.dart';
 class AdaptiveFavoriteWidget extends StatefulWidget {
   final Color color;
   final Color backgroundColor;
-  final CocktailDefinition? cocktailDefinition;
+  final CocktailDefinition cocktailDefinition;
 
   AdaptiveFavoriteWidget({
     Key? key,
-    this.cocktailDefinition,
+    required this.cocktailDefinition,
     this.color = Colors.white,
     this.backgroundColor = Colors.grey,
   }) : super(key: key);
@@ -23,32 +23,32 @@ class AdaptiveFavoriteWidget extends StatefulWidget {
 
 class _AdaptiveFavoriteWidgetState extends State<AdaptiveFavoriteWidget>
     with SingleTickerProviderStateMixin {
-  late AnimationController controller;
-  late Animation<double> sizeAnimation;
+  late AnimationController _controller;
+  late Animation<double> _sizeAnimation;
 
   void _handleAnimationStatusChange(AnimationStatus status) {
     if (status == AnimationStatus.completed) {
-      controller.reset();
+      _controller.reset();
     }
   }
 
   @override
   void initState() {
-    controller =
+    super.initState();
+
+    _controller =
         AnimationController(vsync: this, duration: Duration(milliseconds: 150));
-    controller.addListener(() {
+    _controller.addListener(() {
       setState(() {});
     });
-    controller.addStatusListener(_handleAnimationStatusChange);
+    _controller.addStatusListener(_handleAnimationStatusChange);
 
-    sizeAnimation = TweenSequence(
+    _sizeAnimation = TweenSequence(
       [
         TweenSequenceItem(tween: Tween(begin: 0.0, end: 80.0), weight: 1),
         TweenSequenceItem(tween: Tween(begin: 80.0, end: 0.0), weight: 1),
       ],
-    ).animate(controller);
-
-    super.initState();
+    ).animate(_controller);
   }
 
   @override
@@ -62,7 +62,7 @@ class _AdaptiveFavoriteWidgetState extends State<AdaptiveFavoriteWidget>
             padding: EdgeInsets.all(20),
             child: CustomPaint(
               painter: FavoriteWidgetPainter(
-                scale: sizeAnimation.value,
+                scale: _sizeAnimation.value,
                 isFavorite: favoritesStore.isFavorite(widget.cocktailDefinition!.id!),
                 color: widget.color,
                 backgroundColor: widget.backgroundColor,
@@ -77,7 +77,7 @@ class _AdaptiveFavoriteWidgetState extends State<AdaptiveFavoriteWidget>
             else {
               favoritesStore.addToFavorites(widget.cocktailDefinition!);
             }
-            controller.forward();
+            _controller.forward();
           },
         );
       },
@@ -86,7 +86,7 @@ class _AdaptiveFavoriteWidgetState extends State<AdaptiveFavoriteWidget>
 
   @override
   void dispose() {
-    controller.dispose();
+    _controller.dispose();
     super.dispose();
   }
 }

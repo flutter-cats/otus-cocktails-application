@@ -37,19 +37,18 @@ class FavouriteCocktailsPage extends StatelessWidget {
       title: 'Мой бар',
       currentSelectedNavBarItem: 2,
       child: CustomScrollView(
-            slivers: [
-              SliverToBoxAdapter(child: SizedBox(height: 21)),
-              SliverPersistentHeader(
-                delegate: CategoriesFilterBarDelegate(
-                  CocktailCategory.values,
-                  onCategorySelected: (category) {},
-                ),
-                floating: true,
-              ),
-              SliverToBoxAdapter(child: SizedBox(height: 24)),
-              _buildCocktailItems(context),
-            ],
-
+        slivers: [
+          SliverToBoxAdapter(child: SizedBox(height: 21)),
+          SliverPersistentHeader(
+            delegate: CategoriesFilterBarDelegate(
+              CocktailCategory.values,
+              onCategorySelected: (category) {},
+            ),
+            floating: true,
+          ),
+          SliverToBoxAdapter(child: SizedBox(height: 24)),
+          _buildCocktailItems(context),
+        ],
       ),
     );
   }
@@ -79,69 +78,13 @@ class FavouriteCocktailsPage extends StatelessWidget {
             ),
           );
         }
-
-        /*
-        if (favorites.isNotEmpty) {
-          return GridView.builder(
-            padding: const EdgeInsets.all(8.0),
-            gridDelegate: cocktailsGridDelegate,
-            itemCount: favorites.length,
-            itemBuilder: (context, index) {
-              return CocktailGridItem(favorites.elementAt(index), selectedCategory: null,);
-            },
-          );
-        }
-
-         */
         return SliverFillRemaining(
-            child: Center(child: Text('У Вас нет избранных коктейлей')));
+            child: Center(
+                child: Text(
+          'У Вас нет избранных коктейлей',
+          style: TextStyle(color: Colors.white),
+        )));
       },
     );
   }
-
-  /*
-  Widget _buildCocktailItems(BuildContext context) {
-    return FutureBuilder<Iterable<CocktailDefinition?>>(
-        future: repository
-            .fetchCocktailsByCocktailCategory(_categoryNotifier.value),
-        builder: (ctx, snapshot) {
-          if (snapshot.hasError) {
-            return SliverFillRemaining(
-              child: Center(
-                child: Text(
-                  snapshot.error.toString(),
-                ),
-              ),
-            );
-          }
-
-          if (snapshot.hasData) {
-            return SliverPadding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              sliver: SliverGrid(
-                delegate: SliverChildBuilderDelegate((ctx, index) {
-                  return CocktailGridItem(
-                    snapshot.data!.elementAt(index)!,
-                    selectedCategory: _categoryNotifier.value,
-                  );
-                }, childCount: snapshot.data!.length),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: CocktailGridItem.aspectRatio,
-                  crossAxisSpacing: 6,
-                  mainAxisSpacing: 6,
-                  crossAxisCount: 2,
-                ),
-              ),
-            );
-          }
-
-          return SliverFillRemaining(
-            child: Center(
-              child: const CircularProgressIndicator(),
-            ),
-          );
-        });
-  }
-
-   */
 }

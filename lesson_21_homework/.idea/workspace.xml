@@ -2,23 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1559a543-d24b-47b8-9ff9-c1143998a9a6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/lesson_21_homework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lesson_21_homework.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/src/dto/cocktail_definition_dto.g.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/src/dto/cocktail_dto.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/src/dto/cocktail_dto.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/src/model/cocktail_definition.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/src/model/cocktail_definition.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/src/repository/async_cocktail_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/src/repository/async_cocktail_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/pages/cocktail_details_loader_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/cocktail_details_loader_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/pages/cocktail_grid_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/cocktail_grid_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_description_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_description_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_title.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_title.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_detail_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/state/favorites_store.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/state/favorites_store.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/aplication/adaptive_favorite_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/aplication/adaptive_favorite_widget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ui/pages/favorite_cocktails_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/favorite_cocktails_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +31,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
