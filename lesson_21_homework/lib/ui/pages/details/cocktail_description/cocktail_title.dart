@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+
+import 'package:lesson_21_animations_homework/core/src/model/cocktail_definition.dart';
+import 'package:lesson_21_animations_homework/ui/aplication/adaptive_favorite_widget.dart';
 
 ///
 /// TODO:
@@ -21,37 +25,32 @@ import 'package:flutter/material.dart';
 /// В этом экране используется точно такая же  верстка, как и на экране фильтрации (то есть можно переиспользовать экран выдачи результатов по категориям)
 ///
 class CocktailTitle extends StatelessWidget {
-  final String cocktailTitle;
-  final bool isFavorite;
+  final CocktailDefinition cocktailDefinition;
 
-  CocktailTitle({required this.cocktailTitle, required this.isFavorite});
+  CocktailTitle({required this.cocktailDefinition});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Observer(
+        builder: (context) {
+          return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          cocktailTitle,
+          cocktailDefinition.name!,
           style: Theme.of(context).textTheme.headline3,
         ),
         _getIsFavoriteIcon()
       ],
-    );
+    ); });
   }
 
   Widget _getIsFavoriteIcon() {
-    if (isFavorite) {
-      return IconButton(
-        icon: Icon(Icons.favorite, color: Colors.white),
-        onPressed: () {},
-      );
-    } else {
-      return IconButton(
-        icon: Icon(Icons.favorite_border, color: Colors.white),
-        onPressed: () {},
-      );
-    }
+    return AdaptiveFavoriteWidget(
+      color: Colors.white,
+      backgroundColor: Colors.grey,
+      cocktailDefinition: cocktailDefinition,
+    );
   }
 }

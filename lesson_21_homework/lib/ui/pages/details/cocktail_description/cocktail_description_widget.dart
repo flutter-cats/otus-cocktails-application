@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lesson_21_animations_homework/core/src/model/cocktail.dart';
+import 'package:lesson_21_animations_homework/core/src/model/cocktail_definition.dart';
 import 'package:lesson_21_animations_homework/ui/style/custom_colors.dart';
 
 import 'cocktail_characteristic_text.dart';
@@ -8,8 +9,9 @@ import 'cocktail_title.dart';
 
 class CocktailDescriptionWidget extends StatelessWidget {
   final Cocktail cocktail;
+  final CocktailDefinition cocktailDefinition;
 
-  CocktailDescriptionWidget({required this.cocktail});
+  CocktailDescriptionWidget({required this.cocktail, required this.cocktailDefinition});
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +23,7 @@ class CocktailDescriptionWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CocktailTitle(
-              cocktailTitle: cocktail.name!,
-              isFavorite: cocktail.isFavourite!,
+              cocktailDefinition: cocktailDefinition,
             ),
             Padding(
               padding: const EdgeInsets.only(top: 10.0),

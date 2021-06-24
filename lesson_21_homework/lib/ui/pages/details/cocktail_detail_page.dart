@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lesson_21_animations_homework/core/models.dart';
 import 'package:lesson_21_animations_homework/core/src/model/cocktail.dart';
 import 'package:lesson_21_animations_homework/ui/pages/details/cocktail_description/cocktail_description_widget.dart';
 import 'package:lesson_21_animations_homework/ui/pages/details/cocktail_ingredients/ingredients_widget.dart';
@@ -8,8 +9,9 @@ import 'package:lesson_21_animations_homework/ui/pages/details/cocktail_rating_b
 
 class CocktailDetailPage extends StatelessWidget {
   final Cocktail cocktail;
+  final CocktailDefinition cocktailDefinition;
 
-  const CocktailDetailPage(this.cocktail, {Key? key}) : super(key: key);
+  const CocktailDetailPage(this.cocktail, this.cocktailDefinition, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class CocktailDetailPage extends StatelessWidget {
         child: Column(
           children: [
             CocktailPreview(imageUrl: cocktail.drinkThumbUrl!),
-            CocktailDescriptionWidget(cocktail: cocktail),
+            CocktailDescriptionWidget(cocktail: cocktail, cocktailDefinition: cocktailDefinition),
             CocktailIngredients(cocktailIngredients: cocktail.ingredients!),
             CocktailInstruction(cocktailInstruction: cocktail.instruction!),
             CocktailRatingBar(rating: 3)

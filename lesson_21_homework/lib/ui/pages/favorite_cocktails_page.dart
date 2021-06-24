@@ -1,5 +1,12 @@
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:lesson_21_animations_homework/core/src/model/cocktail_category.dart';
+import 'package:lesson_21_animations_homework/state/favorites_store.dart';
 import 'package:lesson_21_animations_homework/ui/aplication/application_scaffold.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'categories_fitler_bar_delegate.dart';
+import 'cocktail_grid_item.dart';
 
 ///
 /// TODO:
@@ -20,24 +27,121 @@ import 'package:flutter/material.dart';
 ///
 /// В этом экране используется точно такая же  верстка, как и на экране фильтрации (то есть можно переиспользовать экран выдачи результатов по категориям)
 ///
-class FavouriteCocktailsPage extends StatefulWidget {
-  @override
-  _FavouriteCocktailsPageState createState() => _FavouriteCocktailsPageState();
-}
+///
+class FavouriteCocktailsPage extends StatelessWidget {
+  const FavouriteCocktailsPage({Key? key}) : super(key: key);
 
-class _FavouriteCocktailsPageState extends State<FavouriteCocktailsPage> {
   @override
   Widget build(BuildContext context) {
     return ApplicationScaffold(
-      title: 'Избранное',
+      title: 'Мой бар',
       currentSelectedNavBarItem: 2,
-      child: _buildFavoriteCocktailItems(context),
+      child: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(child: SizedBox(height: 21)),
+              SliverPersistentHeader(
+                delegate: CategoriesFilterBarDelegate(
+                  CocktailCategory.values,
+                  onCategorySelected: (category) {},
+                ),
+                floating: true,
+              ),
+              SliverToBoxAdapter(child: SizedBox(height: 24)),
+              _buildCocktailItems(context),
+            ],
+
+      ),
     );
   }
 
-  Widget _buildFavoriteCocktailItems(BuildContext context) => Center(
-          child: Text(
-        'todo: add code here',
-        style: Theme.of(context).textTheme.caption,
-      ));
+  Widget _buildCocktailItems(BuildContext context) {
+    return Observer(
+      builder: (context) {
+        final favoritesStore = Provider.of<FavoritesStore>(context);
+        final favorites = favoritesStore.favoritesMap.values;
+
+        if (favorites.isNotEmpty) {
+          return SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            sliver: SliverGrid(
+              delegate: SliverChildBuilderDelegate((ctx, index) {
+                return CocktailGridItem(
+                  favorites.elementAt(index),
+                  selectedCategory: null,
+                );
+              }, childCount: favorites.length),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                childAspectRatio: CocktailGridItem.aspectRatio,
+                crossAxisSpacing: 6,
+                mainAxisSpacing: 6,
+                crossAxisCount: 2,
+              ),
+            ),
+          );
+        }
+
+        /*
+        if (favorites.isNotEmpty) {
+          return GridView.builder(
+            padding: const EdgeInsets.all(8.0),
+            gridDelegate: cocktailsGridDelegate,
+            itemCount: favorites.length,
+            itemBuilder: (context, index) {
+              return CocktailGridItem(favorites.elementAt(index), selectedCategory: null,);
+            },
+          );
+        }
+
+         */
+        return SliverFillRemaining(
+            child: Center(child: Text('У Вас нет избранных коктейлей')));
+      },
+    );
+  }
+
+  /*
+  Widget _buildCocktailItems(BuildContext context) {
+    return FutureBuilder<Iterable<CocktailDefinition?>>(
+        future: repository
+            .fetchCocktailsByCocktailCategory(_categoryNotifier.value),
+        builder: (ctx, snapshot) {
+          if (snapshot.hasError) {
+            return SliverFillRemaining(
+              child: Center(
+                child: Text(
+                  snapshot.error.toString(),
+                ),
+              ),
+            );
+          }
+
+          if (snapshot.hasData) {
+            return SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              sliver: SliverGrid(
+                delegate: SliverChildBuilderDelegate((ctx, index) {
+                  return CocktailGridItem(
+                    snapshot.data!.elementAt(index)!,
+                    selectedCategory: _categoryNotifier.value,
+                  );
+                }, childCount: snapshot.data!.length),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  childAspectRatio: CocktailGridItem.aspectRatio,
+                  crossAxisSpacing: 6,
+                  mainAxisSpacing: 6,
+                  crossAxisCount: 2,
+                ),
+              ),
+            );
+          }
+
+          return SliverFillRemaining(
+            child: Center(
+              child: const CircularProgressIndicator(),
+            ),
+          );
+        });
+  }
+
+   */
 }

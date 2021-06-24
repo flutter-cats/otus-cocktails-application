@@ -2,8 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1559a543-d24b-47b8-9ff9-c1143998a9a6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/lesson_21_homework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lesson_21_homework.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/src/dto/cocktail_definition_dto.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/src/dto/cocktail_dto.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/src/dto/cocktail_dto.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/src/model/cocktail_definition.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/src/model/cocktail_definition.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/src/repository/async_cocktail_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/src/repository/async_cocktail_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/cocktail_details_loader_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/cocktail_details_loader_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/cocktail_grid_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/cocktail_grid_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_description_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_description_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_title.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_title.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_detail_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/favorite_cocktails_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/favorite_cocktails_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +42,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -95,25 +109,41 @@
     <option name="LAST_COMMIT_MESSAGE" value="lesson_21 homework" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="402" y="154" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1624344916050">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="402" y="154" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1624344916050" />
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1624516321066">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1624516321066" />
     <state x="114" y="40" key="CommitChangelistDialog2" timestamp="1622075275167">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="114" y="40" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1622075275167" />
-    <state width="1019" height="468" key="GridCell.Tab.0.bottom" timestamp="1622075278707">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1624429564688">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1624429564688" />
+    <state width="1306" height="179" key="GridCell.Tab.0.bottom" timestamp="1624520459333">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1306" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1624520459333" />
     <state width="1019" height="468" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1622075278707" />
-    <state width="1019" height="468" key="GridCell.Tab.0.center" timestamp="1622075278706">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1306" height="179" key="GridCell.Tab.0.center" timestamp="1624520459333">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1306" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1624520459333" />
     <state width="1019" height="468" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1622075278706" />
-    <state width="1019" height="468" key="GridCell.Tab.0.left" timestamp="1622075278706">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1306" height="179" key="GridCell.Tab.0.left" timestamp="1624520459333">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1306" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1624520459333" />
     <state width="1019" height="468" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1622075278706" />
-    <state width="1019" height="468" key="GridCell.Tab.0.right" timestamp="1622075278707">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1306" height="179" key="GridCell.Tab.0.right" timestamp="1624520459333">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1306" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1624520459333" />
     <state width="1019" height="468" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1622075278707" />
     <state width="1019" height="468" key="GridCell.Tab.1.bottom" timestamp="1622075278708">
       <screen x="0" y="0" width="1440" height="900" />
@@ -139,9 +169,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1622075277498" />
-    <state x="151" y="18" width="1142" height="879" key="find.popup" timestamp="1622068123103">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="143" y="15" width="1084" height="712" key="find.popup" timestamp="1624385665232">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="143" y="15" width="1084" height="712" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1624385665232" />
     <state x="151" y="18" width="1142" height="879" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1622068123103" />
   </component>
 </project>

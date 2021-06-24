@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lesson_21_animations_homework/core/models.dart';
 import 'package:lesson_21_animations_homework/main.dart';
+import 'package:lesson_21_animations_homework/ui/aplication/adaptive_favorite_widget.dart';
 import 'package:lesson_21_animations_homework/ui/pages/details/cocktail_detail_page.dart';
 import 'package:lesson_21_animations_homework/ui/style/custom_colors.dart';
 
@@ -9,7 +10,7 @@ class CocktailGridItem extends StatelessWidget {
 
   final CocktailDefinition cocktailDefinition;
 
-  final CocktailCategory selectedCategory;
+  final CocktailCategory? selectedCategory;
 
   const CocktailGridItem(
     this.cocktailDefinition, {
@@ -28,7 +29,7 @@ class CocktailGridItem extends StatelessWidget {
               builder: (ctx, snapshot) {
                 if (snapshot.hasData) {
                   return Material(
-                    child: CocktailDetailPage(snapshot.data!),
+                    child: CocktailDetailPage(snapshot.data!, cocktailDefinition),
                   );
                 }
 
@@ -79,7 +80,7 @@ class CocktailGridItem extends StatelessWidget {
                           child: Chip(
                             backgroundColor: CustomColors.black,
                             label: Text(
-                              selectedCategory.name,
+                              selectedCategory?.name ?? "Favorite",
                               style: Theme.of(context).textTheme.caption,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
@@ -98,16 +99,10 @@ class CocktailGridItem extends StatelessWidget {
   }
 
   Widget _getIsFavoriteIcon(bool isFavourite) {
-    if (isFavourite) {
-      return IconButton(
-        icon: Icon(Icons.favorite, color: Colors.white),
-        onPressed: () {},
-      );
-    } else {
-      return IconButton(
-        icon: Icon(Icons.favorite_border, color: Colors.white),
-        onPressed: () {},
-      );
-    }
+    return AdaptiveFavoriteWidget(
+      color: Colors.white,
+      backgroundColor: Colors.grey,
+      cocktailDefinition: cocktailDefinition,
+    );
   }
 }
