@@ -1,13 +1,14 @@
 
+import 'package:cocktail_app/core/src/model/cocktail.dart';
 import 'package:cocktail_app/ui/style/custom_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
 
 class CocktailPreview extends StatelessWidget {
-  final String imageUrl;
+  final Cocktail cocktail;
 
-  CocktailPreview({required this.imageUrl});
+  CocktailPreview({required this.cocktail});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class CocktailPreview extends StatelessWidget {
       children: [
         AspectRatio(
           aspectRatio: 375 / 343,
-          child: Image.network(imageUrl, fit: BoxFit.fill),
+          child: Image.network(cocktail.drinkThumbUrl, fit: BoxFit.fill),
         ),
         Positioned(
           bottom: 0,
@@ -48,7 +49,6 @@ class CocktailPreview extends StatelessWidget {
                 IconButton(
                   onPressed: () {
                     _onShare(context);
-
                     ///
                     /// TODO:
                     ///    - Склонировать соотвествующий github репозиторий с заготовкой проекта для этого урока (https://github.com/guid-empty/otus-cocktail-app-lessons)
@@ -77,6 +77,10 @@ class CocktailPreview extends StatelessWidget {
   }
 
   void _onShare(BuildContext context) async{
-    await Share.share(imageUrl);
+    await Share.share(_createCocktailDef());
+  }
+
+  String _createCocktailDef(){
+    return 'Cocktail "${cocktail.name}"\n  URL: ${cocktail.drinkThumbUrl}\n  Category: ${cocktail.category.value}\n  GlassType: ${cocktail.glassType.value}\n  Ingredients: ${cocktail.ingredients.map((e)=>e.ingredientName)}\n  Instruction: ${cocktail.instruction.toString()}';
   }
 }
