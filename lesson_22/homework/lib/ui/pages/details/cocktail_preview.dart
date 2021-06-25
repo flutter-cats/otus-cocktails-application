@@ -1,6 +1,8 @@
+
 import 'package:cocktail_app/ui/style/custom_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 
 class CocktailPreview extends StatelessWidget {
   final String imageUrl;
@@ -23,9 +25,9 @@ class CocktailPreview extends StatelessWidget {
               color: Colors.transparent,
               foregroundDecoration: BoxDecoration(
                   gradient: const LinearGradient(colors: [
-                CustomColors.gradient_first,
-                CustomColors.gradient_second
-              ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+                    CustomColors.gradient_first,
+                    CustomColors.gradient_second
+                  ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
             ),
           ),
         ),
@@ -45,6 +47,8 @@ class CocktailPreview extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
+                    _onShare(context);
+
                     ///
                     /// TODO:
                     ///    - Склонировать соотвествующий github репозиторий с заготовкой проекта для этого урока (https://github.com/guid-empty/otus-cocktail-app-lessons)
@@ -70,5 +74,9 @@ class CocktailPreview extends StatelessWidget {
         )
       ],
     );
+  }
+
+  void _onShare(BuildContext context) async{
+    await Share.share(imageUrl);
   }
 }
