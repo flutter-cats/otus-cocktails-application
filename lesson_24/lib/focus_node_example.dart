@@ -14,9 +14,9 @@ class FocusNodeExample extends StatelessWidget {
               filled: true,
             ),
           ),
-          // child: _SimpleFormContent(),
+          child: _SimpleFormContent(),
           // child: _TwoFormsContent(),
-          child: _CustomTraversalOrder(),
+          // child: _CustomTraversalOrder(),
         ),
       ),
     );
@@ -209,7 +209,7 @@ class __FocusableItemState extends State<_FocusableItem> {
             color: Colors.yellow,
             border: Border.all(
               color: _isFocused ? Colors.blue : Colors.transparent,
-              width: 2,
+              width: 4,
             ),
           ),
           child: Center(

@@ -22,7 +22,6 @@ class ShortcutsExample extends StatelessWidget {
   }
 }
 
-//todo disable built-in action
 class _SimpleFormContent extends StatefulWidget {
   const _SimpleFormContent({Key? key}) : super(key: key);
 
@@ -66,6 +65,5 @@ class _SubmitFormAction extends Action<_SaveIntent> {
   @override
   Object? invoke(covariant _SaveIntent intent) {
     print("Save");
-    // return null;
   }
 }

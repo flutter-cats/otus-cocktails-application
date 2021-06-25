@@ -28,9 +28,11 @@ class _Content extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onSecondaryTapDown: (event) {
-        print(event.globalPosition);
+        print("Right click");
       },
-      onTertiaryTapDown: (_) {}, // TODO test
+      onTertiaryTapDown: (_) {
+        print("Middle click");
+      },
       child: Container(
         color: Colors.amber,
       ),
