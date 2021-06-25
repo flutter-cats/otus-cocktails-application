@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homework/core/models.dart';
-import 'package:homework/core/src/repository/async_cocktail_repository.dart';
+import 'package:homework/ui/coctail_detail_page.dart';
 
 import 'cocktail_grid_item.dart';
 
@@ -40,11 +40,57 @@ class FavouriteCocktailsScreen extends StatelessWidget {
                   mainAxisSpacing: 6,
                   crossAxisCount: 2),
               itemBuilder: (ctx, index) {
-                return CocktailGridItem(snapshot.data!.elementAt(index));
+                return GestureDetector(
+                  child: CocktailGridItem(snapshot.data!.elementAt(index)),
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (context) => FutureBuilder<Cocktail?>(
+                          future: repository.fetchCocktailDetails(
+                              snapshot.data!.elementAt(index).id),
+                          builder: (ctx, snapshot) {
+                            if (snapshot.hasData) {
+                              return Material(
+                                child: CocktailDetailPage(snapshot.data!),
+                              );
+                            }
+                            if (snapshot.hasError) {
+                              return Container(
+                                  color: Color.fromARGB(255, 26, 25, 39),
+                                  child: AlertDialog(
+                                    title: const Text('Data fetching error'),
+                                    content: Text(
+                                      snapshot.error.toString(),
+                                      style: TextStyle(color: Colors.black),
+                                    ),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        child: const Text('Ok'),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                      ),
+                                    ],
+                                  ));
+                            }
+                            return Container(
+                              color: Color.fromARGB(255, 26, 25, 39),
+                              child: Center(
+                                child: const CircularProgressIndicator(),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    );
+                  },
+                );
               },
               itemCount: snapshot.data!.length);
         }
-        return const SizedBox();
+        return Center(
+          child: const CircularProgressIndicator(),
+        );
       },
     );
   }

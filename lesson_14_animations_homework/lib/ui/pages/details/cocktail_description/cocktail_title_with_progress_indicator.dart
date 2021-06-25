@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lesson_14_animations_homework/ui/application/adaptive_favorite_widget.dart';
 
 class CocktailTitle extends StatefulWidget {
   final String cocktailTitle;
@@ -53,13 +54,9 @@ class _CocktailTitleState extends State<CocktailTitle>
       hint: 'Press to favorite',
       value: '${widget.isFavorite}',
       // onTap: () { setState(() { _counter++; }); }
-      child: widget.isFavorite
-          ? IconButton(
-              icon: Icon(Icons.favorite, color: Colors.white),
-              onPressed: () {},
-            )
-          : IconButton(
-              icon: Icon(Icons.favorite_border, color: Colors.white),
-              onPressed: () {},
-            ));
+      child: AdaptiveFavoriteWidget(
+          color: Colors.white,
+          backgroundColor: Colors.grey,
+          isFavorite: widget.isFavorite
+      ));
 }

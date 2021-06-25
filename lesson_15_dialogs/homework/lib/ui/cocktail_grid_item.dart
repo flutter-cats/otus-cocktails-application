@@ -20,16 +20,16 @@ class CocktailGridItem extends StatelessWidget {
         children: [
           DecoratedBox(
             decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                stops: [0.44,0.94],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Color.fromRGBO(14, 13, 19, 0),Color(0xFF0E0D13)]
-              )
+                gradient: LinearGradient(
+                    stops: [0.44,0.94],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Color.fromRGBO(14, 13, 19, 0),Color(0xFF0E0D13)]
+                )
             ),
             position: DecorationPosition.foreground,
             child: Image.network(
-              cocktailDefinition.drinkThumbUrl ?? '',
+              cocktailDefinition.drinkThumbUrl,
               fit: BoxFit.cover,
             ),
           ),
@@ -39,7 +39,7 @@ class CocktailGridItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(cocktailDefinition.name ?? '',
+                  Text(cocktailDefinition.name,
                       style: Theme.of(context).textTheme.bodyText1),
                 ]),
           )

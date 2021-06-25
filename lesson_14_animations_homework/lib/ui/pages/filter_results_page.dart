@@ -1,5 +1,6 @@
 import 'package:lesson_14_animations_homework/core/models.dart';
 import 'package:lesson_14_animations_homework/main.dart';
+import 'package:lesson_14_animations_homework/ui/application/adaptive_progress_indicator.dart';
 import 'package:lesson_14_animations_homework/ui/application/application_scaffold.dart';
 import 'package:lesson_14_animations_homework/ui/pages/categories_fitler_bar_delegate.dart';
 import 'package:lesson_14_animations_homework/ui/pages/cocktail_grid_item.dart';
@@ -100,7 +101,7 @@ class _FilterResultsPageWidgetState extends State<FilterResultsPageWidget> {
           ///
           return SliverFillRemaining(
             child: Center(
-              child: const CircularProgressIndicator(),
+              child: const AdaptiveProgressIndicator(),
             ),
           );
         });
