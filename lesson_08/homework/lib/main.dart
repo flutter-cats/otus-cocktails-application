@@ -1,4 +1,5 @@
-import 'package:cocktail/ui/filter_page.dart';
+import 'package:cocktail/res/application_colors.dart';
+import 'package:cocktail/ui/filter_page/filter_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,7 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: CocktailsFilterScreen(),
+      theme: ThemeData(
+          backgroundColor: ApplicationColors.backgroundColor,
+          primaryColor: Colors.white,
+          fontFamily: 'SF Pro Text'),
+      home: FilterPage(),
     );
   }
 }
