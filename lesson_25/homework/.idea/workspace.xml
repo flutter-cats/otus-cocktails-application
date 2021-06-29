@@ -4,13 +4,22 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a86b4f6-e92e-4184-b43a-773e96ef905a" name="Default Changelist" comment="" />
+    <list default="true" id="0a86b4f6-e92e-4184-b43a-773e96ef905a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/src/dto/cocktail_definition_dto.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/src/dto/cocktail_definition_dto.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/src/dto/cocktail_dto.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/src/dto/cocktail_dto.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_title.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_title.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@/Users/andreysmirnov/.android/avd/Pixel_4_XL_API_30.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
@@ -52,7 +61,6 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Problems" />
@@ -62,13 +70,6 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/test/golden_tests" />
-      <recent name="$PROJECT_DIR$/test" />
-      <recent name="$PROJECT_DIR$/lib/uikit" />
-      <recent name="$PROJECT_DIR$/test/golden1" />
-      <recent name="$PROJECT_DIR$/lib/golden" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$/test/ui" />
@@ -76,8 +77,15 @@
       <recent name="$PROJECT_DIR$/lib/core/src/model" />
       <recent name="$PROJECT_DIR$/lib/ui" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\MyFolder\OtusFlutter\otus-cocktails-application\lesson_25\homework\test\widget_tests\pages\details\cocktail_description" />
+      <recent name="C:\MyFolder\OtusFlutter\otus-cocktails-application\lesson_25\homework\test\widget_tests\pages\details" />
+      <recent name="C:\MyFolder\OtusFlutter\otus-cocktails-application\lesson_25\homework\test\unit_tests" />
+      <recent name="$PROJECT_DIR$/test/golden_tests" />
+      <recent name="$PROJECT_DIR$/test" />
+    </key>
   </component>
-  <component name="RunManager" selected="Flutter.golden_test_demo.dart">
+  <component name="RunManager" selected="Flutter Test.tests in test">
     <configuration name="golden_test_demo.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
       <option name="filePath" value="$PROJECT_DIR$/lib/uikit/golden_test_demo.dart" />
       <method v="2" />
@@ -108,7 +116,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -187,6 +195,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="0" y="109" width="1071" height="730" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1624260146994" />
+    <state x="434" y="153" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1624959429280">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="434" y="153" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1624959429280" />
     <state x="230" y="201" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1620804603942">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -199,21 +211,25 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="13" y="13" width="1355" height="874" maximized="true" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1621285245618" />
-    <state width="1038" height="465" key="GridCell.Tab.0.bottom" timestamp="1624269213039">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1306" height="194" key="GridCell.Tab.0.bottom" timestamp="1624966100543">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1306" height="194" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1624966100543" />
     <state width="1038" height="465" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1624269213039" />
-    <state width="1038" height="465" key="GridCell.Tab.0.center" timestamp="1624269213038">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1306" height="194" key="GridCell.Tab.0.center" timestamp="1624966100543">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1306" height="194" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1624966100543" />
     <state width="1038" height="465" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1624269213038" />
-    <state width="1038" height="465" key="GridCell.Tab.0.left" timestamp="1624269213036">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1306" height="194" key="GridCell.Tab.0.left" timestamp="1624966100543">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1306" height="194" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1624966100543" />
     <state width="1038" height="465" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1624269213036" />
-    <state width="1038" height="465" key="GridCell.Tab.0.right" timestamp="1624269213039">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1306" height="194" key="GridCell.Tab.0.right" timestamp="1624966100543">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1306" height="194" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1624966100543" />
     <state width="1038" height="465" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1624269213038" />
     <state width="1038" height="465" key="GridCell.Tab.1.bottom" timestamp="1624269213043">
       <screen x="0" y="0" width="1440" height="900" />
@@ -231,9 +247,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1038" height="465" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1624269213042" />
-    <state x="442" y="172" width="982" height="728" key="SettingsEditor" timestamp="1624273758845">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="419" y="20" width="932" height="708" key="SettingsEditor" timestamp="1624960288684">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="419" y="20" width="932" height="708" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1624960288684" />
     <state x="442" y="172" width="982" height="728" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1624273758845" />
     <state x="251" y="200" width="540" height="524" key="StructurePopup" timestamp="1624259040603">
       <screen x="0" y="0" width="1440" height="900" />
@@ -259,9 +276,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="0" y="0" width="612" height="247" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1440.900@0.0.1440.900" timestamp="1624263977443" />
-    <state x="235" y="112" width="670" height="676" key="search.everywhere.popup" timestamp="1624272619977">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="223" y="91" width="672" height="547" key="search.everywhere.popup" timestamp="1624899831364">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="223" y="91" width="672" height="547" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1624899831364" />
     <state x="235" y="112" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1624272619977" />
   </component>
 </project>
