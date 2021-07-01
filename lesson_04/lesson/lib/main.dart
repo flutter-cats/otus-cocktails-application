@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: materialSampleThemeData,
       builder: (context, child) => Material(child: child),
-      home: BigWidget(),
+      home: StackPage(),
     );
   }
 }
