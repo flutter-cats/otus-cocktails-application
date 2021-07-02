@@ -8,7 +8,7 @@ class BlurSample extends StatelessWidget {
     return Material(
         child: Center(
       child: ImageFiltered(
-          imageFilter: ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0),
+          imageFilter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 0.0),
           child: Text('18+')),
     ));
   }

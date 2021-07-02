@@ -8,7 +8,9 @@ final bigImageUrl = 'https://wallpaperaccess.com/full/1752578.jpg';
 class ImageSamplePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(child: _buildImage(AssetImage('assets/flutter.png')));
+    return Center(
+      child: _buildBigImage(bigImageUrl),
+    );
   }
 
   Widget _buildImage(ImageProvider imageProvider) {
@@ -20,9 +22,19 @@ class ImageSamplePage extends StatelessWidget {
   Widget _buildGifImage(String url) {
     return Image.network(
       url,
-      frameBuilder: (context, child, frame, bool wasSynchronouslyLoaded) {
+      frameBuilder: (
+        context,
+        child,
+        frame,
+        bool wasSynchronouslyLoaded,
+      ) {
         return Stack(
-          children: [child, Center(child: Text(frame?.toString() ?? ''))],
+          children: [
+            child,
+            Center(
+              child: Text(frame?.toString() ?? ''),
+            ),
+          ],
         );
       },
     );
@@ -36,16 +48,21 @@ class ImageSamplePage extends StatelessWidget {
         if (loadingProgress == null) return child;
         final progress = (loadingProgress.cumulativeBytesLoaded /
             loadingProgress.expectedTotalBytes!);
-        return Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text('${(progress * 100).toInt()} %'),
-              const SizedBox(height: 16),
-              CircularProgressIndicator(value: progress)
-            ],
-          ),
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text('${(progress * 100).toInt()} %'),
+            const SizedBox(height: 16),
+            CircularProgressIndicator(value: progress)
+          ],
+        );
+      },
+      errorBuilder:
+          (BuildContext context, Object error, StackTrace? stackTrace) {
+        return Text(
+          error.toString(),
+          style: TextStyle(color: Colors.red),
         );
       },
     );

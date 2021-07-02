@@ -5,9 +5,10 @@ class ClipSamplePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final image = Image.asset('assets/flutter.png');
     return Container(
+      color: Colors.black,
       alignment: Alignment.center,
       padding: const EdgeInsets.all(16),
-      child: _buildTriangleClipper(image),
+      child: _buildCircleClipper(image),
     );
   }
 
@@ -20,11 +21,18 @@ class ClipSamplePage extends StatelessWidget {
   }
 
   Widget _buildRRectClipper(Widget child) {
-    return ClipRRect(borderRadius: BorderRadius.circular(24), child: child);
+    return ClipRRect(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(32),
+        ),
+        child: child);
   }
 
   Widget _buildTriangleClipper(Widget child) {
-    return ClipPath(clipper: TriangleClipper(), child: child);
+    return ClipPath(
+      clipper: TriangleClipper(),
+      child: child,
+    );
   }
 }
 

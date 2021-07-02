@@ -8,20 +8,28 @@ class ConstrainsPage extends StatelessWidget {
   }
 
   Widget _example1() {
-    return Container(color: Colors.red);
+    return Container(
+      color: Colors.green,
+      width: 100,
+      height: 100,
+    );
   }
 
-  Widget _example2() {
+  Widget _layoutBuilder({required Widget child}) {
     return LayoutBuilder(builder: (context, constrains) {
       print('smallest:${constrains.smallest}');
       print('biggest:${constrains.biggest}');
-      return _example1();
+      return child;
     });
   }
 
   Widget _example3() {
     return Center(
-      child: Container(color: Colors.red),
+      child: Container(
+        width: 100,
+        height: 100,
+        color: Colors.red,
+      ),
     );
   }
 
@@ -29,13 +37,23 @@ class ConstrainsPage extends StatelessWidget {
     return Column(
       children: [
         ConstrainedBox(
-          constraints: BoxConstraints(maxHeight: 100, maxWidth: 100),
-          child: Container(
-            color: Colors.red,
+          constraints: BoxConstraints(
+            maxHeight: 100,
+            maxWidth: 100,
+          ),
+          child: _layoutBuilder(
+            child: Container(
+              color: Colors.red,
+              width: 50,
+              height: 50,
+            ),
           ),
         ),
         ConstrainedBox(
-          constraints: BoxConstraints(maxHeight: 100, maxWidth: 100),
+          constraints: BoxConstraints(
+            maxHeight: 100,
+            maxWidth: 100,
+          ),
           child: Container(
             color: Colors.green,
           ),

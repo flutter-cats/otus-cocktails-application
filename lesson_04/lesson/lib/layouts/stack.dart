@@ -4,7 +4,7 @@ import 'package:lesson/layouts/utils.dart';
 class StackPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(child: _SampleWidget());
+    return Center(child: _buildPositionedSample());
   }
 
   //Align
@@ -38,22 +38,11 @@ class StackPage extends StatelessWidget {
     );
   }
 
-  Widget _buildAlign(Alignment alignment) {
-    return Align(
-      alignment: alignment,
-      child: Container(
-        color: Colors.red,
-        padding: const EdgeInsets.all(8),
-        child: Text(alignment
-            .toString()
-            .replaceAll(alignment.runtimeType.toString(), '')),
-      ),
-    );
-  }
-
   Widget _buildPositionedSample() {
     return Stack(
+      // fit: StackFit.loose,
       children: [
+        // SizedBox(height: 100, width: 100),
         Positioned(
           left: 16,
           top: 16,
@@ -77,6 +66,19 @@ class StackPage extends StatelessWidget {
       ],
     );
   }
+
+  Widget _buildAlign(Alignment alignment) {
+    return Align(
+      alignment: alignment,
+      child: Container(
+        color: Colors.red,
+        padding: const EdgeInsets.all(8),
+        child: Text(alignment
+            .toString()
+            .replaceAll(alignment.runtimeType.toString(), '')),
+      ),
+    );
+  }
 }
 
 class _SampleWidget extends StatelessWidget {
@@ -87,22 +89,36 @@ class _SampleWidget extends StatelessWidget {
       height: 250,
       color: Colors.grey,
       child: Stack(
-        clipBehavior: Clip.hardEdge,
+        clipBehavior: Clip.none,
         alignment: Alignment.topCenter,
         fit: StackFit.expand,
         children: [
-          Image.asset('assets/flutter.png', fit: BoxFit.cover),
+          Image.asset(
+            'assets/flutter.png',
+            fit: BoxFit.cover,
+          ),
           Positioned(
-              top: 16,
-              right: 16,
-              child: Icon(Icons.close, color: Colors.black)),
+            top: -26,
+            right: -26,
+            child: Icon(
+              Icons.close,
+              color: Colors.black,
+              size: 48,
+            ),
+          ),
           Align(
-              alignment: Alignment(0.5, 0.9),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                    5, (index) => Icon(Icons.star, color: Colors.yellow)),
-              ))
+            alignment: Alignment(0.5, 0.9),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                5,
+                (index) => Icon(
+                  Icons.star,
+                  color: Colors.yellow,
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );

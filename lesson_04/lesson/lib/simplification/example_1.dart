@@ -4,12 +4,18 @@ import 'package:flutter/material.dart';
 // Их разумно использовать для разбиения если полученный виджет
 // нигде не будет использоваться кроме этого виджета.
 
-class BigWidget extends StatelessWidget {
+class BigWidget extends StatefulWidget {
+  @override
+  _BigWidgetState createState() => _BigWidgetState();
+}
+
+class _BigWidgetState extends State<BigWidget> {
+  final userName = 'Name';
+  final userImageUrl =
+      'http://wallpapers-image.ru/2560x1600/movies/wallpapers/movies-images-2560x1600-15.jpg';
+
   @override
   Widget build(BuildContext context) {
-    final userName = 'Name';
-    final userImageUrl =
-        'http://wallpapers-image.ru/2560x1600/movies/wallpapers/movies-images-2560x1600-15.jpg';
     return Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -24,13 +30,15 @@ class BigWidget extends StatelessWidget {
   }
 
   Widget _buildAvatar(String url) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(24),
-      child: Image.network(
-        url,
-        width: 100,
-        height: 100,
-        fit: BoxFit.cover,
+    return GestureDetector(
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(24),
+        child: Image.network(
+          url,
+          width: 100,
+          height: 100,
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }
@@ -41,7 +49,10 @@ class BigWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(24),
         color: Colors.grey,
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16,
+        vertical: 8,
+      ),
       child: Text(
         name,
         style: TextStyle(color: Colors.white),
@@ -54,15 +65,17 @@ class BigWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         TextButton(
-            onPressed: () {
-              // call method
-            },
-            child: Text('Call')),
+          onPressed: () {
+            // call method
+          },
+          child: const Text('Call'),
+        ),
         TextButton(
-            onPressed: () {
-              // delete method
-            },
-            child: Text('Delete'))
+          onPressed: () {
+            // delete method
+          },
+          child: const Text('Delete'),
+        )
       ],
     );
   }

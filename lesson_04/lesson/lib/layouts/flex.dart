@@ -5,57 +5,53 @@ import 'package:lesson/layouts/utils.dart';
 // что Column переопределяет параметр direction как Axis.vertical
 // a Row переопределяет параметр direction как Axis.horizontal
 
-class FlexPage extends StatefulWidget {
-  @override
-  _FlexPageState createState() => _FlexPageState();
-}
-
-class _FlexPageState extends State<FlexPage> {
-  MainAxisSize mainAxisSize = MainAxisSize.min;
-  CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center;
-  MainAxisAlignment mainAxisAlignment = MainAxisAlignment.spaceAround;
+class FlexPage extends StatelessWidget {
+  final mainAxisSize = MainAxisSize.min;
+  final crossAxisAlignment = CrossAxisAlignment.center;
+  final mainAxisAlignment = MainAxisAlignment.start;
 
   @override
   Widget build(BuildContext context) {
-    return _buildSpacerSample();
+    return Center(child: _buildFlexibleConstrains());
   }
 
   Widget _buildMinMaxSample() {
     return Container(
-      color: Colors.grey,
       child: Flex(
-          direction: Axis.horizontal,
+          direction: Axis.vertical,
           mainAxisSize: mainAxisSize,
           crossAxisAlignment: crossAxisAlignment,
           mainAxisAlignment: mainAxisAlignment,
-          children: [RectWidget(Colors.red), RectWidget(Colors.green)]),
+          children: [
+            RectWidget(Colors.red),
+            RectWidget(Colors.green),
+          ]),
     );
   }
 
   Widget _buildMainAxisAlignmentSample() {
-    return Container(
-      child: Column(
-        children: [
-          SampleRow(mainAxisAlignment: MainAxisAlignment.spaceAround),
-          SampleRow(mainAxisAlignment: MainAxisAlignment.spaceBetween),
-          SampleRow(mainAxisAlignment: MainAxisAlignment.spaceEvenly),
-          SampleRow(mainAxisAlignment: MainAxisAlignment.center),
-          SampleRow(mainAxisAlignment: MainAxisAlignment.end),
-          SampleRow(mainAxisAlignment: MainAxisAlignment.start),
-        ],
-      ),
+    return Column(
+      children: [
+        SampleRow(mainAxisAlignment: MainAxisAlignment.spaceAround),
+        SampleRow(mainAxisAlignment: MainAxisAlignment.spaceBetween),
+        SampleRow(mainAxisAlignment: MainAxisAlignment.spaceEvenly),
+        SampleRow(mainAxisAlignment: MainAxisAlignment.center),
+        SampleRow(mainAxisAlignment: MainAxisAlignment.end),
+        SampleRow(mainAxisAlignment: MainAxisAlignment.start),
+      ],
     );
   }
 
   Widget _buildFlexibleSample() {
     Widget _buildContainer(int flex) {
       return Flexible(
-          flex: flex,
-          fit: FlexFit.tight,
-          child: Container(
-            color: Colors.red,
-            child: Text('$flex'),
-          ));
+        flex: flex,
+        fit: FlexFit.tight,
+        child: Container(
+          color: Colors.red,
+          child: Text('$flex'),
+        ),
+      );
     }
 
     return Row(
@@ -68,6 +64,22 @@ class _FlexPageState extends State<FlexPage> {
         _buildContainer(8),
         _buildContainer(16),
       ],
+    );
+  }
+
+  Widget _buildFlexibleConstrains() {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.all(16),
+      color: Colors.grey,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('Text1' * 10),
+          const SizedBox(width: 100),
+          Text('Text2'),
+        ],
+      ),
     );
   }
 
@@ -87,8 +99,10 @@ class _FlexPageState extends State<FlexPage> {
 }
 
 class SampleRow extends StatelessWidget {
-  const SampleRow({Key? key, required this.mainAxisAlignment})
-      : super(key: key);
+  const SampleRow({
+    Key? key,
+    required this.mainAxisAlignment,
+  }) : super(key: key);
 
   final MainAxisAlignment mainAxisAlignment;
 
@@ -102,7 +116,11 @@ class SampleRow extends StatelessWidget {
         const SizedBox(height: 24),
         Row(
           mainAxisAlignment: mainAxisAlignment,
-          children: [RectWidget(Colors.red), RectWidget(Colors.green), RectWidget(Colors.yellow)],
+          children: [
+            RectWidget(Colors.red),
+            RectWidget(Colors.green),
+            RectWidget(Colors.yellow)
+          ],
         ),
         Divider(color: Colors.black)
       ],

@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 // Упрощение с помощью выноса кода в отдельные виджеты
 class BigWidget extends StatelessWidget {
+  final userName = 'Name';
+  final userImageUrl =
+      'http://wallpapers-image.ru/2560x1600/movies/wallpapers/movies-images-2560x1600-15.jpg';
+
   @override
   Widget build(BuildContext context) {
-    final userName = 'Name';
-    final userImageUrl =
-        'http://wallpapers-image.ru/2560x1600/movies/wallpapers/movies-images-2560x1600-15.jpg';
     return Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -41,7 +42,10 @@ class _UserAvatar extends StatelessWidget {
 }
 
 class _UserChip extends StatelessWidget {
-  const _UserChip({Key? key, required this.name}) : super(key: key);
+  const _UserChip({
+    Key? key,
+    required this.name,
+  }) : super(key: key);
 
   final String name;
 
@@ -68,15 +72,17 @@ class _UserActionsBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         TextButton(
-            onPressed: () {
-              // call method
-            },
-            child: Text('Call')),
+          onPressed: () {
+            // call method
+          },
+          child: const Text('Call'),
+        ),
         TextButton(
-            onPressed: () {
-              // delete method
-            },
-            child: Text('Delete'))
+          onPressed: () {
+            // delete method
+          },
+          child: const Text('Delete'),
+        )
       ],
     );
   }

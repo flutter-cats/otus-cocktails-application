@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
+final sampleThemeData = CupertinoThemeData(brightness: Brightness.dark);
+
 class SampleCupertinoThemePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -15,11 +17,13 @@ class SampleCupertinoThemePage extends StatelessWidget {
                 CupertinoActivityIndicator(),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: CupertinoTextField(placeholder: 'CupertinoTextField',),
+                  child: CupertinoTextField(
+                    placeholder: 'CupertinoTextField',
+                  ),
                 ),
                 CupertinoSwitch(
                   value: true,
-                  onChanged: (value){},
+                  onChanged: (value) {},
                 ),
                 CupertinoButton(
                   onPressed: () {},
@@ -29,8 +33,3 @@ class SampleCupertinoThemePage extends StatelessWidget {
         ));
   }
 }
-
-CupertinoThemeData get sampleThemeData => CupertinoThemeData(
-  brightness: Brightness.dark
-
-);

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 // Упрощение с помощью локальных переменных.
 class BigWidget extends StatelessWidget {
+  final userName = 'Name';
+  final userImageUrl =
+      'http://wallpapers-image.ru/2560x1600/movies/wallpapers/movies-images-2560x1600-15.jpg';
+
   @override
   Widget build(BuildContext context) {
-    final userName = 'Name';
-    final userImageUrl =
-        'http://wallpapers-image.ru/2560x1600/movies/wallpapers/movies-images-2560x1600-15.jpg';
-
     Widget avatar = ClipRRect(
       borderRadius: BorderRadius.circular(24),
       child: Image.network(
@@ -34,15 +34,17 @@ class BigWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         TextButton(
-            onPressed: () {
-              // call method
-            },
-            child: Text('Call')),
+          onPressed: () {
+            // call method
+          },
+          child: const Text('Call'),
+        ),
         TextButton(
-            onPressed: () {
-              // delete method
-            },
-            child: Text('Delete'))
+          onPressed: () {
+            // delete method
+          },
+          child: const Text('Delete'),
+        )
       ],
     );
 

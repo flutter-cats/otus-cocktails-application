@@ -1,6 +1,7 @@
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'dart:ui' as ui;
 
 class TextSample extends StatelessWidget {
   @override
@@ -9,10 +10,11 @@ class TextSample extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         _buildSimpleText(),
-       //_buildStyledText(),
-       //_buildStyledTextWithBackground(),
-       //_buildStyledTextWithCustomPaint(),
-       //_buildMultiColorText(context),
+        // _buildStyledText(),
+        // _buildStyledTextWithBackground(),
+        // _buildStyledTextWithCustomPaint(),
+        // _buildMultiColorText(context),
+        // _buildTextWithWidgetSpan(context),
       ],
     );
   }
@@ -43,7 +45,6 @@ class TextSample extends StatelessWidget {
         wordSpacing: 1.0,
         fontWeight: FontWeight.w700,
         backgroundColor: Colors.red);
-
     return Text('Текст с фоном', style: textStyle);
   }
 
@@ -53,29 +54,55 @@ class TextSample extends StatelessWidget {
       ..strokeWidth = 1.0
       ..style = PaintingStyle.stroke;
     final textStyle = TextStyle(
-        wordSpacing: 1.0, fontWeight: FontWeight.w700, foreground: paint);
+      wordSpacing: 1.0,
+      fontWeight: FontWeight.w700,
+      foreground: paint,
+    );
 
     return Text('Текст с foreground', style: textStyle);
   }
 
   Widget _buildMultiColorText(BuildContext context) {
     final textStyle = Theme.of(context).textTheme.bodyText1;
+    //RichText
     return Text.rich(
       TextSpan(children: [
         TextSpan(text: 'Текст ', style: textStyle),
         TextSpan(
             text: 'Разного ', style: textStyle?.copyWith(color: Colors.red)),
-        WidgetSpan(
-            alignment: PlaceholderAlignment.middle,
-            child: Container(
-              color: Colors.green,
-              width: 12,
-              height: 12,
-            )),
         TextSpan(
             text: 'Цвета', style: textStyle?.copyWith(color: Colors.green)),
       ]),
     );
   }
 
+  Widget _buildTextWithWidgetSpan(BuildContext context) {
+    final textStyle = Theme.of(context).textTheme.bodyText1;
+    return Text.rich(
+      TextSpan(children: [
+        TextSpan(
+          text: 'Текст ',
+          style: textStyle,
+        ),
+        TextSpan(
+          text: 'Разного ',
+          style: textStyle?.copyWith(
+            color: Colors.red,
+          ),
+        ),
+        WidgetSpan(
+          alignment: PlaceholderAlignment.middle,
+          child: Container(
+            color: Colors.green,
+            width: 12,
+            height: 12,
+          ),
+        ),
+        TextSpan(
+          text: 'Цвета',
+          style: textStyle?.copyWith(color: Colors.green),
+        ),
+      ]),
+    );
+  }
 }

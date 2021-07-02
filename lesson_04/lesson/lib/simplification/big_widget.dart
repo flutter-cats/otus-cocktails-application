@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 // пример большого виджета
 class BigWidget extends StatelessWidget {
+  final userName = 'Name';
+  final userImageUrl =
+      'http://wallpapers-image.ru/2560x1600/movies/wallpapers/movies-images-2560x1600-15.jpg';
+
   @override
   Widget build(BuildContext context) {
-    final userName = 'Name';
-    final userImageUrl =
-        'http://wallpapers-image.ru/2560x1600/movies/wallpapers/movies-images-2560x1600-15.jpg';
     return Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
