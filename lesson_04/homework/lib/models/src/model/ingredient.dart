@@ -22,7 +22,7 @@ class Ingredient {
   final String name;
   final String description;
   final String ingredientType;
-  final bool isAlcoholic;
+  final String isAlcoholic;
 
   Ingredient({
     this.id,
