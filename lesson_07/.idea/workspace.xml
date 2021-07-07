@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ac343a15-ac21-4401-83e4-c1c750040a69" name="Default Changelist" comment="lesson 07 streams" />
+    <list default="true" id="ac343a15-ac21-4401-83e4-c1c750040a69" name="Default Changelist" comment="lesson 07 streams">
+      <change beforePath="$PROJECT_DIR$/../lesson_06/lib/list/page_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_06/lib/list/page_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lesson_06/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_06/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +44,9 @@
   </component>
   <component name="ProjectId" id="1q82YfFjFCLFx5YOdlNWvlBY1GB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectReloadState">
+    <option name="STATE" value="1" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -46,11 +55,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lesson_08/lesson" />
+    <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -58,42 +69,42 @@
       <recent name="$PROJECT_DIR$/lib" />
     </key>
   </component>
-  <component name="RunManager" selected="Dart Command Line App.11.1_future_to_stream.dart">
-    <configuration name="03_stream_controller_event_loop.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
-      <option name="filePath" value="$PROJECT_DIR$/lib/03_stream_controller_event_loop.dart" />
-      <option name="workingDirectory" value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="05_stream_subscription_cancellation.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
-      <option name="filePath" value="$PROJECT_DIR$/lib/05_stream_subscription_cancellation.dart" />
-      <option name="workingDirectory" value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Dart Command Line App.22_stream_transformer.dart">
     <configuration name="07.1_single_and_broadcast.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
       <option name="filePath" value="$PROJECT_DIR$/lib/07.1_single_and_broadcast.dart" />
       <option name="workingDirectory" value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="11.0_cancel_the_future.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
-      <option name="filePath" value="$PROJECT_DIR$/lib/11.0_cancel_the_future.dart" />
+    <configuration name="08_common_scenario_to_use_stream_as_api.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lib/08_common_scenario_to_use_stream_as_api.dart" />
       <option name="workingDirectory" value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="11.1_future_to_stream.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
-      <option name="filePath" value="$PROJECT_DIR$/lib/11.1_future_to_stream.dart" />
+    <configuration name="21_stream_transformations.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lib/21_stream_transformations.dart" />
       <option name="workingDirectory" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="22_stream_transformer.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lib/22_stream_transformer.dart" />
+      <option name="workingDirectory" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="10.1_subscription_pause_and_resume.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lib/10.1_subscription_pause_and_resume.dart" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Dart Command Line App.11.1_future_to_stream.dart" />
-        <item itemvalue="Dart Command Line App.11.0_cancel_the_future.dart" />
+        <item itemvalue="Dart Command Line App.22_stream_transformer.dart" />
+        <item itemvalue="Dart Command Line App.21_stream_transformations.dart" />
+        <item itemvalue="Flutter.10.1_subscription_pause_and_resume.dart" />
+        <item itemvalue="Dart Command Line App.08_common_scenario_to_use_stream_as_api.dart" />
         <item itemvalue="Dart Command Line App.07.1_single_and_broadcast.dart" />
-        <item itemvalue="Dart Command Line App.05_stream_subscription_cancellation.dart" />
-        <item itemvalue="Dart Command Line App.03_stream_controller_event_loop.dart" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -104,6 +115,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1616446945134</updated>
+      <workItem from="1623227401653" duration="5407000" />
+      <workItem from="1623398081852" duration="26000" />
     </task>
     <task id="LOCAL-00001" summary="lesson 07 streams">
       <created>1616447748503</created>
@@ -178,75 +191,12 @@
     <option name="localTasksCounter" value="11" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lesson 07 streams" />
     <option name="LAST_COMMIT_MESSAGE" value="lesson 07 streams" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="184" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616658129501">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="184" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1616658129501" />
-    <state x="533" y="170" key="#com.intellij.ide.util.MemberChooser" timestamp="1616657275926">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="533" y="170" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1616657275926" />
-    <state x="222" y="41" key="CommitChangelistDialog2" timestamp="1616706838132">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="222" y="41" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1616706838132" />
-    <state width="1440" height="468" key="GridCell.Tab.0.bottom" timestamp="1616706855301">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1440" height="468" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1616706855301" />
-    <state width="1440" height="468" key="GridCell.Tab.0.center" timestamp="1616706855301">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1440" height="468" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1616706855301" />
-    <state width="1440" height="468" key="GridCell.Tab.0.left" timestamp="1616706855301">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1440" height="468" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1616706855301" />
-    <state width="1440" height="468" key="GridCell.Tab.0.right" timestamp="1616706855301">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1440" height="468" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1616706855301" />
-    <state width="1440" height="468" key="GridCell.Tab.1.bottom" timestamp="1616706855302">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1440" height="468" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1616706855302" />
-    <state width="1440" height="468" key="GridCell.Tab.1.center" timestamp="1616706855302">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1440" height="468" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1616706855302" />
-    <state width="1440" height="468" key="GridCell.Tab.1.left" timestamp="1616706855302">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1440" height="468" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1616706855302" />
-    <state width="1440" height="468" key="GridCell.Tab.1.right" timestamp="1616706855302">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1440" height="468" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1616706855302" />
-    <state x="428" y="130" key="SettingsEditor" timestamp="1616689742489">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="428" y="130" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1616689742489" />
-    <state x="450" y="200" width="540" height="524" key="StructurePopup" timestamp="1616626856145">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="450" y="200" width="540" height="524" key="StructurePopup/0.0.1440.900@0.0.1440.900" timestamp="1616626856145" />
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1616706848916">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1616706848916" />
-    <state x="412" y="38" width="893" height="657" key="find.popup" timestamp="1616535465463">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="412" y="38" width="893" height="657" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1616535465463" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1616689455739">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1616689455739" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -263,5 +213,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

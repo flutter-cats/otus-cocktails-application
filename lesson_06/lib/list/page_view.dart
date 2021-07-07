@@ -11,7 +11,7 @@ class _PageViewSampleState extends State<PageViewSample> {
   final items = List.generate(15, (index) => index);
 
   final _pageController =
-      PageController(viewportFraction: 0.5, keepPage: false);
+      PageController(viewportFraction: 1, keepPage: false);
 
   int currentPage = 0;
 
