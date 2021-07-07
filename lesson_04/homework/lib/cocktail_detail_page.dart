@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:homework/models/models.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'models/models.dart';
+import 'components/image_widget.dart';
+import 'components/description_widget.dart';
+import 'components/ingredients_widget.dart';
+import 'components/instruction_widget.dart';
+import 'components/rank_bar_widget.dart';
 
 class CocktailDetailPage extends StatelessWidget {
   const CocktailDetailPage(
@@ -13,10 +17,33 @@ class CocktailDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// TODO: Сделать верстку экрана "Карточка коктейля" по модели Cocktail cocktail
-    /// Ссылка на макет
-    /// https://www.figma.com/file/d2JJUBFu7Dg0HOV30XG7Z4/OTUS-FLUTTER.-%D0%A3%D1%80%D0%BE%D0%BA-3-%D0%94%D0%97?node-id=23%3A85
-    ///для того чтобы весь контент поместился, необходимо использовать SingleChildScrollView()
-    ///
-    ///
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              ImageWidget(
+                imageUrl: cocktail.drinkThumbUrl,
+              ),
+              DescriptionWidget(
+                id: cocktail.id,
+                name: cocktail.name,
+                category: cocktail.category.value,
+                type: cocktail.cocktailType.value,
+                glassType: cocktail.glassType.value,
+              ),
+              IngredientsWidgets(
+                allIngredients: cocktail.ingredients,
+              ),
+              InstructionWidget(
+                instruction: cocktail.instruction,
+              ),
+              RankBarWidget(),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
