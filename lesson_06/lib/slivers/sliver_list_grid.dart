@@ -13,17 +13,18 @@ class SliversListSamplePage extends StatelessWidget {
         slivers: [
           // SliverToBoxAdapter(
           //     child: SizedBox(
-          //       height: 100,
-          //       child: GridView.count(
-          //         scrollDirection: Axis.horizontal,
-          //         crossAxisCount: 1,
-          //         children: cardSliverListDelegate.children,
-          //       ),
-          //     )),
+          //   height: 100,
+          //   child: GridView.count(
+          //     scrollDirection: Axis.horizontal,
+          //     crossAxisCount: 1,
+          //     children: cardSliverListDelegate.children,
+          //   ),
+          // )),
           // SliverFillRemaining(
           //   child: Container(
           //     color: Colors.lightBlue,
-          //     child: Center(child: Text('Text')),),
+          //     child: Center(child: Text('Text')),
+          //   ),
           // ),
           SliverGrid(
             delegate: cardSliverListDelegate,

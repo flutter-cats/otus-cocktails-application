@@ -10,8 +10,7 @@ class PageViewSample extends StatefulWidget {
 class _PageViewSampleState extends State<PageViewSample> {
   final items = List.generate(15, (index) => index);
 
-  final _pageController =
-      PageController(viewportFraction: 0.5, keepPage: false);
+  final _pageController = PageController(viewportFraction: 0.5, keepPage: true);
 
   int currentPage = 0;
 
@@ -50,9 +49,10 @@ class _PageViewSampleState extends State<PageViewSample> {
 
   Widget _builderPageView(BuildContext context) {
     return PageView.builder(
-        itemCount: 1,
-        controller: _pageController,
-        itemBuilder: (context, index) => _PageItem(index));
+      itemCount: 1,
+      controller: _pageController,
+      itemBuilder: (context, index) => _PageItem(index),
+    );
   }
 
   Widget _customPageView(BuildContext context) {

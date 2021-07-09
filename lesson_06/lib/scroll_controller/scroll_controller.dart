@@ -21,7 +21,7 @@ class _ScrollControllerSamplePageState
   @override
   void initState() {
     controller.addListener(() {
-     // print(controller.offset);
+      // print(controller.offset);
     });
     super.initState();
   }
@@ -36,7 +36,7 @@ class _ScrollControllerSamplePageState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      body: _buildWithNotificationListener(),
+      body: _buildListView(),
     );
   }
 
@@ -53,6 +53,7 @@ class _ScrollControllerSamplePageState
     );
   }
 
+  //NotificationListener
   Widget _buildWithNotificationListener() {
     return NotificationListener<ScrollNotification>(
         onNotification: (scrollNotification) {
@@ -61,7 +62,9 @@ class _ScrollControllerSamplePageState
           } else if (scrollNotification is ScrollEndNotification) {
             print("Scrolling has ended");
           } else if (scrollNotification is ScrollUpdateNotification) {
-            //print('scrollNotification:${scrollNotification}');
+            //print('scrollNotification:$scrollNotification');
+          } else if (scrollNotification is UserScrollNotification) {
+            //print('UserScrollNotification:$scrollNotification');
           }
           // Return true to cancel the notification bubbling.
           return true;
@@ -73,7 +76,7 @@ class _ScrollControllerSamplePageState
     return Card(
       key: ValueKey(index),
       child: Container(
-        //height: itemExtent + index,
+        // height: itemExtent + index,
         child: ListTile(
           onTap: () {},
           title: Text('$index'),
@@ -100,9 +103,9 @@ class _ScrollControllerSamplePageState
             FlatButton(
               onPressed: () {
                 print('${controller.position.maxScrollExtent}');
-                // final currentOffset = controller.offset;
-                // controller.animateTo(currentOffset + itemExtent,
-                //     duration: _duration, curve: _curve);
+                final currentOffset = controller.offset;
+                controller.animateTo(currentOffset + itemExtent,
+                    duration: _duration, curve: _curve);
               },
               child: Text('show'),
             ),

@@ -7,7 +7,8 @@ class TrackingScrollSamplePage extends StatefulWidget {
 }
 
 class _TrackingScrollSamplePageState extends State<TrackingScrollSamplePage> {
-  final _trackingScrollController = TrackingScrollController();
+  final _trackingScrollController = ScrollController();
+  // final _trackingScrollController = TrackingScrollController();
 
   int page = 0;
 
@@ -21,12 +22,13 @@ class _TrackingScrollSamplePageState extends State<TrackingScrollSamplePage> {
 
   Widget _buildPage(int index) {
     return ListView(
+      key: UniqueKey(),
       controller: _trackingScrollController,
       children: List<Widget>.generate(
           100,
           (int i) => Card(
                   child: Text(
-                'page ${index} item $i',
+                'page $index item $i',
               ))).toList(),
     );
   }

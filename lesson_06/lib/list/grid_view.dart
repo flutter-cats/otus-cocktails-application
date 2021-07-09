@@ -10,7 +10,7 @@ class GridViewSamplePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('GridView'),
       ),
-      body: _buildCustomGridView2(),
+      body: _buildGridViewFromBuilder(),
     );
   }
 
@@ -18,9 +18,10 @@ class GridViewSamplePage extends StatelessWidget {
   Widget _buildExtentGridView() {
     // соотнощение ширины к высоте
     final childAspectRatio = 2.0;
-    // размер в пикселях по основной оси
-    final maxCrossAxisExtent = 200.0;
+    // размер по основной оси
+    final maxCrossAxisExtent = 100.0;
     return GridView.extent(
+      scrollDirection: Axis.vertical,
       childAspectRatio: childAspectRatio,
       maxCrossAxisExtent: maxCrossAxisExtent,
       children: items.map((item) => _GridItem(item)).toList(growable: false),
@@ -31,8 +32,22 @@ class GridViewSamplePage extends StatelessWidget {
   Widget _buildCountGridView() {
     final crossAxisCount = 4;
     return GridView.count(
+      childAspectRatio: 1,
       crossAxisCount: crossAxisCount,
       children: items.map((item) => _GridItem(item)).toList(growable: false),
+    );
+  }
+
+  Widget _buildGridViewFromBuilder() {
+    return GridView.builder(
+      // itemCount: items.length,
+      scrollDirection: Axis.horizontal,
+      itemBuilder: (context, index) => _GridItem(index),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: 2,
+        childAspectRatio: 1.0,
+      ),
     );
   }
 
@@ -40,33 +55,22 @@ class GridViewSamplePage extends StatelessWidget {
     return GridView(
         children: items.map((item) => _GridItem(item)).toList(growable: false),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 1,
-          mainAxisSpacing: 8,
-          childAspectRatio: 1.0,
-        ));
-  }
-
-  Widget _buildGridViewFromBuilder() {
-    return GridView.builder(
-        // itemCount: items.length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => _GridItem(index),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          mainAxisSpacing: 2,
+          mainAxisSpacing: 8,
           childAspectRatio: 1.0,
         ));
   }
 
   Widget _buildCustomGridView() {
     return GridView.custom(
-        scrollDirection: Axis.horizontal,
-        childrenDelegate: SliverChildBuilderDelegate(
-          (context, index) => _GridItem(index),
-        ),
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 300,
-        ));
+      scrollDirection: Axis.horizontal,
+      childrenDelegate: SliverChildBuilderDelegate(
+        (context, index) => _GridItem(index),
+      ),
+      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: 300,
+      ),
+    );
   }
 
   Widget _buildCustomGridView2() {

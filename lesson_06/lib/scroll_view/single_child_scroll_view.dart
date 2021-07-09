@@ -7,7 +7,7 @@ class SingleChildScrollViewSample extends StatelessWidget {
       appBar: AppBar(
         title: Text('SingleChildScrollView'),
       ),
-      body: _buildWithoutScrollWidget(),
+      body: _buildWithSingleChildScrollView(),
     );
   }
 
@@ -27,7 +27,7 @@ class SingleChildScrollViewSample extends StatelessWidget {
     return Column(
       children: [
         appBar,
-        Flexible(child: _buildWithSingleChildScrollView())
+        _buildWithSingleChildScrollView(),
       ],
     );
   }
@@ -39,7 +39,6 @@ class SingleChildScrollViewSample extends StatelessWidget {
     final textDirection = TextDirection.ltr;
     final child = _HorizontalPage();
     //final child = _VerticalPage();
-
     return Directionality(
       textDirection: textDirection,
       child: SingleChildScrollView(

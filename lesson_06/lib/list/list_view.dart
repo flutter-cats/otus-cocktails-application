@@ -7,7 +7,7 @@ class ListViewSamplePage extends StatefulWidget {
 }
 
 class _ListViewSamplePageState extends State<ListViewSamplePage> {
-  final items = List.generate(100, (index) => index);
+  final items = List.generate(10, (index) => index);
 
   @override
   Widget build(BuildContext context) {
@@ -15,21 +15,20 @@ class _ListViewSamplePageState extends State<ListViewSamplePage> {
         appBar: AppBar(
           title: Text('ListView'),
         ),
-        body: _buildListView(context));
+        body: _listViewSeparatedBuilder(context));
   }
 
   // AutomaticKeepAliveClientMixin
-  //restorationId
   Widget _buildListView(BuildContext context) {
     return ListView(
-      addAutomaticKeepAlives: true,
+      //addAutomaticKeepAlives: true,
       children: items.map((index) => _ListItem(index)).toList(),
     );
   }
 
   // ShrinkWrap
   Widget _listViewBuilder(BuildContext context) {
-    final shrinkWrap = true;
+    final shrinkWrap = false;
     return Container(
       color: Colors.grey,
       margin: const EdgeInsets.all(16),
@@ -43,29 +42,33 @@ class _ListViewSamplePageState extends State<ListViewSamplePage> {
   Widget _listViewSeparatedBuilder(BuildContext context) {
     return ListView.separated(
         itemCount: items.length,
-        separatorBuilder: (context, index) => Text('separator - ${index}'),
+        separatorBuilder: (context, index) => Container(
+            color: Colors.green,
+            padding: const EdgeInsets.all(8),
+            child: Text('separator - $index')),
         itemBuilder: _buildItem);
   }
 
   Widget _buildCustomListView1(BuildContext context) {
     return ListView.custom(
       childrenDelegate: SliverChildBuilderDelegate(
-          (context, index) => _buildItem(context, index),
-          childCount: items.length),
+        (context, index) => _buildItem(context, index),
+        childCount: items.length,
+      ),
     );
   }
 
   Widget _buildCustomListView2(BuildContext context) {
     return ListView.custom(
-      childrenDelegate: SliverChildListDelegate(items
-          .map((item) => _buildItem(context, item))
-          .toList(growable: false)),
+      childrenDelegate: SliverChildListDelegate(
+        items.map((item) => _buildItem(context, item)).toList(growable: false),
+      ),
     );
   }
 
   Widget _buildCustomListView3(BuildContext context) {
     return ListView.custom(
-      childrenDelegate: cardSliverDelegate
+      childrenDelegate: cardSliverDelegate,
     );
   }
 
@@ -92,13 +95,13 @@ class _ListItemState extends State<_ListItem>
 
   @override
   void initState() {
-    //print('init item ${widget.index}');
+    print('init item ${widget.index}');
     super.initState();
   }
 
   @override
   void dispose() {
-    //print('dispose item ${widget.index}');
+    print('dispose item ${widget.index}');
     super.dispose();
   }
 
@@ -124,6 +127,7 @@ class _ListItemState extends State<_ListItem>
     );
   }
 
+  //TODO: Как можно оптимизировать?
   @override
   bool get wantKeepAlive => true;
 }
