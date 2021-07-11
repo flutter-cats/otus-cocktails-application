@@ -1,8 +1,9 @@
 //import 'dart:html';
 
 import 'package:flutter/material.dart';
-import 'package:homework/models/models.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import 'package:homework/models/models.dart';
 
 class CocktailDetailPage extends StatelessWidget {
   const CocktailDetailPage(
@@ -17,7 +18,7 @@ class CocktailDetailPage extends StatelessWidget {
     //Для примера вынес виджет в переменную, но вообще,
     //мне больше понравилось создавать локальные виджеты
     var _coctailHeader = Container(
-      height: 300.0,
+      //height: 300.0,
       padding: EdgeInsets.symmetric(horizontal: 25.0),
       color: Theme.of(context).backgroundColor,
       child: Row(
@@ -25,7 +26,15 @@ class CocktailDetailPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SvgPicture.asset('assets/images/icon_back.svg'),
-          Image.asset('assets/images/coctail.jpg'),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Expanded(
+              child: Image.network(
+                cocktail.drinkThumbUrl,
+                fit: BoxFit.fitHeight,
+              ),
+            ),
+          ),
           SvgPicture.asset('assets/images/icon_out.svg'),
         ],
       ),
@@ -34,18 +43,37 @@ class CocktailDetailPage extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 20.0),
       color: Theme.of(context).backgroundColor,
-      height: MediaQuery.of(context).size.height,
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            _coctailHeader,
-            _DescriptionCocktail(),
-            _Ingridients(),
-            _InstructionsZone(),
-            _Stars(),
-          ],
+      child: CustomScrollView(slivers: [
+        SliverPersistentHeader(floating: true, pinned: true, delegate: BuildHeader(minHeigth: 150, maxHeigth: 300, child: _coctailHeader)),
+        SliverPersistentHeader(
+          floating: false,
+          pinned: true,
+          delegate: BuildHeader(
+            minHeigth: 50,
+            maxHeigth: 70,
+            child: Container(
+              color: Colors.red[300],
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 0, horizontal: 25),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Арбузный мохито',
+                      style: Theme.of(context).textTheme.headline1,
+                    ),
+                    _LikeCocktail(),
+                  ],
+                ),
+              ),
+            ),
+          ),
         ),
-      ),
+        SliverToBoxAdapter(child: _DescriptionCocktail()),
+        SliverToBoxAdapter(child: _Ingridients()),
+        SliverToBoxAdapter(child: _InstructionsZone()),
+        SliverToBoxAdapter(child: _Stars()),
+      ]),
     );
   }
 }
@@ -64,28 +92,29 @@ class __StarsState extends State<_Stars> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 70.0,
-      //color: Colors.red,
-      width: 300.0,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: 5,
-        itemBuilder: (BuildContext context, int index) {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CircleAvatar(
-              backgroundColor: Theme.of(context).accentColor,
-              child: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      _starsCount = index;
-                    });
-                  },
-                  icon: Icon(Icons.star, color: index <= _starsCount ? Colors.white : Colors.black)),
-            ),
-          );
-        },
+    return Center(
+      child: Container(
+        height: 70.0,
+        width: 300.0,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: 5,
+          itemBuilder: (BuildContext context, int index) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CircleAvatar(
+                backgroundColor: Theme.of(context).accentColor,
+                child: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        _starsCount = index;
+                      });
+                    },
+                    icon: Icon(Icons.star, color: index <= _starsCount ? Colors.white : Colors.black)),
+              ),
+            );
+          },
+        ),
       ),
     );
   }
@@ -116,6 +145,31 @@ class _InstructionsZone extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class BuildHeader extends SliverPersistentHeaderDelegate {
+  final double minHeigth;
+  final double maxHeigth;
+  final Widget child;
+  BuildHeader({
+    @required this.minHeigth,
+    @required this.maxHeigth,
+    @required this.child,
+  });
+
+  @override
+  double get maxExtent => maxHeigth;
+
+  @override
+  double get minExtent => minHeigth;
+
+  @override
+  bool shouldRebuild(_) => false;
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return Container(height: maxHeigth, child: child);
   }
 }
 
@@ -198,22 +252,24 @@ class _IngridientsRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Container(
-          margin: const EdgeInsets.only(top: 20.0),
-          decoration: const BoxDecoration(
-              border: Border(
-            bottom: BorderSide(
-              width: 1.0,
-              color: Colors.white,
-              style: BorderStyle.solid,
+        Flexible(
+          child: Container(
+            margin: const EdgeInsets.only(top: 20.0),
+            decoration: const BoxDecoration(
+                border: Border(
+              bottom: BorderSide(
+                width: 1.0,
+                color: Colors.white,
+                style: BorderStyle.solid,
+              ),
+            )),
+            child: Text(
+              title,
+              style: Theme.of(context).textTheme.subtitle2,
             ),
-          )),
-          child: Text(
-            title,
-            style: Theme.of(context).textTheme.subtitle2,
           ),
         ),
-        Text(value),
+        Flexible(child: Text(value)),
       ],
     );
   }
@@ -228,21 +284,21 @@ class _DescriptionCocktail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Theme.of(context).accentColor,
-      margin: const EdgeInsets.only(top: 25.0),
+      margin: const EdgeInsets.only(top: 0.0),
       padding: const EdgeInsets.only(left: 50.0, right: 25.0, top: 30.0, bottom: 20.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Арбузный мохито',
-                style: Theme.of(context).textTheme.headline1,
-              ),
-              _LikeCocktail(),
-            ],
-          ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //   children: [
+          //     Text(
+          //       'Арбузный мохито',
+          //       style: Theme.of(context).textTheme.headline1,
+          //     ),
+          //     _LikeCocktail(),
+          //   ],
+          // ),
           _CustomSizedBox(),
           Text(
             'id: 12864',
@@ -327,6 +383,8 @@ class _Card extends StatelessWidget {
 }
 
 class _CustomSizedBox extends StatelessWidget {
+  const _CustomSizedBox({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return const SizedBox(height: 15.0);
