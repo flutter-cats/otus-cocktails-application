@@ -44,13 +44,13 @@ class CocktailDetailPage extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 20.0),
       color: Theme.of(context).backgroundColor,
       child: CustomScrollView(slivers: [
-        SliverPersistentHeader(floating: true, pinned: true, delegate: BuildHeader(minHeigth: 150, maxHeigth: 300, child: _coctailHeader)),
+        SliverPersistentHeader(floating: true, pinned: false, delegate: BuildHeader(minHeight: 150, maxHeight: 300, child: _coctailHeader)),
         SliverPersistentHeader(
           floating: false,
           pinned: true,
           delegate: BuildHeader(
-            minHeigth: 50,
-            maxHeigth: 70,
+            maxHeight: 50,
+            minHeight: 70,
             child: Container(
               color: Colors.red[300],
               child: Padding(
@@ -149,27 +149,29 @@ class _InstructionsZone extends StatelessWidget {
 }
 
 class BuildHeader extends SliverPersistentHeaderDelegate {
-  final double minHeigth;
-  final double maxHeigth;
+  final double minHeight;
+  final double maxHeight;
   final Widget child;
   BuildHeader({
-    @required this.minHeigth,
-    @required this.maxHeigth,
+    @required this.minHeight,
+    @required this.maxHeight,
     @required this.child,
   });
 
   @override
-  double get maxExtent => maxHeigth;
+  double get maxExtent => maxHeight;
 
   @override
-  double get minExtent => minHeigth;
+  double get minExtent => minHeight;
 
   @override
-  bool shouldRebuild(_) => false;
+  bool shouldRebuild(BuildHeader oldDelegate) {
+    return maxHeight != oldDelegate.maxHeight || minHeight != oldDelegate.minHeight || child != oldDelegate.child;
+  }
 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return Container(height: maxHeigth, child: child);
+    return Container(height: maxHeight, child: child);
   }
 }
 
