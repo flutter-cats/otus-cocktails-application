@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:cocktail_app_models/models.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_definition_dto.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_dto.dart';
+import 'package:cocktail_db_http_using/src/dto/ingredient_dto.dart';
 import 'package:http/http.dart' as http;
 
 class AsyncCocktailRepository {
@@ -126,7 +127,9 @@ class AsyncCocktailRepository {
     var client = http.Client();
     try {
       const url = 'https://the-cocktail-db.p.rapidapi.com/random.php';
-      var response = await http.get(Uri.parse(url), headers: _headers);
+      var response = await http.get(Uri.parse(url), headers: {
+        'x-rapidapi-key': 'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
+      });
       if (response.statusCode == 200) {
         final jsonResponse = convert.jsonDecode(response.body);
         var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
@@ -157,8 +160,29 @@ class AsyncCocktailRepository {
   /// api operation is:
   /// https://the-cocktail-db.p.rapidapi.com/lookup.php
   ///
-  Future<Ingredient?> lookupIngredientById() async {
-    return null;
+  Future<Ingredient?> lookupIngredientById(int id) async {
+    Ingredient? result;
+    var client = http.Client();
+    try {
+      final url = "https://the-cocktail-db.p.rapidapi.com/lookup.php?iid=${id}";
+      var response = await http.get(Uri.parse(url), headers: _headers);
+      if (response.statusCode == 200) {
+        final jsonResponce = convert.jsonDecode(response.body);
+        var ingred = jsonResponce['ingredients'] as Iterable<dynamic>;
+
+        final dto = ingred
+            .cast<Map<String, dynamic>>()
+            .map((e) => IngredientDTO.fromJson(e));
+        result = _createIngredientFromDto(dto.first);
+      } else {
+        throw HttpException(
+            'Request failed with status: ${response.statusCode}');
+      }
+    } finally {
+      client.close();
+    }
+
+    return result;
   }
 
   Cocktail _createCocktailFromDto(CocktailDto dto) {
@@ -181,6 +205,16 @@ class AsyncCocktailRepository {
       name: dto.strDrink,
       ingredients: ingredients,
       drinkThumbUrl: dto.strDrinkThumb,
+    );
+  }
+
+  Ingredient _createIngredientFromDto(IngredientDTO ingredient) {
+    return Ingredient(
+      id: ingredient.idIngredient,
+      name: ingredient.strIngredient,
+      description: ingredient.strDescription,
+      ingredientType: ingredient.strType,
+      isAlcoholic: (ingredient.strAlcohol as bool? ?? true),
     );
   }
 

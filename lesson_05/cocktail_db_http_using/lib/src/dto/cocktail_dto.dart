@@ -92,5 +92,6 @@ class CocktailDto {
     this.strCreativeCommonsConfirmed,
   );
 
-  factory CocktailDto.fromJson(Map<String, dynamic> json) => _$CocktailDtoFromJson(json);
+  factory CocktailDto.fromJson(Map<String, dynamic> json) =>
+      _$CocktailDtoFromJson(json);
 }
