@@ -1,0 +1,50 @@
+import 'dart:async';
+
+void main() async {
+  const elementData = 10;
+  const nextElementData = 11;
+
+  final streamController = StreamController<int>();
+
+  ///
+  /// По умолчанию потоки позволяют только разовую подписку,
+  /// Если создать подписку повторно, то получим ошибку
+  /// Bad state: Stream has already been listened to.
+  ///
+  /// uncomment code
+  // final StreamController<int> streamController = StreamController<int>.broadcast();
+  //
+  ///
+  /// Мы создали подписку на появление элементов в нашем цикле
+  ///
+  ///
+  bool isOk = false;
+  final subscription1 = streamController.stream.listen((element) {
+    print('1. element data is $element');
+    Future.microtask(() {
+      if (isOk == false) {
+        streamController.add(9);
+        isOk = true;
+      }
+    });
+  });
+
+  // final subscription2 = streamController.stream.listen((element) => print('2. element data is $element'));
+
+  ///
+  /// добавим элементы в наш поток
+  ///
+  streamController.sink.add(elementData);
+  streamController.sink.add(nextElementData);
+
+  ///
+  /// Так как пример синхронный, то в случае синхронного закрытия и потока и подписки
+  /// наша подписка не будет иметь смысла
+  /// Поэтому мы закроем нашу подписку и сам поток в следующем фрейме нашего event loop
+  ///
+  Future(() {
+    subscription1.cancel();
+    // subscription2.cancel();
+    streamController.close();
+  });
+}
