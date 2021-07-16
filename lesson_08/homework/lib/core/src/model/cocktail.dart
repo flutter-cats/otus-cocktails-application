@@ -79,15 +79,15 @@ class Cocktail {
   final bool isFavourite;
 
   Cocktail({
-    @required this.id,
-    @required this.name,
-    @required this.instruction,
-    @required this.category,
-    @required this.glassType,
-    @required this.cocktailType,
-    @required this.ingredients,
-    @required this.drinkThumbUrl,
-    @required this.isFavourite,
+    required this.id,
+    required this.name,
+    required this.instruction,
+    required this.category,
+    required this.glassType,
+    required this.cocktailType,
+    required this.ingredients,
+    required this.drinkThumbUrl,
+    required this.isFavourite,
   });
 
   @override

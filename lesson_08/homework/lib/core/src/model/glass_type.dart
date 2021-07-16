@@ -79,12 +79,10 @@ class GlassType {
   int get hashCode => value.hashCode;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is GlassType && runtimeType == other.runtimeType && value == other.value;
+  bool operator ==(Object other) => identical(this, other) || other is GlassType && runtimeType == other.runtimeType && value == other.value;
 
   @override
   String toString() => 'GlassType{value: $value, name: $name}';
 
-  static GlassType parse(String raw) =>
-      values.firstWhere((element) => element.value.toLowerCase() == raw.toLowerCase(), orElse: () => null);
+  static GlassType? parse(String raw) => (values as Iterable<GlassType?>).firstWhere((element) => element!.value.toLowerCase() == raw.toLowerCase(), orElse: () => null);
 }

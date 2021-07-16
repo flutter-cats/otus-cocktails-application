@@ -17,8 +17,7 @@ class CocktailType {
   int get hashCode => value.hashCode;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is CocktailType && runtimeType == other.runtimeType && value == other.value;
+  bool operator ==(Object other) => identical(this, other) || other is CocktailType && runtimeType == other.runtimeType && value == other.value;
 
   @override
   String toString() => 'CocktailType{value: $value, name: $name}';
@@ -27,6 +26,5 @@ class CocktailType {
   /// Show toString() method using in debug session
   ///
 
-  static CocktailType parse(String raw) =>
-      values.firstWhere((element) => element.value.toLowerCase() == raw.toLowerCase(), orElse: () => null);
+  static CocktailType? parse(String raw) => (values as Iterable<CocktailType?>).firstWhere((element) => element!.value.toLowerCase() == raw.toLowerCase(), orElse: () => null);
 }

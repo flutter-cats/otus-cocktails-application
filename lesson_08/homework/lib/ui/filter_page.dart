@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 class CocktailsFilterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+      child: Text('Implement me'),
+    );
   }
 }
