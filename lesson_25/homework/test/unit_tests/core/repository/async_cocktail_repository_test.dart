@@ -1,50 +1,56 @@
-import 'dart:io';
-
-@TestOn('vm')
+@TestOn('chrome')
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 import 'package:cocktail_app_tests/core/models.dart';
-
+import 'package:http/http.dart' as http;
 import 'async_cocktail_repository_test.mocks.dart';
 
-@GenerateMocks([AsyncCocktailRepository])
+@GenerateMocks([http.Client])
 void main() {
-  late MockAsyncCocktailRepository asyncCocktailRepositoryMock;
-  const expectedId = 'expected id';
+  const expectedId = '15300';
   final cocktail = Cocktail(
       id: expectedId,
-      glassType: null,
-      cocktailType: null,
-      category: null,
-      isFavourite: null,
-      ingredients: null,
+      glassType: GlassType.collinsGlass,
+      cocktailType: CocktailType.alcoholic,
+      category: CocktailCategory.ordinaryDrink,
+      isFavourite: false,
+      ingredients: [],
       instruction: '',
       name: '',
       drinkThumbUrl: '');
 
-  final exception = HttpException('test');
+  late MockClient httpClientMock;
+  late AsyncCocktailRepository asyncRepository;
+  const String _apiKey =
+      'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b';
 
+  const Map<String, String> _headers = const {
+    'x-rapidapi-key': _apiKey,
+  };
   setUp(() {
-    asyncCocktailRepositoryMock = MockAsyncCocktailRepository();
+    httpClientMock = MockClient();
+    asyncRepository = AsyncCocktailRepository(httpClientMock);
   });
 
   group('Fetch coctail details method should return ', () {
     test('True if async repository is answered with Ok', () async {
-      when(asyncCocktailRepositoryMock.fetchCocktailDetails(expectedId))
-          .thenAnswer((realInvocation) => Future.value(cocktail));
+      final response = '{"drinks":[{"idDrink":"15300","strDrink":"","strCategory":"Ordinary Drink",'
+          '"strAlcoholic":"Alcoholic","strGlass":"Collins Glass","strInstructions":"","strDrinkThumb":""}]}';
 
-      final actualOperationResult =
-          await asyncCocktailRepositoryMock.fetchCocktailDetails(expectedId);
-      expect(actualOperationResult, cocktail);
+      when(httpClientMock.get(Uri.parse('https://the-cocktail-db.p.rapidapi.com/lookup.php?i=$expectedId'), headers: _headers))
+          .thenAnswer((_) async => http.Response(response, 200));
+
+      final cocktailResult = await asyncRepository.fetchCocktailDetails(expectedId);
+      expect(cocktailResult, isA<Cocktail>());
+      expect(cocktailResult, CocktailMatcher(cocktail));
     });
 
     test('False if async repository is answered with Error', () async {
-      when(asyncCocktailRepositoryMock.fetchCocktailDetails(expectedId))
-          .thenAnswer((_) async => throw exception);
+      when(httpClientMock.get(Uri.parse('https://the-cocktail-db.p.rapidapi.com/lookup.php?i=$expectedId'), headers: _headers))
+          .thenAnswer((_) async => http.Response('Not Found', 404));
 
-      expect(asyncCocktailRepositoryMock.fetchCocktailDetails(expectedId),
-          throwsException);
+      expect(asyncRepository.fetchCocktailDetails(expectedId), throwsException);
     });
   });
 }
@@ -112,10 +118,6 @@ class CocktailMatcher extends Matcher {
     if (item.isFavourite != _expected.isFavourite) {
       _mismatchDescriptionList.add(formatFieldMatchError('cocktail isFavourite',
           '${_expected.isFavourite}', '${item.isFavourite}'));
-    }
-    if (item.ingredients != _expected.ingredients) {
-      _mismatchDescriptionList.add(formatFieldMatchError('cocktail ingredients',
-          '${_expected.ingredients}', '${item.ingredients}'));
     }
 
     if (item.instruction != _expected.instruction) {
