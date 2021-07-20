@@ -19,10 +19,10 @@ class _Example extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: GestureDetector( //Listener
+      child: GestureDetector( // Listener
         onTapDown: (details) => print("Outer: onTapDown"),
         onTap: () => print("Outer: onTap"),
-        // onPointerDown: (event) => print("Listener: onPointerDown"),
+        // onPointerUp: (event) => print("Listener: onPointerUp"),
         child: Container(
           color: Colors.yellow.withOpacity(0.2),
           height: 200,
