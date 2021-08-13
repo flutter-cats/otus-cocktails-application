@@ -43,8 +43,8 @@ class TransformPainter extends CustomPainter {
     // canvas.translate(0, -200);
 
     final matrix = Matrix4.skewX(2);
-    matrix.scale(1, 1.1);
-    matrix.translate(300);
+    matrix.scale(1.1, 1.0);
+    matrix.translate(300.0);
     matrix.rotateY(pi);
     canvas.transform(matrix.storage);
 
