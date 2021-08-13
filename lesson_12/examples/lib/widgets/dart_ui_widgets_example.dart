@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'dart:ui' as ui;
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -18,6 +19,8 @@ class DartUiWidgetsExample extends StatelessWidget {
           // _buildClipPath(),
           const SizedBox(height: 100),
           // _buildColored(),
+          const SizedBox(height: 100),
+          // _buildBackdropFilter(),
         ],
       ),
     );
@@ -47,13 +50,27 @@ class DartUiWidgetsExample extends StatelessWidget {
   Widget _buildTransformedContainer() {
     final matrix = Matrix4.skewX(0.9)..rotateZ(pi / 30);
 
-    return Container(
-      transform: matrix,
-      child: Text(
-        "You have new replies",
-        style: TextStyle(
-          fontSize: 36,
-          fontWeight: FontWeight.w700,
+    return Center(
+      child: Container(
+        // transform: matrix,
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.red, width: 2),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              "Hey there",
+              style: TextStyle(
+                fontSize: 36,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            Icon(
+              Icons.add_a_photo_outlined,
+              color: Colors.blue,
+            ),
+          ],
         ),
       ),
     );
@@ -92,6 +109,41 @@ class DartUiWidgetsExample extends StatelessWidget {
       ),
     );
   }
+
+  Widget _buildBackdropFilter() {
+    return Stack(
+      alignment: Alignment.center,
+      // fit: StackFit.expand,
+      children: <Widget>[
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset("assets/image.jpg"),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text("Press me"),
+            ),
+            const SizedBox(height: 8),
+          ],
+        ),
+        ClipRect(
+          child: BackdropFilter(
+            filter: ui.ImageFilter.blur(
+              sigmaX: 15.0,
+              sigmaY: 5.0,
+            ),
+            child: Container(
+              alignment: Alignment.center,
+              width: 200.0,
+              height: 200.0,
+              child: const Text('Hidden'),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 }
 
 class _RhombusClipper extends CustomClipper<Path> {
@@ -111,14 +163,12 @@ class _RhombusClipper extends CustomClipper<Path> {
   bool shouldReclip(covariant CustomClipper<dynamic> oldClipper) => false;
 }
 
-
 class AnimatedGradientText extends StatefulWidget {
   @override
   _AnimatedGradientTextState createState() => _AnimatedGradientTextState();
 }
 
-class _AnimatedGradientTextState extends State<AnimatedGradientText>
-    with SingleTickerProviderStateMixin {
+class _AnimatedGradientTextState extends State<AnimatedGradientText> with SingleTickerProviderStateMixin {
   late AnimationController _controller = _controller = AnimationController(
     vsync: this,
     duration: const Duration(seconds: 3),
