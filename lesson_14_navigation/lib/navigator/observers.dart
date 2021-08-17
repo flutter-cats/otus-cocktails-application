@@ -2,13 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lesson_14_navigation/navigator/pages.dart';
 
+// Для примера реализации NavigatorObserver
+final _navigationObserver = CustomObserver();
+
+// Для примера реализации RouteAware
+final _routeObserver = RouteObserver();
+
 class NavigatorObserversSamplePage extends StatelessWidget {
   final globalKey = GlobalKey<NavigatorState>();
   @override
   Widget build(BuildContext context) {
     return Navigator(
       key: globalKey,
-      observers: [CustomObserver()],
+      observers: [
+        //_navigationObserver,
+        _routeObserver,
+      ],
       onGenerateRoute: (settings) {
         print('onGenerateRoute');
         if (settings.name == '/page4') {
@@ -24,17 +33,24 @@ class NavigatorObserversSamplePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   TextButton(
-                      onPressed: () => _openPage1(context),
-                      child: Text('Open Page1')),
+                    onPressed: _openPage1,
+                    child: Text('Open Page1'),
+                  ),
                   TextButton(
-                      onPressed: () => _openPage2(context),
-                      child: Text('Open Page2')),
+                    onPressed: _openPage2,
+                    child: Text('Open Page2'),
+                  ),
                   TextButton(
-                      onPressed: () => _openPage3(context),
-                      child: Text('Open Page3')),
+                    onPressed: _openPage3,
+                    child: Text('Open Page3'),
+                  ),
                   TextButton(
-                      onPressed: () => _openPage4(context),
-                      child: Text('Open Page4'))
+                    onPressed: _openPage4,
+                    child: Text('Open Page4'),
+                  ),
+                  TextButton(
+                      onPressed: _openRouteAwarePage,
+                      child: Text('Open Route Aware Page'))
                 ],
               ),
             ),
@@ -44,7 +60,7 @@ class NavigatorObserversSamplePage extends StatelessWidget {
     );
   }
 
-  _openPage1(BuildContext context) {
+  _openPage1() {
     globalKey.currentState?.push(MaterialPageRoute(
         settings: RouteSettings(name: 'page1'),
         builder: (context) {
@@ -52,13 +68,13 @@ class NavigatorObserversSamplePage extends StatelessWidget {
         }));
   }
 
-  _openPage2(BuildContext context) {
+  _openPage2() {
     globalKey.currentState?.push(CupertinoPageRoute(builder: (ctx) {
       return SamplePage('Page2');
     }));
   }
 
-  _openPage3(BuildContext context) {
+  _openPage3() {
     globalKey.currentState?.push(
       PageRouteBuilder(pageBuilder: (BuildContext context,
           Animation<double> animation, Animation<double> secondaryAnimation) {
@@ -74,8 +90,13 @@ class NavigatorObserversSamplePage extends StatelessWidget {
     );
   }
 
-  _openPage4(BuildContext context) {
+  _openPage4() {
     globalKey.currentState?.pushNamed('/page4');
+  }
+
+  _openRouteAwarePage() {
+    globalKey.currentState
+        ?.push(MaterialPageRoute(builder: (_) => RouteAwareWidget()));
   }
 }
 
@@ -110,5 +131,57 @@ class CustomObserver extends NavigatorObserver {
   @override
   void didPush(Route route, Route? previousRoute) {
     print('didPush:$route');
+  }
+}
+
+// Пример реализации RouteAware
+
+class RouteAwareWidget extends StatefulWidget {
+  const RouteAwareWidget({Key? key}) : super(key: key);
+
+  @override
+  _RouteAwareWidgetState createState() => _RouteAwareWidgetState();
+}
+
+class _RouteAwareWidgetState extends State<RouteAwareWidget> with RouteAware {
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _routeObserver.subscribe(this, ModalRoute.of(context)!);
+  }
+
+  @override
+  void dispose() {
+    _routeObserver.unsubscribe(this);
+    super.dispose();
+  }
+
+  @override
+  void didPush() {
+    super.didPush();
+    print('didPush:$this');
+  }
+
+  @override
+  void didPop() {
+    super.didPop();
+    print('didPop:$this');
+  }
+
+  @override
+  void didPopNext() {
+    super.didPopNext();
+    print('didPopNext:$this');
+  }
+
+  @override
+  void didPushNext() {
+    super.didPushNext();
+    print('didPushNext:$this');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SamplePage('Route Aware Sample');
   }
 }

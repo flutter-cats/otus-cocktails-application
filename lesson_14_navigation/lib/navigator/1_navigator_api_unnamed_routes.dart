@@ -27,17 +27,19 @@ class NavigatorApiSample1 extends StatelessWidget {
     );
   }
 
-  _pushPage1(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-      return SamplePage('Page1');
-    }));
+  void _pushPage1(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => SamplePage('Page1'),
+      ),
+    );
   }
 
-  _pushReplacementPage1(BuildContext context) {
-    Navigator.of(context).pushReplacement(MaterialPageRoute(
-      builder: (context) {
-        return SamplePage('Page1');
-      },
-    ));
+  void _pushReplacementPage1(BuildContext context) {
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (context) => SamplePage('Page1'),
+      ),
+    );
   }
 }

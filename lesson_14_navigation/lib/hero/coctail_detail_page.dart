@@ -15,10 +15,12 @@ class CocktailDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Hero(
-            tag: 'text:${cocktailDefinition.id}',
-            child: Material(
-                type: MaterialType.transparency,
-                child: Text(cocktailDefinition.name))),
+          tag: 'text:${cocktailDefinition.id}',
+          child: Material(
+            type: MaterialType.transparency,
+            child: Text(cocktailDefinition.name),
+          ),
+        ),
       ),
       body: Container(
         margin: const EdgeInsets.all(16),

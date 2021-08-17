@@ -20,7 +20,7 @@ class NavigatorApiGetResult1 extends StatelessWidget {
     );
   }
 
-  _openPage1(BuildContext context) async {
+  Future _openPage1(BuildContext context) async {
     final result = await Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) {

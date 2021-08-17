@@ -47,10 +47,9 @@ class OverlayStatePageSample extends StatelessWidget {
     // только для примера
     OverlayEntry? entry;
     entry = OverlayEntry(
-        builder: (context) => _Popup(
-              entry: entry!,
-            ),
-        opaque: false);
+      builder: (context) => _Popup(entry: entry!),
+      opaque: false,
+    );
     overlayState?.insert(entry);
   }
 }

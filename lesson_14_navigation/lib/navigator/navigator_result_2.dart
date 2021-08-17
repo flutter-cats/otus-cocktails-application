@@ -20,7 +20,7 @@ class NavigatorApiGetResult2 extends StatelessWidget {
     );
   }
 
-  _openPage1(BuildContext context) async {
+  Future _openPage1(BuildContext context) async {
     final result = await Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) {
@@ -62,16 +62,14 @@ class _Page1 extends StatelessWidget {
     );
   }
 
-  Future _selectAndNext(BuildContext context, result) async {
-    final result = await Navigator.of(context).pushReplacement(
-      MaterialPageRoute(
-        builder: (context) {
-          return _Page2();
-        },
-      ),
-      //result: result
-    );
-    print('page2 result:${result}');
+  Future _selectAndNext(BuildContext context, bool result) async {
+    final result2 =
+        await Navigator.of(context).pushReplacement(MaterialPageRoute(
+      builder: (context) {
+        return _Page2();
+      },
+    ), result: result);
+    print('page2 result:${result2}');
   }
 
   // Future _selectAndNext(BuildContext context, result) async {

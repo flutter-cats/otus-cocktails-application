@@ -15,15 +15,35 @@ class NavigatorApiSendingDataSample extends StatelessWidget {
               onPressed: () => _openPage1(context),
               child: Text('Open Page 1'),
             ),
+            TextButton(
+              onPressed: () => _openPage2(context),
+              child: Text('Open Page 2'),
+            ),
           ],
         ),
       ),
     );
   }
 
-  _openPage1(BuildContext context) async {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-      return SamplePage2();
-    }));
+
+  _openPage1(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) {
+          return SamplePage('Page 1');
+        },
+      ),
+    );
+  }
+
+  _openPage2(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        settings: RouteSettings(arguments: 'Page 2'),
+        builder: (context) {
+          return SamplePage2();
+        },
+      ),
+    );
   }
 }

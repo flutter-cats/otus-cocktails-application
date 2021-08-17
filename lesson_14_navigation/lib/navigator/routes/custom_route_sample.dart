@@ -31,9 +31,23 @@ class CustomRouteBuilder extends PageRouteBuilder {
             return Scaffold(
               appBar: AppBar(),
               body: Center(
-                child: RotationTransition(
-                  turns: animation,
-                  child: Text('page'),
+                child: Column(
+                  children: [
+                    RotationTransition(
+                      turns: animation,
+                      child: Text('page'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          CustomRouteBuilder(
+                            enterPage: CustomRouteSample(),
+                          ),
+                        );
+                      },
+                      child: Text('Next'),
+                    )
+                  ],
                 ),
               ),
             );
@@ -45,7 +59,7 @@ class CustomRouteBuilder extends PageRouteBuilder {
             Animation<double> secondaryAnimation,
             Widget child,
           ) {
-            //print('transitionsBuilder:${animation.status}');
+            // print('transitionsBuilder:${animation.status}');
             // if (secondaryAnimation.status != AnimationStatus.dismissed) {
             //   return FadeTransition(
             //     opacity: Tween<double>(begin: 1.0, end: 0.3)

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Практический пример использования Overlay
 class OverlayStateStarSample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class OverlayStateStarSample extends StatelessWidget {
     );
   }
 
-  _showOverlayAnimation(BuildContext context) {
+  void _showOverlayAnimation(BuildContext context) {
     final overlayState = Overlay.of(context);
     OverlayEntry? entry;
     entry = OverlayEntry(

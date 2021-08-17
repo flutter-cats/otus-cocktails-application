@@ -39,16 +39,14 @@ class _QuestionsFlow extends StatelessWidget {
       onGenerateInitialRoutes: (_, __) => [
         MaterialPageRoute(builder: (context) {
           return _Page1();
-        })
+        }),
       ],
     );
   }
 }
 
 class _Page1 extends StatelessWidget {
-  const _Page1({
-    Key? key,
-  }) : super(key: key);
+  const _Page1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

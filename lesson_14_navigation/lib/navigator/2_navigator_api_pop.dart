@@ -41,9 +41,7 @@ class NavigatorApiPopRoutes extends StatelessWidget {
 
   _pushNextPage(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-      return NavigatorApiPopRoutes(
-        pageIndex: pageIndex + 1,
-      );
+      return NavigatorApiPopRoutes(pageIndex: pageIndex + 1);
     }));
   }
 
