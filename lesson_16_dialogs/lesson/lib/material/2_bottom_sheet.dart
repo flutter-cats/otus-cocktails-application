@@ -29,6 +29,9 @@ class _BottomSheetSamplePageState extends State<BottomSheetSamplePage>
                 child: Text('Show modal scrollControlled BottomSheet')),
             TextButton(
                 onPressed: () => _showPersistentBottomDialog(context),
+                child: Text('Show simple persistent BottomSheet')),
+            TextButton(
+                onPressed: () => _showPersistentBottomDialog2(context),
                 child: Text('Show persistent BottomSheet'))
           ],
         ),
@@ -130,6 +133,39 @@ class _BottomSheetSamplePageState extends State<BottomSheetSamplePage>
   }
 
   Future _showPersistentBottomDialog(BuildContext scaffoldContext) async {
+    showBottomSheet(
+      context: scaffoldContext,
+      builder: (context) => Container(
+        width: double.maxFinite,
+        color: Colors.blue[100],
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              'Title',
+              style: Theme.of(context).textTheme.headline6,
+            ),
+            Container(
+              width: 100,
+              height: 100,
+              color: Colors.white,
+            ),
+            TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('Close')),
+          ],
+        ),
+      ),
+    );
+    // final result = await controller.closed;
+    // print('result:$result');
+  }
+
+  Future _showPersistentBottomDialog2(BuildContext scaffoldContext) async {
     final controller = AnimationController(
         lowerBound: 0.0,
         upperBound: 1.0,
@@ -171,18 +207,9 @@ class _BottomSheetSamplePageState extends State<BottomSheetSamplePage>
                 ),
                 TextButton(
                     onPressed: () {
-                      Navigator.of(context).pop('result');
+                      Navigator.of(context).pop();
                     },
                     child: Text('Close')),
-                // Expanded(
-                //     child: ListView.builder(
-                //         itemCount: 10,
-                //         itemBuilder: (c, i) => ListTile(
-                //               title: Text(
-                //                 'Title',
-                //                 style: Theme.of(context).textTheme.bodyText1,
-                //               ),
-                //             )))
               ],
             ),
           );

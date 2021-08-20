@@ -2,12 +2,12 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class CustomDialogSample2 extends StatefulWidget {
+class CustomDialogSample3 extends StatefulWidget {
   @override
-  _CustomDialogSample2State createState() => _CustomDialogSample2State();
+  _CustomDialogSample3State createState() => _CustomDialogSample3State();
 }
 
-class _CustomDialogSample2State extends State<CustomDialogSample2> {
+class _CustomDialogSample3State extends State<CustomDialogSample3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

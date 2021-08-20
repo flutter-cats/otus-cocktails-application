@@ -20,9 +20,7 @@ class _Navigator1ExampleState extends State<Navigator1Example> {
         if (!route.didPop(result)) {
           return false;
         }
-        setState(() {
-          value = null;
-        });
+        value = null;
         return true;
       },
       pages: [

@@ -132,7 +132,7 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
 
   void _showDetailPage(
       BuildContext context, CocktailDefinition cocktailDefinition) {
-    Navigator.of(context).push(CupertinoPageRoute(builder: (context) {
+    Navigator.of(context).push(RawDialogRoute(pageBuilder: (context,a,d) {
       return CocktailDetailPage(cocktailDefinition);
     }));
   }

@@ -25,23 +25,24 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // используется только для примеров с /app
-      theme: mainThemeData,
+     // theme: mainThemeData,
       locale: Locale('ru'),
       localizationsDelegates: [
         GlobalCupertinoLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalMaterialLocalizations.delegate
       ],
-      //home: MaterialDialogsSample(),
-      //home: BottomSheetSamplePage(),
+      home: MaterialDialogsSample(),
+      // home: BottomSheetSamplePage(),
       //home: PickersSample(),
       //home: ScaffoldPopups(),
-      // home: CupertinoPopups(),
+      //home: CupertinoPopups(),
       // home: CupertinoContextMenuSample(),
       //home: CustomDialogSample1(),
       // home: CustomDialogSample2(),
-      home: Navigator3Example(),
-      //home: CocktailsFilterScreen(AsyncCocktailRepository()),
+      // home: Navigator3Example(),
+      // Пример Hero навигации в диалоговых окнах
+      // home: CocktailsFilterScreen(AsyncCocktailRepository()),
     );
   }
 }

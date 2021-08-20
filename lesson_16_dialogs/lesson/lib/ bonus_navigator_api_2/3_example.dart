@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+final _provider = PlatformRouteInformationProvider(
+    initialRouteInformation: RouteInformation(location: '/'));
+
 class Navigator3Example extends StatefulWidget {
   Navigator3Example({Key? key}) : super(key: key);
 
@@ -15,8 +18,7 @@ class _Navigator3ExampleState extends State<Navigator3Example> {
   @override
   Widget build(BuildContext context) {
     return Router(
-        routeInformationProvider: PlatformRouteInformationProvider(
-            initialRouteInformation: RouteInformation(location: '/')),
+        routeInformationProvider: _provider,
         routeInformationParser: RouteParser(),
         routerDelegate: ValueRouterDelegate(_navigatorKey));
   }
@@ -100,6 +102,7 @@ class ValueRouterDelegate extends RouterDelegate<RoutePath>
               children: [
                 ...values.map((e) => TextButton(
                     onPressed: () {
+                      //_provider.didPushRouteInformation(RouteInformation(location: '/values/Value1'));
                       selectedValue = e;
                       notifyListeners();
                     },

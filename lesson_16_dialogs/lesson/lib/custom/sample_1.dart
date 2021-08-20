@@ -18,7 +18,7 @@ class _CustomDialogSample1State extends State<CustomDialogSample1> {
         child: Column(
           children: [
             TextButton(
-              onPressed: _show,
+              onPressed: _showCustomDialog1,
               child: Text(
                 'show general dialog',
               ),
@@ -29,7 +29,7 @@ class _CustomDialogSample1State extends State<CustomDialogSample1> {
     );
   }
 
-  void _show() {
+  void _showCustomDialog1() {
     showGeneralDialog(
       context: context,
       barrierDismissible: true,

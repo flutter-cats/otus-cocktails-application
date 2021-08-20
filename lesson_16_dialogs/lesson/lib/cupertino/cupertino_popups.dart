@@ -51,10 +51,10 @@ class _CupertinoPopupsState extends State<CupertinoPopups> {
         barrierDismissible: true,
         builder: (context) {
           return CupertinoAlertDialog(
-            title: Text('Title'),
-            content: Text('Content'),
             scrollController: ScrollController(),
             actionScrollController: ScrollController(),
+            title: Text('Title'),
+            content: Text('Content'),
             actions: [
               CupertinoDialogAction(
                 isDefaultAction: true,
@@ -96,6 +96,7 @@ class _CupertinoPopupsState extends State<CupertinoPopups> {
             style: TextStyle(color: Colors.black),
             child: Center(
               child: CupertinoPopupSurface(
+                isSurfacePainted: true,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
@@ -174,7 +175,7 @@ class _CupertinoPopupsState extends State<CupertinoPopups> {
                 itemExtent: 50,
                 childCount: 5,
                 onSelectedItemChanged: (int value) {},
-                itemBuilder: (ctx, index) => Text('index:${index}')),
+                itemBuilder: (ctx, index) => Text('index:$index')),
           );
         });
   }

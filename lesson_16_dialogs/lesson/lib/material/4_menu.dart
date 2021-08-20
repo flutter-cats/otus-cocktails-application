@@ -30,9 +30,10 @@ class _ScaffoldPopupsState extends State<ScaffoldPopups> {
   // Пример с использованием PopupMenuButton
   Widget _buildBody(BuildContext context) {
     return ListView.builder(
+      itemCount: 10,
       itemBuilder: (ctx, i) {
         return ListTile(
-          title: Text('Items'),
+          title: Text('Item $i'),
           trailing: PopupMenuButton(
             child: Icon(Icons.more_vert),
             onSelected: (value) {
@@ -61,7 +62,6 @@ class _ScaffoldPopupsState extends State<ScaffoldPopups> {
           ),
         );
       },
-      itemCount: 10,
     );
   }
 

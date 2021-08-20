@@ -22,6 +22,7 @@ class _Navigator2ExampleState extends State<Navigator2Example> {
         if (!route.didPop(result)) {
           return false;
         }
+        values.removeLast();
         return true;
       },
       pages: [
@@ -54,7 +55,7 @@ class _Navigator2ExampleState extends State<Navigator2Example> {
                     TextButton(
                       onPressed: () {
                         setState(() {
-                          values.add('value');
+                          values.add('value ${values.length + 1}');
                         });
                       },
                       child: Text('Add'),
@@ -65,7 +66,7 @@ class _Navigator2ExampleState extends State<Navigator2Example> {
                           values.clear();
                         });
                       },
-                      child: Text('Pop'),
+                      child: Text('Pop to root'),
                     ),
                   ],
                 ),
