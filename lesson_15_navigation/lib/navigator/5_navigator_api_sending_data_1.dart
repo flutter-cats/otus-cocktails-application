@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lesson_14_navigation/navigator/pages.dart';
+import 'package:lesson_15_navigation/navigator/pages.dart';
 
 class NavigatorApiSendingDataSample extends StatelessWidget {
   @override
