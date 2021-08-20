@@ -39,7 +39,7 @@ class NavigatorApiSendingDataSample extends StatelessWidget {
   _openPage2(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute(
-        settings: RouteSettings(arguments: 'Page 2'),
+        settings: RouteSettings(arguments: 'Page 22'),
         builder: (context) {
           return SamplePage2();
         },

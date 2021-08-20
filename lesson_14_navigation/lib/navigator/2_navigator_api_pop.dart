@@ -23,7 +23,8 @@ class NavigatorApiPopRoutes extends StatelessWidget {
                 child: Text('open Next Page')),
             const SizedBox(height: 16),
             Visibility(
-              visible: Navigator.of(context).canPop(),
+              //visible: Navigator.of(context).canPop(),
+              visible: true,
               child: TextButton(
                 onPressed: () => _back(context),
                 child: Text('back'),
@@ -33,6 +34,9 @@ class NavigatorApiPopRoutes extends StatelessWidget {
             TextButton(
                 onPressed: () => _backToRoot(context),
                 child: Text('back to root')),
+            TextButton(
+                onPressed: () => maybePop(context),
+                child: Text('maybePop')),
           ],
         ),
       ),
@@ -51,6 +55,13 @@ class NavigatorApiPopRoutes extends StatelessWidget {
 
   _backToRoot(BuildContext context) {
     Navigator.of(context).popUntil((route) => route.isFirst);
+  }
+
+  maybePop(BuildContext context) {
+    Navigator.of(context).maybePop();
+    // if (Navigator.of(context).canPop()){
+    //   Navigator.of(context).pop();
+    // }
   }
 }
 

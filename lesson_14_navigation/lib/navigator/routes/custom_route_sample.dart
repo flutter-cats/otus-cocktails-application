@@ -32,9 +32,10 @@ class CustomRouteBuilder extends PageRouteBuilder {
               appBar: AppBar(),
               body: Center(
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     RotationTransition(
-                      turns: animation,
+                      turns: secondaryAnimation,
                       child: Text('page'),
                     ),
                     ElevatedButton(
@@ -60,20 +61,20 @@ class CustomRouteBuilder extends PageRouteBuilder {
             Widget child,
           ) {
             // print('transitionsBuilder:${animation.status}');
-            // if (secondaryAnimation.status != AnimationStatus.dismissed) {
-            //   return FadeTransition(
-            //     opacity: Tween<double>(begin: 1.0, end: 0.3)
-            //         .animate(secondaryAnimation),
-            //     child: child,
-            //   );
-            // }
-            // if (animation.status == AnimationStatus.reverse) {
-            //   //print('reverse');
-            //   return FadeTransition(
-            //     opacity: animation,
-            //     child: child,
-            //   );
-            // }
+            if (secondaryAnimation.status != AnimationStatus.dismissed) {
+              return FadeTransition(
+                opacity: Tween<double>(begin: 1.0, end: 0.3)
+                    .animate(secondaryAnimation),
+                child: child,
+              );
+            }
+            if (animation.status == AnimationStatus.reverse) {
+              //print('reverse');
+              return FadeTransition(
+                opacity: animation,
+                child: child,
+              );
+            }
 
             return SlideTransition(
                 position: Tween(begin: Offset(0, 1), end: Offset(0, 0))

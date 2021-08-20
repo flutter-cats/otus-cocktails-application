@@ -18,8 +18,8 @@ class SamplePage extends StatelessWidget {
       ),
       body: Center(
         child: Visibility(
-          visible: Navigator.of(context).canPop(),
-          //visible: ModalRoute.of(context)?.canPop ?? false,
+          //visible: Navigator.of(context).canPop(),
+          visible: ModalRoute.of(context)?.canPop ?? false,
           child: TextButton(
             onPressed: () {
               Navigator.of(context).maybePop();
