@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Navigator2Example extends StatefulWidget {
-  Navigator2Example({Key? key}) : super(key: key);
+class Navigator1Example extends StatefulWidget {
+  Navigator1Example({Key? key}) : super(key: key);
 
   @override
-  _Navigator2ExampleState createState() => _Navigator2ExampleState();
+  _Navigator1ExampleState createState() => _Navigator1ExampleState();
 }
 
-class _Navigator2ExampleState extends State<Navigator2Example> {
+class _Navigator1ExampleState extends State<Navigator1Example> {
   final _navigatorKey = GlobalKey<NavigatorState>();
 
   String? value;

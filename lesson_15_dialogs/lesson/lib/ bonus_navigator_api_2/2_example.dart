@@ -16,19 +16,14 @@ class _Navigator2ExampleState extends State<Navigator2Example> {
   Widget build(BuildContext context) {
     return Navigator(
       key: _navigatorKey,
-      // onPopPage: (route, result) {
-      //   //route.didPop(result);
-      //   // return false;
-      //   if (!route.didPop(result)) {
-      //     return false;
-      //   }
-      //
-      //   // Update the list of pages by setting _selectedBook to null
-      //   setState(() {
-      //     value = null;
-      //   });
-      //   return true;
-      // },
+      onPopPage: (route, result) {
+        //route.didPop(result);
+        // return false;
+        if (!route.didPop(result)) {
+          return false;
+        }
+        return true;
+      },
       pages: [
         MaterialPage(
           child: Scaffold(

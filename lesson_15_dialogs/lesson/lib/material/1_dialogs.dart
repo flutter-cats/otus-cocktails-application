@@ -114,7 +114,14 @@ class _MaterialDialogsSampleState extends State<MaterialDialogsSample> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text('Dialog'),
-                TextField(),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      labelText: 'TextField'
+                    ),
+                  ),
+                ),
               ],
             ),
           );
@@ -152,16 +159,16 @@ class _MaterialDialogsSampleState extends State<MaterialDialogsSample> {
             alignment: Alignment.center,
             child: content,
           );
-          final EdgeInsets effectivePadding =
-              MediaQuery.of(context).viewInsets + insetPadding;
-          return AnimatedPadding(
-            padding: effectivePadding,
-            duration: Duration(seconds: 1),
-            child: Align(
-              alignment: Alignment.center,
-              child: content,
-            ),
-          );
+          // final EdgeInsets effectivePadding =
+          //     MediaQuery.of(context).viewInsets + insetPadding;
+          // return AnimatedPadding(
+          //   padding: effectivePadding,
+          //   duration: Duration(seconds: 1),
+          //   child: Align(
+          //     alignment: Alignment.center,
+          //     child: content,
+          //   ),
+          // );
         });
   }
 }

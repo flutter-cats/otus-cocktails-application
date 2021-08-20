@@ -102,33 +102,33 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
   //variant 1
   //Пример как можно создать подобие диалогового окна,
   //используя PageRouteBuilder
-  void _showPopupDetails(
-      BuildContext context, CocktailDefinition cocktailDefinition) {
-    Navigator.of(context).push(PageRouteBuilder(
-        opaque: false,
-        barrierDismissible: true,
-        barrierLabel: 'l',
-        barrierColor: Colors.black45,
-        fullscreenDialog: true,
-        pageBuilder: (context, a, sa) {
-          return Center(
-            child: CocktailDetailDialog(cocktailDefinition),
-          );
-        }));
-  }
-
-  //variant 2
   // void _showPopupDetails(
   //     BuildContext context, CocktailDefinition cocktailDefinition) {
-  //   showGeneralDialog(
-  //       context: context,
+  //   Navigator.of(context).push(PageRouteBuilder(
+  //       opaque: false,
   //       barrierDismissible: true,
   //       barrierLabel: 'l',
   //       barrierColor: Colors.black45,
+  //       fullscreenDialog: true,
   //       pageBuilder: (context, a, sa) {
-  //         return Center(child: CocktailDetailDialog(cocktailDefinition));
-  //       });
+  //         return Center(
+  //           child: CocktailDetailDialog(cocktailDefinition),
+  //         );
+  //       }));
   // }
+
+  //variant 2
+  void _showPopupDetails(
+      BuildContext context, CocktailDefinition cocktailDefinition) {
+    showGeneralDialog(
+        context: context,
+        barrierDismissible: true,
+        barrierLabel: 'l',
+        barrierColor: Colors.black45,
+        pageBuilder: (context, a, sa) {
+          return Center(child: CocktailDetailDialog(cocktailDefinition));
+        });
+  }
 
   void _showDetailPage(
       BuildContext context, CocktailDefinition cocktailDefinition) {

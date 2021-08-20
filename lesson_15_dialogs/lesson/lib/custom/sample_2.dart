@@ -16,24 +16,25 @@ class _CustomDialogSample2State extends State<CustomDialogSample2> {
       ),
       body: Column(
         children: [
-          SizedBox(
-            child: MarkWidget(
-              child: Container(
-                width: 100,
-                height: 100,
-                color: Colors.red,
-                child: Center(child: Text('Child')),
+          const SizedBox(height: 16),
+          MarkWidget(
+            child: Container(
+              width: 100,
+              height: 100,
+              color: Colors.red,
+              child: Center(child: Text('Child')),
+            ),
+            label: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(16),
               ),
-              marks: Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(16)),
-                padding: const EdgeInsets.all(16),
-                child: Text('marks'),
-              ),
+              padding: const EdgeInsets.all(16),
+              child: Text('marks'),
             ),
           ),
-          Text('text' * 100)
+          const SizedBox(height: 16),
+          Text('text ' * 100)
         ],
       ),
     );
@@ -43,13 +44,13 @@ class _CustomDialogSample2State extends State<CustomDialogSample2> {
 class MarkWidget extends StatefulWidget {
   const MarkWidget({
     Key? key,
-    required this.marks,
+    required this.label,
     required this.child,
   }) : super(key: key);
 
   final Widget child;
 
-  final Widget marks;
+  final Widget label;
 
   @override
   _MarkWidgetState createState() => _MarkWidgetState();
@@ -77,7 +78,7 @@ class _MarkWidgetState extends State<MarkWidget> {
       offstage = true;
     });
     Navigator.of(context)
-        .push(CustomDialogRoute2(context, widget.marks))
+        .push(CustomDialogRoute2(context, widget.label))
         .whenComplete(() {
       setState(() {
         offstage = false;
@@ -123,13 +124,14 @@ class CustomDialogRoute2<T> extends PopupRoute<T> {
     final RenderBox item = itemContext.findRenderObject() as RenderBox;
     final position = item.localToGlobal(Offset.zero);
     final bk = 3.0;
+    final topPosition = position.dy + 100;
     return DefaultTextStyle(
       style: TextStyle(color: Colors.black),
       child: Stack(
         alignment: Alignment.center,
         children: [
           Positioned(
-            top: position.dy + 100,
+            top: topPosition,
             left: position.dx,
             child: FadeTransition(
               opacity: animation,
@@ -137,8 +139,7 @@ class CustomDialogRoute2<T> extends PopupRoute<T> {
             ),
           ),
           Positioned(
-            top: position.dy + item.size.height + 32,
-            left: position.dx,
+            top: topPosition + item.size.height + 16,
             child: SlideTransition(
                 position: Tween(begin: Offset(0, 1), end: Offset(0, 0))
                     .animate(animation),
