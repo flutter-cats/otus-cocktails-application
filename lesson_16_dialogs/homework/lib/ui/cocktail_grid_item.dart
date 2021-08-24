@@ -29,7 +29,7 @@ class CocktailGridItem extends StatelessWidget {
             ),
             position: DecorationPosition.foreground,
             child: Image.network(
-              cocktailDefinition.drinkThumbUrl ?? '',
+              cocktailDefinition.drinkThumbUrl,
               fit: BoxFit.cover,
             ),
           ),
@@ -39,7 +39,7 @@ class CocktailGridItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(cocktailDefinition.name ?? '',
+                  Text(cocktailDefinition.name,
                       style: Theme.of(context).textTheme.bodyText1),
                 ]),
           )

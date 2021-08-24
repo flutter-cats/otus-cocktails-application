@@ -9,13 +9,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  json_annotation: any
-  cupertino_icons: any
-  http: any
+  json_annotation: 4.0.0
+  http: 0.13.3
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  pedantic: ^1.9.0
+  pedantic: 1.11.1
   build_runner: any
   json_serializable: any
 

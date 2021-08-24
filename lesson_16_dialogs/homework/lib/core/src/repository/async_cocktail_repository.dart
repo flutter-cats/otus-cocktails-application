@@ -19,7 +19,7 @@ class AsyncCocktailRepository {
     var client = http.Client();
     try {
       final url = 'https://the-cocktail-db.p.rapidapi.com/lookup.php?i=$id';
-      var response = await http.get(url, headers: _headers);
+      var response = await http.get(Uri.parse(url), headers: _headers);
       if (response.statusCode == 200) {
         final jsonResponse = convert.jsonDecode(response.body);
         var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
@@ -50,7 +50,7 @@ class AsyncCocktailRepository {
       final url =
           'https://the-cocktail-db.p.rapidapi.com/filter.php?a=${cocktailType.value}';
       var response = await http.get(
-        url,
+        Uri.parse(url),
         headers: {
           'x-rapidapi-key':
               'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
@@ -92,7 +92,7 @@ class AsyncCocktailRepository {
       final url =
           'https://the-cocktail-db.p.rapidapi.com/filter.php?c=${category.value}';
       var response = await http.get(
-        url,
+        Uri.parse(url),
         headers: {
           'x-rapidapi-key':
               'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
@@ -132,7 +132,7 @@ class AsyncCocktailRepository {
     try {
       const url = 'https://the-cocktail-db.p.rapidapi.com/popular.php';
       var response = await http.get(
-        url,
+        Uri.parse(url),
         headers: {
           'x-rapidapi-key':
               'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
@@ -167,7 +167,7 @@ class AsyncCocktailRepository {
     var client = http.Client();
     try {
       const url = 'https://the-cocktail-db.p.rapidapi.com/random.php';
-      var response = await http.get(url, headers: _headers);
+      var response = await http.get(Uri.parse(url), headers: _headers);
       if (response.statusCode == 200) {
         final jsonResponse = convert.jsonDecode(response.body);
         var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
