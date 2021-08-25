@@ -11,6 +11,8 @@ dependencies:
     sdk: flutter
   json_annotation: 4.0.0
   http: 0.13.3
+  flutter_svg: ^0.22.0
+
 dev_dependencies:
   pedantic: 1.11.1
   build_runner: any
