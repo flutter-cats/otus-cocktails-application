@@ -2,6 +2,43 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:homework/core/src/model/cocktail.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:homework/core/src/repository/async_cocktail_repository.dart';
+
+class AsyncCocktailDetailPage extends StatelessWidget {
+  const AsyncCocktailDetailPage(
+    this.cocktailId, {
+    Key? key,
+  }) : super(key: key);
+
+  final String cocktailId;
+
+  @override
+  Widget build(BuildContext context) {
+    /// TODO: Сделать верстку экрана "Карточка коктейля" по модели Cocktail cocktail
+    /// Ссылка на макет
+    /// https://www.figma.com/file/d2JJUBFu7Dg0HOV30XG7Z4/OTUS-FLUTTER.-%D0%A3%D1%80%D0%BE%D0%BA-3-%D0%94%D0%97?node-id=23%3A85
+    ///для того чтобы весь контент поместился, необходимо использовать SingleChildScrollView()
+    return FutureBuilder(
+      future: AsyncCocktailRepository().fetchCocktailDetails(cocktailId),
+      builder: (BuildContext context, AsyncSnapshot<Cocktail?> snapshot) {
+        if (snapshot.hasData) {
+          return CocktailDetailPage(snapshot.data!);
+        } else if (snapshot.hasError) {
+          print(snapshot.stackTrace);
+          return Center(child: Text(snapshot.error.toString()));
+        } else {
+          return Center(
+            child: SizedBox(
+              child: CircularProgressIndicator(),
+              width: 60,
+              height: 60,
+            ),
+          );
+        }
+      },
+    );
+  }
+}
 
 class CocktailDetailPage extends StatelessWidget {
   const CocktailDetailPage(
@@ -13,24 +50,20 @@ class CocktailDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// TODO: Сделать верстку экрана "Карточка коктейля" по модели Cocktail cocktail
-    /// Ссылка на макет
-    /// https://www.figma.com/file/d2JJUBFu7Dg0HOV30XG7Z4/OTUS-FLUTTER.-%D0%A3%D1%80%D0%BE%D0%BA-3-%D0%94%D0%97?node-id=23%3A85
-    ///для того чтобы весь контент поместился, необходимо использовать SingleChildScrollView()
-    return SingleChildScrollView(
+    return Scaffold(
+      body: SingleChildScrollView(
         child: Column(
-      children: [
-        Container(
-          height: 44,
-          color: Colors.black,
+          children: [
+            SizedBox(height: 44,),
+            _cocktailThumb(context),
+            _cocktailDetails(context),
+            _cocktailIngredients(),
+            _cocktailInstruction(),
+            _cocktailRate(),
+          ],
         ),
-        _cocktailThumb(),
-        _cocktailDetails(context),
-        _cocktailIngredients(),
-        _cocktailInstruction(),
-        _cocktailRate(),
-      ],
-    ));
+      ),
+    );
   }
 
   Widget _cocktailRate() {
@@ -144,12 +177,12 @@ class CocktailDetailPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    width: MediaQuery.of(context).size.width-90,
-                    child: Text(
-                    cocktail.name,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  )),
+                      width: MediaQuery.of(context).size.width - 90,
+                      child: Text(
+                        cocktail.name,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      )),
                   Padding(
                       padding: EdgeInsets.only(top: 10),
                       child: Text(
@@ -181,7 +214,7 @@ class CocktailDetailPage extends StatelessWidget {
         ));
   }
 
-  Widget _cocktailThumb() {
+  Widget _cocktailThumb(BuildContext context) {
     return Container(
       height: 300,
       color: Color(0x0E0D13),
@@ -192,10 +225,16 @@ class CocktailDetailPage extends StatelessWidget {
         children: [
           Image.network(cocktail.drinkThumbUrl, fit: BoxFit.cover),
           Positioned(
-              top: 18,
-              left: 28,
+            top: 18,
+            left: 28,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
               child: SvgPicture.asset('assets/images/icon_back.svg',
-                  color: Colors.white)),
+                  color: Colors.white),
+            ),
+          ),
           Positioned(
               top: 17,
               right: 19,

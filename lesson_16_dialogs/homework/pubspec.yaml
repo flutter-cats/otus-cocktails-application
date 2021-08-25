@@ -14,10 +14,15 @@ dependencies:
   flutter_svg: ^0.22.0
 
 dev_dependencies:
+  flutter_test:
+    sdk: flutter
   pedantic: 1.11.1
   build_runner: any
   json_serializable: any
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/images/
 

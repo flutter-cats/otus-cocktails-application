@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:homework/core/src/model/cocktail_definition.dart';
 
+import 'cocktail_detail_page.dart';
+
 class CocktailGridItem extends StatelessWidget {
   const CocktailGridItem(this.cocktailDefinition, {Key? key}) : super(key: key);
 
@@ -12,7 +14,8 @@ class CocktailGridItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print('tap on ${cocktailDefinition.id}');
+        print('Tap on ${cocktailDefinition.id}');
+        Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) { return AsyncCocktailDetailPage(cocktailDefinition.id); }));
       },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8),
