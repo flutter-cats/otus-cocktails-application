@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:homework/core/src/model/cocktail.dart';
+import 'package:homework/ui/coctail_detail_page.dart';
 import 'package:homework/ui/favourite_cocktails_screen.dart';
 import 'package:homework/ui/style/theme.dart';
 
@@ -16,6 +18,7 @@ class MyApp extends StatelessWidget {
       darkTheme: mainThemeData,
       themeMode: ThemeMode.dark,
       home: FavouriteCocktailsScreen(AsyncCocktailRepository()),
+      routes: {CocktailDetailPage.routeName: (context) => CocktailDetailPage()},
     );
   }
 }
