@@ -21,7 +21,7 @@ class CategoriesFilterBar extends StatelessWidget {
     return ListView.separated(
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 24),
-        itemBuilder: (ctx, index) => _categoryItemBuilder(
+        itemBuilder: (context, index) => _categoryItemBuilder(
             context,
             categories.elementAt(index),
             categories.elementAt(index) == selectedCategory),
@@ -49,9 +49,8 @@ class CategoriesFilterBar extends StatelessWidget {
     );
   }
 
-  Widget _separatorBuilder(BuildContext context, int index) {
-    return const SizedBox(width: 10);
-  }
+  Widget _separatorBuilder(BuildContext context, int index) =>
+      const SizedBox(width: 10);
 }
 
 class CategoriesFilterBarDelegate extends SliverPersistentHeaderDelegate {

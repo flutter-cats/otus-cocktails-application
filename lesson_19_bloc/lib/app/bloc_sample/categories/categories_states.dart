@@ -16,18 +16,17 @@ class CategoriesLoadSuccess extends CategoriesState {
   final CocktailCategory? selectedCategory;
 
   factory CategoriesLoadSuccess.fromMap(Map<String, dynamic> map) {
-    return new CategoriesLoadSuccess(
+    return CategoriesLoadSuccess(
       categories: map['categories'] as Iterable<CocktailCategory>,
       selectedCategory: map['selectedCategory'] as CocktailCategory,
     );
   }
 
   Map<String, dynamic> toMap() {
-    // ignore: unnecessary_cast
     return {
       'categories': this.categories,
       'selectedCategory': this.selectedCategory,
-    } as Map<String, dynamic>;
+    };
   }
 
   CategoriesLoadSuccess copyWith({

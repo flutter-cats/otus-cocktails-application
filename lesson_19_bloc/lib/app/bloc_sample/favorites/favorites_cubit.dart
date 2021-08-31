@@ -9,6 +9,16 @@ class FavoritesCubit extends HydratedCubit<FavoritesState> {
   FavoritesCubit()
       : super(FavoritesState(BuiltMap<String, CocktailDefinition>()));
 
+  @override
+  FavoritesState fromJson(Map<String, dynamic> json) {
+    return FavoritesState.fromMap(json);
+  }
+
+  @override
+  Map<String, dynamic> toJson(FavoritesState state) {
+    return state.toMap();
+  }
+
   void addToFavorites(CocktailDefinition cocktailDefinition) {
     emit(FavoritesState(state.favoritesMap.rebuild((s) {
       s[cocktailDefinition.id] = cocktailDefinition;
@@ -21,13 +31,5 @@ class FavoritesCubit extends HydratedCubit<FavoritesState> {
     })));
   }
 
-  @override
-  FavoritesState fromJson(Map<String, dynamic> json) {
-    return FavoritesState.fromMap(json);
-  }
 
-  @override
-  Map<String, dynamic> toJson(FavoritesState state) {
-    return state.toMap();
-  }
 }

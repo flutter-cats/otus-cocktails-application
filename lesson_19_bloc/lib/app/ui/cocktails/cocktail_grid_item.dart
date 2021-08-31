@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lesson_17/app/core/models.dart';
+import 'package:lesson_17/app/ui/favorites/favorites_button.dart';
 import 'package:lesson_17/app/ui/favorites/favorites_button_v2.dart';
+import 'package:lesson_17/app/ui/favorites/favorites_button_v3.dart';
 
 class CocktailGridItem extends StatelessWidget {
   const CocktailGridItem(this.cocktailDefinition, {Key? key}) : super(key: key);
@@ -46,7 +48,7 @@ class CocktailGridItem extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.topRight,
-            child: FavoritesButtonV2(cocktailDefinition),
+            child: FavoritesButton(cocktailDefinition),
           )
         ],
       ),

@@ -4,19 +4,19 @@ import 'package:lesson_17/app/core/models.dart';
 import 'package:lesson_17/app/repository/cocktail_repository.dart';
 
 class CocktailsCubit extends Cubit<CocktailsState> {
-  CocktailsCubit(this.cocktailRepository) : super(CocktailsInitial());
+  CocktailsCubit(this.cocktailRepository) : super(CocktailsState.initial());
 
   final CocktailRepository cocktailRepository;
 
   Future<void> fetchCocktails(CocktailCategory category) async {
-    emit(CocktailsLoadInProgress());
+    emit(CocktailsState.loading());
     try {
       final cocktails =
           await cocktailRepository.fetchCocktailsByCocktailCategory(category);
-      emit(CocktailsLoadSuccess(cocktails: cocktails));
+      emit(CocktailsState.success(cocktails: cocktails));
     } catch (e) {
       print(e);
-      emit(CocktailsLoadFailure(e.toString()));
+      emit(CocktailsState.failure(errorMessage: e.toString()));
     }
   }
 }

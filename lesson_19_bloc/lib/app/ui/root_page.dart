@@ -5,13 +5,13 @@ import 'favorites/favorites_page.dart';
 
 class RootPage extends StatefulWidget {
   @override
-  _RootPageState createState() => _RootPageState();
+  RootPageState createState() => RootPageState();
 }
 
-class _RootPageState extends State<RootPage> {
-  int _currentIndex = 0;
+class RootPageState extends State<RootPage> {
+  int currentIndex = 0;
 
-  final _pages = [CocktailsFilterScreenCustomBlocStyle(), FavoritesPage()];
+  final _pages = [CocktailsFilterScreen(), FavoritesPage()];
 
   final _tabs = [
     BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Поиск'),
@@ -23,13 +23,13 @@ class _RootPageState extends State<RootPage> {
     return Scaffold(
       //Т.к state хранится внутри bloc
       // то pages будет сохранять необходимые данные
-      body: _pages[_currentIndex],
+      body: _pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: _tabs,
-        currentIndex: _currentIndex,
+        currentIndex: currentIndex,
         onTap: (index) {
           setState(() {
-            _currentIndex = index;
+            currentIndex = index;
           });
         },
       ),

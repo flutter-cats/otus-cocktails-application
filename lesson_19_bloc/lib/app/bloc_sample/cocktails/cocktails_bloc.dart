@@ -13,7 +13,7 @@ import 'cocktails_states.dart';
 class CocktailsBloc extends BaseBloc<CocktailsEvent, CocktailsState> {
   // Пример подписки одного блока на другой
   CocktailsBloc(this.cocktailRepository, this.categoriesBlocLib)
-      : super(CocktailsInitial()) {
+      : super(CocktailsState.initial()) {
     _categoriesSubscription = this.categoriesBlocLib.stream.listen((state) {
       if (state is CategoriesLoadSuccess && state.selectedCategory != null) {
         _fetchCocktails(state.selectedCategory!);
@@ -43,14 +43,14 @@ class CocktailsBloc extends BaseBloc<CocktailsEvent, CocktailsState> {
   //TODO Задание: найти здесь место, которое может вызывать ошибку.
   Future<void> _fetchCocktails(CocktailCategory category) async {
     try {
-      updateState(CocktailsLoadInProgress());
+      updateState(CocktailsState.loading());
       final cocktails =
           await cocktailRepository.fetchCocktailsByCocktailCategory(category);
       updateState(
-          CocktailsLoadSuccess(cocktails: UnmodifiableListView(cocktails)));
+          CocktailsState.success(cocktails: UnmodifiableListView(cocktails)));
     } catch (e) {
       print(e);
-      updateState(CocktailsLoadFailure(e.toString()));
+      updateState(CocktailsState.failure(errorMessage:e.toString()));
     }
   }
 }

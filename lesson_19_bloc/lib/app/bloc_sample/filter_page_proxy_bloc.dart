@@ -6,8 +6,8 @@ import 'categories/categories_bloc.dart';
 import 'cocktails/cocktails_bloc_lib.dart';
 
 // Пример как можно соединять несколько bloc через proxy
-class FilterPageProxyBloc {
-  FilterPageProxyBloc(this.categoriesBloc, this.cocktailsBloc);
+class FilterPageBlocProxy {
+  FilterPageBlocProxy(this.categoriesBloc, this.cocktailsBloc);
 
   final CategoriesBloc categoriesBloc;
 

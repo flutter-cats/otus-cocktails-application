@@ -18,7 +18,7 @@ class FavoritesButton extends StatelessWidget {
       //   return b.isFavorites(cocktailDefinition.id) !=
       //       a.isFavorites(cocktailDefinition.id);
       // },
-      builder: (ctx, state) {
+      builder: (context, state) {
         print('FavoritesButton builder: ${cocktailDefinition.id}');
         final _cubit = BlocProvider.of<FavoritesCubit>(context);
         if (state.isFavorites(cocktailDefinition.id)) {

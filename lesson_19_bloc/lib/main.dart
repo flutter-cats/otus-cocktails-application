@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:lesson_17/app/bloc_sample/cocktails/cocktails_bloc.dart';
+import 'package:lesson_17/app/bloc_sample/cocktails/cocktails_bloc_lib.dart';
 import 'package:lesson_17/app/ui/style/theme.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
@@ -19,18 +20,20 @@ Future<void> main() async {
       storageDirectory: await getApplicationDocumentsDirectory());
   runApp(MultiProvider(
     providers: [
-      RepositoryProvider(create: (context) => AsyncCocktailRepository()),
+      RepositoryProvider(
+        create: (context) => AsyncCocktailRepository(),
+      ),
       //Categories
       BlocProvider(
-          create: (context) => CategoriesBloc()..add(CategoriesFetched())),
-      //CustomBloc
-      Provider<CocktailsBloc>(
-          dispose: (context, value) {
-            value.close();
-          },
-          create: (context) => CocktailsBloc(
+        create: (context) => CategoriesBloc()..add(CategoriesFetched()),
+      ),
+      BlocProvider(
+        create: (context) => CocktailsBlocLib(
+          cocktailRepository:
               RepositoryProvider.of<AsyncCocktailRepository>(context),
-              BlocProvider.of<CategoriesBloc>(context))),
+          categoriesBloc: BlocProvider.of<CategoriesBloc>(context),
+        ),
+      ),
       //Favorites
       BlocProvider(create: (context) => FavoritesCubit())
     ],
