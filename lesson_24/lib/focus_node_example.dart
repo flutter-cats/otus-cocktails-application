@@ -153,7 +153,7 @@ class _CustomTraversalOrder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FocusTraversalGroup(
-      policy: OrderedTraversalPolicy(),
+      // policy: OrderedTraversalPolicy(),
       child: Stack(
         children: [
           Positioned(
