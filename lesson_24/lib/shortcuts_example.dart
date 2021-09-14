@@ -33,7 +33,13 @@ class __SimpleFormContentState extends State<_SimpleFormContent> {
   @override
   Widget build(BuildContext context) {
     return Shortcuts(
-      shortcuts: {LogicalKeySet(LogicalKeyboardKey.meta, LogicalKeyboardKey.keyA): _SaveIntent()},
+      shortcuts: {
+        LogicalKeySet(
+          LogicalKeyboardKey.meta,
+          LogicalKeyboardKey.shift,
+          LogicalKeyboardKey.keyS,
+        ): _SaveIntent()
+      },
       child: Actions(
         actions: {_SaveIntent: _SubmitFormAction()},
         child: Padding(
