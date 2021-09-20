@@ -31,10 +31,10 @@ class _FutureBuilderSampleState extends State<FutureBuilderSample> {
         ],
       ),
       body: FutureBuilder<String>(
-        // initialData: 'I am an initial data',
+       initialData: 'I am an initial data',
         future: future.then((value) {
           // throw Exception('Casual error');
-          return 'I am done, result: ${Random().nextInt(100)}';
+          return 'value.then=${value.toString()}';
         }),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.none) {}
@@ -43,7 +43,7 @@ class _FutureBuilderSampleState extends State<FutureBuilderSample> {
 
           if (snapshot.connectionState == ConnectionState.active) {}
 
-          if (snapshot.connectionState == ConnectionState.done) {}
+          if (snapshot.connectionState == ConnectionState.done) {          }
 
           if (snapshot.hasError) {
             return Center(
@@ -56,6 +56,8 @@ class _FutureBuilderSampleState extends State<FutureBuilderSample> {
           }
 
           if (snapshot.hasData) {
+            print('connectionState: ${snapshot.connectionState}');
+            print('data:${snapshot.data}');
             return Center(
                 child: Text(
               snapshot.toString(),

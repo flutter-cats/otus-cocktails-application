@@ -8,3 +8,4 @@ export 'src/model/ingredient_definition.dart';
 export 'src/repository/async_cocktail_repository.dart';
 export 'src/dto/cocktail_definition_dto.dart';
 export 'src/dto/cocktail_dto.dart';
+export 'src/dto/ingredient_dto.dart';
