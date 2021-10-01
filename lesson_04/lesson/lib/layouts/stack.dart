@@ -4,7 +4,7 @@ import 'package:lesson/layouts/utils.dart';
 class StackPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(child: _buildPositionedSample());
+    return Center(child: _buildAlignSample());
   }
 
   //Align
