@@ -2,14 +2,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:homework/models/models.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:homework/star_widget.dart';
+import 'color_utils.dart';
 
 class CocktailDetailPage extends StatelessWidget {
-  const CocktailDetailPage(
+  CocktailDetailPage(
     this.cocktail, {
     Key key,
   }) : super(key: key);
 
   final Cocktail cocktail;
+
+  final defaultFormColor = HexColor.fromHex('#1A1927');
+  final instructionsBlockColor =
+      HexColor.fromHex('#201F2C');
 
   @override
   Widget build(BuildContext context) {
@@ -24,45 +30,59 @@ class CocktailDetailPage extends StatelessWidget {
                 bool innerBoxIsScrolled) {
               return <Widget>[
                 SliverAppBar(
-                  leading: IconButton(
-                    icon: Icon(Icons.arrow_back,
-                        color: Colors.white),
-                    onPressed: () =>
-                        Navigator.of(context).pop(),
-                  ),
-                  actions: [
-                    Padding(
-                        padding:
-                            EdgeInsets.only(right: 20.0),
-                        child: GestureDetector(
-                          onTap: () => {
-                            ScaffoldMessenger.of(context)
-                                .showSnackBar(SnackBar(
-                                    content: Text('meow')))
-                          },
-                          child: Icon(CupertinoIcons.share),
-                        ))
-                  ],
-                  expandedHeight: 300.0,
-                  floating: false,
-                  pinned: true,
-                  flexibleSpace: FlexibleSpaceBar(
-                      background: Image.network(
-                          cocktail.drinkThumbUrl,
-                          fit: BoxFit.cover)),
-                ),
+                    leading: IconButton(
+                      icon: SvgPicture.asset(
+                          'assets/images/icon_back.svg'),
+                      onPressed: () =>
+                          Navigator.of(context).pop(),
+                    ),
+                    actions: [
+                      Padding(
+                          padding:
+                              EdgeInsets.only(right: 20.0),
+                          child: GestureDetector(
+                            onTap: () => {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(SnackBar(
+                                      content: Text(
+                                          'here is your sharing of coctail ${cocktail.name}')))
+                            },
+                            child: SvgPicture.asset(
+                                'assets/images/icon_out.svg'),
+                          ))
+                    ],
+                    expandedHeight: 300.0,
+                    floating: false,
+                    pinned: true,
+                    backgroundColor: defaultFormColor,
+                    flexibleSpace: LayoutBuilder(
+                        builder: (context, constraints) {
+                      var height =
+                          constraints.biggest.height;
+                      return FlexibleSpaceBar(
+                        collapseMode: CollapseMode.parallax,
+                        centerTitle: true,
+                        title: Text(height < 150
+                            ? cocktail.name
+                            : ""),
+                        background: Image.network(
+                            cocktail.drinkThumbUrl,
+                            fit: BoxFit.cover),
+                      );
+                    })),
               ];
             },
             body: Container(
               width: double.infinity,
               height: double.infinity,
-              color: Colors.black87,
+              color: defaultFormColor,
               child: SingleChildScrollView(
                   child: Column(
                 children: [
                   _buildCoctailDetailsBlock(),
                   _buildCoctailIngridientsBlock(),
-                  _buildInstructionsBlock()
+                  _buildInstructionsBlock(),
+                  _buildRatingBlock()
                 ],
               )),
             )));
@@ -72,7 +92,7 @@ class CocktailDetailPage extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 300,
-      color: Colors.grey,
+      color: defaultFormColor,
       child: Stack(
         children: [
           Positioned(
@@ -83,7 +103,7 @@ class CocktailDetailPage extends StatelessWidget {
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
-                    fontWeight: FontWeight.bold),
+                    fontWeight: FontWeight.w500),
               )),
           Positioned(
               top: 64,
@@ -119,17 +139,18 @@ class CocktailDetailPage extends StatelessWidget {
         top: marginTop,
         child: Stack(children: [
           Text(title,
-              style: TextStyle(color: Colors.green)),
+              style: TextStyle(color: Colors.white)),
           Container(
               padding: EdgeInsets.only(left: 16, top: 24),
               child: Text(
                 description,
-                style: TextStyle(color: Colors.red),
+                style: TextStyle(color: Colors.white),
               ))
         ]));
   }
 
   Widget _buildCoctailIngridientsBlock() {
+    final titleColor = HexColor.fromHex('#B1AFC6');
     return Container(
       color: Colors.black,
       width: double.infinity,
@@ -140,7 +161,7 @@ class CocktailDetailPage extends StatelessWidget {
               child: Align(
                 child: Text(
                   'Ингридиенты:',
-                  style: TextStyle(color: Colors.purple),
+                  style: TextStyle(color: titleColor),
                 ),
                 alignment: Alignment.center,
               )),
@@ -156,7 +177,7 @@ class CocktailDetailPage extends StatelessWidget {
       meow.add(TableRow(
         children: [
           Padding(
-              padding: EdgeInsets.only(top: 16),
+              padding: EdgeInsets.only(top: 16, left: 10),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(ingridient.ingredientName,
@@ -166,7 +187,7 @@ class CocktailDetailPage extends StatelessWidget {
                             TextDecoration.underline)),
               )),
           Padding(
-              padding: EdgeInsets.only(top: 16),
+              padding: EdgeInsets.only(top: 16, right: 18),
               child: Align(
                 alignment: Alignment.centerRight,
                 child: Text(ingridient.measure,
@@ -186,7 +207,7 @@ class CocktailDetailPage extends StatelessWidget {
   Widget _buildInstructionsBlock() {
     return Container(
         width: double.infinity,
-        color: Colors.grey,
+        color: HexColor.fromHex('#201F2C'),
         child: Stack(
           children: [
             Padding(
@@ -223,21 +244,35 @@ class CocktailDetailPage extends StatelessWidget {
     });
 
     return Container(
-      height: 180,
-      width: double.infinity,
-      child: ListView.separated(
-          itemCount: newInstructions.length,
-          padding: const EdgeInsets.all(0.0),
-          separatorBuilder:
-              (BuildContext context, int index) {
-            return SizedBox(height: 16);
-          },
-          itemBuilder: (BuildContext context, int index) {
-            return Text(
-              newInstructions.elementAt(index),
-              style: TextStyle(color: Colors.white),
-            );
-          }),
-    );
+        height: 180,
+        width: double.infinity,
+        child: Scrollbar(
+          child: ListView.separated(
+              itemCount: newInstructions.length,
+              padding: const EdgeInsets.all(0.0),
+              separatorBuilder:
+                  (BuildContext context, int index) {
+                return SizedBox(height: 16);
+              },
+              itemBuilder:
+                  (BuildContext context, int index) {
+                return Text(
+                  newInstructions.elementAt(index),
+                  style: TextStyle(color: Colors.white),
+                );
+              }),
+        ));
+  }
+
+  /// в объекте [Coctail] нет подходящего поля, для выставления рейтинга коктейля
+  /// и его взаимодействия с этим виджетом, но я сделал виджет дефолтно активным
+  /// на случай, если вдруг добавится нужный функционал
+  Widget _buildRatingBlock() {
+    final defaultCoctailRating = 3;
+    return Container(
+        height: 100,
+        width: double.infinity,
+        color: defaultFormColor,
+        child: RatingWidget(defaultCoctailRating));
   }
 }
