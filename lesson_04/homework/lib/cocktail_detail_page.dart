@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:homework/models/models.dart';
@@ -55,52 +53,60 @@ class CocktailDetailPage extends StatelessWidget {
                 ),
               ];
             },
-            body: SingleChildScrollView(
-              child: Column(
+            body: Container(
+              width: double.infinity,
+              height: double.infinity,
+              color: Colors.black87,
+              child: SingleChildScrollView(
+                  child: Column(
                 children: [
-                  _buildCoctailDetails(),
-                  _buildCoctailIngridients()
+                  _buildCoctailDetailsBlock(),
+                  _buildCoctailIngridientsBlock(),
+                  _buildInstructionsBlock()
                 ],
-              ),
+              )),
             )));
   }
 
-  Container _buildCoctailDetails() {
+  Container _buildCoctailDetailsBlock() {
     return Container(
       width: double.infinity,
       height: 300,
-      color: Colors.black87,
+      color: Colors.grey,
       child: Stack(
         children: [
           Positioned(
-              top: 16,
+              top: 32,
               left: 16,
               child: Text(
                 cocktail.name,
-                style: TextStyle(color: Colors.green),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
               )),
           Positioned(
-              top: 40,
+              top: 64,
               left: 16,
               child: Text(
                 'id:' + cocktail.id,
                 style: TextStyle(color: Colors.grey),
               )),
           Positioned(
-              right: 16,
-              top: 16,
-              width: 38,
-              height: 34,
+              right: 32,
+              top: 36,
+              width: 20,
+              height: 20,
               child: SvgPicture.asset(
                   'assets/images/icon_hart.svg')),
           _getCoctailDescriptionWidget(
-              104,
+              96,
               'Категория коктейля',
               cocktail.category.value),
-          _getCoctailDescriptionWidget(176, 'Тип коктейля',
+          _getCoctailDescriptionWidget(160, 'Тип коктейля',
               cocktail.cocktailType.value),
           _getCoctailDescriptionWidget(
-              240, 'Тип стекла', cocktail.glassType.value)
+              224, 'Тип стекла', cocktail.glassType.value)
         ],
       ),
     );
@@ -123,23 +129,21 @@ class CocktailDetailPage extends StatelessWidget {
         ]));
   }
 
-  Widget _buildCoctailIngridients() {
+  Widget _buildCoctailIngridientsBlock() {
     return Container(
       color: Colors.black,
       width: double.infinity,
       child: Stack(
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 24),
-            child: 
-          Align(
-            child: Text(
-              'Ингридиенты:',
-              style: TextStyle(color: Colors.purple),
-            ),
-            alignment: Alignment.center,
-          )
-          ),
+              padding: EdgeInsets.only(top: 24),
+              child: Align(
+                child: Text(
+                  'Ингридиенты:',
+                  style: TextStyle(color: Colors.purple),
+                ),
+                alignment: Alignment.center,
+              )),
           _buildIngridientsTable(),
         ],
       ),
@@ -151,23 +155,25 @@ class CocktailDetailPage extends StatelessWidget {
     cocktail.ingredients.forEach((ingridient) {
       meow.add(TableRow(
         children: [
-          Padding(padding: EdgeInsets.only(top: 16), 
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Text(ingridient.ingredientName,
-                style: TextStyle(
-                    color: Colors.white,
-                    decoration: TextDecoration.underline)),
-          )),
-          Padding(padding: EdgeInsets.only(top: 16),
-          child: Align(
-            alignment: Alignment.centerRight,
-            child: Text(ingridient.measure,
-                style: TextStyle(color: Colors.white)),
-          )),
+          Padding(
+              padding: EdgeInsets.only(top: 16),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(ingridient.ingredientName,
+                    style: TextStyle(
+                        color: Colors.white,
+                        decoration:
+                            TextDecoration.underline)),
+              )),
+          Padding(
+              padding: EdgeInsets.only(top: 16),
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: Text(ingridient.measure,
+                    style: TextStyle(color: Colors.white)),
+              )),
         ],
       ));
-      
     });
 
     var ingridientsTable = Table(children: meow);
@@ -175,5 +181,63 @@ class CocktailDetailPage extends StatelessWidget {
     return Padding(
         child: ingridientsTable,
         padding: EdgeInsets.fromLTRB(16, 48, 16, 24));
+  }
+
+  Widget _buildInstructionsBlock() {
+    return Container(
+        width: double.infinity,
+        color: Colors.grey,
+        child: Stack(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(top: 24, left: 24),
+              child: Text(
+                'Инструкция для приготовления',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            Padding(
+                padding:
+                    EdgeInsets.fromLTRB(16, 65, 20, 20),
+                child: _buildInstructionList())
+          ],
+        ));
+  }
+
+  Widget _buildInstructionList() {
+    var newInstructions = <String>[];
+    cocktail.instruction
+        .split('-')
+        .skipWhile((value) => value.isEmpty)
+        .forEach((element) {
+      newInstructions.add('\u2022 ' + element.trim());
+    });
+
+    var widgetInstructions = <Widget>[];
+
+    newInstructions.forEach((element) {
+      widgetInstructions.add(Text(
+        element,
+        style: TextStyle(color: Colors.green),
+      ));
+    });
+
+    return Container(
+      height: 180,
+      width: double.infinity,
+      child: ListView.separated(
+          itemCount: newInstructions.length,
+          padding: const EdgeInsets.all(0.0),
+          separatorBuilder:
+              (BuildContext context, int index) {
+            return SizedBox(height: 16);
+          },
+          itemBuilder: (BuildContext context, int index) {
+            return Text(
+              newInstructions.elementAt(index),
+              style: TextStyle(color: Colors.white),
+            );
+          }),
+    );
   }
 }
