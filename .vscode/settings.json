@@ -1,0 +1,5 @@
+{
+    "search.smartCase": true,
+    "workbench.editor.languageDetection": false,
+    "dart.lineLength": 60
+}

@@ -1,6 +1,10 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lesson/basic/blur.dart';
+import 'package:lesson/layouts/flex.dart';
+import 'package:lesson/layouts/stack.dart';
+import 'package:lesson/layouts/wrap.dart';
 import 'package:lesson/theme/material.dart';
 import 'package:lesson/visible_widgets/text.dart';
 
@@ -23,7 +27,7 @@ class MyApp extends StatelessWidget {
           child: DevicePreview.appBuilder(context, child),
         );
       },
-      home: TextSample(),
+      home: StackPage(),
     );
   }
 }
