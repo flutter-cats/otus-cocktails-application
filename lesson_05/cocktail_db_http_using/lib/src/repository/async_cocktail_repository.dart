@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:cocktail_app_models/models.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_definition_dto.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_dto.dart';
+import 'package:cocktail_db_http_using/src/dto/ingridient_dto.dart';
 import 'package:http/http.dart' as http;
 
 class AsyncCocktailRepository {
@@ -157,8 +158,39 @@ class AsyncCocktailRepository {
   /// api operation is:
   /// https://the-cocktail-db.p.rapidapi.com/lookup.php
   ///
-  Future<Ingredient?> lookupIngredientById() async {
-    return null;
+  Future<Ingredient?> lookupIngredientById(String id) async {
+    Ingredient? result = null;
+
+    var client = http.Client();
+    try {
+      final url = 'https://the-cocktail-db.p.rapidapi.com/lookup.php?iid=${id}';
+      var response = await http.get(
+        Uri.parse(url),
+        headers: {
+          'x-rapidapi-key':
+              'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
+        },
+      );
+      if (response.statusCode == 200) {
+        final jsonResponse = convert.jsonDecode(response.body);
+        print(jsonResponse);
+
+        var ingridients = jsonResponse['ingredients'] as Iterable<dynamic>;
+
+        final dtos = ingridients
+            .cast<Map<String, dynamic>>()
+            .map((json) => IngridientDto.fromJson(json));
+        if (dtos.length > 0) {
+          result = _createIngredientFromDto(dtos.first);
+        }
+      } else {
+        throw HttpException(
+            'Request failed with status: ${response.statusCode}');
+      }
+    } finally {
+      client.close();
+    }
+    return result;
   }
 
   Cocktail _createCocktailFromDto(CocktailDto dto) {
@@ -202,5 +234,13 @@ class AsyncCocktailRepository {
       if (dto.strIngredient14 != null) dto.strIngredient14!: dto.strMeasure14!,
       if (dto.strIngredient15 != null) dto.strIngredient15!: dto.strMeasure15!,
     };
+  }
+
+  Ingredient _createIngredientFromDto(IngridientDto response) {
+    return Ingredient(
+        name: response.strIngredient,
+        description: response.strDescription,
+        ingredientType: response.strType,
+        isAlcoholic: response.strAlcohol == 'true');
   }
 }
