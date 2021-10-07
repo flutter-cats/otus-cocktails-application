@@ -7,6 +7,7 @@ import 'package:cocktail_db_http_using/src/dto/cocktail_dto.dart';
 import 'package:cocktail_db_http_using/src/dto/ingridient_dto.dart';
 import 'package:http/http.dart' as http;
 
+@Deprecated('use [AppRepository]')
 class AsyncCocktailRepository {
   static const String _apiKey =
       'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b';
