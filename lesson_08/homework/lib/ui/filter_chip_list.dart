@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 class FilterChipGroup extends StatefulWidget {
@@ -26,8 +24,8 @@ class _FilterChipGroup extends State<FilterChipGroup> {
       choiceChips.add(choiceChip(item));
     });
     return Container(
-        height: 100,
-        margin: EdgeInsets.fromLTRB(24, 16, 0, 0),
+        height: 50,
+        margin: EdgeInsets.fromLTRB(16, 16, 0, 0),
         child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
@@ -41,11 +39,19 @@ class _FilterChipGroup extends State<FilterChipGroup> {
 
   Widget choiceChip(String item) {
     return FilterChip(
-      label: Text(item),
-      key: ValueKey(item.hashCode),
-      selected: selectedChoices.contains(item) ? true : false,
-      selectedColor: Colors.green,
+      label: Container(
+          height: 40,
+          child: Align(
+              alignment: Alignment.center,
+              child: Text(item, style: TextStyle(color: Colors.white)))),
+      selected: isSelected(item),
+      selectedColor: Color(0xFF3B3953),
+      backgroundColor: Color(0xFF201F2C),
       showCheckmark: false,
+      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      shape: StadiumBorder(
+          side: BorderSide(
+              color: (isSelected(item) ? Colors.black : Colors.grey))),
       onSelected: (selected) {
         setState(() {
           selectedChoices.contains(item)
@@ -57,4 +63,6 @@ class _FilterChipGroup extends State<FilterChipGroup> {
       },
     );
   }
+
+  bool isSelected(String item) => selectedChoices.contains(item) ? true : false;
 }

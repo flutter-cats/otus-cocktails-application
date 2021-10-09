@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Color(0xFF1A1926),
         body: SafeArea(child: CocktailsFilterScreen()),
       ),
     );
