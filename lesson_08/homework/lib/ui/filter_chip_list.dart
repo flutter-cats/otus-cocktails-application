@@ -3,17 +3,24 @@ import 'package:flutter/material.dart';
 class FilterChipGroup extends StatefulWidget {
   final List<String> items;
   final Function(List<String>)? onSelectionChanged;
+  final List<String>? preselectedItems;
 
-  FilterChipGroup({required this.items, this.onSelectionChanged});
+  FilterChipGroup(
+      {required this.items, this.onSelectionChanged, this.preselectedItems});
 
   @override
-  _FilterChipGroup createState() => _FilterChipGroup(onSelectionChanged);
+  _FilterChipGroupState createState() =>
+      _FilterChipGroupState(onSelectionChanged, preselectedItems);
 }
 
-class _FilterChipGroup extends State<FilterChipGroup> {
+class _FilterChipGroupState extends State<FilterChipGroup> {
   List<String> selectedChoices = <String>[];
 
-  _FilterChipGroup(Function(List<String>)? onSelectionChanged) {
+  _FilterChipGroupState(Function(List<String>)? onSelectionChanged,
+      List<String>? preselectedItems) {
+    if (preselectedItems != null) {
+      selectedChoices.addAll(preselectedItems);
+    }
     if (onSelectionChanged != null) onSelectionChanged(selectedChoices);
   }
 
