@@ -1,7 +1,11 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:lesson_14_animations_homework/core/models.dart';
 import 'package:lesson_14_animations_homework/main.dart';
 import 'package:lesson_14_animations_homework/ui/pages/details/cocktail_detail_page.dart';
+import 'package:lesson_14_animations_homework/ui/pages/details/favourite_widget/cocktail_favourite_widget.dart';
+import 'package:lesson_14_animations_homework/ui/pages/details/progress/custom_circular_progress.dart';
 import 'package:lesson_14_animations_homework/ui/style/custom_colors.dart';
 
 class CocktailGridItem extends StatelessWidget {
@@ -33,17 +37,15 @@ class CocktailGridItem extends StatelessWidget {
                 }
 
                 ///
-                /// todo:
                 /// отрефакторить использование CircularProgressIndicator
                 /// в пользу реализации своего кастомного виджета progress indicator
                 /// Этот виджет нужно реализовать самостоятельно,
                 /// используя стандартные средства Flutter для работы
                 /// с графическим canvas и средства анимации.
                 /// И затем переиспользовать вместо CircularProgressIndicator
-                /// (в местах отмеченных///todo:)
                 ///
                 return Center(
-                  child: CircularProgressIndicator(),
+                  child: CocktailsCustomProgressViewWrapper(),
                 );
               },
             ),
@@ -122,16 +124,8 @@ class CocktailGridItem extends StatelessWidget {
   /// Можно добавить свою физику за счет Curves (ease, elastic, bounce).
   ///
   Widget _getIsFavoriteIcon(bool isFavourite) {
-    if (isFavourite) {
-      return IconButton(
-        icon: Icon(Icons.favorite, color: Colors.white),
-        onPressed: () {},
-      );
-    } else {
-      return IconButton(
-        icon: Icon(Icons.favorite_border, color: Colors.white),
-        onPressed: () {},
-      );
-    }
+    print(isFavourite);
+    return CocktailsFavouriteWrapper(
+        width: 50, height: 40, isFavourite: isFavourite);
   }
 }
