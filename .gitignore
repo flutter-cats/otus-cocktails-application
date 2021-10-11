@@ -20,3 +20,4 @@ doc/api/
 *.js.deps
 *.js.map
 lesson_21/cocktails_mobx/.flutter-plugins-dependencies
+/.DS_Store
