@@ -1,5 +1,6 @@
 import 'package:lesson_14_animations_homework/core/models.dart';
 import 'package:lesson_14_animations_homework/ui/application/application_scaffold.dart';
+import 'package:lesson_14_animations_homework/ui/application/custom_progress_indicator.dart';
 import 'package:lesson_14_animations_homework/ui/pages/categories_fitler_bar_delegate.dart';
 import 'package:lesson_14_animations_homework/ui/pages/cocktail_grid_item.dart';
 import 'package:lesson_14_animations_homework/ui/pages/filter_results_page.dart';
@@ -101,7 +102,7 @@ class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
           ///
           return SliverFillRemaining(
             child: Center(
-              child: const CircularProgressIndicator(),
+              child: ProgressLoader(color: Colors.white),
             ),
           );
         });
