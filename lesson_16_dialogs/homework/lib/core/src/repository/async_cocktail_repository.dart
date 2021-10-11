@@ -205,7 +205,7 @@ class AsyncCocktailRepository {
     var ingredients = <IngredientDefinition>[];
 
     _getIngredients(dto).forEach(
-        (key, value) => ingredients.add(IngredientDefinition(key, value)));
+        (key, value) => ingredients.add(IngredientDefinition(key!=null ? key : "", value!=null ? value : ""))); // исправил
 
     return Cocktail(
       id: dto.idDrink,
@@ -220,8 +220,8 @@ class AsyncCocktailRepository {
     );
   }
 
-  Map<String, String> _getIngredients(CocktailDto dto) {
-    return <String, String>{
+  Map<String?, String?> _getIngredients(CocktailDto dto) {
+    return <String?, String?>{
       if (dto.strIngredient1 != null) dto.strIngredient1: dto.strMeasure1,
       if (dto.strIngredient2 != null) dto.strIngredient2: dto.strMeasure2,
       if (dto.strIngredient3 != null) dto.strIngredient3: dto.strMeasure3,
