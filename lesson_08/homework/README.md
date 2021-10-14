@@ -11,3 +11,11 @@
 // 7. Для скролла используем CustomScrollView
 // 8. Делаем fork от репозитория и сдаем через PR
 // 9. Помним про декомпозицию кода по методам и классам.
+
+// п4. сделал дефолтно не выбранной ни одной категории, т.к. на форме есть инпут, что подразумевает, 
+// фильтрация будет вестись исключительно по нему, но функционал преселекта я добавил.
+
+![default](/assets/screenshots/filter_page_default.jpg)
+![loading](/assets/screenshots/filter_page_loading.jpg)
+![error](/assets/screenshots/filter_page_error.jpg)
+![results](/assets/screenshots/filter_page_results.jpg)

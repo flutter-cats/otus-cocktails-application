@@ -8,6 +8,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  cupertino_icons: ^0.1.2
+  flutter_svg: ^0.22.0
   json_annotation: ^4.1.0
 
 dev_dependencies:
@@ -16,4 +19,9 @@ dev_dependencies:
   pedantic: ^1.11.1
   http: ^0.13.3
   build_runner: ^2.0.6
-  json_serializable: ^5.0.0
+  json_serializable: ^5.0.2
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/

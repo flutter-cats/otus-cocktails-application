@@ -6,7 +6,7 @@ part 'cocktail_dto.g.dart';
 class CocktailDto {
   final String idDrink;
   final String strDrink;
-  final String strDrinkAlternate;
+  final String? strDrinkAlternate;
   final String strTags;
   final String strVideo;
   final String strCategory;
