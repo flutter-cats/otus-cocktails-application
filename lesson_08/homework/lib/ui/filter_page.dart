@@ -174,10 +174,22 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
 
   ///парсер поломан, постоянно падает с нпе, чтоб починить надо его целиком переписывать :\
   void getCocktailAndOpenDetails(String id) async {
-    var cocktailDetails = await repository.fetchCocktailDetails(id);
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => CocktailDetailPage(cocktailDetails)));
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (context) => FutureBuilder<Cocktail?>(
+          future: repository.fetchCocktailDetails(id),
+          builder: (ctx, snapshot) {
+            if (snapshot.hasData) {
+              return Material(
+                child: CocktailDetailPage(snapshot.data!),
+              );
+            }
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          },
+        ),
+      ),
+    );
   }
 }
