@@ -1,10 +1,16 @@
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:hive/hive.dart';
+import 'package:lesson_21_animations_homework/core/data/HiveBoxes.dart';
+import 'package:lesson_21_animations_homework/core/src/dto/cocktail_definition_dto.dart';
+import 'package:lesson_21_animations_homework/core/src/repository/FavouriteCocktailsStore.dart';
 import 'package:lesson_21_animations_homework/ui/aplication/application_scaffold.dart';
+import 'package:lesson_21_animations_homework/core/models.dart';
 import 'package:flutter/material.dart';
+import 'package:lesson_21_animations_homework/ui/pages/cocktail_grid_item.dart';
+import 'package:provider/provider.dart';
 
 ///
-/// TODO:
 ///        - Склонировать соотвествующий github репозиторий с заготовкой проекта для этого урока (для соот-щего подхода к управлению состоянием приложения - redux, bloc mobx версии) (https://github.com/guid-empty/otus-cocktail-app-lessons)
-///        - Внести изменения в классы описания состояний для экрана FavouriteCocktailsPage (будут помечены /// todo)
 ///        - Открыть класс экрана FavouriteCocktailsPage
 ///        - Внести изменения в код экрана, выделив логику для получения состояния используя один из ранее рассмотренных подходов к state management
 ///        - Внести изменения в экран CocktailDetailPage (CocktailTitle) для управления состояния isFavourite текущей модели (коктейль должен появиться или удалиться в списке избранного в соот-щем блоке состояния приложения)
@@ -35,9 +41,41 @@ class _FavouriteCocktailsPageState extends State<FavouriteCocktailsPage> {
     );
   }
 
-  Widget _buildFavoriteCocktailItems(BuildContext context) => Center(
+  Widget _buildFavoriteCocktailItems(BuildContext context) {
+    final box = Hive.box<CocktailDefinition>(HiveBoxes.favouriteCocktails);
+    var list = <CocktailDefinition?>[];
+    final l = box.length;
+    for (int i = 0; i < l; i++) {
+      list.add(box.getAt(i));
+    }
+    print(list.map((e) => e?.name));
+    return Observer(builder: (context) {
+      final favoriteCocktailsStore =
+          Provider.of<FavouriteCocktailsStore>(context);
+      final favorites = favoriteCocktailsStore.favouriteCocktails;
+
+      if (favorites.isNotEmpty) {
+        return GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            childAspectRatio: CocktailGridItem.aspectRatio,
+            crossAxisSpacing: 6,
+            mainAxisSpacing: 6,
+            crossAxisCount: 2,
+          ),
+          itemBuilder: (context, index) => CocktailGridItem(favorites[index],
+              selectedCategory: CocktailCategory.ordinaryDrink),
+          //here is mock for category. why is it in this widget. it's part of cocktail details
+          padding: const EdgeInsets.all(8.0),
+          itemCount: favorites.length,
+        );
+      } else {
+        return Center(
           child: Text(
-        'todo: add code here',
-        style: Theme.of(context).textTheme.caption,
-      ));
+            'Тут пока ничего нет :(',
+            style: TextStyle(color: Colors.white),
+          ),
+        );
+      }
+    });
+  }
 }
