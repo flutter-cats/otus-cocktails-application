@@ -1,11 +1,16 @@
 import 'package:cocktail_app/ui/style/custom_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 
 class CocktailPreview extends StatelessWidget {
   final String imageUrl;
 
   CocktailPreview({required this.imageUrl});
+
+  void shareCocktail(BuildContext context, String text) {
+    Share.share(text);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +50,7 @@ class CocktailPreview extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
+                    shareCocktail(context, imageUrl);
                     ///
                     /// TODO:
                     ///    - Склонировать соотвествующий github репозиторий с заготовкой проекта для этого урока (https://github.com/guid-empty/otus-cocktail-app-lessons)
