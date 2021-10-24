@@ -13,10 +13,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
-  // await startKoin((app) {
-  //   app.module(dbModule);
-  // });
-  var path = Directory.current.path;
   await Hive.initFlutter();
   Hive.registerAdapter(CocktailDefinitionAdapter());
   await Hive.openBox<CocktailDefinition>(HiveBoxes.favouriteCocktails);

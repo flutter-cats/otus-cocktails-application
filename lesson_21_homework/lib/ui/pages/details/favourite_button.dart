@@ -7,24 +7,10 @@ import 'package:lesson_21_animations_homework/core/models.dart';
 import 'package:lesson_21_animations_homework/core/src/repository/FavouriteCocktailsStore.dart';
 import 'package:provider/provider.dart';
 
-// class FavouriteButtonWidget extends StatefulWidget {
-//   final CocktailDefinition definition;
-//
-//   FavouriteButtonWidget(this.definition);
-//
-//   @override
-//   State<StatefulWidget> createState() {
-//     return FavouriteButtonState(definition);
-//   }
-// }
-
 class FavouriteButtonWidget extends StatelessWidget {
   final CocktailDefinition definition;
-  bool isFavourite = false;
-  var box = Hive.box<CocktailDefinition>(HiveBoxes.favouriteCocktails);
 
   FavouriteButtonWidget(this.definition) {
-    isFavourite = definition.isFavourite ?? false;
   }
 
   @override
@@ -34,7 +20,6 @@ class FavouriteButtonWidget extends StatelessWidget {
       final favCocktailsStore = Provider.of<FavouriteCocktailsStore>(context);
 
       final isFav = favCocktailsStore.isFavorite(definition.id ?? '');
-      isFavourite = isFav;
       return Semantics(
           label: 'Favorite Icon button',
           hint: 'Press to favorite',
