@@ -1,19 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cf8589ba-2505-41eb-b5e1-abbd6982daf0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lesson_22/lesson_platform_channels/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson_22/lesson_platform_channels/android/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_22/lesson_platform_channels/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_22/lesson_platform_channels/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_22/lesson_platform_channels/ios/Classes/SwiftLessonPlatformChannelsPlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_22/lesson_platform_channels/ios/Classes/SwiftLessonPlatformChannelsPlugin.swift" afterDir="false" />
+    <list default="true" id="cf8589ba-2505-41eb-b5e1-abbd6982daf0" name="Default Changelist" comment="added cocktails list">
+      <change afterPath="$PROJECT_DIR$/lesson_21_homework/lib/core/data/HiveBoxes.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/favourite_button.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson_25/homework/test/unit/00_favorites_storage_test.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/otus-cocktails-application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/otus-cocktails-application.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_08/homework/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_08/homework/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/ios/Flutter/Debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/ios/Flutter/Debug.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/ios/Flutter/Release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/ios/Flutter/Release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/ios/Runner.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/cocktail_grid_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/cocktail_grid_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_22/homework/ios/Flutter/Debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_22/homework/ios/Flutter/Debug.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_22/homework/ios/Flutter/Release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_22/homework/ios/Flutter/Release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_22/homework/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_22/homework/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_22/homework/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_22/homework/ios/Runner.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_25/homework/lib/ui/pages/cocktail_grid_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_25/homework/lib/ui/pages/cocktail_grid_item.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
@@ -26,7 +53,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1tcxqW80QszzDJFI95arwkdWl7M" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -35,9 +64,52 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lesson_25/homework/test/unit" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lesson_25/homework/test/unit" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Flutter.main.dart (2)">
+    <configuration name="main.dart" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lesson_05/cocktail_db_http_using/bin/main.dart" />
+      <option name="workingDirectory" value="$PROJECT_DIR$/lesson_05/cocktail_db_http_using" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main.dart (1)" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lesson_08/homework/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main.dart (2)" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lesson_21_homework/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main.dart (3)" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lesson_22/homework/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lesson_04/lesson/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flutter.main.dart (2)" />
+        <item itemvalue="Flutter.main.dart (1)" />
+        <item itemvalue="Flutter.main.dart" />
+        <item itemvalue="Dart Command Line App.main.dart" />
+        <item itemvalue="Flutter.main.dart (3)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -48,6 +120,98 @@
       <updated>1623082370086</updated>
       <workItem from="1623082371121" duration="2000" />
     </task>
+    <task id="LOCAL-00001" summary="added navigation magic for hw 16">
+      <created>1634238631080</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1634238631080</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added di database, not works">
+      <created>1634477855064</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1634477855064</updated>
+    </task>
+    <task id="LOCAL-00003" summary="done hw7">
+      <created>1634479400374</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1634479400374</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added navigation magic for hw 16" />
+    <MESSAGE value="added di database, not works" />
+    <MESSAGE value="done hw7" />
+    <option name="LAST_COMMIT_MESSAGE" value="done hw7" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="563" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1634480360572">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="563" y="322" key="#com.intellij.fileTypes.FileTypeChooser/910.-1080.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1634480360572" />
+    <state x="653" y="245" key="#com.intellij.ide.util.MemberChooser" timestamp="1634396729435">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="653" y="245" key="#com.intellij.ide.util.MemberChooser/910.-1080.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1634396729435" />
+    <state x="205" y="0" width="863" height="954" key="CommitChangelistDialog2" timestamp="1634479400253">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="205" y="25" key="CommitChangelistDialog2/0.-1055.1920.1055/0.25.1680.929@0.25.1680.929" timestamp="1634238630937" />
+    <state x="205" y="0" width="863" height="954" key="CommitChangelistDialog2/910.-1080.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1634479400253" />
+    <state x="633" y="284" key="FileChooserDialogImpl" timestamp="1634479657106">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="633" y="284" key="FileChooserDialogImpl/910.-1080.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1634479657106" />
+    <state width="1638" height="264" key="GridCell.Tab.0.bottom" timestamp="1634485090301">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="264" key="GridCell.Tab.0.bottom/0.25.1680.929@0.25.1680.929" timestamp="1634402995698" />
+    <state width="1638" height="264" key="GridCell.Tab.0.bottom/910.-1055.1920.1055/0.0.1680.1050@0.0.1680.1050" timestamp="1634333490560" />
+    <state width="1638" height="264" key="GridCell.Tab.0.bottom/910.-1055.1920.1055/0.0.1680.954@0.0.1680.954" timestamp="1634483742512" />
+    <state width="1638" height="264" key="GridCell.Tab.0.bottom/910.-1080.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1634485090301" />
+    <state width="1638" height="264" key="GridCell.Tab.0.center" timestamp="1634485090300">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="264" key="GridCell.Tab.0.center/0.25.1680.929@0.25.1680.929" timestamp="1634402995698" />
+    <state width="1638" height="264" key="GridCell.Tab.0.center/910.-1055.1920.1055/0.0.1680.1050@0.0.1680.1050" timestamp="1634333490558" />
+    <state width="1638" height="264" key="GridCell.Tab.0.center/910.-1055.1920.1055/0.0.1680.954@0.0.1680.954" timestamp="1634483742510" />
+    <state width="1638" height="264" key="GridCell.Tab.0.center/910.-1080.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1634485090300" />
+    <state width="1638" height="264" key="GridCell.Tab.0.left" timestamp="1634485090299">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="264" key="GridCell.Tab.0.left/0.25.1680.929@0.25.1680.929" timestamp="1634402995697" />
+    <state width="1638" height="264" key="GridCell.Tab.0.left/910.-1055.1920.1055/0.0.1680.1050@0.0.1680.1050" timestamp="1634333490558" />
+    <state width="1638" height="264" key="GridCell.Tab.0.left/910.-1055.1920.1055/0.0.1680.954@0.0.1680.954" timestamp="1634483742509" />
+    <state width="1638" height="264" key="GridCell.Tab.0.left/910.-1080.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1634485090299" />
+    <state width="1638" height="264" key="GridCell.Tab.0.right" timestamp="1634485090301">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="264" key="GridCell.Tab.0.right/0.25.1680.929@0.25.1680.929" timestamp="1634402995698" />
+    <state width="1638" height="264" key="GridCell.Tab.0.right/910.-1055.1920.1055/0.0.1680.1050@0.0.1680.1050" timestamp="1634333490559" />
+    <state width="1638" height="264" key="GridCell.Tab.0.right/910.-1055.1920.1055/0.0.1680.954@0.0.1680.954" timestamp="1634483742511" />
+    <state width="1638" height="264" key="GridCell.Tab.0.right/910.-1080.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1634485090301" />
+    <state x="227" y="207" key="Vcs.Push.Dialog.v2" timestamp="1634479401849">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="227" y="208" key="Vcs.Push.Dialog.v2/0.-1055.1920.1055/0.25.1680.929@0.25.1680.929" timestamp="1634238633153" />
+    <state x="227" y="207" key="Vcs.Push.Dialog.v2/910.-1080.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1634479401849" />
+    <state x="624" y="441" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1634480633412">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="624" y="441" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/910.-1080.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1634480633412" />
+    <state x="493" y="266" width="773" height="518" key="find.popup" timestamp="1634484341283">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="493" y="266" width="773" height="518" key="find.popup/910.-1080.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1634484341283" />
+    <state x="505" y="233" key="search.everywhere.popup" timestamp="1634396731616">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="505" y="233" key="search.everywhere.popup/910.-1080.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1634396731616" />
   </component>
 </project>

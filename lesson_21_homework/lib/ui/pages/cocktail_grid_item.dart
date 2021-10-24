@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:lesson_21_animations_homework/core/data/data_base_interface.dart';
 import 'package:lesson_21_animations_homework/core/models.dart';
 import 'package:lesson_21_animations_homework/main.dart';
 import 'package:lesson_21_animations_homework/ui/pages/details/cocktail_detail_page.dart';
+import 'package:lesson_21_animations_homework/ui/pages/details/favourite_button.dart';
 import 'package:lesson_21_animations_homework/ui/style/custom_colors.dart';
+import 'package:koin/koin.dart';
+import 'package:koin_flutter/koin_flutter.dart';
 
 class CocktailGridItem extends StatelessWidget {
   static const double aspectRatio = 170 / 215;
@@ -98,16 +102,6 @@ class CocktailGridItem extends StatelessWidget {
   }
 
   Widget _getIsFavoriteIcon(bool isFavourite) {
-    if (isFavourite) {
-      return IconButton(
-        icon: Icon(Icons.favorite, color: Colors.white),
-        onPressed: () {},
-      );
-    } else {
-      return IconButton(
-        icon: Icon(Icons.favorite_border, color: Colors.white),
-        onPressed: () {},
-      );
-    }
+    return FavouriteButtonWidget(cocktailDefinition);
   }
 }

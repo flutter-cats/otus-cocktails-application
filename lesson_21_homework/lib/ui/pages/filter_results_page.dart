@@ -1,9 +1,11 @@
 import 'package:lesson_21_animations_homework/core/models.dart';
+import 'package:lesson_21_animations_homework/core/src/repository/FavouriteCocktailsStore.dart';
 import 'package:lesson_21_animations_homework/main.dart';
 import 'package:lesson_21_animations_homework/ui/aplication/application_scaffold.dart';
 import 'package:lesson_21_animations_homework/ui/pages/categories_fitler_bar_delegate.dart';
 import 'package:lesson_21_animations_homework/ui/pages/cocktail_grid_item.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class FilterResultsPageWidget extends StatefulWidget {
   final CocktailCategory selectedCategory;

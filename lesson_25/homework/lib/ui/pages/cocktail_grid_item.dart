@@ -98,15 +98,21 @@ class CocktailGridItem extends StatelessWidget {
   }
 
   Widget _getIsFavoriteIcon(bool isFavourite) {
+    final iconButtonLabel = 'favourite_button';
     if (isFavourite) {
-      return IconButton(
-        icon: Icon(Icons.favorite, color: Colors.white),
-        onPressed: () {},
-      );
+      return Semantics(
+          label: iconButtonLabel,
+          child: IconButton(
+            icon: Icon(Icons.favorite, color: Colors.white),
+            onPressed: () {},
+          ));
     } else {
-      return IconButton(
-        icon: Icon(Icons.favorite_border, color: Colors.white),
-        onPressed: () {},
+      return Semantics(
+        label: iconButtonLabel,
+        child: IconButton(
+          icon: Icon(Icons.favorite_border, color: Colors.white),
+          onPressed: () {},
+        ),
       );
     }
   }
