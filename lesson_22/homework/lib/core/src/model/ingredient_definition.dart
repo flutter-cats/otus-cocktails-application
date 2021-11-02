@@ -6,4 +6,9 @@ class IngredientDefinition {
   final String measure;
 
   IngredientDefinition(this.ingredientName, this.measure);
+
+  @override
+  String toString() {
+    return '$ingredientName: $measure';
+  }
 }
