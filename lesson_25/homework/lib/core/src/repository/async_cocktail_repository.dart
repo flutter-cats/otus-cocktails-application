@@ -31,13 +31,13 @@ class AsyncCocktailRepository {
     var response = await http.get(url, headers: _headers);
     if (response.statusCode == HttpStatus.ok) {
       final jsonResponse = convert.jsonDecode(response.body);
-      var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
+      var drinks = jsonResponse['drinks'] as Iterable<dynamic>?;
 
       final dtos = drinks
-          .cast<Map<String, dynamic>>()
+          ?.cast<Map<String, dynamic>>()
           .map((json) => CocktailDto.fromJson(json));
-      if (dtos.length > 0) {
-        result = _createCocktailFromDto(dtos.first);
+      if ((dtos?.length ?? 0) > 0) {
+        result = _createCocktailFromDto(dtos!.first);
       }
     } else {
       throw HttpException('Request failed with status: ${response.statusCode}');
