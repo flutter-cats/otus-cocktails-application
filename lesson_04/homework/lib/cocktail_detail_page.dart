@@ -154,8 +154,7 @@ class _CoctailInfo extends StatelessWidget {
 }
 
 class _Ingredients extends StatelessWidget {
-  const _Ingredients({Key key, Iterable<IngredientDefinition> this.ingredients})
-      : super(key: key);
+  const _Ingredients({Key key, this.ingredients}) : super(key: key);
 
   final Iterable<IngredientDefinition> ingredients;
 
@@ -233,7 +232,7 @@ class _Ingredients extends StatelessWidget {
 }
 
 class _Instruction extends StatelessWidget {
-  const _Instruction({Key key, String this.instruction}) : super(key: key);
+  const _Instruction({Key key, this.instruction}) : super(key: key);
 
   final String instruction;
 
