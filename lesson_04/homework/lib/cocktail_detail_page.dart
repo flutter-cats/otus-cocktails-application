@@ -40,11 +40,7 @@ class CocktailDetailPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       labelOfCoctail(cocktail.name),
-                      Icon(
-                        Icons.favorite,
-                        size: 28,
-                        color: Colors.white,
-                      ),
+                      favIcon(cocktail.isFavourite),
                     ],
                   ),
                   SizedBox(
@@ -58,6 +54,9 @@ class CocktailDetailPage extends StatelessWidget {
               ),
             ),
             ingridientsBlock(cocktail),
+            instructionBlock(cocktail),
+            ratingBlock,
+            starsBlock(),
           ],
         ),
       ),

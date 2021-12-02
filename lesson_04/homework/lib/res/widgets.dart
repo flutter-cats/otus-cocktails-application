@@ -32,6 +32,21 @@ Stack imageWithNavi(String imgURL) {
   );
 }
 
+Icon favIcon(bool isFavorite) {
+  if (isFavorite)
+    return Icon(
+      Icons.favorite,
+      size: 28,
+      color: Colors.white,
+    );
+  else
+    return Icon(
+      Icons.favorite_border,
+      size: 28,
+      color: Colors.white,
+    );
+}
+
 Text labelOfCoctail(String name) {
   return Text(
     name,
@@ -47,7 +62,7 @@ Text idOfCoctail(String id) {
   return Text(
     'id:$id',
     textAlign: TextAlign.start,
-    style: forIDTextStyle(),
+    style: forIDTextStyle,
   );
 }
 
@@ -126,7 +141,7 @@ Container boxOfTypes(var text) {
     ),
     child: Text(
       text,
-      style: typesTextStyle(),
+      style: typesTextStyle,
     ),
   );
 }
@@ -145,23 +160,153 @@ Container ingridientsBlock(Cocktail cocktail) {
       children: [
         Text(
           "Ингридиенты:",
-          style: ingredientsLabel(),
+          style: ingredientsLabel,
         ),
+        ...cocktail.ingredients.map((e) => _ingredientsParse(e))
       ],
     ),
   );
 }
 
-_getIngredients(Iterable<IngredientDefinition> ingredients) {
-  Row listOfRows = Row(
-    children: [Text('jkbhfdkjbdfg')],
-  );
-  return listOfRows;
-}
-
-Row ingredientsParse(IngredientDefinition element) {
+Row _ingredientsParse(IngredientDefinition element) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [Text(element.ingredientName), Text(element.measure)],
+    children: [
+      Text(
+        element.ingredientName,
+        style: commonTextStyle(underscope: true),
+      ),
+      SizedBox(
+        height: 40,
+      ),
+      Text(
+        element.measure,
+        style: commonTextStyle(),
+      )
+    ],
   );
+}
+
+Container instructionBlock(Cocktail cocktail) {
+  return Container(
+    color: Color(0xFF201F2C),
+    width: double.infinity,
+    padding: EdgeInsets.only(
+      top: 26,
+      bottom: 50,
+      left: 16,
+      right: 16,
+    ),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Инструкция для приготовления',
+          style: commonTextStyle(),
+        ),
+        SizedBox(
+          height: 30,
+        ),
+        _textSeparate(cocktail.instruction, 24),
+      ],
+    ),
+  );
+}
+
+Column _textSeparate(String multyLineText, double space) {
+  List<String> lines = multyLineText.split('\n');
+  List<Widget> rows = [];
+  for (String line in lines) {
+    rows.add(
+      Row(
+        children: [
+          Flexible(
+            child: Text(
+              line,
+              style: commonTextStyle(),
+            ),
+          ),
+        ],
+      ),
+    );
+    rows.add(
+      SizedBox(
+        height: space,
+      ),
+    );
+  }
+
+  return Column(
+    children: [...rows],
+  );
+}
+
+Container starsBlock() {
+  return Container(
+    padding: EdgeInsets.only(
+      left: 16,
+      right: 16,
+      top: 22,
+      bottom: 22,
+    ),
+    width: double.infinity,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        _starGenerator(true),
+        _starGenerator(true),
+        _starGenerator(true),
+        _starGenerator(false),
+        _starGenerator(false),
+      ],
+    ),
+  );
+}
+
+Container ratingBlock = Container(
+  padding: EdgeInsets.all(30),
+  width: double.infinity,
+  color: Colors.white,
+  // child: Row(
+  //   children: [
+  //     _starGenerator(true),
+  //     _starGenerator(true),
+  //     _starGenerator(true),
+  //     _starGenerator(false),
+  //     _starGenerator(false),
+  //   ],
+  // ),
+);
+
+Widget _starGenerator(bool isActive) {
+  var size = 60.0;
+  var iconSize = 45.0;
+  if (isActive)
+    return Container(
+      width: size,
+      height: size,
+      decoration: new BoxDecoration(
+        color: Color(0xFF2A293A),
+        shape: BoxShape.circle,
+      ),
+      child: Icon(
+        Icons.star,
+        size: iconSize,
+        color: Colors.white,
+      ),
+    );
+  else
+    return Container(
+      width: size,
+      height: size,
+      decoration: new BoxDecoration(
+        color: Color(0xFF2A293A),
+        shape: BoxShape.circle,
+      ),
+      child: Icon(
+        Icons.star,
+        size: iconSize,
+        color: Color(0xFF1A1927),
+      ),
+    );
 }
