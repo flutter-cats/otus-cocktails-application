@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:cocktail_app_models/models.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_definition_dto.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_dto.dart';
+import 'package:cocktail_db_http_using/src/dto/ingredient_dto.dart';
 import 'package:http/http.dart' as http;
 
 class AsyncCocktailRepository {
@@ -157,50 +158,120 @@ class AsyncCocktailRepository {
   /// api operation is:
   /// https://the-cocktail-db.p.rapidapi.com/lookup.php
   ///
-  Future<Ingredient?> lookupIngredientById() async {
+  Future<Ingredient?> lookupIngredientByName() async {
+    // изначально у мня не было ID ингридиента и ниже я реализовал его получение по имени.
+    //Поэтому этот метод уже стал ненужным.
     return null;
   }
 
-  Cocktail _createCocktailFromDto(CocktailDto dto) {
-    final glass = GlassType.parse(dto.strGlass!);
-    final cocktailType = CocktailType.parse(dto.strAlcoholic!);
-    final category = CocktailCategory.parse(dto.strCategory!);
+  // Извлечение ингридиентов, проверка их наличия и вызов метода
+  void showDiscriptionOfIngredients(Cocktail cocktail) {
+    final ingredients = cocktail.ingredients;
+    List<Ingredient> listIDOfIngredients = [];
+    if (ingredients == null) {
+      print("${cocktail.name} не содержит ингридиентов =(");
+      return;
+    }
+    print("В этом коктейле ${ingredients.length} ингридиентов:");
+    ingredients.forEach((ingredient) async {
+      print(ingredient.ingredientName);
+      final ingredient_result =
+          await getIngredientByName(ingredient.ingredientName);
+      if (ingredient_result != null) {
+        listIDOfIngredients.add(ingredient_result);
+        print(ingredient_result);
+      } else
+        print("Error. Something wrong...");
+    });
+  }
 
-    var ingredients = <IngredientDefinition>[];
+  // Получаем ингредиент, зная его имя
+  Future<Ingredient?> getIngredientByName(String ingredientName) async {
+    var result;
+    ingredientName = ingredientName.replaceAll(RegExp(r' '), '%20');
+    //print("Log: Подготовили имя коктейля для URI");
+    var client = http.Client();
+    try {
+      final url =
+          'https://the-cocktail-db.p.rapidapi.com/search.php?i=$ingredientName';
+      var response = await http.get(Uri.parse(url), headers: _headers);
+      if (response.statusCode == 200) {
+        final jsonResponse = convert.jsonDecode(response.body);
+        var ingredients = jsonResponse['ingredients'] as Iterable<dynamic>;
 
-    _getIngredients(dto).forEach(
-        (key, value) => ingredients.add(IngredientDefinition(key, value)));
+        final dtos = ingredients
+            .cast<Map<String, dynamic>>()
+            .map((json) => IngredientDto.fromJson(json));
+        if (dtos.length > 0) {
+          result = _createIngredientFromDto(dtos.first);
+        }
+      } else {
+        throw HttpException(
+            'Request failed with status: ${response.statusCode}');
+      }
+    } finally {
+      client.close();
+    }
 
-    return Cocktail(
-      id: dto.idDrink,
-      category: category,
-      cocktailType: cocktailType,
-      glassType: glass,
-      instruction: dto.strInstructions,
-      isFavourite: true,
-      name: dto.strDrink,
-      ingredients: ingredients,
-      drinkThumbUrl: dto.strDrinkThumb,
+    return result;
+  }
+
+  Ingredient _createIngredientFromDto(IngredientDto dto) {
+    final ingredientID = dto.idIngredient;
+    final strIngredient = dto.strIngredient;
+    final strDescription = dto.strDescription;
+    final strType = dto.strType;
+    final strAlcohol = dto.strAlcohol;
+
+    return Ingredient(
+      id: ingredientID,
+      name: strIngredient,
+      description: strDescription,
+      ingredientType: strType,
+      isAlcoholic: strAlcohol == "Yes" ? true : false,
     );
   }
+}
 
-  Map<String, String> _getIngredients(CocktailDto dto) {
-    return <String, String>{
-      if (dto.strIngredient1 != null) dto.strIngredient1!: dto.strMeasure1!,
-      if (dto.strIngredient2 != null) dto.strIngredient2!: dto.strMeasure2!,
-      if (dto.strIngredient3 != null) dto.strIngredient3!: dto.strMeasure3!,
-      if (dto.strIngredient4 != null) dto.strIngredient4!: dto.strMeasure4!,
-      if (dto.strIngredient5 != null) dto.strIngredient5!: dto.strMeasure5!,
-      if (dto.strIngredient6 != null) dto.strIngredient6!: dto.strMeasure6!,
-      if (dto.strIngredient7 != null) dto.strIngredient7!: dto.strMeasure7!,
-      if (dto.strIngredient8 != null) dto.strIngredient8!: dto.strMeasure8!,
-      if (dto.strIngredient9 != null) dto.strIngredient9!: dto.strMeasure9!,
-      if (dto.strIngredient10 != null) dto.strIngredient10!: dto.strMeasure10!,
-      if (dto.strIngredient11 != null) dto.strIngredient11!: dto.strMeasure11!,
-      if (dto.strIngredient12 != null) dto.strIngredient12!: dto.strMeasure12!,
-      if (dto.strIngredient13 != null) dto.strIngredient13!: dto.strMeasure13!,
-      if (dto.strIngredient14 != null) dto.strIngredient14!: dto.strMeasure14!,
-      if (dto.strIngredient15 != null) dto.strIngredient15!: dto.strMeasure15!,
-    };
-  }
+Cocktail _createCocktailFromDto(CocktailDto dto) {
+  final glass = GlassType.parse(dto.strGlass!);
+  final cocktailType = CocktailType.parse(dto.strAlcoholic!);
+  final category = CocktailCategory.parse(dto.strCategory!);
+
+  var ingredients = <IngredientDefinition>[];
+
+  _getIngredients(dto).forEach(
+      (key, value) => ingredients.add(IngredientDefinition(key, value)));
+
+  return Cocktail(
+    id: dto.idDrink,
+    category: category,
+    cocktailType: cocktailType,
+    glassType: glass,
+    instruction: dto.strInstructions,
+    isFavourite: true,
+    name: dto.strDrink,
+    ingredients: ingredients,
+    drinkThumbUrl: dto.strDrinkThumb,
+  );
+}
+
+Map<String, String> _getIngredients(CocktailDto dto) {
+  return <String, String>{
+    if (dto.strIngredient1 != null) dto.strIngredient1!: dto.strMeasure1!,
+    if (dto.strIngredient2 != null) dto.strIngredient2!: dto.strMeasure2!,
+    if (dto.strIngredient3 != null) dto.strIngredient3!: dto.strMeasure3!,
+    if (dto.strIngredient4 != null) dto.strIngredient4!: dto.strMeasure4!,
+    if (dto.strIngredient5 != null) dto.strIngredient5!: dto.strMeasure5!,
+    if (dto.strIngredient6 != null) dto.strIngredient6!: dto.strMeasure6!,
+    if (dto.strIngredient7 != null) dto.strIngredient7!: dto.strMeasure7!,
+    if (dto.strIngredient8 != null) dto.strIngredient8!: dto.strMeasure8!,
+    if (dto.strIngredient9 != null) dto.strIngredient9!: dto.strMeasure9!,
+    if (dto.strIngredient10 != null) dto.strIngredient10!: dto.strMeasure10!,
+    if (dto.strIngredient11 != null) dto.strIngredient11!: dto.strMeasure11!,
+    if (dto.strIngredient12 != null) dto.strIngredient12!: dto.strMeasure12!,
+    if (dto.strIngredient13 != null) dto.strIngredient13!: dto.strMeasure13!,
+    if (dto.strIngredient14 != null) dto.strIngredient14!: dto.strMeasure14!,
+    if (dto.strIngredient15 != null) dto.strIngredient15!: dto.strMeasure15!,
+  };
 }
