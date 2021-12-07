@@ -7,7 +7,10 @@ class CocktailsFilterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Implement me'),
+      child: Icon(
+        Icons.search,
+        color: Colors.white,
+      ),
     );
   }
 }
