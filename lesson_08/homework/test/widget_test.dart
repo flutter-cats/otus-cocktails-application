@@ -16,9 +16,10 @@ void main() {
     expect(cokctails.isNotEmpty, true);
   });
 
-  test('fetchCocktailDetails',() async {
-    final cokctail = await AsyncCocktailRepository().fetchCocktailDetails('16963');
-    print(cokctail?.toString());
+  test('fetchCocktailDetails', () async {
+    final cokctail =
+        await AsyncCocktailRepository().fetchCocktailDetails('16963');
+    print(cokctail.toString());
     expect(cokctail.name, 'Zorbatini');
   });
 }
