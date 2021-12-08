@@ -1,3 +1,5 @@
+import 'package:cocktail/ui/search_widgets/res/consts.dart';
+import 'package:cocktail/ui/search_widgets/res/styles.dart';
 import 'package:flutter/material.dart';
 
 class SearchCoctailsGrid extends StatefulWidget {
@@ -52,7 +54,6 @@ class CoctailGridItem extends StatelessWidget {
       ),
       alignment: Alignment.bottomLeft,
       child: Container(
-        //height: 90,
         padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -60,16 +61,16 @@ class CoctailGridItem extends StatelessWidget {
           children: [
             Text(
               '«Арбузный» Мохито',
-              style: TextStyle(color: Colors.white, fontSize: 16),
+              style: commonTextStyle(),
             ),
             Container(
               margin: EdgeInsets.only(top: 6),
               height: 24,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: Color(0xFF15151C),
+                color: coctailBoxColor,
                 border: Border.all(
-                  color: Color(0xFF211D22),
+                  color: coctailBoxBorderColor,
                 ),
               ),
               padding: EdgeInsets.only(
@@ -81,10 +82,7 @@ class CoctailGridItem extends StatelessWidget {
                 children: [
                   Text(
                     'id:12345',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 10,
-                    ),
+                    style: commonTextStyle(fontSize: 10),
                   ),
                 ],
               ),

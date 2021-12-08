@@ -1,3 +1,4 @@
+import 'package:cocktail/ui/search_widgets/res/consts.dart';
 import 'package:flutter/material.dart';
 
 class CategoryListView extends StatefulWidget {
@@ -43,9 +44,11 @@ class ListViewCategoryItem extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 24),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(26),
-        color: true ? Color(0xFF3B3953) : Color(0xFF201F2C),
+        color: true
+            ? activeCategoryContainerColor
+            : notActiveCategoryContainerColor,
         border: Border.all(
-          color: Color(0xFF2D2C39),
+          color: borderColor,
         ),
       ),
       alignment: Alignment.center,
