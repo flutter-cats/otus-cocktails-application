@@ -1,15 +1,17 @@
+import 'package:cocktail/core/models.dart';
 import 'package:cocktail/ui/search_widgets/res/consts.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class CategoryListView extends StatefulWidget {
   const CategoryListView({Key? key}) : super(key: key);
-
   @override
   _CategoryListViewState createState() => _CategoryListViewState();
 }
 
 class _CategoryListViewState extends State<CategoryListView> {
   var index = 0;
+  final catgories = CocktailCategory.values;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,15 +20,7 @@ class _CategoryListViewState extends State<CategoryListView> {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
-          ListViewCategoryItem(index),
-          ListViewCategoryItem(1),
-          ListViewCategoryItem(2),
-          ListViewCategoryItem(3),
-          ListViewCategoryItem(4),
-          ListViewCategoryItem(5),
-          ListViewCategoryItem(6),
-          ListViewCategoryItem(7),
-          ListViewCategoryItem(8),
+          ...listOfItems(catgories),
         ],
       ),
     );
@@ -34,7 +28,10 @@ class _CategoryListViewState extends State<CategoryListView> {
 }
 
 class ListViewCategoryItem extends StatelessWidget {
-  const ListViewCategoryItem(int index, {Key? key}) : super(key: key);
+  final String catValue;
+  final String catName;
+  const ListViewCategoryItem(this.catValue, this.catName, {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +50,7 @@ class ListViewCategoryItem extends StatelessWidget {
       ),
       alignment: Alignment.center,
       child: Text(
-        'Какой-то коктейль',
+        catValue,
         style: TextStyle(
           color: Colors.white,
           fontSize: 16,
@@ -61,4 +58,13 @@ class ListViewCategoryItem extends StatelessWidget {
       ),
     );
   }
+}
+
+List<Widget> listOfItems(Iterable categories) {
+  List<Widget> listOfItems = [];
+  categories.forEach((category) {
+    listOfItems.add(ListViewCategoryItem(category.value, category.name));
+  });
+
+  return listOfItems;
 }

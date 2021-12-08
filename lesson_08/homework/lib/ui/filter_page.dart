@@ -21,7 +21,7 @@ class CocktailsFilterScreen extends StatelessWidget {
             CategoryListView(),
             // SearchCoctailsGrid(),
             // SearchLoadingScreen(),
-            // SearchError(),
+            // SearchError("передал ошибку"),
           ],
         ),
       ),
