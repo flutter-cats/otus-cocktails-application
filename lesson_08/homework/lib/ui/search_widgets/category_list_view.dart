@@ -1,7 +1,10 @@
 import 'package:cocktail/core/models.dart';
+import 'package:cocktail/core/src/globals.dart';
 import 'package:cocktail/ui/search_widgets/res/consts.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+final refreshListOfCategoies = GlobalKey();
 
 class CategoryListView extends StatefulWidget {
   const CategoryListView({Key? key}) : super(key: key);
@@ -10,8 +13,8 @@ class CategoryListView extends StatefulWidget {
 }
 
 class _CategoryListViewState extends State<CategoryListView> {
-  var index = 0;
   final catgories = CocktailCategory.values;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,33 +30,54 @@ class _CategoryListViewState extends State<CategoryListView> {
   }
 }
 
-class ListViewCategoryItem extends StatelessWidget {
+class ListViewCategoryItem extends StatefulWidget {
   final String catValue;
   final String catName;
-  const ListViewCategoryItem(this.catValue, this.catName, {Key? key})
+  bool isActive = false;
+  ListViewCategoryItem(this.catValue, this.catName, this.isActive, {Key? key})
       : super(key: key);
 
   @override
+  State<ListViewCategoryItem> createState() => _ListViewCategoryItemState();
+}
+
+class _ListViewCategoryItemState extends State<ListViewCategoryItem> {
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(6),
-      height: 46,
-      padding: EdgeInsets.symmetric(horizontal: 24),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(26),
-        color: true
-            ? activeCategoryContainerColor
-            : notActiveCategoryContainerColor,
-        border: Border.all(
-          color: borderColor,
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          widget.isActive = !widget.isActive;
+          if (widget.isActive)
+            Globals.chosenCategories.add(widget.catName);
+          else
+            Globals.chosenCategories.remove(widget.catName);
+          print("Tap on kontainer ${widget.catName} \n Выбраны категории:");
+          Globals.chosenCategories.forEach((element) {
+            print(element);
+          });
+        });
+      },
+      child: Container(
+        margin: EdgeInsets.all(6),
+        height: 46,
+        padding: EdgeInsets.symmetric(horizontal: 24),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(26),
+          color: widget.isActive
+              ? activeCategoryContainerColor
+              : notActiveCategoryContainerColor,
+          border: Border.all(
+            color: borderColor,
+          ),
         ),
-      ),
-      alignment: Alignment.center,
-      child: Text(
-        catValue,
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 16,
+        alignment: Alignment.center,
+        child: Text(
+          widget.catValue,
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 16,
+          ),
         ),
       ),
     );
@@ -63,7 +87,13 @@ class ListViewCategoryItem extends StatelessWidget {
 List<Widget> listOfItems(Iterable categories) {
   List<Widget> listOfItems = [];
   categories.forEach((category) {
-    listOfItems.add(ListViewCategoryItem(category.value, category.name));
+    listOfItems.add(ListViewCategoryItem(
+        category.value,
+        category.name,
+        (Globals.chosenCategories.contains(category.name) ||
+                (Globals.chosenCategories.isEmpty && listOfItems.isEmpty))
+            ? true
+            : false));
   });
 
   return listOfItems;

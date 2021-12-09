@@ -1,3 +1,5 @@
+import 'package:cocktail/core/src/globals.dart';
+import 'package:cocktail/ui/search_widgets/res/consts.dart';
 import 'package:flutter/material.dart';
 
 class SearchTextField extends StatefulWidget {
@@ -14,6 +16,9 @@ class _SearchTextFieldState extends State<SearchTextField> {
       height: 42,
       margin: EdgeInsets.fromLTRB(16, 42, 16, 16),
       child: TextField(
+        onChanged: (value) {
+          Globals.inSearch = value;
+        },
         textAlignVertical: TextAlignVertical.center,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(5),
@@ -27,7 +32,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
             onPressed: null,
             icon: Icon(
               Icons.clear,
-              color: Color(0xFF999999),
+              color: clearIconColor,
               size: 18,
             ),
           ),
@@ -41,7 +46,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
 
 const shapeOfBorder = OutlineInputBorder(
   borderSide: BorderSide(
-    color: Color(0xFF464551),
+    color: textFieldOfSearchColor,
   ),
   borderRadius: BorderRadius.all(
     Radius.circular(25),
