@@ -11,3 +11,38 @@
 // 7. Для скролла используем CustomScrollView
 // 8. Делаем fork от репозитория и сдаем через PR
 // 9. Помним про декомпозицию кода по методам и классам.
+
+
+Архитектура приложения про коктейли, поисковая страничка.
+MAIN -> SL Widget (MaterialApp) : Home:
+	{
+		SF Widget => State
+		
+		State {
+			chosenCategory = CocktailCategory.values.first;
+		
+		
+			поиск: OutlineSearchBar 
+			
+			Лист категорий: ListView (
+				for category in CocktailCategory.values {
+					getCategoryItem(
+									category.value, 
+									categoey == chosenCategory ? true : false, 
+									triggerSetState (){
+										setState (() =>  chosenCategory = category));
+									}
+				}),
+			Сетка коктейлей: FutureBuilder(
+				future: AsyncCocktailRepository().fetchCocktailsByCocktailCategory(selectedCategory),
+				builder: (BuildContext context, AsyncSnapshot snapshot) {
+					if (snapshot.connectionState == ConnectionState.waiting) => Loading...
+					if (snapshot.hasError) => Error...
+					if (snapshot.hasData) {
+						Iterable<CocktailDefinition> result = snapshot.data;
+						Возвращаем GridBuilder, в качестве элемента берем индекс result.elementAt(index)
+					}
+				}
+			)
+		}
+	}
