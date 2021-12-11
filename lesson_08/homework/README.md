@@ -34,7 +34,7 @@ MAIN -> SL Widget (MaterialApp) : Home:
 									}
 				}),
 			Сетка коктейлей: FutureBuilder(
-				future: AsyncCocktailRepository().fetchCocktailsByCocktailCategory(selectedCategory),
+				future: AsyncCocktailRepository().fetchCocktailsByCocktailCategory(chosenCategory),
 				builder: (BuildContext context, AsyncSnapshot snapshot) {
 					if (snapshot.connectionState == ConnectionState.waiting) => Loading...
 					if (snapshot.hasError) => Error...

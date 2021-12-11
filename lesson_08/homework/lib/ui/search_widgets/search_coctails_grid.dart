@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:cocktail/core/models.dart';
 import 'package:cocktail/ui/search_widgets/res/consts.dart';
 import 'package:cocktail/ui/search_widgets/res/styles.dart';
@@ -40,7 +42,6 @@ Iterable<Widget> coctailGridItem(Iterable<CocktailDefinition> listOfoctails) {
         height: 215,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: Colors.white,
           image: DecorationImage(
             fit: BoxFit.fitHeight,
             image: NetworkImage(

@@ -5,6 +5,7 @@ import 'package:cocktail/core/models.dart';
 import 'package:cocktail/core/src/globals.dart';
 import 'package:cocktail/ui/search_widgets/category_list_view.dart';
 import 'package:cocktail/ui/search_widgets/res/consts.dart';
+import 'package:cocktail/ui/search_widgets/res/styles.dart';
 import 'package:cocktail/ui/search_widgets/search_coctails_grid.dart';
 import 'package:cocktail/ui/search_widgets/search_error.dart';
 import 'package:cocktail/ui/search_widgets/search_loading.dart';
@@ -41,11 +42,25 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
                 ],
               ),
             ),
-            // SearchCoctailsGrid(GetCoctails()
-            //     .getListOfCoctailFromChoisedCategories(
-            //         Globals.chosenCategories)),
-            // SearchLoadingScreen(),
-            // SearchError("передал ошибку"),
+            FutureBuilder(
+                future: AsyncCocktailRepository()
+                    .fetchCocktailsByCocktailCategory(chosenCategory),
+                builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  if (snapshot.hasError)
+                    return SearchError(snapshot.error.toString());
+                  else if (snapshot.connectionState == ConnectionState.waiting)
+                    return SearchLoadingScreen();
+                  else if (snapshot.hasData)
+                    return SearchCoctailsGrid(snapshot.data);
+                  else
+                    return Container(
+                      padding: EdgeInsets.only(top: 150),
+                      child: Text(
+                        inDevelopingStr,
+                        style: commonTextStyle(),
+                      ),
+                    );
+                }),
           ],
         ),
       ),

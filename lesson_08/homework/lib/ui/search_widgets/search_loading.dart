@@ -1,3 +1,4 @@
+import 'package:cocktail/ui/search_widgets/res/consts.dart';
 import 'package:cocktail/ui/search_widgets/res/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class SearchLoadingScreen extends StatelessWidget {
             size: 45,
           ),
           Text(
-            'Поиск...',
+            inLoadingStr,
             style: commonTextStyle(),
           )
         ],
