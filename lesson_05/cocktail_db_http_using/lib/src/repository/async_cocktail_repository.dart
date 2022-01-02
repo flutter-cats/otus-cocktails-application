@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:cocktail_app_models/models.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_definition_dto.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_dto.dart';
+import 'package:cocktail_db_http_using/src/dto/ingredient_dto.dart';
 import 'package:http/http.dart' as http;
 
 class AsyncCocktailRepository {
@@ -158,7 +159,48 @@ class AsyncCocktailRepository {
   /// https://the-cocktail-db.p.rapidapi.com/lookup.php
   ///
   Future<Ingredient?> lookupIngredientById() async {
-    return null;
+    Ingredient? result;
+
+    var client = http.Client();
+    try {
+      const query = {"iid" : "552"};
+      final uri = Uri.https('the-cocktail-db.p.rapidapi.com', 'lookup.php', query);
+      var response = await http.get(uri, headers: _headers);
+      if (response.statusCode == 200) {
+        try {
+          final body = response.body;
+          final jsonResponse = convert.jsonDecode(body);
+          var ingredients = jsonResponse['ingredients'] as Iterable<dynamic>;
+
+          final dtos = ingredients
+              .cast<Map<String, dynamic>>()
+              .map((json) => IngredientDto.fromJson(json));
+          if (dtos.length > 0) {
+            result = _createIngredientFromDto(dtos.first);
+          }
+        }
+        on Exception catch(e) {
+          print("JSON Exception: $e\n${response.body}");
+        }
+      } else {
+        throw HttpException(
+            'Request failed with status: ${response.statusCode}');
+      }
+    } finally {
+      client.close();
+    }
+
+    return result;
+  }
+
+  Ingredient _createIngredientFromDto(IngredientDto dto) {
+    return Ingredient(
+        id: dto.strIngredient,
+        name: dto.strIngredient,
+        description: dto.strDescription,
+        ingredientType: dto.strType,
+        isAlcoholic: dto.strAlcohol
+    );
   }
 
   Cocktail _createCocktailFromDto(CocktailDto dto) {
