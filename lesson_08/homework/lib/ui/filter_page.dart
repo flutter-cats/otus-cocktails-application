@@ -4,9 +4,14 @@
 import 'package:cocktail/core/models.dart';
 import 'package:flutter/material.dart';
 
-class CocktailsFilterScreen extends StatelessWidget {
+class CocktailsFilterScreen extends StatefulWidget {
+  @override
+  State<CocktailsFilterScreen> createState() => _CocktailsFilterScreenState();
+}
 
-  final repository = AsyncCocktailRepository();
+class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
+
+  CocktailCategory? _cocktailCategory = null;
 
   Widget searchBar() {
     return TextField(
@@ -28,32 +33,44 @@ class CocktailsFilterScreen extends StatelessWidget {
 
   Widget cocktailCategoryButton(CocktailCategory cocktailCategory) {
     return TextButton(
-        onPressed: () => loadCocktailsByCategory(cocktailCategory),
+        onPressed: () => setState(() {
+          _cocktailCategory = cocktailCategory;
+        }),
         child: Text(cocktailCategory.name)
     );
   }
 
-  void loadCocktailsByCategory(CocktailCategory cocktailCategory) async {
-    var categories = repository.fetchCocktailsByCocktailCategory(cocktailCategory);
-    debugPrint("sup");
+  Future<Iterable<CocktailDefinition>> cocktailsByCategory() async {
+    if (_cocktailCategory == null) {
+      return [];
+    }
+    return AsyncCocktailRepository().fetchCocktailsByCocktailCategory(_cocktailCategory!);
   }
 
+
   Widget cocktailsFeed() {
-    CocktailCategory category;
-
-    final Future<Iterable<CocktailDefinition>> future = repository.fetchCocktailsByCocktailCategory(CocktailCategory.beer);
-
     return FutureBuilder(
-      future: future,
+      future: cocktailsByCategory(),
       builder: (BuildContext context, AsyncSnapshot<Iterable<CocktailDefinition>> snapshot) {
-        return Text("eh");
+        if (_cocktailCategory?.name == null) {
+          return Text("Select some category");
+        }
+        if (snapshot.hasError) {
+          return Text(snapshot.error.toString());
+        }
+        else if (snapshot.connectionState == ConnectionState.waiting) {
+          return Text("Loading");
+        }
+        else if (snapshot.hasData && snapshot.data != null) {
+          return Column(
+            children: snapshot.data!.map((e) => Text(e.name)).toList()
+          );
+        }
+        else {
+          return Text("eh?");
+        }
       }
     );
-
-    // final cards = cocktails.map((e) => cocktailCard(e)).toList();
-    // return Column(
-    //   children: cards
-    // );
   }
 
   Widget cocktailCard(Cocktail cocktail) {
