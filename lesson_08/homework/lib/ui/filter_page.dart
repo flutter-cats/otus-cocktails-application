@@ -11,7 +11,7 @@ class CocktailsFilterScreen extends StatefulWidget {
 
 class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
 
-  CocktailCategory? _cocktailCategory = null;
+  CocktailCategory _cocktailCategory = CocktailCategory.values.first;
 
   Widget searchBar() {
     return TextField(
@@ -40,21 +40,10 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
     );
   }
 
-  Future<Iterable<CocktailDefinition>> cocktailsByCategory() async {
-    if (_cocktailCategory == null) {
-      return [];
-    }
-    return AsyncCocktailRepository().fetchCocktailsByCocktailCategory(_cocktailCategory!);
-  }
-
-
   Widget cocktailsFeed() {
     return FutureBuilder(
-      future: cocktailsByCategory(),
+      future: AsyncCocktailRepository().fetchCocktailsByCocktailCategory(_cocktailCategory),
       builder: (BuildContext context, AsyncSnapshot<Iterable<CocktailDefinition>> snapshot) {
-        if (_cocktailCategory?.name == null) {
-          return Text("Select some category");
-        }
         if (snapshot.hasError) {
           return Text(snapshot.error.toString());
         }
@@ -67,7 +56,7 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
           );
         }
         else {
-          return Text("eh?");
+          return Text("Something went wrong, please ask your local sysadmin for help.");
         }
       }
     );
