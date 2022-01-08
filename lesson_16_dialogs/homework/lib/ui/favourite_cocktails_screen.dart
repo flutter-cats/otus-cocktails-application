@@ -50,7 +50,7 @@ class FavouriteCocktailsScreen extends StatelessWidget {
                           .fetchCocktailDetails(thisCocktailID)
                           .then((value) {
                         debugPrint(
-                            "Конец загрузки... Имеем коктейль ${value?.name}");
+                            "Конец загрузки... Получили коктейль ${value?.name}");
                         Route route = MaterialPageRoute(
                           builder: (context) => CoctailDetailPage(
                             coctail: value,

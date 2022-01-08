@@ -1,6 +1,7 @@
 import 'dart:convert' as convert;
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import '../../models.dart';
@@ -15,20 +16,14 @@ class AsyncCocktailRepository {
 
   Future<Cocktail?> fetchCocktailDetails(String id) async {
     Cocktail? result;
-    print('Starting downloading\nCreating http-client...');
     var client = http.Client();
 
     try {
       final url = 'https://the-cocktail-db.p.rapidapi.com/lookup.php?i=$id';
-      print('Getting response');
       var response = await http.get(Uri.parse(url), headers: _headers);
       if (response.statusCode == 200) {
-        print(response.body);
-        print('StatusCode is 200\nStarting converting');
         final jsonResponse = convert.jsonDecode(response.body);
-        print('Converting is done\nConverting to Iterable...');
         var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
-        print('Iterabled. \nStarting casting');
         final dtos = drinks
             .cast<Map<String, dynamic>>()
             .map((json) => CocktailDto.fromJson(json));
