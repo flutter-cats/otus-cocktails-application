@@ -1,6 +1,7 @@
 import 'dart:convert' as convert;
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import '../../models.dart';
@@ -15,15 +16,14 @@ class AsyncCocktailRepository {
 
   Future<Cocktail?> fetchCocktailDetails(String id) async {
     Cocktail? result;
-
     var client = http.Client();
+
     try {
       final url = 'https://the-cocktail-db.p.rapidapi.com/lookup.php?i=$id';
       var response = await http.get(Uri.parse(url), headers: _headers);
       if (response.statusCode == 200) {
         final jsonResponse = convert.jsonDecode(response.body);
         var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
-
         final dtos = drinks
             .cast<Map<String, dynamic>>()
             .map((json) => CocktailDto.fromJson(json));
@@ -204,8 +204,9 @@ class AsyncCocktailRepository {
 
     var ingredients = <IngredientDefinition>[];
 
-    _getIngredients(dto).forEach(
-        (key, value) => ingredients.add(IngredientDefinition(key, value)));
+    _getIngredients(dto).forEach((key, value) {
+      if (value != null) ingredients.add(IngredientDefinition(key!, value));
+    });
 
     return Cocktail(
       id: dto.idDrink,
@@ -220,8 +221,8 @@ class AsyncCocktailRepository {
     );
   }
 
-  Map<String, String> _getIngredients(CocktailDto dto) {
-    return <String, String>{
+  Map<String?, String?> _getIngredients(CocktailDto dto) {
+    return <String?, String?>{
       if (dto.strIngredient1 != null) dto.strIngredient1: dto.strMeasure1,
       if (dto.strIngredient2 != null) dto.strIngredient2: dto.strMeasure2,
       if (dto.strIngredient3 != null) dto.strIngredient3: dto.strMeasure3,

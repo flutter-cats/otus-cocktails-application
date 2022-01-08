@@ -75,7 +75,7 @@ class Cocktail {
   final GlassType glassType;
   final CocktailType cocktailType;
   final Iterable<IngredientDefinition> ingredients;
-  final String drinkThumbUrl;
+  final String? drinkThumbUrl;
   final bool isFavourite;
 
   Cocktail({

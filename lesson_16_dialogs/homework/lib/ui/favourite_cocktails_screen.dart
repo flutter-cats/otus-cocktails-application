@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homework/core/models.dart';
 import 'package:homework/core/src/repository/async_cocktail_repository.dart';
+import 'package:homework/ui/coctail_detail_page.dart';
 
 import 'cocktail_grid_item.dart';
 
@@ -40,7 +41,26 @@ class FavouriteCocktailsScreen extends StatelessWidget {
                   mainAxisSpacing: 6,
                   crossAxisCount: 2),
               itemBuilder: (ctx, index) {
-                return CocktailGridItem(snapshot.data!.elementAt(index));
+                return GestureDetector(
+                    onTap: () {
+                      String thisCocktailID =
+                          snapshot.data!.elementAt(index).id.toString();
+                      debugPrint("Нажатие на коктейль #$thisCocktailID");
+                      AsyncCocktailRepository()
+                          .fetchCocktailDetails(thisCocktailID)
+                          .then((value) {
+                        debugPrint(
+                            "Конец загрузки... Получили коктейль ${value?.name}");
+                        Route route = MaterialPageRoute(
+                          builder: (context) => CoctailDetailPage(
+                            coctail: value,
+                          ),
+                        );
+                        Navigator.push(context, route);
+                      });
+                      debugPrint("Начало загрузки...");
+                    },
+                    child: CocktailGridItem(snapshot.data!.elementAt(index)));
               },
               itemCount: snapshot.data!.length);
         }
