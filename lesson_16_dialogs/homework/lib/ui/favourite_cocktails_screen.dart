@@ -40,7 +40,12 @@ class FavouriteCocktailsScreen extends StatelessWidget {
                   mainAxisSpacing: 6,
                   crossAxisCount: 2),
               itemBuilder: (ctx, index) {
-                return CocktailGridItem(snapshot.data!.elementAt(index));
+                return GestureDetector(
+                    onTap: () {
+                      debugPrint(
+                          "Нажатие на ${snapshot.data!.elementAt(index).id}-ый коктейль");
+                    },
+                    child: CocktailGridItem(snapshot.data!.elementAt(index)));
               },
               itemCount: snapshot.data!.length);
         }
