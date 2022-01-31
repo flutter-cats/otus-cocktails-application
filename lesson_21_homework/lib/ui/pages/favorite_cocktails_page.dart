@@ -1,5 +1,13 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lesson_21_animations_homework/core/models.dart';
+import 'package:lesson_21_animations_homework/core/src/cubit/favorite_cubit.dart';
+import 'package:lesson_21_animations_homework/core/src/cubit/favorite_state.dart';
+import 'package:lesson_21_animations_homework/main.dart';
 import 'package:lesson_21_animations_homework/ui/aplication/application_scaffold.dart';
 import 'package:flutter/material.dart';
+
+import 'cocktail_grid_item.dart';
+import 'details/cocktail_detail_page.dart';
 
 ///
 /// TODO:
@@ -29,15 +37,81 @@ class _FavouriteCocktailsPageState extends State<FavouriteCocktailsPage> {
   @override
   Widget build(BuildContext context) {
     return ApplicationScaffold(
-      title: 'Избранное',
-      currentSelectedNavBarItem: 2,
-      child: _buildFavoriteCocktailItems(context),
-    );
+        title: 'Избранное',
+        currentSelectedNavBarItem: 2,
+        child: _buildFavoriteCocktailItems(context));
   }
 
-  Widget _buildFavoriteCocktailItems(BuildContext context) => Center(
-          child: Text(
-        'todo: add code here',
-        style: Theme.of(context).textTheme.caption,
-      ));
+  Widget _buildFavoriteCocktailItems(BuildContext context) =>
+      BlocBuilder<FavoriteCubit, FavoriteState>(
+        builder: (context, state) {
+          final cocktailDefinitionList =
+              state.repository.getFavoriteCocktailDefinitions();
+          return GridView.builder(
+            itemCount: cocktailDefinitionList.length,
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (context) => FutureBuilder<Cocktail?>(
+                        future: repository.fetchCocktailDetails(
+                            cocktailDefinitionList.elementAt(index).id!),
+                        builder: (ctx, snapshot) {
+                          if (snapshot.hasData) {
+                            return Material(
+                              child: CocktailDetailPage(snapshot.data!),
+                            );
+                          }
+
+                          return Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        },
+                      ),
+                    ),
+                  );
+                },
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: Colors.white70, width: 1),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Stack(
+                    children: [
+                      Image.network(
+                        cocktailDefinitionList.elementAt(index).drinkThumbUrl!,
+                        fit: BoxFit.cover,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            cocktailDefinitionList.elementAt(index).name!,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          IconButton(
+                              icon: Icon(Icons.favorite, color: Colors.white),
+                              onPressed: () {
+                                debugPrint('click');
+                                BlocProvider.of<FavoriteCubit>(context)
+                                    .removeFromFavoriteByDefinition(
+                                        cocktailDefinitionList
+                                            .elementAt(index));
+                              }),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2),
+          );
+        },
+      );
 }
