@@ -1,5 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lesson_21_animations_homework/core/models.dart';
+import 'package:lesson_21_animations_homework/core/src/cubit/favorite_cubit.dart';
 
 ///
 /// TODO:
@@ -23,8 +25,12 @@ import 'package:flutter/material.dart';
 class CocktailTitle extends StatelessWidget {
   final String cocktailTitle;
   final bool isFavorite;
+  final Cocktail cocktail;
 
-  CocktailTitle({required this.cocktailTitle, required this.isFavorite});
+  CocktailTitle(
+      {required this.cocktailTitle,
+      required this.isFavorite,
+      required this.cocktail});
 
   @override
   Widget build(BuildContext context) {
@@ -36,22 +42,24 @@ class CocktailTitle extends StatelessWidget {
           cocktailTitle,
           style: Theme.of(context).textTheme.headline3,
         ),
-        _getIsFavoriteIcon()
+        isFavorite
+            ? IconButton(
+                icon: Icon(Icons.favorite, color: Colors.white),
+                onPressed: () {
+                  debugPrint('click');
+                  BlocProvider.of<FavoriteCubit>(context)
+                      .removeFromFavorite(cocktail);
+                },
+              )
+            : IconButton(
+                icon: Icon(Icons.favorite_border, color: Colors.white),
+                onPressed: () {
+                  debugPrint('click');
+                  BlocProvider.of<FavoriteCubit>(context)
+                      .addToFavorite(cocktail);
+                },
+              ),
       ],
     );
-  }
-
-  Widget _getIsFavoriteIcon() {
-    if (isFavorite) {
-      return IconButton(
-        icon: Icon(Icons.favorite, color: Colors.white),
-        onPressed: () {},
-      );
-    } else {
-      return IconButton(
-        icon: Icon(Icons.favorite_border, color: Colors.white),
-        onPressed: () {},
-      );
-    }
   }
 }

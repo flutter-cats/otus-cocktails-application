@@ -1,4 +1,7 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lesson_21_animations_homework/core/models.dart';
+import 'package:lesson_21_animations_homework/core/src/cubit/favorite_cubit.dart';
+import 'package:lesson_21_animations_homework/core/src/cubit/favorite_state.dart';
 import 'package:lesson_21_animations_homework/main.dart';
 import 'package:lesson_21_animations_homework/ui/aplication/application_scaffold.dart';
 import 'package:lesson_21_animations_homework/ui/pages/categories_fitler_bar_delegate.dart';
@@ -45,7 +48,7 @@ class _FilterResultsPageWidgetState extends State<FilterResultsPageWidget> {
                 floating: true,
               ),
               SliverToBoxAdapter(child: SizedBox(height: 24)),
-              _buildCocktailItems(context)
+              _buildCocktailItems(context),
             ],
           );
         },
@@ -73,9 +76,14 @@ class _FilterResultsPageWidgetState extends State<FilterResultsPageWidget> {
               padding: const EdgeInsets.symmetric(horizontal: 24),
               sliver: SliverGrid(
                 delegate: SliverChildBuilderDelegate((ctx, index) {
-                  return CocktailGridItem(
-                    snapshot.data!.elementAt(index)!,
-                    selectedCategory: _categoryNotifier.value,
+                  return BlocBuilder<FavoriteCubit, FavoriteState>(
+                    builder: (context, state) {
+                      return CocktailGridItem(
+                        state.repository.getCoctailDefinitionIFFavorite(
+                            snapshot.data!.elementAt(index)!),
+                        selectedCategory: _categoryNotifier.value,
+                      );
+                    },
                   );
                 }, childCount: snapshot.data!.length),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
