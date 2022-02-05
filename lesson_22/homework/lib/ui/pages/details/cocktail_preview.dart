@@ -1,6 +1,7 @@
 import 'package:cocktail_app/ui/style/custom_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 
 class CocktailPreview extends StatelessWidget {
   final String imageUrl;
@@ -58,6 +59,8 @@ class CocktailPreview extends StatelessWidget {
                     /// На усмотрение студента:
                     ///    - Можно использовать любые проверенные плагины из pub.dev
                     ///    - Можно выполнить любую декомпозицию методов экрана CocktailDetailPage (а также в виджете CocktailPreview) или кнопки Share для внесения изменений, требуемых для sharing
+                    final String sendText = 'Link on picture: $imageUrl';
+                    Share.share(sendText);
                   },
                   icon: Icon(
                     Icons.share,
