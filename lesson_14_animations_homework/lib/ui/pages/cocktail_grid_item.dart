@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lesson_14_animations_homework/core/models.dart';
 import 'package:lesson_14_animations_homework/main.dart';
 import 'package:lesson_14_animations_homework/ui/pages/details/cocktail_detail_page.dart';
+import 'package:lesson_14_animations_homework/ui/pages/details/custom_progress_indicator.dart';
 import 'package:lesson_14_animations_homework/ui/style/custom_colors.dart';
 
 class CocktailGridItem extends StatelessWidget {
@@ -43,7 +44,7 @@ class CocktailGridItem extends StatelessWidget {
                 /// (в местах отмеченных///todo:)
                 ///
                 return Center(
-                  child: CircularProgressIndicator(),
+                  child: CustomProgressIndicator(),
                 );
               },
             ),

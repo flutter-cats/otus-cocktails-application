@@ -5,6 +5,8 @@ import 'package:lesson_14_animations_homework/ui/pages/cocktail_grid_item.dart';
 import 'package:lesson_14_animations_homework/ui/pages/filter_results_page.dart';
 import 'package:flutter/material.dart';
 
+import 'details/custom_progress_indicator.dart';
+
 class RandomCocktailPageWidget extends StatefulWidget {
   final AsyncCocktailRepository repository;
 
@@ -101,7 +103,7 @@ class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
           ///
           return SliverFillRemaining(
             child: Center(
-              child: const CircularProgressIndicator(),
+              child: CustomProgressIndicator(),
             ),
           );
         });
