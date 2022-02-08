@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lesson_14_animations_homework/core/models.dart';
 import 'package:lesson_14_animations_homework/main.dart';
 import 'package:lesson_14_animations_homework/ui/pages/details/cocktail_detail_page.dart';
+import 'package:lesson_14_animations_homework/ui/pages/details/custom_favorite.dart';
 import 'package:lesson_14_animations_homework/ui/pages/details/custom_progress_indicator.dart';
 import 'package:lesson_14_animations_homework/ui/style/custom_colors.dart';
 
@@ -97,7 +98,8 @@ class CocktailGridItem extends StatelessWidget {
                             ),
                           ),
                         ),
-                        _getIsFavoriteIcon(cocktailDefinition.isFavourite!),
+                        CustomFavorite(
+                            isFavorite: cocktailDefinition.isFavourite!),
                       ]),
                 ],
               ),
