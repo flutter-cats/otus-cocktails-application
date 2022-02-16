@@ -8,7 +8,11 @@
 ///           {
 ///               "idIngredient": "552",
 ///               "strIngredient": "Elderflower cordial",
-///               "strDescription": "Elderflower cordial is a soft drink made largely from a refined sugar and water solution and uses the flowers of the European elderberry. Historically the cordial has been popular in North Western Europe where it has a strong Victorian heritage.",
+///               "strDescription": "Elderflower cordial is a soft drink made
+///               largely from a refined sugar and water solution and uses the
+///               flowers of the European elderberry. Historically the cordial
+///               has been popular in North Western Europe where it has a strong
+///               Victorian heritage.",
 ///               "strType": "Cordial",
 ///               "strAlcohol": null,
 ///               "strABV": null
@@ -25,10 +29,10 @@ class Ingredient {
   final bool isAlcoholic;
 
   Ingredient({
-    this.id,
-    this.name,
-    this.description,
-    this.ingredientType,
-    this.isAlcoholic,
+    required this.id,
+    required this.name,
+    required this.description,
+    required this.ingredientType,
+    required this.isAlcoholic,
   });
 }
