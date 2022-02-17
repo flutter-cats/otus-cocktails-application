@@ -43,17 +43,18 @@ class CocktailDetailPage extends StatelessWidget {
                               children: [
                                 Text(cocktail.name, textAlign: TextAlign.start, style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500)),
                                 Spacer(),
-                                new SizedBox(
-                                    height: 32,
-                                    width: 32,
-                                    child: IconButton(
-                                        icon: SvgPicture.asset(
-                                          'assets/images/icon_hart.svg',
-                                          color: Colors.white,
-                                          height: 16,
-                                          width: 16,
-                                        ),
-                                        onPressed: () => {}))
+                                if (cocktail.isFavourite)
+                                  new SizedBox(
+                                      height: 32,
+                                      width: 32,
+                                      child: IconButton(
+                                          icon: SvgPicture.asset(
+                                            'assets/images/icon_hart.svg',
+                                            color: Colors.white,
+                                            height: 16,
+                                            width: 16,
+                                          ),
+                                          onPressed: () => {}))
                               ],
                             )),
                         Padding(
@@ -90,16 +91,7 @@ class CocktailDetailPage extends StatelessWidget {
                           Text(cocktail.instruction.replaceAll('-', '·'), style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w400, height: 2)),
                         ],
                       ))),
-              ConstrainedBox(
-                  constraints: BoxConstraints(),
-                  child: Container(
-                    color: const Color(0xFF1A1927),
-                    padding: const EdgeInsets.all(32),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [Star(isFill: true), Star(isFill: true), Star(isFill: true), Star(isFill: false), Star(isFill: false)],
-                    ),
-                  )),
+              ConstrainedBox(constraints: BoxConstraints(), child: Container(color: const Color(0xFF1A1927), padding: const EdgeInsets.all(32), child: RatingBar(rating: 3))),
             ],
           ))),
     );
@@ -158,25 +150,29 @@ class IngredientText extends StatelessWidget {
   }
 }
 
-class Star extends StatelessWidget {
-  const Star({Key key, this.isFill}) : super(key: key);
+class RatingBar extends StatelessWidget {
+  const RatingBar({Key key, this.rating}) : super(key: key);
 
-  final bool isFill;
+  final int rating;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.all(0),
-        child: ConstrainedBox(
-            constraints: BoxConstraints(minHeight: 48, maxHeight: 48, maxWidth: 48, minWidth: 48),
-            child: Container(
-              decoration: BoxDecoration(
-                  color: const Color(0xFF2A293A),
-                  border: Border.all(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        for (var i = 1; i <= 5; i++)
+          ConstrainedBox(
+              constraints: BoxConstraints(minHeight: 48, maxHeight: 48, maxWidth: 48, minWidth: 48),
+              child: Container(
+                decoration: BoxDecoration(
                     color: const Color(0xFF2A293A),
-                  ),
-                  borderRadius: BorderRadius.all(Radius.circular(24))),
-              child: Icon(Icons.star, size: 32, color: isFill ? Colors.white : Colors.transparent),
-            )));
+                    border: Border.all(
+                      color: const Color(0xFF2A293A),
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(24))),
+                child: Icon(Icons.star, size: 32, color: rating >= i ? Colors.white : Colors.transparent),
+              ))
+      ],
+    );
   }
 }
