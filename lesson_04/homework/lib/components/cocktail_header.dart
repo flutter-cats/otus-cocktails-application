@@ -17,7 +17,23 @@ class CocktailHeader extends StatelessWidget{
             icon: Icon(Icons.arrow_back),
             onPressed: () {},
           ),
-          Expanded(child: Image.network(url, fit: BoxFit.contain)),
+          Expanded(child: DecoratedBox(
+            position: DecorationPosition.foreground,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: FractionalOffset.topCenter,
+                end: FractionalOffset.bottomCenter,
+                colors: [
+                  Colors.black.withOpacity(0.0),
+                  Colors.black.withOpacity(1),
+                ],
+              ),
+            ),
+            child: Image.network(url,
+                fit: BoxFit.contain,
+              
+            ),
+          )),
           IconButton(
             color: Colors.white,
             icon: Icon(Icons.share),
