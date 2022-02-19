@@ -6,8 +6,8 @@ import 'models/src/repository/sync_cocktail_repository.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle.dark.copyWith(
-        statusBarColor: Colors.white, statusBarBrightness: Brightness.dark),
+    SystemUiOverlayStyle.light.copyWith(
+        statusBarColor: Colors.black, statusBarBrightness: Brightness.dark),
   );
   final cocktail = SyncCocktailRepository().getHomeworkCocktail();
   runApp(

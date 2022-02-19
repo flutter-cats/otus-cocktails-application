@@ -15,7 +15,7 @@ class RatingWidget extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         physics: const NeverScrollableScrollPhysics(),
         separatorBuilder: (context, index) => const SizedBox(
-          width: 16,
+          width: 12,
         ),
         shrinkWrap: true,
         itemCount: 5,
