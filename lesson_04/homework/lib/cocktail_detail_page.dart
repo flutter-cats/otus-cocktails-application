@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:homework/components/cocktail_header.dart';
+import 'package:homework/components/cocktail_ingredients.dart';
+import 'package:homework/components/cocktail_instruction.dart';
+import 'package:homework/components/cocktail_stars.dart';
+import 'package:homework/components/cocktail_title.dart';
 import 'package:homework/models/models.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CocktailDetailPage extends StatelessWidget {
   const CocktailDetailPage(
@@ -12,11 +16,33 @@ class CocktailDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// TODO: Сделать верстку экрана "Карточка коктейля" по модели Cocktail cocktail
-    /// Ссылка на макет
-    /// https://www.figma.com/file/d2JJUBFu7Dg0HOV30XG7Z4/OTUS-FLUTTER.-%D0%A3%D1%80%D0%BE%D0%BA-3-%D0%94%D0%97?node-id=23%3A85
-    ///для того чтобы весь контент поместился, необходимо использовать SingleChildScrollView()
-    ///
-    ///
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            CocktailHeader(
+              url: cocktail.drinkThumbUrl
+            ),
+            CocktailTitle(
+              id: cocktail.id,
+              name: cocktail.name,
+              isFavourite: cocktail.isFavourite,
+              category: cocktail.category,
+              cocktailType: cocktail.cocktailType,
+              glassType: cocktail.glassType,
+            ),
+            CocktailIngredients(
+              ingredients: cocktail.ingredients,
+            ),
+            CocktailInstruction(
+              instruction: cocktail.instruction,
+            ),
+            CocktailStars(
+              rating: 3,
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
