@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:cocktail_app_models/models.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_definition_dto.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_dto.dart';
+import 'package:cocktail_db_http_using/src/dto/ingredient_dto.dart';
 import 'package:http/http.dart' as http;
 
 class AsyncCocktailRepository {
@@ -157,8 +158,36 @@ class AsyncCocktailRepository {
   /// api operation is:
   /// https://the-cocktail-db.p.rapidapi.com/lookup.php
   ///
-  Future<Ingredient?> lookupIngredientById() async {
-    return null;
+  Future<Ingredient?> lookupIngredientById(String id) async {
+    Ingredient? result;
+
+    var client = http.Client();
+    try {
+      String url = 'https://the-cocktail-db.p.rapidapi.com/lookup.php?iid=$id';
+      var response = await http.get(
+        Uri.parse(url),
+        headers: {
+          'x-rapidapi-host': 'the-cocktail-db.p.rapidapi.com',
+          'x-rapidapi-key':'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
+        }
+      );
+
+      if (response.statusCode == 200) {
+        final jsonResponse = convert.jsonDecode(response.body);
+        var ingredients = jsonResponse['ingredients'] as Iterable<dynamic>;
+
+        final dtos = ingredients
+            .cast<Map<String, dynamic>>()
+            .map((json) => IngredientDto.fromJson(json));
+        if (dtos.length > 0) {
+          result = _createIngredientFromDto(dtos.first);
+        }
+      }
+
+    } finally {
+      client.close();
+    }
+    return result;
   }
 
   Cocktail _createCocktailFromDto(CocktailDto dto) {
@@ -181,6 +210,16 @@ class AsyncCocktailRepository {
       name: dto.strDrink,
       ingredients: ingredients,
       drinkThumbUrl: dto.strDrinkThumb,
+    );
+  }
+
+  Ingredient _createIngredientFromDto(IngredientDto dto) {
+    return Ingredient(
+      id: dto.idIngredient,
+      name: dto.strIngredient,
+      description: dto.strDescription,
+      ingredientType: dto.strType,
+      isAlcoholic: dto.strAlcohol == 'Yes' ? true : false
     );
   }
 
