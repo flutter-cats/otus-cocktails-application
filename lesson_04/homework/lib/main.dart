@@ -7,8 +7,7 @@ void main() {
   final cocktail = SyncCocktailRepository().getHomeworkCocktail();
   runApp( MaterialApp(
     title: 'Flutter Demo',
-    home: Material(child: CocktailDetailPage(cocktail)),
-  ));
+    home: Material(child: CocktailDetailPage(cocktail)),));
 }
 
 
