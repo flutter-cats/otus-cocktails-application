@@ -13,6 +13,14 @@ class CocktailsFilterScreen extends StatelessWidget {
           children: [
             TextField(
               decoration: InputDecoration(
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white, width: 1),
+                  borderRadius: BorderRadius.circular(50.0),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white, width: 1),
+                  borderRadius: BorderRadius.circular(50.0),
+                ),
                 prefixIcon: Icon(Icons.search),
                   suffixIcon: IconButton(
                     icon: Icon(Icons.clear),
@@ -20,6 +28,7 @@ class CocktailsFilterScreen extends StatelessWidget {
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(50.0),
+                    borderSide: BorderSide(color: Colors.white, width: 1),
                   ),
                   filled: true,
                   hintText: "Введите название коктейля",
