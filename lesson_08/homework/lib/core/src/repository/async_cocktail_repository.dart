@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 import '../../models.dart';
+import '../dto/ingredient_dto.dart';
 
 class AsyncCocktailRepository {
   static const String _apiKey = 'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b';
