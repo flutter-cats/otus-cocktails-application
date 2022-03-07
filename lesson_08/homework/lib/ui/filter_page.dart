@@ -8,30 +8,35 @@ class CocktailsFilterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff191826),
       body: SafeArea(
         child: Column(
           children: [
-            TextField(
-              decoration: InputDecoration(
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 1),
-                  borderRadius: BorderRadius.circular(50.0),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 1),
-                  borderRadius: BorderRadius.circular(50.0),
-                ),
-                prefixIcon: Icon(Icons.search),
-                  suffixIcon: IconButton(
-                    icon: Icon(Icons.clear),
-                    onPressed: () {},
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50.0),
+            Container(
+              height: 40,
+              child: TextField(
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                  focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.white, width: 1),
+                    borderRadius: BorderRadius.circular(50.0),
                   ),
-                  filled: true,
-                  hintText: "Введите название коктейля",
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white, width: 1),
+                    borderRadius: BorderRadius.circular(50.0),
+                  ),
+                  prefixIcon: Icon(Icons.search),
+                    suffixIcon: IconButton(
+                      icon: Icon(Icons.clear),
+                      onPressed: () {},
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(50.0),
+                      borderSide: BorderSide(color: Colors.white, width: 1),
+                    ),
+                    filled: true,
+                    hintText: "Введите название коктейля",
+                ),
               ),
             ),
             CategorySelector(),

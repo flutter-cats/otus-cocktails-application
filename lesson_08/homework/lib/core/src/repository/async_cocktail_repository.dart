@@ -203,6 +203,16 @@ class AsyncCocktailRepository {
     return result;
   }
 
+  Ingredient _createIngredientFromDto(IngredientDto dto) {
+    return Ingredient(
+        id: dto.idIngredient!,
+        name: dto.strIngredient!,
+        description: dto.strDescription!,
+        ingredientType: dto.strType!,
+        isAlcoholic: dto.strAlcohol == 'Yes' ? true : false
+    );
+  }
+
   Cocktail _createCocktailFromDto(CocktailDto dto) {
     final glass = GlassType.parse(dto.strGlass);
     final cocktailType = CocktailType.parse(dto.strAlcoholic);
