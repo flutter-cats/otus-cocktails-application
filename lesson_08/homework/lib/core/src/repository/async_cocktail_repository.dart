@@ -170,8 +170,36 @@ class AsyncCocktailRepository {
   /// TODO: implement Lookup ingredient by ID operation to get all details about Ingredient
   /// using an endpoint https://rapidapi.com/thecocktaildb/api/the-cocktail-db?endpoint=apiendpoint_0ee9572a-a259-4b6e-9e53-b97aa3d42b18
   ///
-  Future<Ingredient> lookupIngredientById() async {
-    throw UnimplementedError('Implement me');
+  Future<Ingredient?> lookupIngredientById(String id) async {
+    Ingredient? result;
+
+    var client = http.Client();
+    try {
+      String url = 'https://the-cocktail-db.p.rapidapi.com/lookup.php?iid=$id';
+      var response = await http.get(
+          Uri.parse(url),
+          headers: {
+            'x-rapidapi-host': 'the-cocktail-db.p.rapidapi.com',
+            'x-rapidapi-key':'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
+          }
+      );
+
+      if (response.statusCode == 200) {
+        final jsonResponse = convert.jsonDecode(response.body);
+        var ingredients = jsonResponse['ingredients'] as Iterable<dynamic>;
+
+        final dtos = ingredients
+            .cast<Map<String, dynamic>>()
+            .map((json) => IngredientDto.fromJson(json));
+        if (dtos.length > 0) {
+          result = _createIngredientFromDto(dtos.first);
+        }
+      }
+
+    } finally {
+      client.close();
+    }
+    return result;
   }
 
   Cocktail _createCocktailFromDto(CocktailDto dto) {
