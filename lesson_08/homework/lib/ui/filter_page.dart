@@ -68,10 +68,11 @@ class _CocktailsFilterScreenState extends State<CocktailsFilterScreen> {
                   builder: (context, snapshot) {
                     switch (snapshot.connectionState) {
                       case ConnectionState.waiting:
-                        return Text('Загрузка...');
+                        return Center(child: CircularProgressIndicator());
                       default:
                         if (snapshot.hasError) {
-                          return Text('Ошибка');
+                          return Center(
+                              child: Text('Ошибка загрузки: ${snapshot.error}'));
                         } else {
                           return CustomScrollView(
                             scrollDirection: Axis.vertical,

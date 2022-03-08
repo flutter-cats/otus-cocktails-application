@@ -18,7 +18,7 @@ class CocktailTagId extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(5.0),
+          padding: const EdgeInsets.all(10.0),
           child: Text('id: $id'),
         ),
       ),
