@@ -4,3 +4,7 @@
 Ссылка на макет https://www.figma.com/file/d2JJUBFu7Dg0HOV30XG7Z4/OTUS-FLUTTER.-%D0%A3%D1%80%D0%BE%D0%BA-3-%D0%94%D0%97?node-id=23%3A85
 
 
+![Скрин 1](screenshots/simulator_screenshot_1.png) 
+
+![Скрин 2](screenshots/simulator_screenshot_2.png) 
+
