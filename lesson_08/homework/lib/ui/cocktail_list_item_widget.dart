@@ -1,4 +1,5 @@
 import 'package:cocktail/core/models.dart';
+import 'package:cocktail/ui/colors.dart';
 import 'package:flutter/material.dart';
 
 class CocktailListItemWidget extends StatelessWidget {
@@ -30,11 +31,11 @@ class CocktailListItemWidget extends StatelessWidget {
                   child: Text('id: ${value.id}', textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.w400)),
                 ),
                 decoration: BoxDecoration(
-                    color: const Color(0xFF15151C),
+                    color: ListIdBackgroundColor,
                     border: Border.all(
-                      color: const Color(0xFF211D22),
+                      color: ListIdBorderColor,
                     ),
-                    borderRadius: BorderRadius.all(Radius.circular(30)))),
+                    borderRadius: const BorderRadius.all(Radius.circular(30)))),
           )
         ])
       ]),

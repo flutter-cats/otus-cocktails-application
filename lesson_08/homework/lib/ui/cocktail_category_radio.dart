@@ -1,4 +1,5 @@
 import 'package:cocktail/core/models.dart';
+import 'package:cocktail/ui/colors.dart';
 import 'package:flutter/material.dart';
 
 class CocktailCategoryRadio extends StatelessWidget {
@@ -16,7 +17,7 @@ class CocktailCategoryRadio extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool isSelected = value == groupValue;
     return Container(
-        margin: EdgeInsets.only(top: 22, left: 0, right: 10, bottom: 22),
+        margin: const EdgeInsets.only(top: 22, left: 0, right: 10, bottom: 22),
         child: InkWell(
             onTap: () => onChanged(value),
             splashColor: Colors.transparent,
@@ -25,10 +26,10 @@ class CocktailCategoryRadio extends StatelessWidget {
               child: Text(value.value, textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w400)),
             )),
         decoration: BoxDecoration(
-            color: isSelected ? const Color(0xFF3B3953) : const Color(0xFF201F2C),
+            color: isSelected ? CategorySelectedColor : CategoryDeselectedColor,
             border: Border.all(
-              color: const Color(0xFF2D2C39),
+              color: CategoryBorderColor,
             ),
-            borderRadius: BorderRadius.all(Radius.circular(30))));
+            borderRadius: const BorderRadius.all(Radius.circular(30))));
   }
 }
