@@ -10,15 +10,14 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('fetchCocktailsByCocktailType', () async {
-    final cokctails = await AsyncCocktailRepository()
-        .fetchCocktailsByCocktailType(CocktailType.alcoholic);
+    final cokctails = await AsyncCocktailRepository().fetchCocktailsByCocktailType(CocktailType.alcoholic);
     print(cokctails.join(','));
     expect(cokctails.isNotEmpty, true);
   });
 
-  test('fetchCocktailDetails',() async {
+  test('fetchCocktailDetails', () async {
     final cokctail = await AsyncCocktailRepository().fetchCocktailDetails('16963');
-    print(cokctail?.toString());
+    print(cokctail.toString());
     expect(cokctail.name, 'Zorbatini');
   });
 }
