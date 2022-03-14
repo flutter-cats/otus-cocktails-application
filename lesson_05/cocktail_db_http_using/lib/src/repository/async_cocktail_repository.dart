@@ -9,31 +9,36 @@ import 'package:http/http.dart' as http;
 
 class AsyncCocktailRepository {
   static const String _apiKey = 'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b';
+  static const String _apiPath = 'https://the-cocktail-db.p.rapidapi.com';
 
   static const Map<String, String> _headers = const {
     'x-rapidapi-key': _apiKey,
   };
 
-  Future<Cocktail?> fetchCocktailDetails(String id) async {
-    Cocktail? result;
-
+  Future<dynamic> _getDataFromApi(String suffix) async {
     var client = http.Client();
     try {
-      final url = 'https://the-cocktail-db.p.rapidapi.com/lookup.php?i=$id';
+      final url = '$_apiPath$suffix';
       var response = await http.get(Uri.parse(url), headers: _headers);
       if (response.statusCode == 200) {
-        final jsonResponse = convert.jsonDecode(response.body);
-        var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
-
-        final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDto.fromJson(json));
-        if (dtos.length > 0) {
-          result = _createCocktailFromDto(dtos.first);
-        }
+        return convert.jsonDecode(response.body);
       } else {
         throw HttpException('Request failed with status: ${response.statusCode}');
       }
     } finally {
       client.close();
+    }
+  }
+
+  Future<Cocktail?> fetchCocktailDetails(String id) async {
+    Cocktail? result;
+
+    final jsonResponse = await _getDataFromApi('/lookup.php?i=$id');
+    var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
+
+    final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDto.fromJson(json));
+    if (dtos.length > 0) {
+      result = _createCocktailFromDto(dtos.first);
     }
 
     return result;
@@ -42,34 +47,16 @@ class AsyncCocktailRepository {
   Future<Iterable<CocktailDefinition>> fetchCocktailsByCocktailType(CocktailType cocktailType) async {
     var result = <CocktailDefinition>[];
 
-    var client = http.Client();
-    try {
-      final url = 'https://the-cocktail-db.p.rapidapi.com/filter.php?a=${cocktailType.value}';
-      var response = await http.get(
-        Uri.parse(url),
-        headers: {
-          'x-rapidapi-key': 'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
-        },
-      );
-      if (response.statusCode == 200) {
-        final jsonResponse = convert.jsonDecode(response.body);
-        var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
-
-        final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDefinitionDto.fromJson(json));
-
-        for (final dto in dtos) {
-          result.add(CocktailDefinition(
-            id: dto.idDrink,
-            isFavourite: true,
-            name: dto.strDrink,
-            drinkThumbUrl: dto.strDrinkThumb,
-          ));
-        }
-      } else {
-        throw HttpException('Request failed with status: ${response.statusCode}');
-      }
-    } finally {
-      client.close();
+    final jsonResponse = await _getDataFromApi('/filter.php?a=${cocktailType.value}');
+    var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
+    final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDefinitionDto.fromJson(json));
+    for (final dto in dtos) {
+      result.add(CocktailDefinition(
+        id: dto.idDrink,
+        isFavourite: true,
+        name: dto.strDrink,
+        drinkThumbUrl: dto.strDrinkThumb,
+      ));
     }
 
     return result;
@@ -78,30 +65,14 @@ class AsyncCocktailRepository {
   Future<Iterable<Cocktail>> fetchPopularCocktails() async {
     var result = <Cocktail>[];
 
-    var client = http.Client();
-    try {
-      const url = 'https://the-cocktail-db.p.rapidapi.com/popular.php';
-      var response = await http.get(
-        Uri.parse(url),
-        headers: {
-          'x-rapidapi-key': 'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
-        },
-      );
-      if (response.statusCode == 200) {
-        final jsonResponse = convert.jsonDecode(response.body);
-        var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
+    final jsonResponse = await _getDataFromApi('/popular.php');
+    var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
 
-        final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDto.fromJson(json));
+    final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDto.fromJson(json));
 
-        for (final dto in dtos) {
-          final cocktail = _createCocktailFromDto(dto);
-          result.add(cocktail);
-        }
-      } else {
-        throw HttpException('Request failed with status: ${response.statusCode}');
-      }
-    } finally {
-      client.close();
+    for (final dto in dtos) {
+      final cocktail = _createCocktailFromDto(dto);
+      result.add(cocktail);
     }
 
     return result;
@@ -110,23 +81,12 @@ class AsyncCocktailRepository {
   Future<Cocktail?> getRandomCocktail() async {
     Cocktail? result;
 
-    var client = http.Client();
-    try {
-      const url = 'https://the-cocktail-db.p.rapidapi.com/random.php';
-      var response = await http.get(Uri.parse(url), headers: _headers);
-      if (response.statusCode == 200) {
-        final jsonResponse = convert.jsonDecode(response.body);
-        var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
+    final jsonResponse = await _getDataFromApi('/random.php');
+    var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
 
-        final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDto.fromJson(json));
-        if (dtos.length > 0) {
-          result = _createCocktailFromDto(dtos.first);
-        }
-      } else {
-        throw HttpException('Request failed with status: ${response.statusCode}');
-      }
-    } finally {
-      client.close();
+    final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDto.fromJson(json));
+    if (dtos.length > 0) {
+      result = _createCocktailFromDto(dtos.first);
     }
 
     return result;
@@ -143,24 +103,12 @@ class AsyncCocktailRepository {
   Future<Ingredient?> lookupIngredientById(String iid) async {
     Ingredient? result;
 
-    var client = http.Client();
-    try {
-      final queryParameters = {'iid': iid};
-      final uri = Uri.https('the-cocktail-db.p.rapidapi.com', '/lookup.php', queryParameters);
-      var response = await http.get(uri, headers: _headers);
-      if (response.statusCode == 200) {
-        final jsonResponse = convert.jsonDecode(response.body);
-        var ingredients = jsonResponse['ingredients'] as Iterable<dynamic>;
+    final jsonResponse = await _getDataFromApi('/lookup.php?iid=$iid');
+    var ingredients = jsonResponse['ingredients'] as Iterable<dynamic>;
 
-        final dtos = ingredients.cast<Map<String, dynamic>>().map((json) => IngredientDto.fromJson(json));
-        if (dtos.length > 0) {
-          result = _createIngredientFromDto(dtos.first);
-        }
-      } else {
-        throw HttpException('Request failed with status: ${response.statusCode}');
-      }
-    } finally {
-      client.close();
+    final dtos = ingredients.cast<Map<String, dynamic>>().map((json) => IngredientDto.fromJson(json));
+    if (dtos.length > 0) {
+      result = _createIngredientFromDto(dtos.first);
     }
 
     return result;
