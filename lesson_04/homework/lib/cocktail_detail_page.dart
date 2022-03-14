@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homework/colors.dart';
 import 'package:homework/models/models.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -23,9 +24,17 @@ class CocktailDetailPage extends StatelessWidget {
               backgroundColor: Colors.transparent,
               elevation: 0,
               title: Row(children: <Widget>[
-                new SizedBox(height: 32, width: 32, child: IconButton(icon: SvgPicture.asset('assets/images/icon_back.svg', color: Colors.white, height: 16, width: 16), onPressed: () => {})),
+                new SizedBox(
+                  height: 32,
+                  width: 32,
+                  child: IconButton(icon: SvgPicture.asset('assets/images/icon_back.svg', color: Colors.white, height: 16, width: 16), onPressed: () => {}),
+                ),
                 Spacer(),
-                new SizedBox(height: 32, width: 32, child: IconButton(icon: SvgPicture.asset('assets/images/icon_out.svg', color: Colors.white), padding: EdgeInsets.zero, onPressed: () => {})),
+                new SizedBox(
+                  height: 32,
+                  width: 32,
+                  child: IconButton(icon: SvgPicture.asset('assets/images/icon_out.svg', color: Colors.white), padding: EdgeInsets.zero, onPressed: () => {}),
+                ),
               ])),
           body: SingleChildScrollView(
               child: Column(
@@ -34,7 +43,7 @@ class CocktailDetailPage extends StatelessWidget {
               ConstrainedBox(
                   constraints: BoxConstraints(),
                   child: Container(
-                      color: const Color(0xFF1A1927),
+                      color: BackgroundColor,
                       padding: const EdgeInsets.all(32),
                       child: Column(children: <Widget>[
                         Padding(
@@ -61,7 +70,7 @@ class CocktailDetailPage extends StatelessWidget {
                             padding: EdgeInsets.only(top: 10),
                             child: Align(
                                 alignment: Alignment.centerLeft,
-                                child: Text("Id:${cocktail.id}", textAlign: TextAlign.start, style: TextStyle(color: const Color(0xFF848396), fontSize: 13, fontWeight: FontWeight.w400)))),
+                                child: Text("Id:${cocktail.id}", textAlign: TextAlign.start, style: TextStyle(color: IdColor, fontSize: 13, fontWeight: FontWeight.w400)))),
                         Padding(padding: EdgeInsets.only(top: 10), child: ClassText(className: 'Категория коктейля', classValue: cocktail.category.value)),
                         Padding(padding: EdgeInsets.only(top: 10), child: ClassText(className: 'Тип коктейля', classValue: cocktail.cocktailType.value)),
                         Padding(padding: EdgeInsets.only(top: 10), child: ClassText(className: 'Тип стекла', classValue: cocktail.glassType.value)),
@@ -72,7 +81,7 @@ class CocktailDetailPage extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 24, left: 32, right: 32, bottom: 24),
                     child: Column(
                       children: [
-                        Text('Ингредиенты:', style: TextStyle(color: const Color(0xFFB1AFC6), fontSize: 16, fontWeight: FontWeight.w500)),
+                        Text('Ингредиенты:', style: TextStyle(color: TextColor, fontSize: 16, fontWeight: FontWeight.w500)),
                         for (var ingredient in cocktail.ingredients) IngredientText(ingredientName: ingredient.ingredientName, ingredientValue: ingredient.measure)
                       ],
                     ),
@@ -80,7 +89,7 @@ class CocktailDetailPage extends StatelessWidget {
               ConstrainedBox(
                   constraints: BoxConstraints(),
                   child: Container(
-                      color: const Color(0xFF201F2C),
+                      color: BackColor,
                       padding: const EdgeInsets.only(top: 0, left: 32, right: 32, bottom: 40),
                       child: Column(
                         children: [
@@ -91,7 +100,7 @@ class CocktailDetailPage extends StatelessWidget {
                           Text(cocktail.instruction.replaceAll('-', '·'), style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w400, height: 2)),
                         ],
                       ))),
-              ConstrainedBox(constraints: BoxConstraints(), child: Container(color: const Color(0xFF1A1927), padding: const EdgeInsets.all(32), child: RatingBar(rating: 3))),
+              ConstrainedBox(constraints: BoxConstraints(), child: Container(color: BackgroundColor, padding: const EdgeInsets.all(32), child: RatingBar(rating: 3))),
             ],
           ))),
     );
@@ -108,21 +117,32 @@ class ClassText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Align(alignment: Alignment.centerLeft, child: Text(className, textAlign: TextAlign.start, style: TextStyle(color: const Color(0xFFEAEAEA), fontSize: 14, fontWeight: FontWeight.w400))),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            className,
+            textAlign: TextAlign.start,
+            style: TextStyle(color: ClassColor, fontSize: 14, fontWeight: FontWeight.w400),
+          ),
+        ),
         Padding(
             padding: EdgeInsets.only(top: 8),
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Container(
                     decoration: BoxDecoration(
-                        color: const Color(0xFF15151C),
+                        color: BorderColor,
                         border: Border.all(
-                          color: const Color(0xFF15151C),
+                          color: BorderColor,
                         ),
                         borderRadius: BorderRadius.all(Radius.circular(30))),
                     child: Padding(
                       padding: const EdgeInsets.all(8),
-                      child: Text(classValue, textAlign: TextAlign.start, style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w400)),
+                      child: Text(
+                        classValue,
+                        textAlign: TextAlign.start,
+                        style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w400),
+                      ),
                     )))),
       ],
     );
@@ -141,9 +161,17 @@ class IngredientText extends StatelessWidget {
       padding: const EdgeInsets.only(top: 24),
       child: Row(
         children: [
-          Text(ingredientName, textAlign: TextAlign.start, style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w400, decoration: TextDecoration.underline)),
+          Text(
+            ingredientName,
+            textAlign: TextAlign.start,
+            style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w400, decoration: TextDecoration.underline),
+          ),
           Spacer(),
-          Text(ingredientValue, textAlign: TextAlign.end, style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500))
+          Text(
+            ingredientValue,
+            textAlign: TextAlign.end,
+            style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),
+          )
         ],
       ),
     );
@@ -165,9 +193,9 @@ class RatingBar extends StatelessWidget {
               constraints: BoxConstraints(minHeight: 48, maxHeight: 48, maxWidth: 48, minWidth: 48),
               child: Container(
                 decoration: BoxDecoration(
-                    color: const Color(0xFF2A293A),
+                    color: RatingColor,
                     border: Border.all(
-                      color: const Color(0xFF2A293A),
+                      color: RatingColor,
                     ),
                     borderRadius: BorderRadius.all(Radius.circular(24))),
                 child: Icon(Icons.star, size: 32, color: rating >= i ? Colors.white : Colors.transparent),
