@@ -10,10 +10,16 @@ import 'package:http/http.dart' as http;
 class AsyncCocktailRepository {
   static const String _apiKey = 'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b';
   static const String _apiPath = 'https://the-cocktail-db.p.rapidapi.com';
-
   static const Map<String, String> _headers = const {
     'x-rapidapi-key': _apiKey,
   };
+  static const String _lookupPath = 'lookup';
+  static const String _lookupCocktailParameter = 'i';
+  static const String _lookupIngredientParameter = 'iid';
+  static const String _filterPath = 'filter';
+  static const String _filterParameter = 'a';
+  static const String _popularPath = 'popular';
+  static const String _randomPath = 'random';
 
   Future<dynamic> _getDataFromApi(String suffix) async {
     var client = http.Client();
@@ -33,7 +39,7 @@ class AsyncCocktailRepository {
   Future<Cocktail?> fetchCocktailDetails(String id) async {
     Cocktail? result;
 
-    final jsonResponse = await _getDataFromApi('/lookup.php?i=$id');
+    final jsonResponse = await _getDataFromApi('/$_lookupPath.php?$_lookupCocktailParameter=$id');
     var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
 
     final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDto.fromJson(json));
@@ -47,7 +53,7 @@ class AsyncCocktailRepository {
   Future<Iterable<CocktailDefinition>> fetchCocktailsByCocktailType(CocktailType cocktailType) async {
     var result = <CocktailDefinition>[];
 
-    final jsonResponse = await _getDataFromApi('/filter.php?a=${cocktailType.value}');
+    final jsonResponse = await _getDataFromApi('/$_filterPath.php?$_filterParameter=${cocktailType.value}');
     var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
     final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDefinitionDto.fromJson(json));
     for (final dto in dtos) {
@@ -65,7 +71,7 @@ class AsyncCocktailRepository {
   Future<Iterable<Cocktail>> fetchPopularCocktails() async {
     var result = <Cocktail>[];
 
-    final jsonResponse = await _getDataFromApi('/popular.php');
+    final jsonResponse = await _getDataFromApi('/$_popularPath.php');
     var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
 
     final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDto.fromJson(json));
@@ -81,7 +87,7 @@ class AsyncCocktailRepository {
   Future<Cocktail?> getRandomCocktail() async {
     Cocktail? result;
 
-    final jsonResponse = await _getDataFromApi('/random.php');
+    final jsonResponse = await _getDataFromApi('/$_randomPath.php');
     var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
 
     final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDto.fromJson(json));
@@ -103,7 +109,7 @@ class AsyncCocktailRepository {
   Future<Ingredient?> lookupIngredientById(String iid) async {
     Ingredient? result;
 
-    final jsonResponse = await _getDataFromApi('/lookup.php?iid=$iid');
+    final jsonResponse = await _getDataFromApi('/$_lookupPath.php?$_lookupIngredientParameter=$iid');
     var ingredients = jsonResponse['ingredients'] as Iterable<dynamic>;
 
     final dtos = ingredients.cast<Map<String, dynamic>>().map((json) => IngredientDto.fromJson(json));
