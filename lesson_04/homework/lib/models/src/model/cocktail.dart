@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 import 'cocktail_category.dart';
 import 'cocktail_type.dart';
 import 'glass_type.dart';
@@ -27,9 +25,11 @@ import 'ingredient_definition.dart';
 ///            "strIBA": null,
 ///            "strAlcoholic": "Alcoholic",
 ///            "strGlass": "Cocktail glass",
-///            "strInstructions": "Stir all ingredients with ice, strain contents into a cocktail glass, and serve.",
+///            "strInstructions": "Stir all ingredients with ice, strain
+///            contents into a cocktail glass, and serve.",
 ///            "strInstructionsES": null,
-///            "strInstructionsDE": "Alle Zutaten mit Eis verrühren, Inhalt in ein Cocktailglas abseihen und servieren.",
+///            "strInstructionsDE": "Alle Zutaten mit Eis verrühren, Inhalt in
+///            ein Cocktailglas abseihen und servieren.",
 ///            "strInstructionsFR": null,
 ///            "strInstructionsZH-HANS": null,
 ///            "strInstructionsZH-HANT": null,
@@ -95,14 +95,14 @@ class Cocktail {
   final bool isFavourite;
 
   Cocktail({
-    @required this.id,
-    @required this.name,
-    @required this.instruction,
-    @required this.category,
-    @required this.glassType,
-    @required this.cocktailType,
-    @required this.ingredients,
-    @required this.drinkThumbUrl,
-    @required this.isFavourite,
+    required this.id,
+    required this.name,
+    required this.instruction,
+    required this.category,
+    required this.glassType,
+    required this.cocktailType,
+    required this.ingredients,
+    required this.drinkThumbUrl,
+    required this.isFavourite,
   });
 }

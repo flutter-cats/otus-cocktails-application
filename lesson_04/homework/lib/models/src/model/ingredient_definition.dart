@@ -1,5 +1,6 @@
 ///
-/// Ingredient definition used to describe Cocktail instruction depending on measurement
+/// Ingredient definition used to describe Cocktail instruction depending on
+/// measurement
 ///
 class IngredientDefinition {
   final String ingredientName;
