@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:homework/models/res/app_colors.dart';
-import 'package:homework/state_widget.dart';
+import 'package:homework/cocktail_info_wrapper.dart';
+
+import '../../../models/res/app_dimens.dart';
 
 class FavouriteButton extends StatelessWidget {
   const FavouriteButton({Key? key, required this.isFavourite})
@@ -18,8 +20,8 @@ class FavouriteButton extends StatelessWidget {
       },
       icon: SvgPicture.asset(
         'assets/images/icon_hart.svg',
-        width: 20.0,
-        height: 20.0,
+        width: AppDimensions.favouriteButtonSize,
+        height: AppDimensions.favouriteButtonSize,
         color: isFavourite
             ? AppColors.likeIconActive
             : AppColors.likeIconNotActive,

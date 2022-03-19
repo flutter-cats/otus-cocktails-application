@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:homework/models/models.dart';
-import 'package:homework/models/res/app_colors.dart';
-import 'package:homework/models/res/strings.dart';
-
+import 'package:homework/models/res/app_strings.dart';
+import '../../../models/res/app_dimens.dart';
+import '../../../models/res/app_styles.dart';
 import 'ingredient_item.dart';
 
 class IngredientsWidget extends StatelessWidget {
@@ -16,23 +16,20 @@ class IngredientsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.fromLTRB(32.0, 36.0, 24.0, 24.0),
+      padding: AppDimensions.ingredientsWidgetPadding,
       child: Column(
         children: [
           const Text(
-            Strings.ingredients,
-            style: TextStyle(
-              fontSize: 16.0,
-              color: AppColors.ingredients,
-            ),
+            AppStrings.ingredients,
+            style: AppStyles.ingredientsTextStyle,
           ),
           const SizedBox(
-            height: 24.0,
+            height: AppDimensions.ingredientsListTopPadding,
           ),
           ListView.separated(
             physics: const NeverScrollableScrollPhysics(),
             separatorBuilder: (context, index) => const SizedBox(
-              height: 16,
+              height: AppDimensions.listSeparatorHeight,
             ),
             shrinkWrap: true,
             itemCount: ingredients.length,

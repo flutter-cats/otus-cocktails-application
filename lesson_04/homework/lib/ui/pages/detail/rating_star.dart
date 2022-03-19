@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:homework/models/res/app_colors.dart';
-import 'package:homework/state_widget.dart';
+import 'package:homework/cocktail_info_wrapper.dart';
+
+import '../../../models/res/app_dimens.dart';
 
 class RatingStar extends StatelessWidget {
-  const RatingStar({required Key? key, required this.isEnabled})
+  const RatingStar({Key? key, required this.isEnabled, required this.starIndex})
       : super(key: key);
 
   final bool isEnabled;
+  final int starIndex;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 48.0,
-      width: 48.0,
+      height: AppDimensions.ratingStarHeight,
+      width: AppDimensions.ratingStarWidth,
       decoration: const BoxDecoration(
         shape: BoxShape.circle,
         color: AppColors.starBackground,
@@ -20,12 +23,11 @@ class RatingStar extends StatelessWidget {
       child: IconButton(
         icon: Icon(
           Icons.star,
-          size: 32.0,
+          size: AppDimensions.starIconSize,
           color: isEnabled ? AppColors.starEnabled : AppColors.starDisabled,
         ),
         onPressed: () {
-          StateInheritedWidget.of(context)
-              .setRating(int.parse(key.toString()[2]) + 1);
+          StateInheritedWidget.of(context).setRating(starIndex);
         },
       ),
     );

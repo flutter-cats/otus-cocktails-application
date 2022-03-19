@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../models/res/app_dimens.dart';
+
 class CocktailImageWidget extends StatelessWidget {
   const CocktailImageWidget({
     Key? key,
@@ -17,26 +19,26 @@ class CocktailImageWidget extends StatelessWidget {
       children: [
         Image.network(cocktailImageUrl),
         Positioned(
-          top: 10,
-          left: 20,
+          top: AppDimensions.appBarIconButtonTopPositioned,
+          left: AppDimensions.backButtonLeftPositioned,
           child: IconButton(
             onPressed: () {},
             icon: SvgPicture.asset(
               'assets/images/icon_back.svg',
-              width: 24.0,
-              height: 24.0,
+              width: AppDimensions.appBarIconButtonSize,
+              height: AppDimensions.appBarIconButtonSize,
             ),
           ),
         ),
         Positioned(
-          top: 10,
-          right: 8,
+          top: AppDimensions.appBarIconButtonTopPositioned,
+          right: AppDimensions.logOutButtonRightPositioned,
           child: IconButton(
             onPressed: () {},
             icon: SvgPicture.asset(
               'assets/images/icon_out.svg',
-              width: 24.0,
-              height: 24.0,
+              width: AppDimensions.appBarIconButtonSize,
+              height: AppDimensions.appBarIconButtonSize,
             ),
           ),
         ),

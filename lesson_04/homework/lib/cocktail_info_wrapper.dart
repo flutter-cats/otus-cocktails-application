@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class StateWidget extends StatefulWidget {
-  const StateWidget(
+class CocktailInfoWrapper extends StatefulWidget {
+  const CocktailInfoWrapper(
       {Key? key,
       required this.child,
       required this.isFavourite,
@@ -13,10 +13,10 @@ class StateWidget extends StatefulWidget {
   final Widget child;
 
   @override
-  _StateWidgetState createState() => _StateWidgetState();
+  _CocktailInfoWrapperState createState() => _CocktailInfoWrapperState();
 }
 
-class _StateWidgetState extends State<StateWidget> {
+class _CocktailInfoWrapperState extends State<CocktailInfoWrapper> {
   late int rating;
   late bool isFavourite;
 
@@ -59,9 +59,9 @@ class StateInheritedWidget extends InheritedWidget {
 
   final int? rating;
   final bool isFavourite;
-  final _StateWidgetState stateWidget;
+  final _CocktailInfoWrapperState stateWidget;
 
-  static _StateWidgetState of(BuildContext context) {
+  static _CocktailInfoWrapperState of(BuildContext context) {
     final result = context
         .dependOnInheritedWidgetOfExactType<StateInheritedWidget>()
         ?.stateWidget;

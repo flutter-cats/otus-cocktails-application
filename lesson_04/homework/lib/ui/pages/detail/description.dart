@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:homework/state_widget.dart';
+import 'package:homework/cocktail_info_wrapper.dart';
 import 'package:homework/ui/pages/detail/description_item.dart';
 import 'package:homework/ui/pages/detail/favourite_button.dart';
 import '../../../models/res/app_colors.dart';
-import '../../../models/res/strings.dart';
+import '../../../models/res/app_dimens.dart';
+import '../../../models/res/app_strings.dart';
+import '../../../models/res/app_styles.dart';
 
 class DescriptionWidget extends StatelessWidget {
   const DescriptionWidget({
@@ -25,38 +27,32 @@ class DescriptionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final isFavourite = StateInheritedWidget.of(context).isFavourite;
     return Container(
-      padding: const EdgeInsets.fromLTRB(32.0, 22.0, 32.0, 18.0),
+      padding: AppDimensions.descriptionWidgetPadding,
       color: AppColors.alternativeBackground,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ListTile(
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+            contentPadding: AppDimensions.listTileContentPadding,
             leading: Text(
               cocktailName,
-              style: const TextStyle(
-                fontSize: 20.0,
-              ),
+              style: AppStyles.cocktailNameTextStyle,
             ),
             trailing: FavouriteButton(isFavourite: isFavourite),
           ),
           Text(
             'id:${cocktailId}',
-            style: const TextStyle(
-              fontSize: 13.0,
-              color: AppColors.idColor,
-            ),
+            style: AppStyles.cocktailIdTextStyle,
           ),
           DescriptionItem(
-            descriptionName: Strings.cocktailCategory,
+            descriptionName: AppStrings.cocktailCategory,
             descriptionValue: cocktailCategory,
           ),
           DescriptionItem(
-              descriptionName: Strings.cocktailType,
+              descriptionName: AppStrings.cocktailType,
               descriptionValue: cocktailType),
           DescriptionItem(
-            descriptionName: Strings.glassType,
+            descriptionName: AppStrings.glassType,
             descriptionValue: glassType,
           ),
         ],

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:homework/models/res/app_colors.dart';
 
+import '../../../models/res/app_dimens.dart';
+import '../../../models/res/app_styles.dart';
+
 class DescriptionItem extends StatelessWidget {
   const DescriptionItem(
       {Key? key, required this.descriptionName, required this.descriptionValue})
@@ -15,14 +18,11 @@ class DescriptionItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(
-          height: 18.0,
+          height: AppDimensions.descriptionItemTopPadding,
         ),
         Text(
           descriptionName,
-          style: const TextStyle(
-            fontSize: 14.0,
-            color: AppColors.descriptionName,
-          ),
+          style: AppStyles.descriptionNameTextStyle,
         ),
         Chip(
           label: Text(descriptionValue),

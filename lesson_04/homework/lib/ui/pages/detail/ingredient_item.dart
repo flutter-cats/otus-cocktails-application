@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../models/res/app_styles.dart';
+
 class IngredientItem extends StatelessWidget {
   const IngredientItem(
       {Key? key, required this.ingredientName, required this.ingredientMeasure})
@@ -16,9 +18,7 @@ class IngredientItem extends StatelessWidget {
         Flexible(
           child: Text(
             ingredientName,
-            style: const TextStyle(
-              decoration: TextDecoration.underline,
-            ),
+            style: AppStyles.ingredientNameTextStyle,
           ),
         ),
         Text(

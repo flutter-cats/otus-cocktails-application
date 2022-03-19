@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:homework/models/res/app_colors.dart';
-import 'package:homework/models/res/strings.dart';
+import 'package:homework/models/res/app_strings.dart';
 
+import '../../../models/res/app_dimens.dart';
 import 'instruction_item.dart';
 
 class InstructionsWidget extends StatelessWidget {
@@ -16,19 +17,19 @@ class InstructionsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final instructionsList = instructions.split('-').sublist(1);
     return Container(
-      padding: const EdgeInsets.all(32.0),
+      padding: AppDimensions.instructionsWidgetPadding,
       color: AppColors.alternativeBackground,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(Strings.instructions),
+          const Text(AppStrings.instructions),
           const SizedBox(
-            height: 23.0,
+            height: AppDimensions.instructionsListTopPadding,
           ),
           ListView.separated(
             physics: const NeverScrollableScrollPhysics(),
             separatorBuilder: (context, index) => const SizedBox(
-              height: 16,
+              height: AppDimensions.listSeparatorHeight,
             ),
             shrinkWrap: true,
             itemCount: instructionsList.length,

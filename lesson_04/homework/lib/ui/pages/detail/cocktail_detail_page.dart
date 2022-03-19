@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../../state_widget.dart';
+import '../../../cocktail_info_wrapper.dart';
 import '../../../models/models.dart';
 import '../../../models/res/app_colors.dart';
 import 'cocktail_detail_widgets.dart';
@@ -18,7 +18,7 @@ class CocktailDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    return StateWidget(
+    return CocktailInfoWrapper(
       isFavourite: cocktail.isFavourite,
       rating: rating,
       child: Container(
