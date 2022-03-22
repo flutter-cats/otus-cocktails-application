@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:cocktail_app_models/models.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_definition_dto.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_dto.dart';
+import 'package:cocktail_db_http_using/src/dto/ingredient/ingredient_dto.dart';
+import 'package:cocktail_db_http_using/src/dto/ingredient/ingredient_dto_serializer.dart';
 import 'package:http/http.dart' as http;
 
 class AsyncCocktailRepository {
@@ -148,17 +150,42 @@ class AsyncCocktailRepository {
     return result;
   }
 
-  ///
-  /// TODO: implement Lookup ingredient by ID operation to get all details about Ingredient
-  /// using an endpoint
-  /// description is available here
-  /// https://rapidapi.com/thecocktaildb/api/the-cocktail-db?endpoint=apiendpoint_0ee9572a-a259-4b6e-9e53-b97aa3d42b18
-  ///
-  /// api operation is:
-  /// https://the-cocktail-db.p.rapidapi.com/lookup.php
-  ///
-  Future<Ingredient?> lookupIngredientById() async {
-    return null;
+  Future<Ingredient?> lookupIngredientById(String iid) async {
+    Ingredient? result;
+    var client = http.Client();
+    try {
+      String url =
+          'https://the-cocktail-db.p.rapidapi.com/lookup.php?iid=${iid}';
+      print(url);
+      var response = await http.get(Uri.parse(url), headers: _headers);
+      if (response.statusCode == 200) {
+        final jsonResponse = convert.jsonDecode(response.body);
+        var ingredients = jsonResponse['ingredients'] as Iterable<dynamic>;
+        final dtos = ingredients.cast<Map<String, dynamic>>().map((json) =>
+            serializers.deserializeWith(IngredientDto.serializer, json));
+
+        if (dtos.length > 0) {
+          result = _createIngredientFromDto(dtos.first!);
+        }
+      } else {
+        throw HttpException(
+            'Request failed with status: ${response.statusCode}');
+      }
+    } finally {
+      client.close();
+    }
+
+    return result;
+  }
+
+  Ingredient _createIngredientFromDto(IngredientDto data) {
+    return Ingredient(
+      id: data.id,
+      name: data.name,
+      description: data.description,
+      ingredientType: data.ingredientType,
+      isAlcoholic: data.isAlcoholic,
+    );
   }
 
   Cocktail _createCocktailFromDto(CocktailDto dto) {

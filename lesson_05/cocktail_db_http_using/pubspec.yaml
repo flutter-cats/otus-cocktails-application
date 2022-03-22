@@ -6,7 +6,9 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  built_value: ^8.0.4
   json_annotation: ^4.0.0
+  # freezed_annotation: ^0.14.1
   # обратите внимание - я могу указать зависимость на репозиторий из git с указанием отдельной ветки
   # и конкретный путь к фолдеру/директории
   cocktail_app_models:
@@ -19,4 +21,5 @@ dev_dependencies:
   pedantic: ^1.9.0
   http: ^0.13.0
   build_runner: ^1.12.2
+  built_value_generator: ^8.0.4
   json_serializable: ^4.0.3
