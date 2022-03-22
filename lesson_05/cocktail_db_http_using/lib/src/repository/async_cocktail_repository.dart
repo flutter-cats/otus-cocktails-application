@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:cocktail_app_models/models.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_definition_dto.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_dto.dart';
+import 'package:cocktail_db_http_using/src/dto/cocktail_ingredient_dto.dart';
 import 'package:http/http.dart' as http;
 
 class AsyncCocktailRepository {
@@ -127,6 +128,7 @@ class AsyncCocktailRepository {
     try {
       const url = 'https://the-cocktail-db.p.rapidapi.com/random.php';
       var response = await http.get(Uri.parse(url), headers: _headers);
+
       if (response.statusCode == 200) {
         final jsonResponse = convert.jsonDecode(response.body);
         var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
@@ -134,6 +136,7 @@ class AsyncCocktailRepository {
         final dtos = drinks
             .cast<Map<String, dynamic>>()
             .map((json) => CocktailDto.fromJson(json));
+
         if (dtos.length > 0) {
           result = _createCocktailFromDto(dtos.first);
         }
@@ -157,8 +160,42 @@ class AsyncCocktailRepository {
   /// api operation is:
   /// https://the-cocktail-db.p.rapidapi.com/lookup.php
   ///
-  Future<Ingredient?> lookupIngredientById() async {
-    return null;
+  Future<Ingredient?> lookupIngredientById(String id) async {
+    late Ingredient result;
+
+    final client = http.Client();
+    try {
+      final url = 'https://the-cocktail-db.p.rapidapi.com/lookup.php?iid=${id}';
+      final response = await client.get(Uri.parse(url), headers: _headers);
+
+      if (response.statusCode == HttpStatus.ok) {
+        final jsonResponse = convert.jsonDecode(response.body);
+        final ingredients = jsonResponse['ingredients'] as Iterable<dynamic>;
+
+        final dto = ingredients
+            .cast<Map<String, dynamic>>()
+            .map((json) => IngredientDto.fromJson(json));
+
+        if (dto.length > 0) {
+          result = _createIngredientFromDto(dto.first);
+        }
+      }
+    } catch (e) {
+      print(e);
+    } finally {
+      client.close();
+    }
+    return result;
+  }
+
+  Ingredient _createIngredientFromDto(IngredientDto dto) {
+    return Ingredient(
+      id: dto.idIngredient,
+      name: dto.strIngredient,
+      description: dto.strDescription,
+      ingredientType: dto.strType,
+      isAlcoholic: dto.strAlcohol?.toLowerCase() == 'true',
+    );
   }
 
   Cocktail _createCocktailFromDto(CocktailDto dto) {
