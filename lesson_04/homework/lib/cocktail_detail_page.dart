@@ -1,7 +1,25 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:homework/models/models.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hexcolor/hexcolor.dart';
+
+import 'AppColors.dart';
+
+class Stars extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return CircleAvatar(
+      backgroundColor: AppColors.PRIMARY_BG_STAR,
+      child: Icon(
+        Icons.star,
+        color: AppColors.PRIMARY_TEXT_LIGHT,
+      ),
+    );
+  }
+}
+
+// The ListView.builder constructor takes an IndexedWidgetBuilder, which builds the children on demand.
 
 class CocktailDetailPage extends StatelessWidget {
   const CocktailDetailPage(
@@ -21,18 +39,54 @@ class CocktailDetailPage extends StatelessWidget {
     ///для того чтобы весь контент поместился, необходимо использовать SingleChildScrollView()
     ///
     ///
+    ///
+    String mystringInstruction = cocktail.instruction;
+    final letter = '-';
+    final newLetter = '\u2022';
+    mystringInstruction = mystringInstruction.replaceAll(letter, newLetter);
+    List<String> mylistInstruction = mystringInstruction.split('\n');
+    Widget iconStarOn = CircleAvatar(
+      backgroundColor: AppColors.PRIMARY_BG_STAR,
+      child: Icon(
+        Icons.star,
+        color: AppColors.PRIMARY_TEXT_LIGHT,
+      ),
+    );
+    Widget iconStarOff = CircleAvatar(
+      backgroundColor: AppColors.PRIMARY_BG_STAR,
+      child: Icon(
+        Icons.star,
+        color: AppColors.PRIMARY_STAR_INVISIBLE,
+      ),
+    );
+    final icons = List<Widget>.generate(5, (index) => iconStarOn);
+    var icons3 = icons;
+    icons3[3] = iconStarOff;
+    icons3[4] = iconStarOff;
+
+    var screenSize = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
-              width: double.infinity,
-              height: 365,
+              width: screenSize.width,
+              height: screenSize.height / 2,
               padding: const EdgeInsets.all(15.0),
               decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: Offset(0, 3), // changes position of shadow
+                  ),
+                ],
                 image: DecorationImage(
-                    image: Image.asset("assets/images/foto_mohito.png").image,
-                    fit: BoxFit.cover),
+                    image: Image.asset(
+                      "assets/images/foto_mohito.png",
+                    ).image,
+                    fit: BoxFit.fitHeight),
               ),
               child: SafeArea(
                 child: Row(
@@ -41,18 +95,19 @@ class CocktailDetailPage extends StatelessWidget {
                   children: <Widget>[
                     IconButton(
                         icon: SvgPicture.asset("assets/images/icon_back.svg"),
-                        color: Colors.white,
+                        color: AppColors.PRIMARY_TEXT_LIGHT,
                         onPressed: () {}),
                     IconButton(
                         icon: SvgPicture.asset("assets/images/icon_out.svg"),
-                        color: Colors.white,
+                        color: AppColors.PRIMARY_TEXT_LIGHT,
                         onPressed: () {}),
                   ],
                 ),
               ),
             ),
             Container(
-                color: HexColor("#1A1927"),
+                // height: screenSize.height / 2.2,
+                color: AppColors.PRIMARY_GREY,
                 padding: const EdgeInsets.all(32.0),
                 child: Column(
                   children: [
@@ -63,102 +118,102 @@ class CocktailDetailPage extends StatelessWidget {
                         Text(
                           cocktail.name,
                           style: TextStyle(
-                              color: Colors.white,
+                              color: AppColors.PRIMARY_TEXT_LIGHT,
                               fontSize: 20,
                               fontWeight: FontWeight.bold),
                         ),
                         IconButton(
                             icon:
                                 SvgPicture.asset("assets/images/icon_hart.svg"),
-                            color: Colors.white,
+                            color: AppColors.PRIMARY_TEXT_LIGHT,
                             onPressed: () {}),
                       ],
                     ),
                     Container(
-                      width: 800,
+                      width: screenSize.width,
                       child: Text(
                         cocktail.id,
                         textAlign: TextAlign.left,
                         style: TextStyle(
-                            color: HexColor("#848396"),
+                            color: AppColors.PRIMARY_TEXT_DARK_GREY,
                             fontSize: 13,
                             fontWeight: FontWeight.normal),
                       ),
                     ),
                     Container(
-                      width: 800,
+                      width: screenSize.width,
                       padding: EdgeInsets.only(
                           top: 20, bottom: 0, left: 0, right: 0),
                       child: Text(
                         'Категория коктейля',
                         textAlign: TextAlign.left,
                         style: TextStyle(
-                            color: HexColor("#EAEAEA"),
+                            color: AppColors.PRIMARY_TEXT_GREY,
                             fontSize: 14,
                             fontWeight: FontWeight.normal),
                       ),
                     ),
                     Container(
-                      width: 800,
+                      width: screenSize.width,
                       padding: EdgeInsets.only(
                           top: 14, bottom: 0, left: 16, right: 0),
                       child: Text(
-                        'Coctail',
+                        cocktail.category.value.toString(),
                         textAlign: TextAlign.left,
                         style: TextStyle(
-                            color: HexColor("#ffffff"),
+                            color: AppColors.PRIMARY_TEXT_LIGHT,
                             fontSize: 15,
                             fontWeight: FontWeight.normal),
                       ),
                     ),
                     Container(
-                      width: 800,
+                      width: screenSize.width,
                       padding: EdgeInsets.only(
                           top: 20, bottom: 0, left: 0, right: 0),
                       child: Text(
                         'Тип коктейля',
                         //textAlign: TextAlign.left,
                         style: TextStyle(
-                            color: HexColor("#EAEAEA"),
+                            color: AppColors.PRIMARY_TEXT_GREY,
                             fontSize: 14,
                             fontWeight: FontWeight.normal),
                       ),
                     ),
                     Container(
-                      width: 800,
+                      width: screenSize.width,
                       padding: EdgeInsets.only(
                           top: 14, bottom: 0, left: 16, right: 0),
                       child: Text(
-                        'Алкогольный',
+                        cocktail.cocktailType.value.toString(),
                         textAlign: TextAlign.left,
                         style: TextStyle(
-                            color: HexColor("#ffffff"),
+                            color: AppColors.PRIMARY_TEXT_LIGHT,
                             fontSize: 15,
                             fontWeight: FontWeight.normal),
                       ),
                     ),
                     Container(
-                      width: 800,
+                      width: screenSize.width,
                       padding: EdgeInsets.only(
                           top: 20, bottom: 0, left: 0, right: 0),
                       child: Text(
                         'Тип стекла',
                         textAlign: TextAlign.left,
                         style: TextStyle(
-                            color: HexColor("#EAEAEA"),
+                            color: AppColors.PRIMARY_TEXT_GREY,
                             fontSize: 14,
                             fontWeight: FontWeight.normal),
                       ),
                     ),
                     Container(
-                      width: 800,
+                      width: screenSize.width,
                       padding: EdgeInsets.only(
                           top: 14, bottom: 0, left: 16, right: 0),
                       child: Text(
-                        'Хайбол',
+                        cocktail.glassType.value.toString(),
                         textAlign: TextAlign.left,
                         style: TextStyle(
-                            color: HexColor("#ffffff"),
+                            color: AppColors.PRIMARY_TEXT_LIGHT,
                             fontSize: 15,
                             fontWeight: FontWeight.normal),
                       ),
@@ -166,9 +221,9 @@ class CocktailDetailPage extends StatelessWidget {
                   ],
                 )),
             Container(
-                height: 273,
-                width: 800,
-                color: HexColor("#000000"),
+                //height: 273,
+                width: screenSize.width,
+                color: AppColors.PRIMARY_BLACK,
                 padding: const EdgeInsets.all(32.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -177,148 +232,54 @@ class CocktailDetailPage extends StatelessWidget {
                       'Ингредиенты:',
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
-                        color: HexColor('#B1AFC6'),
+                        color: AppColors.PRIMARY_TEXT_GREY,
                         fontSize: 16,
                       ),
                     ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          'Листья мяты',
-                          style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              decorationThickness: 1.5,
-                              color: HexColor('#ffffff'),
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal),
-                        ),
-                        Text(
-                          '4 шт',
-                          style: TextStyle(
-                              color: HexColor('#ffffff'),
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal),
-                        )
-                      ],
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          'Лайм',
-                          style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              decorationThickness: 1.5,
-                              color: HexColor('#ffffff'),
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal),
-                        ),
-                        Text(
-                          '1/2 шт',
-                          style: TextStyle(
-                              color: HexColor('#ffffff'),
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal),
-                        )
-                      ],
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          'Сахар',
-                          style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              decorationThickness: 1.5,
-                              color: HexColor('#ffffff'),
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal),
-                        ),
-                        Text(
-                          '1 ст. ложка',
-                          style: TextStyle(
-                              color: HexColor('#ffffff'),
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal),
-                        )
-                      ],
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          'Белый ром',
-                          style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              decorationThickness: 1.5,
-                              color: HexColor('#ffffff'),
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal),
-                        ),
-                        Text(
-                          '60 мл',
-                          style: TextStyle(
-                              color: HexColor('#ffffff'),
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal),
-                        )
-                      ],
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          'Лед',
-                          style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              decorationThickness: 1.5,
-                              color: HexColor('#ffffff'),
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal),
-                        ),
-                        Text(
-                          '1/2 стакана',
-                          style: TextStyle(
-                              color: HexColor('#ffffff'),
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal),
-                        )
-                      ],
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          'Мякоть арбуза',
-                          style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              decorationThickness: 1.5,
-                              color: HexColor('#ffffff'),
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal),
-                        ),
-                        Text(
-                          '120 г',
-                          style: TextStyle(
-                              color: HexColor('#ffffff'),
-                              fontSize: 16,
-                              fontWeight: FontWeight.normal),
-                        )
-                      ],
-                    ),
+                    Container(
+                        height: 30 * cocktail.ingredients.length.toDouble(),
+                        child: ListView.builder(
+                          padding: EdgeInsets.all(0.0),
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.all(6.0),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    cocktail.ingredients
+                                        .elementAt(index)
+                                        .ingredientName,
+                                    style: TextStyle(
+                                        decoration: TextDecoration.underline,
+                                        decorationThickness: 1.5,
+                                        color: AppColors.PRIMARY_TEXT_LIGHT,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.normal),
+                                  ),
+                                  Text(
+                                    cocktail.ingredients
+                                        .elementAt(index)
+                                        .measure,
+                                    style: TextStyle(
+                                        color: AppColors.PRIMARY_TEXT_LIGHT,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.normal),
+                                  )
+                                ],
+                              ),
+                            );
+                          },
+                          itemCount: cocktail.ingredients.length,
+                        )),
                   ],
                 )),
             Container(
-                height: 273,
-                width: 800,
-                color: HexColor("#1A1927"),
+                height: 300,
+                width: screenSize.width,
+                color: AppColors.PRIMARY_GREY,
                 padding: const EdgeInsets.all(32.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -328,80 +289,37 @@ class CocktailDetailPage extends StatelessWidget {
                       child: Text(
                         'Инструкции для приготовления',
                         style: TextStyle(
-                            color: HexColor('#ffffff'),
+                            color: AppColors.PRIMARY_TEXT_GREY,
                             fontSize: 14,
                             fontWeight: FontWeight.w400),
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.only(
-                          top: 14, bottom: 0, left: 0, right: 0),
-                      child: Text(
-                          "\u2022 В большом бокале смешайте порванные листья мяты, разрезанный на кусочки лайм и сахар. Толкушкой хорошо раздавите, чтобы лайм пустил сок.",
-                          textDirection: TextDirection.ltr,
-                          style: TextStyle(color: Colors.white, fontSize: 14),
-                          softWrap: true),
-                    ),
-                    Container(
-                      child: Text(
-                          "\u2022 Добавьте мелко нарезанную кубиками мякоть арбуза и снова слегка растолките.",
-                          textDirection: TextDirection.ltr,
-                          style: TextStyle(color: Colors.white, fontSize: 14),
-                          softWrap: true),
-                    ),
-                    Container(
-                      child: Text(
-                          "\u2022 Добавьте ром и лед. Перемешайте и разлейте по бокалам. Сразу подавайте.",
-                          textDirection: TextDirection.ltr,
-                          style: TextStyle(color: Colors.white, fontSize: 14),
-                          softWrap: true),
+                      height: 60 * mylistInstruction.length.toDouble(),
+                      child: ListView.builder(
+                        padding: EdgeInsets.all(0.0),
+                        itemBuilder: (context, ind) {
+                          return Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Text(
+                                mylistInstruction[ind],
+                                style: TextStyle(
+                                    color: AppColors.PRIMARY_TEXT_LIGHT),
+                              ));
+                        },
+                        itemCount: mylistInstruction.length,
+                      ),
                     ),
                   ],
                 )),
             Container(
-              padding: EdgeInsets.only(top: 24, bottom: 0, left: 0, right: 0),
-              color: HexColor("#000000"),
+              padding: const EdgeInsets.all(10.0),
+              color: AppColors.PRIMARY_BLACK,
+              height: 80,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  CircleAvatar(
-                    backgroundColor: HexColor('#2A293A'),
-                    child: Icon(
-                      Icons.star,
-                      color: Colors.white,
-                    ),
-                  ),
-                  CircleAvatar(
-                    backgroundColor: HexColor('#2A293A'),
-                    child: Icon(
-                      Icons.star,
-                      color: Colors.white,
-                    ),
-                  ),
-                  CircleAvatar(
-                    backgroundColor: HexColor('#2A293A'),
-                    child: Icon(
-                      Icons.star,
-                      color: Colors.white,
-                    ),
-                  ),
-                  CircleAvatar(
-                    backgroundColor: HexColor('#2A293A'),
-                    child: Icon(
-                      Icons.star,
-                      color: HexColor('#1A1927'),
-                    ),
-                  ),
-                  CircleAvatar(
-                    backgroundColor: HexColor('#2A293A'),
-                    child: Icon(
-                      Icons.star,
-                      color: HexColor('#1A1927'),
-                    ),
-                  ),
-                ],
-              ),
-            )
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: icons3),
+            ),
           ],
         ),
       ),
