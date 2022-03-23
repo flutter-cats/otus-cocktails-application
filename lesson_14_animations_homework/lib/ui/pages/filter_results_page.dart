@@ -5,6 +5,8 @@ import 'package:lesson_14_animations_homework/ui/pages/categories_fitler_bar_del
 import 'package:lesson_14_animations_homework/ui/pages/cocktail_grid_item.dart';
 import 'package:flutter/material.dart';
 
+import 'details/custom_progress_indicator.dart';
+
 class FilterResultsPageWidget extends StatefulWidget {
   final CocktailCategory selectedCategory;
 
@@ -100,7 +102,7 @@ class _FilterResultsPageWidgetState extends State<FilterResultsPageWidget> {
           ///
           return SliverFillRemaining(
             child: Center(
-              child: const CircularProgressIndicator(),
+              child: CustomProgressIndicator(),
             ),
           );
         });
