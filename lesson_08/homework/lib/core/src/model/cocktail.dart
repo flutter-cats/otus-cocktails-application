@@ -68,15 +68,15 @@ import 'ingredient_definition.dart';
 ///  ```
 ///
 class Cocktail {
-  final String id;
-  final String name;
-  final String instruction;
-  final CocktailCategory category;
-  final GlassType glassType;
-  final CocktailType cocktailType;
-  final Iterable<IngredientDefinition> ingredients;
-  final String drinkThumbUrl;
-  final bool isFavourite;
+  final String? id;
+  final String? name;
+  final String? instruction;
+  final CocktailCategory? category;
+  final GlassType? glassType;
+  final CocktailType? cocktailType;
+  final Iterable<IngredientDefinition>? ingredients;
+  final String? drinkThumbUrl;
+  final bool? isFavourite;
 
   Cocktail({
     required this.id,
