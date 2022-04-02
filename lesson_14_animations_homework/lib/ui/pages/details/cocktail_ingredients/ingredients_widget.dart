@@ -1,5 +1,4 @@
 import 'package:lesson_14_animations_homework/core/src/model/ingredient_definition.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'cocktail_ingredient_row.dart';
@@ -20,9 +19,7 @@ class CocktailIngredients extends StatelessWidget {
             children: [
               Text('Ингредиенты:', style: Theme.of(context).textTheme.headline6),
               ...cocktailIngredients
-                  .map((ingredient) => CocktailIngredientRow(
-                      cocktailIngredientName: ingredient.ingredientName,
-                      cocktailIngredientMeasure: ingredient.measure))
+                  .map((ingredient) => CocktailIngredientRow(cocktailIngredientName: ingredient.ingredientName, cocktailIngredientMeasure: ingredient.measure))
                   .toList(growable: false)
             ],
           ),

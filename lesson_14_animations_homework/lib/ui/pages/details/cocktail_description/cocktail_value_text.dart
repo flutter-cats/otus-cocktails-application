@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lesson_14_animations_homework/ui/style/custom_colors.dart';
 

@@ -5,14 +5,15 @@ import 'package:lesson_14_animations_homework/ui/pages/cocktail_grid_item.dart';
 import 'package:lesson_14_animations_homework/ui/pages/filter_results_page.dart';
 import 'package:flutter/material.dart';
 
+import 'details/cocktail_circular_progress_indicator.dart';
+
 class RandomCocktailPageWidget extends StatefulWidget {
   final AsyncCocktailRepository repository;
 
   const RandomCocktailPageWidget(this.repository, {Key? key}) : super(key: key);
 
   @override
-  _RandomCocktailPageWidgetState createState() =>
-      _RandomCocktailPageWidgetState();
+  _RandomCocktailPageWidgetState createState() => _RandomCocktailPageWidgetState();
 }
 
 class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
@@ -45,6 +46,8 @@ class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
       ),
     );
   }
+
+  bool isFavorite = false;
 
   Widget _buildRandomCocktailPage(BuildContext context) {
     return FutureBuilder<Cocktail?>(
@@ -101,7 +104,9 @@ class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
           ///
           return SliverFillRemaining(
             child: Center(
-              child: const CircularProgressIndicator(),
+              child: CocktailCircularProgressIndicator(
+                color: Theme.of(context).colorScheme.primary,
+              ),
             ),
           );
         });

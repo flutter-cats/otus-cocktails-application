@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CocktailTitle extends StatefulWidget {
@@ -14,8 +13,7 @@ class CocktailTitle extends StatefulWidget {
   _CocktailTitleState createState() => _CocktailTitleState();
 }
 
-class _CocktailTitleState extends State<CocktailTitle>
-    with SingleTickerProviderStateMixin {
+class _CocktailTitleState extends State<CocktailTitle> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
   @override
@@ -42,8 +40,7 @@ class _CocktailTitleState extends State<CocktailTitle>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-        duration: Duration(milliseconds: 1000), vsync: this);
+    _controller = AnimationController(duration: Duration(milliseconds: 1000), vsync: this);
     _controller.addStatusListener((status) => setState(() {}));
     _controller.forward();
   }

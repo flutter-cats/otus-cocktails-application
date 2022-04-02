@@ -19,8 +19,7 @@ class CocktailOfDayApp extends StatelessWidget {
         themeMode: ThemeMode.dark,
         initialRoute: CocktailOfDayApp.defaultRoute,
         routes: {
-          CocktailOfDayApp.defaultRoute: (context) =>
-              RandomCocktailPageWidget(repository),
+          CocktailOfDayApp.defaultRoute: (context) => RandomCocktailPageWidget(repository),
         },
       );
 }
