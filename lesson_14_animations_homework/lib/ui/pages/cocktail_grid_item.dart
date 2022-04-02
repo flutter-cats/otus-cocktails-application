@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:lesson_14_animations_homework/core/models.dart';
 import 'package:lesson_14_animations_homework/main.dart';
 import 'package:lesson_14_animations_homework/ui/pages/details/cocktail_detail_page.dart';
+import 'package:lesson_14_animations_homework/ui/pages/details/cocktail_circular_progress_indicator.dart';
+import 'package:lesson_14_animations_homework/ui/pages/details/cocktail_favorite_icon.dart';
 import 'package:lesson_14_animations_homework/ui/style/custom_colors.dart';
 
 class CocktailGridItem extends StatelessWidget {
@@ -43,7 +45,7 @@ class CocktailGridItem extends StatelessWidget {
                 /// (в местах отмеченных///todo:)
                 ///
                 return Center(
-                  child: CircularProgressIndicator(),
+                  child: CocktailCircularProgressIndicator(color: Theme.of(context).colorScheme.primary),
                 );
               },
             ),
@@ -58,14 +60,7 @@ class CocktailGridItem extends StatelessWidget {
           children: [
             DecoratedBox(
               decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                      stops: [0.44, 0.94],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Color.fromRGBO(14, 13, 19, 0),
-                        Color(0xFF0E0D13)
-                      ])),
+                  gradient: LinearGradient(stops: [0.44, 0.94], begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color.fromRGBO(14, 13, 19, 0), Color(0xFF0E0D13)])),
               position: DecorationPosition.foreground,
               child: Image.network(
                 cocktailDefinition.drinkThumbUrl ?? '',
@@ -79,25 +74,21 @@ class CocktailGridItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(cocktailDefinition.name ?? '',
-                      style: Theme.of(context).textTheme.bodyText1),
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Expanded(
-                          child: Chip(
-                            backgroundColor: CustomColors.black,
-                            label: Text(
-                              selectedCategory.name,
-                              style: Theme.of(context).textTheme.caption,
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 1,
-                            ),
-                          ),
+                  Text(cocktailDefinition.name ?? '', style: Theme.of(context).textTheme.bodyText1),
+                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, mainAxisSize: MainAxisSize.max, children: [
+                    Expanded(
+                      child: Chip(
+                        backgroundColor: CustomColors.black,
+                        label: Text(
+                          selectedCategory.name,
+                          style: Theme.of(context).textTheme.caption,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
                         ),
-                        _getIsFavoriteIcon(cocktailDefinition.isFavourite!),
-                      ]),
+                      ),
+                    ),
+                    _getIsFavoriteIcon(cocktailDefinition.isFavourite!),
+                  ]),
                 ],
               ),
             )
@@ -121,17 +112,5 @@ class CocktailGridItem extends StatelessWidget {
   /// возвращаться в исходное состояние.
   /// Можно добавить свою физику за счет Curves (ease, elastic, bounce).
   ///
-  Widget _getIsFavoriteIcon(bool isFavourite) {
-    if (isFavourite) {
-      return IconButton(
-        icon: Icon(Icons.favorite, color: Colors.white),
-        onPressed: () {},
-      );
-    } else {
-      return IconButton(
-        icon: Icon(Icons.favorite_border, color: Colors.white),
-        onPressed: () {},
-      );
-    }
-  }
+  Widget _getIsFavoriteIcon(bool isFavorite) => CocktailFavoriteIcon(isFavorite: isFavorite, color: Colors.white);
 }

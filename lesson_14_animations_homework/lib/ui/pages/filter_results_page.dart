@@ -4,24 +4,22 @@ import 'package:lesson_14_animations_homework/ui/application/application_scaffol
 import 'package:lesson_14_animations_homework/ui/pages/categories_fitler_bar_delegate.dart';
 import 'package:lesson_14_animations_homework/ui/pages/cocktail_grid_item.dart';
 import 'package:flutter/material.dart';
+import 'package:lesson_14_animations_homework/ui/pages/details/cocktail_circular_progress_indicator.dart';
 
 class FilterResultsPageWidget extends StatefulWidget {
   final CocktailCategory selectedCategory;
 
-  const FilterResultsPageWidget({Key? key, required this.selectedCategory})
-      : super(key: key);
+  const FilterResultsPageWidget({Key? key, required this.selectedCategory}) : super(key: key);
 
   @override
-  _FilterResultsPageWidgetState createState() =>
-      _FilterResultsPageWidgetState(selectedCategory);
+  _FilterResultsPageWidgetState createState() => _FilterResultsPageWidgetState(selectedCategory);
 }
 
 class _FilterResultsPageWidgetState extends State<FilterResultsPageWidget> {
   final CocktailCategory selectedCategory;
   final ValueNotifier<CocktailCategory> _categoryNotifier;
 
-  _FilterResultsPageWidgetState(this.selectedCategory)
-      : _categoryNotifier = ValueNotifier<CocktailCategory>(selectedCategory);
+  _FilterResultsPageWidgetState(this.selectedCategory) : _categoryNotifier = ValueNotifier<CocktailCategory>(selectedCategory);
 
   @override
   Widget build(BuildContext context) {
@@ -55,8 +53,7 @@ class _FilterResultsPageWidgetState extends State<FilterResultsPageWidget> {
 
   Widget _buildCocktailItems(BuildContext context) {
     return FutureBuilder<Iterable<CocktailDefinition?>>(
-        future: repository
-            .fetchCocktailsByCocktailCategory(_categoryNotifier.value),
+        future: repository.fetchCocktailsByCocktailCategory(_categoryNotifier.value),
         builder: (ctx, snapshot) {
           if (snapshot.hasError) {
             return SliverFillRemaining(
@@ -100,7 +97,7 @@ class _FilterResultsPageWidgetState extends State<FilterResultsPageWidget> {
           ///
           return SliverFillRemaining(
             child: Center(
-              child: const CircularProgressIndicator(),
+              child: CocktailCircularProgressIndicator(color: Theme.of(context).colorScheme.primary),
             ),
           );
         });
