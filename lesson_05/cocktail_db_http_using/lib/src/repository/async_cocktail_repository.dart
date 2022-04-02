@@ -5,10 +5,12 @@ import 'package:cocktail_app_models/models.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_definition_dto.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_dto.dart';
 import 'package:http/http.dart' as http;
+import 'package:cocktail_db_http_using/src/dto/ingredient_dto.dart';
 
 class AsyncCocktailRepository {
   static const String _apiKey =
       'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b';
+  static const String _apiHost = 'the-cocktail-db.p.rapidapi.com';
 
   static const Map<String, String> _headers = const {
     'x-rapidapi-key': _apiKey,
@@ -157,8 +159,49 @@ class AsyncCocktailRepository {
   /// api operation is:
   /// https://the-cocktail-db.p.rapidapi.com/lookup.php
   ///
-  Future<Ingredient?> lookupIngredientById() async {
-    return null;
+  // Future<Ingredient?> lookupIngredientById() async {
+  //   return null;
+  // }
+
+  Future<Ingredient?> lookupIngredientById(String id) async {
+    Ingredient? result;
+
+    var client = http.Client();
+    try {
+      final url = 'https://the-cocktail-db.p.rapidapi.com/lookup.php?iid=$id';
+      var response = await http.get(
+        Uri.parse(url),
+        headers: {
+          'x-rapidapi-host': _apiHost,
+          'x-rapidapi-key': _apiKey,
+        },
+      );
+      if (response.statusCode == 200) {
+        final jsonResponse = convert.jsonDecode(response.body);
+        var ingredients = jsonResponse['ingredients'] as Iterable<dynamic>;
+        final dtos = ingredients
+            .cast<Map<String, dynamic>>()
+            .map((json) => IngredientDto.fromJson(json));
+        if (dtos.length > 0) {
+          result = _createIngredientFromDto(dtos.first);
+        }
+      } else {
+        throw HttpException(
+            'Request failed with status: ${response.statusCode}');
+      }
+    } finally {
+      client.close();
+    }
+    return result;
+  }
+
+  Ingredient _createIngredientFromDto(IngredientDto dto) {
+    return Ingredient(
+        id: dto.idIngredient,
+        name: dto.strIngredient,
+        description: dto.strDescription,
+        ingredientType: dto.strType,
+        isAlcoholic: dto.strAlcohol == 'Yes');
   }
 
   Cocktail _createCocktailFromDto(CocktailDto dto) {
