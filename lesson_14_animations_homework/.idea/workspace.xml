@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a86b4f6-e92e-4184-b43a-773e96ef905a" name="Default Changelist" comment="animations module homework">
-      <change afterPath="$PROJECT_DIR$/assets/images/screenshot1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/screenshot2.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +70,9 @@
       <recent name="$PROJECT_DIR$/lib/core/src/model" />
       <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$/lib/ui" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="A:\Programmer\otus-application\lesson_14_animations_homework\lib" />
     </key>
   </component>
   <component name="RunManager">
