@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a86b4f6-e92e-4184-b43a-773e96ef905a" name="Default Changelist" comment="animations module homework">
-      <change afterPath="$PROJECT_DIR$/lib/ui/components/animated_like.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/components/circular_waiter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/components/circular_waiter.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/pages/cocktail_grid_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/cocktail_grid_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_title.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_title.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/pages/filter_results_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/filter_results_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/pages/random_cocktail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/random_cocktail_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/screenshot1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/screenshot2.gif" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,13 +43,16 @@
     </option>
   </component>
   <component name="ProjectId" id="1ryTMI8GlQJMOAIKQVB1Hiq5Hz9" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -145,6 +143,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="animations module homework" />
     <option name="LAST_COMMIT_MESSAGE" value="animations module homework" />
   </component>
