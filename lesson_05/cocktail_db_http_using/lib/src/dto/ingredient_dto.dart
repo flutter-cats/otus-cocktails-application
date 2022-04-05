@@ -22,6 +22,4 @@ class IngredientDto {
 
   factory IngredientDto.fromJson(Map<String, dynamic> json) =>
       _$IngredientDtoFromJson(json);
-
-  Map<String, dynamic> toJson() => _$IngredientDtoToJson(this);
 }
