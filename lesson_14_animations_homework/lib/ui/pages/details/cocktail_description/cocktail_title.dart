@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../application/animated_favorite_icon.dart';
+
 class CocktailTitle extends StatelessWidget {
   final String cocktailTitle;
   final bool isFavorite;
@@ -19,7 +21,7 @@ class CocktailTitle extends StatelessWidget {
             cocktailTitle,
             style: Theme.of(context).textTheme.headline3,
           ),
-          _getIsFavoriteIcon()
+          AnimatedFavoriteIcon(width: 20, isFavorite: isFavorite,)
         ],
       );
 
@@ -37,13 +39,7 @@ class CocktailTitle extends StatelessWidget {
   /// возвращаться в исходное состояние.
   /// Можно добавить свою физику за счет Curves (ease, elastic, bounce).
   ///
-  Widget _getIsFavoriteIcon() => isFavorite
-      ? IconButton(
-          icon: Icon(Icons.favorite, color: Colors.white),
-          onPressed: () {},
-        )
-      : IconButton(
-          icon: Icon(Icons.favorite_border, color: Colors.white),
-          onPressed: () {},
-        );
+ 
+
+        
 }
