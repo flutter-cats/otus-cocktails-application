@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert' as convert;
 import 'dart:io';
 
@@ -11,6 +12,8 @@ class AsyncCocktailRepository {
   static const Map<String, String> _headers = const {
     'x-rapidapi-key': _apiKey,
   };
+
+  final controller = StreamController<Iterable<CocktailDefinition>>();
 
   Future<Cocktail> fetchCocktailDetails(String id) async {
     late Cocktail result;
@@ -102,11 +105,21 @@ class AsyncCocktailRepository {
       } else {
         throw HttpException('Request failed with status: ${response.statusCode}');
       }
-    } finally {
+      
+    } 
+    catch (e) {
+      throw Exception(e);
+    }
+    finally {
       client.close();
     }
 
     return result;
+  }
+
+  void addToStreamCocktailDefinition(CocktailCategory category) async {
+       fetchCocktailsByCocktailCategory(category).then((value) => controller.add(value)).catchError((e){controller.addError(e);});
+      
   }
 
   Future<Iterable<Cocktail>> fetchPopularCocktails() async {
@@ -216,4 +229,8 @@ class AsyncCocktailRepository {
       if (dto.strIngredient15 != null) dto.strIngredient15!: dto.strMeasure15!,
     };
   }
+
+
 }
+
+AsyncCocktailRepository asyncCR = AsyncCocktailRepository();
