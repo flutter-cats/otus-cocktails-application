@@ -23,7 +23,7 @@ class AsyncCocktailRepository {
       if (response.statusCode == 200) {
         final jsonResponse = convert.jsonDecode(response.body);
         var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
-
+        print('DRINKS: $drinks');
         final dtos = drinks
             .cast<Map<String, dynamic>>()
             .map((json) => CocktailDto.fromJson(json));
@@ -198,6 +198,7 @@ class AsyncCocktailRepository {
   }
 
   Cocktail _createCocktailFromDto(CocktailDto dto) {
+    print(dto);
     final glass = GlassType.parse(dto.strGlass);
     final cocktailType = CocktailType.parse(dto.strAlcoholic);
     final category = CocktailCategory.parse(dto.strCategory);
