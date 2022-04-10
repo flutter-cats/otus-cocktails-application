@@ -6,8 +6,7 @@ import 'package:http/http.dart' as http;
 import '../../models.dart';
 
 class AsyncCocktailRepository {
-  static const String _apiKey =
-      'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b';
+  static const String _apiKey = 'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b';
 
   static const Map<String, String> _headers = const {
     'x-rapidapi-key': _apiKey,
@@ -24,15 +23,12 @@ class AsyncCocktailRepository {
         final jsonResponse = convert.jsonDecode(response.body);
         var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
 
-        final dtos = drinks
-            .cast<Map<String, dynamic>>()
-            .map((json) => CocktailDto.fromJson(json));
+        final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDto.fromJson(json));
         if (dtos.length > 0) {
           result = _createCocktailFromDto(dtos.first);
         }
       } else {
-        throw HttpException(
-            'Request failed with status: ${response.statusCode}');
+        throw HttpException('Request failed with status: ${response.statusCode}');
       }
     } finally {
       client.close();
@@ -41,28 +37,23 @@ class AsyncCocktailRepository {
     return result;
   }
 
-  Future<Iterable<CocktailDefinition>> fetchCocktailsByCocktailType(
-      CocktailType cocktailType) async {
+  Future<Iterable<CocktailDefinition>> fetchCocktailsByCocktailType(CocktailType cocktailType) async {
     var result = <CocktailDefinition>[];
 
     var client = http.Client();
     try {
-      final url =
-          'https://the-cocktail-db.p.rapidapi.com/filter.php?a=${cocktailType.value}';
+      final url = 'https://the-cocktail-db.p.rapidapi.com/filter.php?a=${cocktailType.value}';
       var response = await http.get(
         Uri.parse(url),
         headers: {
-          'x-rapidapi-key':
-              'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
+          'x-rapidapi-key': 'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
         },
       );
       if (response.statusCode == 200) {
         final jsonResponse = convert.jsonDecode(response.body);
         var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
 
-        final dtos = drinks
-            .cast<Map<String, dynamic>>()
-            .map((json) => CocktailDefinitionDto.fromJson(json));
+        final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDefinitionDto.fromJson(json));
 
         for (final dto in dtos) {
           result.add(CocktailDefinition(
@@ -73,8 +64,7 @@ class AsyncCocktailRepository {
           ));
         }
       } else {
-        throw HttpException(
-            'Request failed with status: ${response.statusCode}');
+        throw HttpException('Request failed with status: ${response.statusCode}');
       }
     } finally {
       client.close();
@@ -83,28 +73,23 @@ class AsyncCocktailRepository {
     return result;
   }
 
-  Future<Iterable<CocktailDefinition>> fetchCocktailsByCocktailCategory(
-      CocktailCategory category) async {
+  Future<Iterable<CocktailDefinition>> fetchCocktailsByCocktailCategory(CocktailCategory category) async {
     var result = <CocktailDefinition>[];
 
     var client = http.Client();
     try {
-      final url =
-          'https://the-cocktail-db.p.rapidapi.com/filter.php?c=${category.value}';
+      final url = 'https://the-cocktail-db.p.rapidapi.com/filter.php?c=${category.value}';
       var response = await http.get(
         Uri.parse(url),
         headers: {
-          'x-rapidapi-key':
-              'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
+          'x-rapidapi-key': 'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
         },
       );
       if (response.statusCode == 200) {
         final jsonResponse = convert.jsonDecode(response.body);
         var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
 
-        final dtos = drinks
-            .cast<Map<String, dynamic>>()
-            .map((json) => CocktailDefinitionDto.fromJson(json));
+        final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDefinitionDto.fromJson(json));
 
         for (final dto in dtos) {
           result.add(CocktailDefinition(
@@ -115,8 +100,7 @@ class AsyncCocktailRepository {
           ));
         }
       } else {
-        throw HttpException(
-            'Request failed with status: ${response.statusCode}');
+        throw HttpException('Request failed with status: ${response.statusCode}');
       }
     } finally {
       client.close();
@@ -134,25 +118,21 @@ class AsyncCocktailRepository {
       var response = await http.get(
         Uri.parse(url),
         headers: {
-          'x-rapidapi-key':
-              'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
+          'x-rapidapi-key': 'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
         },
       );
       if (response.statusCode == 200) {
         final jsonResponse = convert.jsonDecode(response.body);
         var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
 
-        final dtos = drinks
-            .cast<Map<String, dynamic>>()
-            .map((json) => CocktailDto.fromJson(json));
+        final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDto.fromJson(json));
 
         for (final dto in dtos) {
           final cocktail = _createCocktailFromDto(dto);
           result.add(cocktail);
         }
       } else {
-        throw HttpException(
-            'Request failed with status: ${response.statusCode}');
+        throw HttpException('Request failed with status: ${response.statusCode}');
       }
     } finally {
       client.close();
@@ -172,15 +152,12 @@ class AsyncCocktailRepository {
         final jsonResponse = convert.jsonDecode(response.body);
         var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
 
-        final dtos = drinks
-            .cast<Map<String, dynamic>>()
-            .map((json) => CocktailDto.fromJson(json));
+        final dtos = drinks.cast<Map<String, dynamic>>().map((json) => CocktailDto.fromJson(json));
         if (dtos.length > 0) {
           result = _createCocktailFromDto(dtos.first);
         }
       } else {
-        throw HttpException(
-            'Request failed with status: ${response.statusCode}');
+        throw HttpException('Request failed with status: ${response.statusCode}');
       }
     } finally {
       client.close();
@@ -204,39 +181,38 @@ class AsyncCocktailRepository {
 
     var ingredients = <IngredientDefinition>[];
 
-    _getIngredients(dto).forEach(
-        (key, value) => ingredients.add(IngredientDefinition(key, value)));
+    _getIngredients(dto).forEach((key, value) => ingredients.add(IngredientDefinition(key, value)));
 
     return Cocktail(
       id: dto.idDrink,
       category: category,
       cocktailType: cocktailType,
       glassType: glass,
-      instruction: dto.strInstructions,
+      instruction: dto.strInstructions ?? "",
       isFavourite: true,
       name: dto.strDrink,
       ingredients: ingredients,
-      drinkThumbUrl: dto.strDrinkThumb,
+      drinkThumbUrl: dto.strDrinkThumb ?? "",
     );
   }
 
   Map<String, String> _getIngredients(CocktailDto dto) {
     return <String, String>{
-      if (dto.strIngredient1 != null) dto.strIngredient1: dto.strMeasure1,
-      if (dto.strIngredient2 != null) dto.strIngredient2: dto.strMeasure2,
-      if (dto.strIngredient3 != null) dto.strIngredient3: dto.strMeasure3,
-      if (dto.strIngredient4 != null) dto.strIngredient4: dto.strMeasure4,
-      if (dto.strIngredient5 != null) dto.strIngredient5: dto.strMeasure5,
-      if (dto.strIngredient6 != null) dto.strIngredient6: dto.strMeasure6,
-      if (dto.strIngredient7 != null) dto.strIngredient7: dto.strMeasure7,
-      if (dto.strIngredient8 != null) dto.strIngredient8: dto.strMeasure8,
-      if (dto.strIngredient9 != null) dto.strIngredient9: dto.strMeasure9,
-      if (dto.strIngredient10 != null) dto.strIngredient10: dto.strMeasure10,
-      if (dto.strIngredient11 != null) dto.strIngredient11: dto.strMeasure11,
-      if (dto.strIngredient12 != null) dto.strIngredient12: dto.strMeasure12,
-      if (dto.strIngredient13 != null) dto.strIngredient13: dto.strMeasure13,
-      if (dto.strIngredient14 != null) dto.strIngredient14: dto.strMeasure14,
-      if (dto.strIngredient15 != null) dto.strIngredient15: dto.strMeasure15,
+      if (dto.strIngredient1 != null && dto.strMeasure1 != null) dto.strIngredient1!: dto.strMeasure1!,
+      if (dto.strIngredient2 != null && dto.strMeasure2 != null) dto.strIngredient2!: dto.strMeasure2!,
+      if (dto.strIngredient3 != null && dto.strMeasure3 != null) dto.strIngredient3!: dto.strMeasure3!,
+      if (dto.strIngredient4 != null && dto.strMeasure4 != null) dto.strIngredient4!: dto.strMeasure4!,
+      if (dto.strIngredient5 != null && dto.strMeasure5 != null) dto.strIngredient5!: dto.strMeasure5!,
+      if (dto.strIngredient6 != null && dto.strMeasure6 != null) dto.strIngredient6!: dto.strMeasure6!,
+      if (dto.strIngredient7 != null && dto.strMeasure7 != null) dto.strIngredient7!: dto.strMeasure7!,
+      if (dto.strIngredient8 != null && dto.strMeasure8 != null) dto.strIngredient8!: dto.strMeasure8!,
+      if (dto.strIngredient9 != null && dto.strMeasure9 != null) dto.strIngredient9!: dto.strMeasure9!,
+      if (dto.strIngredient10 != null && dto.strMeasure10 != null) dto.strIngredient10!: dto.strMeasure10!,
+      if (dto.strIngredient11 != null && dto.strMeasure11 != null) dto.strIngredient11!: dto.strMeasure11!,
+      if (dto.strIngredient12 != null && dto.strMeasure12 != null) dto.strIngredient12!: dto.strMeasure12!,
+      if (dto.strIngredient13 != null && dto.strMeasure13 != null) dto.strIngredient13!: dto.strMeasure13!,
+      if (dto.strIngredient14 != null && dto.strMeasure14 != null) dto.strIngredient14!: dto.strMeasure14!,
+      if (dto.strIngredient15 != null && dto.strMeasure15 != null) dto.strIngredient15!: dto.strMeasure15!,
     };
   }
 

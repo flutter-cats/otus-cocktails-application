@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:homework/core/models.dart';
-import 'package:homework/core/src/repository/async_cocktail_repository.dart';
-
 import 'cocktail_grid_item.dart';
 
 //todo по нажатию на CocktailGridItem открыть CocktailDetailsScreen
@@ -30,22 +28,25 @@ class FavouriteCocktailsScreen extends StatelessWidget {
         if (snapshot.hasError) {
           return Center(child: Text(snapshot.error.toString()));
         }
-
         if (snapshot.hasData) {
           return GridView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 24),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: CocktailGridItem.aspectRatio,
-                  crossAxisSpacing: 6,
-                  mainAxisSpacing: 6,
-                  crossAxisCount: 2),
-              itemBuilder: (ctx, index) {
-                return CocktailGridItem(snapshot.data!.elementAt(index));
-              },
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(childAspectRatio: CocktailGridItem.aspectRatio, crossAxisSpacing: 6, mainAxisSpacing: 6, crossAxisCount: 2),
+              itemBuilder: (ctx, index) => CocktailGridItem(snapshot.data!.elementAt(index), callback: _gotoCocktailDetails),
               itemCount: snapshot.data!.length);
         }
         return const SizedBox();
       },
     );
+  }
+
+  void _gotoCocktailDetails(BuildContext context, String id) {
+    repository.fetchCocktailDetails(id).then((cocktail) => {
+          if (cocktail != null) {_pushDetailsPage(context, cocktail)}
+        });
+  }
+
+  _pushDetailsPage(BuildContext context, Cocktail cocktail) {
+    Navigator.of(context).pushNamed('/details', arguments: cocktail);
   }
 }
