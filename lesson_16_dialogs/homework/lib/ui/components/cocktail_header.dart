@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CocktailHeader extends StatelessWidget{
+class CocktailHeader extends StatelessWidget {
   final String url;
-  CocktailHeader({required this.url});
+  final void Function(BuildContext, [Object?]) onBack;
+
+  CocktailHeader({required this.url, required this.onBack});
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +17,12 @@ class CocktailHeader extends StatelessWidget{
           IconButton(
             color: Colors.white,
             icon: Icon(Icons.arrow_back),
-            onPressed: () {},
+            onPressed: () {
+              onBack(context);
+            },
           ),
-          Expanded(child: DecoratedBox(
+          Expanded(
+              child: DecoratedBox(
             position: DecorationPosition.foreground,
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -29,8 +34,9 @@ class CocktailHeader extends StatelessWidget{
                 ],
               ),
             ),
-            child: Image.network(url,
-                fit: BoxFit.contain,
+            child: Image.network(
+              url,
+              fit: BoxFit.contain,
             ),
           )),
           IconButton(

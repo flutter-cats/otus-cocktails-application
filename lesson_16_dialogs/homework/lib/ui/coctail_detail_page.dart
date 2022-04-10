@@ -18,30 +18,35 @@ class CocktailDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  CocktailHeader(url: cocktail.drinkThumbUrl),
-                  CocktailTitle(
-                    id: cocktail.id,
-                    name: cocktail.name,
-                    isFavourite: cocktail.isFavourite,
-                    category: cocktail.category,
-                    cocktailType: cocktail.cocktailType,
-                    glassType: cocktail.glassType,
-                  ),
-                  CocktailIngredients(
-                    ingredients: cocktail.ingredients,
-                  ),
-                  CocktailInstruction(
-                    instruction: cocktail.instruction,
-                  ),
-                  CocktailStars(
-                    rating: 3,
-                  )
-                ],
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              CocktailHeader(
+                  url: cocktail.drinkThumbUrl,
+                  onBack: Navigator.pop,
               ),
-            ),
+              CocktailTitle(
+                id: cocktail.id,
+                name: cocktail.name,
+                isFavourite: cocktail.isFavourite,
+                category: cocktail.category,
+                cocktailType: cocktail.cocktailType,
+                glassType: cocktail.glassType,
+              ),
+              CocktailIngredients(
+                ingredients: cocktail.ingredients,
+              ),
+              CocktailInstruction(
+                instruction: cocktail.instruction,
+              ),
+              CocktailStars(
+                rating: 3,
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
