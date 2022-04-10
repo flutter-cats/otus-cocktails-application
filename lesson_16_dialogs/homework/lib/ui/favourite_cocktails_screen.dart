@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:homework/core/models.dart';
-import 'package:homework/core/src/repository/async_cocktail_repository.dart';
+import 'package:homework/ui/coctail_detail_page.dart';
 
 import 'cocktail_grid_item.dart';
-
-//todo по нажатию на CocktailGridItem открыть CocktailDetailsScreen
 
 class FavouriteCocktailsScreen extends StatelessWidget {
   const FavouriteCocktailsScreen(
@@ -40,12 +38,47 @@ class FavouriteCocktailsScreen extends StatelessWidget {
                   mainAxisSpacing: 6,
                   crossAxisCount: 2),
               itemBuilder: (ctx, index) {
-                return CocktailGridItem(snapshot.data!.elementAt(index));
+                return GestureDetector(
+                    onTap: () {
+                      _openCocktailById(
+                          context, snapshot.data!.elementAt(index).id);
+                    },
+                    child: CocktailGridItem(snapshot.data!.elementAt(index)));
               },
               itemCount: snapshot.data!.length);
         }
         return const SizedBox();
       },
+    );
+  }
+
+  Future<Cocktail?> getCocktailById(String id) async {
+    return repository.fetchCocktailDetails(id);
+  }
+
+  void _openCocktailById(BuildContext context, String id) async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => FutureBuilder(
+                future: repository.fetchCocktailDetails(id),
+                builder:
+                    (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Center(child: CircularProgressIndicator());
+                  }
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    if (snapshot.hasError) {
+                      return Center(child: Text(snapshot.error.toString()));
+                    }
+                    if (snapshot.hasData) {
+                      return CocktailDetailPage(cocktail: snapshot.data);
+                    }
+
+                  }
+                  return const SizedBox();
+                },
+              )),
     );
   }
 }
