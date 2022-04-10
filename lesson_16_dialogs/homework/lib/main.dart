@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:homework/ui/favourite_cocktails_screen.dart';
+import 'package:homework/ui/pages.dart';
 import 'package:homework/ui/style/theme.dart';
-
-import 'core/src/repository/async_cocktail_repository.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       darkTheme: mainThemeData,
       themeMode: ThemeMode.dark,
-      home: FavouriteCocktailsScreen(AsyncCocktailRepository()),
+      routes: Map.fromEntries(pages.map((d) => MapEntry(d.route, d.builder))),
+      initialRoute: '/',
     );
   }
 }
