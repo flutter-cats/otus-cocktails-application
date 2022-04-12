@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lesson_14_animations_homework/core/models.dart';
 import 'package:lesson_14_animations_homework/main.dart';
+import 'package:lesson_14_animations_homework/ui/components/CustomCircularProgressIndicator.dart';
 import 'package:lesson_14_animations_homework/ui/pages/details/cocktail_detail_page.dart';
 import 'package:lesson_14_animations_homework/ui/style/custom_colors.dart';
 
@@ -32,18 +33,8 @@ class CocktailGridItem extends StatelessWidget {
                   );
                 }
 
-                ///
-                /// todo:
-                /// отрефакторить использование CircularProgressIndicator
-                /// в пользу реализации своего кастомного виджета progress indicator
-                /// Этот виджет нужно реализовать самостоятельно,
-                /// используя стандартные средства Flutter для работы
-                /// с графическим canvas и средства анимации.
-                /// И затем переиспользовать вместо CircularProgressIndicator
-                /// (в местах отмеченных///todo:)
-                ///
                 return Center(
-                  child: CircularProgressIndicator(),
+                  child: CustomCircularProgressIndicator(),
                 );
               },
             ),
