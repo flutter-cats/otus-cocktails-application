@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lesson_14_animations_homework/core/models.dart';
 import 'package:lesson_14_animations_homework/main.dart';
+import 'package:lesson_14_animations_homework/ui/application/adaptive_favorite_widget.dart';
+import 'package:lesson_14_animations_homework/ui/application/adaptive_progress_indicator.dart';
 import 'package:lesson_14_animations_homework/ui/pages/details/cocktail_detail_page.dart';
 import 'package:lesson_14_animations_homework/ui/style/custom_colors.dart';
 
@@ -43,7 +45,7 @@ class CocktailGridItem extends StatelessWidget {
                 /// (в местах отмеченных///todo:)
                 ///
                 return Center(
-                  child: CircularProgressIndicator(),
+                  child: const AdaptiveProgressIndicator(),
                 );
               },
             ),
@@ -122,16 +124,10 @@ class CocktailGridItem extends StatelessWidget {
   /// Можно добавить свою физику за счет Curves (ease, elastic, bounce).
   ///
   Widget _getIsFavoriteIcon(bool isFavourite) {
-    if (isFavourite) {
-      return IconButton(
-        icon: Icon(Icons.favorite, color: Colors.white),
-        onPressed: () {},
-      );
-    } else {
-      return IconButton(
-        icon: Icon(Icons.favorite_border, color: Colors.white),
-        onPressed: () {},
-      );
-    }
+    return AdaptiveFavoriteWidget(
+      color: Colors.white,
+      backgroundColor: Colors.grey,
+      isFavorite: isFavourite,
+    );
   }
 }
