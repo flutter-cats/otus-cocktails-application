@@ -27,3 +27,9 @@
 - [ ] При нажатии иконка должна увеличиваться на 20 % и возвращаться в исходное состояние.
 
 - [ ] Можно добавить свою физику за счет Curves (ease, elastic, bounce).
+
+## Screenshots
+
+![screenshot spinner](screenshots/screenshot_spinner.jpg)
+
+![screenshot favorite buttons](screenshots/screenshot_fav.jpg)
