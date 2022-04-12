@@ -5,6 +5,8 @@ import 'package:lesson_14_animations_homework/ui/components/CustomCircularProgre
 import 'package:lesson_14_animations_homework/ui/pages/details/cocktail_detail_page.dart';
 import 'package:lesson_14_animations_homework/ui/style/custom_colors.dart';
 
+import '../components/FavoriteButton.dart';
+
 class CocktailGridItem extends StatelessWidget {
   static const double aspectRatio = 170 / 215;
 
@@ -87,7 +89,9 @@ class CocktailGridItem extends StatelessWidget {
                             ),
                           ),
                         ),
-                        _getIsFavoriteIcon(cocktailDefinition.isFavourite!),
+                        FavoriteButton(
+                          isFavorite: cocktailDefinition.isFavourite!,
+                        ),
                       ]),
                 ],
               ),
@@ -96,33 +100,5 @@ class CocktailGridItem extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  ///
-  /// todo:
-  /// отрефакторить данный метод в пользу отдельного widget с поддержкой
-  /// анимации scale down/scale up на 20% (curves по желанию)
-  ///
-  /// Новый виджет должен поддерживать два состояния -
-  /// isFavorite, !isFavorite (иконка filled, outline).
-  /// Иконка должна быть отрисована с использованием графических примитивов -
-  /// то есть использовать material icons нельзя,
-  /// работаем через CustomPaint/ClipPath.
-  /// При нажатии иконка должна увеличиваться на 20 % и
-  /// возвращаться в исходное состояние.
-  /// Можно добавить свою физику за счет Curves (ease, elastic, bounce).
-  ///
-  Widget _getIsFavoriteIcon(bool isFavourite) {
-    if (isFavourite) {
-      return IconButton(
-        icon: Icon(Icons.favorite, color: Colors.white),
-        onPressed: () {},
-      );
-    } else {
-      return IconButton(
-        icon: Icon(Icons.favorite_border, color: Colors.white),
-        onPressed: () {},
-      );
-    }
   }
 }
