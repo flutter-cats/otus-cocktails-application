@@ -92,7 +92,7 @@ class CustomDialogRoute2<T> extends PopupRoute<T> {
 
   final Widget messageChild;
 
-  CustomDialogRoute2(this.itemContext, this.messageChild)
+  CustomDialogRoute2(this.itemConte2/xt, this.messageChild)
       : super(filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1));
 
   @override
