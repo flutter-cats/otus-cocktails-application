@@ -37,6 +37,6 @@ class CocktailType {
   /// Show toString() method using in debug session
   ///
 
-  static CocktailType parse(String raw) => values.firstWhere(
-      (element) => element.value.toLowerCase() == raw.toLowerCase());
+  static CocktailType parse(String? raw) => values.firstWhere(
+      (element) => element.value.toLowerCase() == raw?.toLowerCase());
 }
