@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 ///
 /// Cocktail Model Definition based on response from
 /// curl curl https://the-cocktail-db.p.rapidapi.com/filter.php\?a\=Alcoholic|jora -p

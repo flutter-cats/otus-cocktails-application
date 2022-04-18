@@ -107,6 +107,6 @@ class GlassType {
   @override
   String toString() => 'GlassType{value: $value, name: $name}';
 
-  static GlassType parse(String raw) => values.firstWhere(
-      (element) => element.value.toLowerCase() == raw.toLowerCase());
+  static GlassType parse(String? raw) => values.firstWhere(
+      (element) => element.value.toLowerCase() == raw?.toLowerCase());
 }
