@@ -22,7 +22,7 @@ class FavouriteCocktailsScreen extends StatelessWidget {
   Widget _buildCocktailItems(BuildContext context) {
     return FutureBuilder<Iterable<CocktailDefinition>>(
       future: repository.getFavouriteCocktails(),
-      builder: (ctx, snapshot) {
+      builder: (_, snapshot) {
         if (snapshot.hasError) {
           return Center(child: Text(snapshot.error.toString()));
         }

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../cocktail_info_wrapper.dart';
-
 class AnimatedHeartIconButton extends StatefulWidget {
   /// Создает анимированный виджет сердечка, при нажати на которое
   /// происходит смена начального цвета [notFavouriteColor] на конечный
@@ -47,6 +45,11 @@ class _AnimatedHeartIconButtonState extends State<AnimatedHeartIconButton>
   late AnimationController _controller;
   late Animation _sizeAnimation, _colorForwardAnimation, _colorReverseAnimation;
 
+  //пока нет стейт менеджмента, т.к. это не цель данной домашней работы
+  // добавил локальный стейт, чтобы можно было в зависимости от него
+  // запускать анимацию в одну и в другую сторону
+  late bool localFavouriteState;
+
   @override
   void initState() {
     super.initState();
@@ -55,9 +58,13 @@ class _AnimatedHeartIconButtonState extends State<AnimatedHeartIconButton>
     _sizeAnimation = TweenSequence(
       [
         TweenSequenceItem(
-            tween: Tween(begin: 1.0, end: widget.scalePercentage), weight: 1),
+          tween: Tween(begin: 1.0, end: widget.scalePercentage),
+          weight: 1,
+        ),
         TweenSequenceItem(
-            tween: Tween(begin: widget.scalePercentage, end: 1.0), weight: 1),
+          tween: Tween(begin: widget.scalePercentage, end: 1.0),
+          weight: 1,
+        ),
       ],
     ).animate(
       CurvedAnimation(
@@ -91,7 +98,8 @@ class _AnimatedHeartIconButtonState extends State<AnimatedHeartIconButton>
         ),
       ),
     );
-    if (widget.isFavourite) {
+    localFavouriteState = widget.isFavourite;
+    if (localFavouriteState) {
       _controller.value = 1;
     } else {
       _controller.value = 0;
@@ -106,7 +114,7 @@ class _AnimatedHeartIconButtonState extends State<AnimatedHeartIconButton>
 
   @override
   Widget build(BuildContext context) {
-    if (widget.isFavourite) {
+    if (localFavouriteState) {
       _controller.forward();
     } else {
       _controller.reverse();
@@ -114,8 +122,7 @@ class _AnimatedHeartIconButtonState extends State<AnimatedHeartIconButton>
     return GestureDetector(
       onTap: () {
         setState(() {
-          StateInheritedWidget.of(context)
-              .setFavourite(!StateInheritedWidget.of(context).isFavourite);
+          localFavouriteState = !localFavouriteState;
           if (widget.onTap != null) widget.onTap!();
         });
       },
@@ -129,7 +136,7 @@ class _AnimatedHeartIconButtonState extends State<AnimatedHeartIconButton>
                 scale: _sizeAnimation.value,
                 child: CustomPaint(
                   painter: HeartPainter(
-                    fillColor: widget.isFavourite
+                    fillColor: localFavouriteState
                         ? _colorForwardAnimation.value
                         : _colorReverseAnimation.value,
                     outlineColor: widget.outlineColor,
@@ -168,17 +175,15 @@ class HeartPainter extends CustomPainter {
     double width = size.width;
     double height = size.height;
 
-    //сердечко из линии и дуги
     final Path heartLineArc = Path()
       ..moveTo(0.5 * width, height)
       ..lineTo(width * 0.06, height * 0.45)
       ..arcToPoint(Offset(0.5 * width, height * 0.12),
-          radius: const Radius.circular(1))
+          radius: Radius.circular(1))
       ..moveTo(0.5 * width, height)
       ..lineTo(width * 0.94, height * 0.45)
       ..arcToPoint(Offset(0.5 * width, height * 0.12),
-          radius: const Radius.circular(1), clockwise: false);
-
+          radius: Radius.circular(1), clockwise: false);
     canvas
       ..drawPath(heartLineArc, body)
       ..drawPath(heartLineArc, border);

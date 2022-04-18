@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homework/cocktail_info_wrapper.dart';
 import 'package:homework/ui/animated_heart_icon_button.dart';
-
 import '../../core/src/res/app_colors.dart';
 import '../../core/src/res/app_dimens.dart';
 import '../../core/src/res/app_strings.dart';
@@ -16,6 +14,7 @@ class DescriptionWidget extends StatelessWidget {
     required this.cocktailCategory,
     required this.cocktailType,
     required this.glassType,
+    required this.isFavourite,
   }) : super(key: key);
 
   final String cocktailName;
@@ -23,10 +22,10 @@ class DescriptionWidget extends StatelessWidget {
   final String cocktailCategory;
   final String cocktailType;
   final String glassType;
+  final bool isFavourite;
 
   @override
   Widget build(BuildContext context) {
-    final isFavourite = StateInheritedWidget.of(context).isFavourite;
     return Container(
       padding: AppDimensions.descriptionWidgetPadding,
       color: AppColors.alternativeBackground,

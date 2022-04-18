@@ -9,8 +9,8 @@ class DescriptionItem extends StatelessWidget {
       {Key? key, required this.descriptionName, required this.descriptionValue})
       : super(key: key);
 
-  final descriptionName;
-  final descriptionValue;
+  final String descriptionName;
+  final String descriptionValue;
 
   @override
   Widget build(BuildContext context) {

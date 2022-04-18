@@ -29,7 +29,9 @@ class MyApp extends StatelessWidget {
         fontFamily: 'SFPro',
       ),
       themeMode: ThemeMode.dark,
-      home: FavouriteCocktailsScreen(AsyncCocktailRepository()),
+      home: FavouriteCocktailsScreen(
+        AsyncCocktailRepository(),
+      ),
     );
   }
 }

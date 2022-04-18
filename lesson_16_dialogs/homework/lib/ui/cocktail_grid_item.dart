@@ -16,7 +16,7 @@ class CocktailGridItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _openDetails(context, cocktailDefinition.id),
+      onTap: () => _openDetailsPage(context, cocktailDefinition.id),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child: Stack(
@@ -60,12 +60,10 @@ class CocktailGridItem extends StatelessWidget {
     );
   }
 
-  void _openDetails(BuildContext context, String id) async {
-    Cocktail? cocktail;
-
-    cocktail = await repository.fetchCocktailDetails(id);
+  void _openDetailsPage(BuildContext context, String id) async {
+    Cocktail? cocktail = await repository.fetchCocktailDetails(id);
     if (cocktail != null) {
-      _pushCocktailDetailPage(context, cocktail, 3);
+      _pushCocktailDetailPage(context, cocktail);
     } else {
       _showErrorDialog(
         context,
@@ -76,13 +74,11 @@ class CocktailGridItem extends StatelessWidget {
   }
 }
 
-void _pushCocktailDetailPage(
-    BuildContext context, Cocktail cocktail, int rating) {
+void _pushCocktailDetailPage(BuildContext context, Cocktail cocktail) {
   Navigator.of(context).push(
     MaterialPageRoute(
       builder: (context) => CocktailDetailPage(
         cocktail,
-        rating: rating,
       ),
     ),
   );
@@ -104,10 +100,11 @@ void _showErrorDialog(BuildContext context, String title, String content) {
         ),
         actions: [
           TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text(AppStrings.errorButtonText)),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text(AppStrings.errorButtonText),
+          ),
         ],
       );
     },

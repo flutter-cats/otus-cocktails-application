@@ -26,4 +26,5 @@ class AppStrings {
   static const String fetchErrorTitle = 'Ошибка';
   static const String fetchErrorContent =
       'Ошибка в получении описания коктейля';
+  static const String ratingLoadingMessage = 'Рейтинг загружается...';
 }
