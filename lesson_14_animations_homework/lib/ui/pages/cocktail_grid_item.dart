@@ -4,6 +4,9 @@ import 'package:lesson_14_animations_homework/main.dart';
 import 'package:lesson_14_animations_homework/ui/pages/details/cocktail_detail_page.dart';
 import 'package:lesson_14_animations_homework/ui/style/custom_colors.dart';
 
+import '../application/animated_favorite_icon.dart';
+import '../application/shaker_pulse.dart';
+
 class CocktailGridItem extends StatelessWidget {
   static const double aspectRatio = 170 / 215;
 
@@ -43,7 +46,7 @@ class CocktailGridItem extends StatelessWidget {
                 /// (в местах отмеченных///todo:)
                 ///
                 return Center(
-                  child: CircularProgressIndicator(),
+                  child: ShakerPulse(maxIconSize: 100, durationMilliseconds: 1500,),
                 );
               },
             ),
@@ -84,6 +87,7 @@ class CocktailGridItem extends StatelessWidget {
                   Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Expanded(
                           child: Chip(
@@ -96,7 +100,7 @@ class CocktailGridItem extends StatelessWidget {
                             ),
                           ),
                         ),
-                        _getIsFavoriteIcon(cocktailDefinition.isFavourite!),
+                        AnimatedFavoriteIcon(width: 20, isFavorite: cocktailDefinition.isFavourite!,),
                       ]),
                 ],
               ),
@@ -121,17 +125,5 @@ class CocktailGridItem extends StatelessWidget {
   /// возвращаться в исходное состояние.
   /// Можно добавить свою физику за счет Curves (ease, elastic, bounce).
   ///
-  Widget _getIsFavoriteIcon(bool isFavourite) {
-    if (isFavourite) {
-      return IconButton(
-        icon: Icon(Icons.favorite, color: Colors.white),
-        onPressed: () {},
-      );
-    } else {
-      return IconButton(
-        icon: Icon(Icons.favorite_border, color: Colors.white),
-        onPressed: () {},
-      );
-    }
-  }
+  
 }

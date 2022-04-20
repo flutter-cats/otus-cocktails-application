@@ -5,6 +5,9 @@ import 'package:lesson_14_animations_homework/ui/pages/categories_fitler_bar_del
 import 'package:lesson_14_animations_homework/ui/pages/cocktail_grid_item.dart';
 import 'package:flutter/material.dart';
 
+
+import '../application/shaker_pulse.dart';
+
 class FilterResultsPageWidget extends StatefulWidget {
   final CocktailCategory selectedCategory;
 
@@ -100,7 +103,7 @@ class _FilterResultsPageWidgetState extends State<FilterResultsPageWidget> {
           ///
           return SliverFillRemaining(
             child: Center(
-              child: const CircularProgressIndicator(),
+              child: ShakerPulse(maxIconSize: 200, durationMilliseconds: 1000,),
             ),
           );
         });
