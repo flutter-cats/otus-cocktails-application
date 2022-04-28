@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homework/core/models.dart';
 import 'package:homework/core/src/repository/async_cocktail_repository.dart';
+import 'package:homework/ui/cocktail_detail_page/coctail_detail_page.dart';
 
 import 'cocktail_grid_item.dart';
 
@@ -23,6 +24,19 @@ class FavouriteCocktailsScreen extends StatelessWidget {
     );
   }
 
+  _navigateDetailPage(
+      BuildContext context, CocktailDefinition cocktailDefinition) {
+
+    repository.fetchCocktailDetails(cocktailDefinition.id).then((cocktail) =>
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => CocktailDetailPage(cocktail!),
+        ),
+      )
+    );
+
+  }
+
   Widget _buildCocktailItems(BuildContext context) {
     return FutureBuilder<Iterable<CocktailDefinition>>(
       future: repository.getFavouriteCocktails(),
@@ -40,7 +54,11 @@ class FavouriteCocktailsScreen extends StatelessWidget {
                   mainAxisSpacing: 6,
                   crossAxisCount: 2),
               itemBuilder: (ctx, index) {
-                return CocktailGridItem(snapshot.data!.elementAt(index));
+                return GestureDetector(
+                  child: CocktailGridItem(snapshot.data!.elementAt(index)),
+                  onTap: () => _navigateDetailPage(
+                      context, snapshot.data!.elementAt(index)),
+                );
               },
               itemCount: snapshot.data!.length);
         }
