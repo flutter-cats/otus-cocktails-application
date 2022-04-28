@@ -198,9 +198,9 @@ class AsyncCocktailRepository {
   }
 
   Cocktail _createCocktailFromDto(CocktailDto dto) {
-    final glass = GlassType.parse(dto.strGlass);
-    final cocktailType = CocktailType.parse(dto.strAlcoholic);
-    final category = CocktailCategory.parse(dto.strCategory);
+    final glass = GlassType.parse(dto.strGlass ?? "");
+    final cocktailType = CocktailType.parse(dto.strAlcoholic ?? "");
+    final category = CocktailCategory.parse(dto.strCategory ?? "");
 
     var ingredients = <IngredientDefinition>[];
 
@@ -220,8 +220,8 @@ class AsyncCocktailRepository {
     );
   }
 
-  Map<String, String> _getIngredients(CocktailDto dto) {
-    return <String, String>{
+  Map<String?, String?> _getIngredients(CocktailDto dto) {
+    return <String?, String?>{
       if (dto.strIngredient1 != null) dto.strIngredient1: dto.strMeasure1,
       if (dto.strIngredient2 != null) dto.strIngredient2: dto.strMeasure2,
       if (dto.strIngredient3 != null) dto.strIngredient3: dto.strMeasure3,
