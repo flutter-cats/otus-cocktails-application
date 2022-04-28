@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:homework/core/models.dart';
-import 'package:homework/core/src/repository/async_cocktail_repository.dart';
 import 'package:homework/ui/cocktail_detail_page/coctail_detail_page.dart';
 
 import 'cocktail_grid_item.dart';
-
-//todo по нажатию на CocktailGridItem открыть CocktailDetailsScreen
 
 class FavouriteCocktailsScreen extends StatelessWidget {
   const FavouriteCocktailsScreen(
@@ -25,16 +22,15 @@ class FavouriteCocktailsScreen extends StatelessWidget {
   }
 
   _navigateDetailPage(
-      BuildContext context, CocktailDefinition cocktailDefinition) {
+      BuildContext context, CocktailDefinition cocktailDefinition) async {
+    Cocktail? cocktail =
+        await repository.fetchCocktailDetails(cocktailDefinition.id);
 
-    repository.fetchCocktailDetails(cocktailDefinition.id).then((cocktail) =>
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => CocktailDetailPage(cocktail!),
-        ),
-      )
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => CocktailDetailPage(cocktail!),
+      ),
     );
-
   }
 
   Widget _buildCocktailItems(BuildContext context) {
