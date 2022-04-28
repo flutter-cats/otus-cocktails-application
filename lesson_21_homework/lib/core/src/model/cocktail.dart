@@ -103,6 +103,7 @@ class Cocktail extends CocktailDefinition {
   }) : super(
           id: id,
           drinkThumbUrl: drinkThumbUrl,
+          categoryName: category?.value,
           isFavourite: isFavourite,
           name: name,
         );

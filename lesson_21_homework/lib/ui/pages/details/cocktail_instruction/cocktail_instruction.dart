@@ -1,7 +1,4 @@
-import 'dart:ui';
-
 import 'package:lesson_21_animations_homework/ui/style/custom_colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CocktailInstruction extends StatelessWidget {
@@ -24,10 +21,7 @@ class CocktailInstruction extends StatelessWidget {
               padding: const EdgeInsets.only(left: 16.0),
               child: Text('Инструкция для приготовления', style: Theme.of(context).textTheme.headline5),
             ),
-            ...cocktailInstruction
-                .split('\n')
-                .map((step) => _getCustomText(step, Theme.of(context).textTheme.headline5!))
-                .toList(growable: false)
+            ...cocktailInstruction.split('\n').map((step) => _getCustomText(step, Theme.of(context).textTheme.headline5!)).toList(growable: false)
           ],
         ),
       ),

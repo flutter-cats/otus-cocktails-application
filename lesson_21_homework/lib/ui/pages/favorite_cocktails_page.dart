@@ -1,8 +1,11 @@
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:lesson_21_animations_homework/core/cocktails_favorites.dart';
 import 'package:lesson_21_animations_homework/ui/aplication/application_scaffold.dart';
 import 'package:flutter/material.dart';
+import 'package:lesson_21_animations_homework/ui/pages/details/cocktail_favorite_item.dart';
+import 'package:provider/provider.dart';
 
 ///
-/// TODO:
 ///        - Склонировать соотвествующий github репозиторий с заготовкой проекта для этого урока (для соот-щего подхода к управлению состоянием приложения - redux, bloc mobx версии) (https://github.com/guid-empty/otus-cocktail-app-lessons)
 ///        - Внести изменения в классы описания состояний для экрана FavouriteCocktailsPage (будут помечены /// todo)
 ///        - Открыть класс экрана FavouriteCocktailsPage
@@ -35,9 +38,26 @@ class _FavouriteCocktailsPageState extends State<FavouriteCocktailsPage> {
     );
   }
 
-  Widget _buildFavoriteCocktailItems(BuildContext context) => Center(
-          child: Text(
-        'todo: add code here',
-        style: Theme.of(context).textTheme.caption,
-      ));
+  Widget _buildFavoriteCocktailItems(BuildContext context) => Observer(builder: (context) {
+        final favorites = Provider.of<CocktailsFavorites>(context);
+
+        return CustomScrollView(slivers: [
+          SliverGrid(
+            delegate: SliverChildListDelegate(favorites.favorites.map((cocktail) => CocktailFavoriteItem(context: context, value: cocktail)).toList()),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, childAspectRatio: 160 / 215),
+          ),
+        ]);
+      });
 }
+
+final cardSliverListDelegate = SliverChildListDelegate(
+  List.generate(
+    4,
+    (index) => Card(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(child: Text('$index')),
+      ),
+    ),
+  ),
+);
