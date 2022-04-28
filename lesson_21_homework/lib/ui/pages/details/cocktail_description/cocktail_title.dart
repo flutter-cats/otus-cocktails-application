@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lesson_21_animations_homework/core/src/model/cocktail.dart';
+import 'package:lesson_21_animations_homework/ui/pages/details/cocktail_favorite_button.dart';
 
-///
-/// TODO:
 ///        - Склонировать соотвествующий github репозиторий с заготовкой проекта для этого урока (для соот-щего подхода к управлению состоянием приложения - redux, bloc mobx версии) (https://github.com/guid-empty/otus-cocktail-app-lessons)
 ///        - Внести изменения в классы описания состояний для экрана FavouriteCocktailsPage (будут помечены /// todo)
 ///        - Открыть класс экрана FavouriteCocktailsPage
@@ -21,10 +20,9 @@ import 'package:flutter/material.dart';
 /// В этом экране используется точно такая же  верстка, как и на экране фильтрации (то есть можно переиспользовать экран выдачи результатов по категориям)
 ///
 class CocktailTitle extends StatelessWidget {
-  final String cocktailTitle;
-  final bool isFavorite;
+  final Cocktail cocktail;
 
-  CocktailTitle({required this.cocktailTitle, required this.isFavorite});
+  CocktailTitle({required this.cocktail});
 
   @override
   Widget build(BuildContext context) {
@@ -33,25 +31,11 @@ class CocktailTitle extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          cocktailTitle,
+          cocktail.name!,
           style: Theme.of(context).textTheme.headline3,
         ),
-        _getIsFavoriteIcon()
+        CocktailFavoriteButton(cocktail)
       ],
     );
-  }
-
-  Widget _getIsFavoriteIcon() {
-    if (isFavorite) {
-      return IconButton(
-        icon: Icon(Icons.favorite, color: Colors.white),
-        onPressed: () {},
-      );
-    } else {
-      return IconButton(
-        icon: Icon(Icons.favorite_border, color: Colors.white),
-        onPressed: () {},
-      );
-    }
   }
 }

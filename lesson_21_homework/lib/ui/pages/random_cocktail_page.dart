@@ -11,8 +11,7 @@ class RandomCocktailPageWidget extends StatefulWidget {
   const RandomCocktailPageWidget(this.repository, {Key? key}) : super(key: key);
 
   @override
-  _RandomCocktailPageWidgetState createState() =>
-      _RandomCocktailPageWidgetState();
+  _RandomCocktailPageWidgetState createState() => _RandomCocktailPageWidgetState();
 }
 
 class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
@@ -63,6 +62,7 @@ class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
             final cocktailDefinition = CocktailDefinition(
               id: cocktail.id,
               name: cocktail.name,
+              categoryName: cocktail.category?.value,
               drinkThumbUrl: cocktail.drinkThumbUrl,
               isFavourite: cocktail.isFavourite,
             );
@@ -74,7 +74,7 @@ class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
                   (ctx, index) {
                     return CocktailGridItem(
                       cocktailDefinition,
-                      selectedCategory: cocktail.category!,
+                      selectedCategory: cocktail.category ?? CocktailCategory.unknown,
                     );
                   },
                   childCount: 1,
@@ -89,16 +89,6 @@ class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
             );
           }
 
-          ///
-          /// todo:
-          /// отрефакторить использование CircularProgressIndicator
-          /// в пользу реализации своего кастомного виджета progress indicator
-          /// Этот виджет нужно реализовать самостоятельно,
-          /// используя стандартные средства Flutter для работы
-          /// с графическим canvas и средства анимации.
-          /// И затем переиспользовать вместо CircularProgressIndicator
-          /// (в местах отмеченных///todo:)
-          ///
           return SliverFillRemaining(
             child: Center(
               child: const CircularProgressIndicator(),

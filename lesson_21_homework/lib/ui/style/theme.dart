@@ -7,6 +7,7 @@ final mainThemeData = ThemeData(
   backgroundColor: CustomColors.background,
   scaffoldBackgroundColor: CustomColors.background,
   textTheme: mainTextTheme,
+  // ignore: deprecated_member_use
   accentColor: Colors.lightGreen,
 );
 
