@@ -12,5 +12,5 @@ class CustomColors {
   static const filter_item_selected_color = Color(0xff3B3953);
   static const filter_item_color = Color(0xff201F2C);
   static const background = Color(0xff1A1927);
-
+  static const button_dark_background_color = Colors.black54;
 }
