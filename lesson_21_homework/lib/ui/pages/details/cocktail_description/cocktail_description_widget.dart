@@ -19,10 +19,7 @@ class CocktailDescriptionWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CocktailTitle(
-              cocktailTitle: cocktail.name!,
-              isFavorite: cocktail.isFavourite!,
-            ),
+            CocktailTitle(cocktail),
             Padding(
               padding: const EdgeInsets.only(top: 10.0),
               child: Text(
