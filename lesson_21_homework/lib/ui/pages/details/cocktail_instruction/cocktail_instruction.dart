@@ -1,7 +1,4 @@
-import 'dart:ui';
-
 import 'package:lesson_21_animations_homework/ui/style/custom_colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CocktailInstruction extends StatelessWidget {

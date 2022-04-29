@@ -1,5 +1,9 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lesson_21_animations_homework/bloc/favorties/favorites_cubit.dart';
+import 'package:lesson_21_animations_homework/core/models.dart';
 import 'package:lesson_21_animations_homework/ui/aplication/application_scaffold.dart';
 import 'package:flutter/material.dart';
+import 'package:lesson_21_animations_homework/ui/pages/list/cocktail_list.dart';
 
 ///
 /// TODO:
@@ -35,9 +39,16 @@ class _FavouriteCocktailsPageState extends State<FavouriteCocktailsPage> {
     );
   }
 
-  Widget _buildFavoriteCocktailItems(BuildContext context) => Center(
-          child: Text(
-        'todo: add code here',
-        style: Theme.of(context).textTheme.caption,
+  Widget _buildFavoriteCocktailItems(BuildContext context) =>
+      Center(child: BlocBuilder<FavoritesCubit, FavoritesState>(
+        builder: (context, state) {
+          List<CocktailDefinition> cocktails = state.favoritesMap.values
+              .map((e) => CocktailDefinition.fromDto(e))
+              .toList();
+          return CustomScrollView(slivers: [
+            SliverToBoxAdapter(child: SizedBox(height: 21)),
+            CocktailList(cocktails)
+          ]);
+        },
       ));
 }

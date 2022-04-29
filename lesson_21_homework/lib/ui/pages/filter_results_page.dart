@@ -1,9 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:lesson_21_animations_homework/core/models.dart';
-import 'package:lesson_21_animations_homework/main.dart';
 import 'package:lesson_21_animations_homework/ui/aplication/application_scaffold.dart';
 import 'package:lesson_21_animations_homework/ui/pages/categories_fitler_bar_delegate.dart';
-import 'package:lesson_21_animations_homework/ui/pages/cocktail_grid_item.dart';
-import 'package:flutter/material.dart';
+import 'package:lesson_21_animations_homework/ui/pages/list/cocktail_category_list.dart';
 
 class FilterResultsPageWidget extends StatefulWidget {
   final CocktailCategory selectedCategory;
@@ -45,54 +44,11 @@ class _FilterResultsPageWidgetState extends State<FilterResultsPageWidget> {
                 floating: true,
               ),
               SliverToBoxAdapter(child: SizedBox(height: 24)),
-              _buildCocktailItems(context)
+              CocktailCategoryList(category: _categoryNotifier.value)
             ],
           );
         },
       ),
     );
-  }
-
-  Widget _buildCocktailItems(BuildContext context) {
-    return FutureBuilder<Iterable<CocktailDefinition?>>(
-        future: repository
-            .fetchCocktailsByCocktailCategory(_categoryNotifier.value),
-        builder: (ctx, snapshot) {
-          if (snapshot.hasError) {
-            return SliverFillRemaining(
-              child: Center(
-                child: Text(
-                  snapshot.error.toString(),
-                ),
-              ),
-            );
-          }
-
-          if (snapshot.hasData) {
-            return SliverPadding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              sliver: SliverGrid(
-                delegate: SliverChildBuilderDelegate((ctx, index) {
-                  return CocktailGridItem(
-                    snapshot.data!.elementAt(index)!,
-                    selectedCategory: _categoryNotifier.value,
-                  );
-                }, childCount: snapshot.data!.length),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: CocktailGridItem.aspectRatio,
-                  crossAxisSpacing: 6,
-                  mainAxisSpacing: 6,
-                  crossAxisCount: 2,
-                ),
-              ),
-            );
-          }
-
-          return SliverFillRemaining(
-            child: Center(
-              child: const CircularProgressIndicator(),
-            ),
-          );
-        });
   }
 }
