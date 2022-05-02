@@ -1,13 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CocktailIngredientRow extends StatelessWidget {
   final String cocktailIngredientName;
   final String cocktailIngredientMeasure;
 
-  CocktailIngredientRow(
-      {required this.cocktailIngredientName,
-      required this.cocktailIngredientMeasure});
+  CocktailIngredientRow({required this.cocktailIngredientName, required this.cocktailIngredientMeasure});
 
   @override
   Widget build(BuildContext context) => Padding(
@@ -19,8 +16,7 @@ class CocktailIngredientRow extends StatelessWidget {
               cocktailIngredientName,
               style: Theme.of(context).textTheme.headline5,
             ),
-            Text(cocktailIngredientMeasure,
-                style: Theme.of(context).textTheme.headline5)
+            Text(cocktailIngredientMeasure, style: Theme.of(context).textTheme.headline5)
           ],
         ),
       );

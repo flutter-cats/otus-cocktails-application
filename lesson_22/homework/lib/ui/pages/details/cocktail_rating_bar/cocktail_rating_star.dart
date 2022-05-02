@@ -1,5 +1,4 @@
 import 'package:cocktail_app/ui/style/custom_colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CocktailRatingStar extends StatelessWidget {
@@ -12,8 +11,7 @@ class CocktailRatingStar extends StatelessWidget {
     return Container(
       width: 48,
       height: 48,
-      decoration: BoxDecoration(
-          shape: BoxShape.circle, color: CustomColors.rating_container),
+      decoration: BoxDecoration(shape: BoxShape.circle, color: CustomColors.rating_container),
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: getIcon(),
