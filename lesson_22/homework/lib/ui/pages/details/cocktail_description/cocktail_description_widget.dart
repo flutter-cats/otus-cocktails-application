@@ -1,6 +1,5 @@
 import 'package:cocktail_app/core/src/model/cocktail.dart';
 import 'package:cocktail_app/ui/style/custom_colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'cocktail_characteristic_text.dart';
@@ -31,15 +30,9 @@ class CocktailDescriptionWidget extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline2,
               ),
             ),
-            CocktailCharacteristicText(
-                characteristicName: 'Категория коктейля',
-                characteristicValue: cocktail.category.value),
-            CocktailCharacteristicText(
-                characteristicName: 'Тип коктейля',
-                characteristicValue: cocktail.cocktailType.value),
-            CocktailCharacteristicText(
-                characteristicName: 'Тип стекла',
-                characteristicValue: cocktail.glassType.value),
+            CocktailCharacteristicText(characteristicName: 'Категория коктейля', characteristicValue: cocktail.category.value),
+            CocktailCharacteristicText(characteristicName: 'Тип коктейля', characteristicValue: cocktail.cocktailType.value),
+            CocktailCharacteristicText(characteristicName: 'Тип стекла', characteristicValue: cocktail.glassType.value),
           ],
         ),
       ),

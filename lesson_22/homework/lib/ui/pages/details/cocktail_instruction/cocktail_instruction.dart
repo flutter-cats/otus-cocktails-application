@@ -1,7 +1,7 @@
+// ignore: unnecessary_import
 import 'dart:ui';
 
 import 'package:cocktail_app/ui/style/custom_colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CocktailInstruction extends StatelessWidget {
@@ -22,8 +22,7 @@ class CocktailInstruction extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
-              child: Text('Инструкция для приготовления',
-                  style: Theme.of(context).textTheme.headline5),
+              child: Text('Инструкция для приготовления', style: Theme.of(context).textTheme.headline5),
             ),
             ...cocktailInstruction
                 .split('\n')
@@ -49,12 +48,10 @@ class CocktailInstruction extends StatelessWidget {
             margin: EdgeInsets.only(top: 6, right: 12),
             width: 4,
             height: 4,
-            decoration:
-                BoxDecoration(color: Colors.white, shape: BoxShape.circle),
+            decoration: BoxDecoration(color: Colors.white, shape: BoxShape.circle),
           ),
           Expanded(
-            child: Text("${step.replaceFirst("-", "").trim()}",
-                textAlign: TextAlign.left, style: style),
+            child: Text("${step.replaceFirst("-", "").trim()}", textAlign: TextAlign.left, style: style),
           )
         ],
       ),
