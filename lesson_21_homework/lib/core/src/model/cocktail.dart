@@ -3,8 +3,11 @@ import 'package:lesson_21_animations_homework/core/src/model/cocktail_definition
 import 'package:lesson_21_animations_homework/core/src/model/cocktail_type.dart';
 import 'package:lesson_21_animations_homework/core/src/model/glass_type.dart';
 import 'package:lesson_21_animations_homework/core/src/model/ingredient_definition.dart';
-import 'package:meta/meta.dart';
 
+import 'package:hive_flutter/hive_flutter.dart';
+
+import 'package:hive/hive.dart';
+part 'cocktail.g.dart';
 ///
 /// see some details on https://www.thecocktaildb.com/
 ///
@@ -83,23 +86,30 @@ import 'package:meta/meta.dart';
 ///   see more on RapidApi or https://www.thecocktaildb.com/
 ///
 ///
+///
+@HiveType(typeId: 0)
 class Cocktail extends CocktailDefinition {
+  @HiveField(0)
   final String? instruction;
+  @HiveField(1)
   final CocktailCategory? category;
+  @HiveField(2)
   final GlassType? glassType;
+  @HiveField(3)
   final CocktailType? cocktailType;
+  @HiveField(4)
   final Iterable<IngredientDefinition>? ingredients;
 
   Cocktail({
-    @required String? id,
-    @required String? name,
-    @required String? drinkThumbUrl,
-    @required bool? isFavourite,
-    @required this.instruction,
-    @required this.category,
-    @required this.glassType,
-    @required this.cocktailType,
-    @required this.ingredients,
+    String? id,
+     String? name,
+     String? drinkThumbUrl,
+     required bool isFavourite,
+     this.instruction,
+     this.category,
+     this.glassType,
+     this.cocktailType,
+     this.ingredients,
   }) : super(
           id: id,
           drinkThumbUrl: drinkThumbUrl,

@@ -6,6 +6,8 @@ import 'package:cocktail_db_http_using/src/dto/cocktail_definition_dto.dart';
 import 'package:cocktail_db_http_using/src/dto/cocktail_dto.dart';
 import 'package:http/http.dart' as http;
 
+import '../dto/ingredients_dto.dart';
+
 class AsyncCocktailRepository {
   static const String _apiKey =
       'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b';
@@ -157,8 +159,56 @@ class AsyncCocktailRepository {
   /// api operation is:
   /// https://the-cocktail-db.p.rapidapi.com/lookup.php
   ///
-  Future<Ingredient?> lookupIngredientById() async {
-    return null;
+  Future<Ingredient?> lookupIngredientById(String iid) async {
+   Ingredient? result;
+
+    var client = http.Client();
+    try {
+      final url = 'https://the-cocktail-db.p.rapidapi.com/lookup.php?iid=$iid';
+      var response = await http.get(Uri.parse(url), headers: _headers);
+      if (response.statusCode == 200) {
+        final jsonResponse = convert.jsonDecode(response.body);
+        var ingredients = jsonResponse['ingredients'] as Iterable<dynamic>;
+
+        final dtos = ingredients
+            .cast<Map<String, dynamic>>()
+            .map((json) => IngredientsDto.fromJson(json));
+        if (dtos.length > 0) {
+          result = _createIngredientFromDto(dtos.first);
+        }
+      } else {
+        throw HttpException(
+            'Request failed with status: ${response.statusCode}');
+      }
+    } finally {
+      client.close();
+    }
+
+    return result;
+
+
+    
+  }
+
+  _createIngredientFromDto(IngredientsDto dto){
+    
+    bool? isAlcoholic = null;
+
+    if (dto.strAlcohol == "Yes"){
+      isAlcoholic = true;
+    } else if (dto.strAlcohol == "No"){
+      isAlcoholic = false;
+    }  
+
+    return Ingredient(
+      id: dto.idIngredient,
+      name: dto.strIngredient,
+      description: dto.strDescription,
+      ingredientType: dto.strType,
+      isAlcoholic: isAlcoholic,
+    );
+
+
   }
 
   Cocktail _createCocktailFromDto(CocktailDto dto) {
