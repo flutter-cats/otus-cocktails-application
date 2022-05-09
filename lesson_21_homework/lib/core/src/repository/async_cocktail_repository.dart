@@ -1,6 +1,7 @@
 import 'dart:convert' as convert;
 import 'dart:io';
 
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'package:lesson_21_animations_homework/core/src/dto/cocktail_definition_dto.dart';
 import 'package:lesson_21_animations_homework/core/src/dto/cocktail_dto.dart';
@@ -37,7 +38,7 @@ class AsyncCocktailRepository {
           .cast<Map<String, dynamic>>()
           .map((json) => CocktailDto.fromJson(json));
       if (dtos.length > 0) {
-        result = _createCocktailFromDto(dtos.first);
+        result = await _createCocktailFromDto(dtos.first);
       }
     } else {
       throw HttpException('Request failed with status: ${response.statusCode}');
@@ -48,7 +49,6 @@ class AsyncCocktailRepository {
 
   Future<Iterable<CocktailDefinition?>> fetchCocktailsByCocktailCategory(
       CocktailCategory category) async {
-    var result = <CocktailDefinition>[];
 
     ///
     /// здесь искуственная задержка просто для демонстрации progress indicator
@@ -70,24 +70,16 @@ class AsyncCocktailRepository {
           .cast<Map<String, dynamic>>()
           .map((json) => CocktailDefinitionDto.fromJson(json));
 
-      for (final dto in dtos) {
-        result.add(CocktailDefinition(
-          id: dto.idDrink,
-          isFavourite: false,
-          name: dto.strDrink,
-          drinkThumbUrl: dto.strDrinkThumb,
-        ));
-      }
+     return createListCocktailDefinition(dtos);
     } else {
       throw HttpException('Request failed with status: ${response.statusCode}');
     }
 
-    return result;
+    
   }
 
   Future<Iterable<CocktailDefinition>> fetchCocktailsByCocktailType(
       CocktailType cocktailType) async {
-    var result = <CocktailDefinition>[];
 
     final url = Uri.parse(
         'https://the-cocktail-db.p.rapidapi.com/filter.php?a=${cocktailType.value}');
@@ -105,19 +97,12 @@ class AsyncCocktailRepository {
           .cast<Map<String, dynamic>>()
           .map((json) => CocktailDefinitionDto.fromJson(json));
 
-      for (final dto in dtos) {
-        result.add(CocktailDefinition(
-          id: dto.idDrink,
-          isFavourite: false,
-          name: dto.strDrink,
-          drinkThumbUrl: dto.strDrinkThumb,
-        ));
-      }
+      return createListCocktailDefinition(dtos);
     } else {
       throw HttpException('Request failed with status: ${response.statusCode}');
     }
 
-    return result;
+    
   }
 
   Future<Iterable<Cocktail>> fetchPopularCocktails() async {
@@ -139,7 +124,7 @@ class AsyncCocktailRepository {
           .map((json) => CocktailDto.fromJson(json));
 
       for (final dto in dtos) {
-        final cocktail = _createCocktailFromDto(dto);
+        final cocktail = await _createCocktailFromDto(dto);
         result.add(cocktail);
       }
     } else {
@@ -166,7 +151,7 @@ class AsyncCocktailRepository {
           .cast<Map<String, dynamic>>()
           .map((json) => CocktailDto.fromJson(json));
       if (dtos.length > 0) {
-        result = _createCocktailFromDto(dtos.first);
+        result = await _createCocktailFromDto(dtos.first);
       }
     } else {
       throw HttpException('Request failed with status: ${response.statusCode}');
@@ -175,7 +160,7 @@ class AsyncCocktailRepository {
     return result;
   }
 
-  Cocktail _createCocktailFromDto(CocktailDto dto) {
+  Future <Cocktail> _createCocktailFromDto(CocktailDto dto) async {
     final glass = GlassType.parse(dto.strGlass!);
     final cocktailType = CocktailType.parse(dto.strAlcoholic!);
     final category = CocktailCategory.parse(dto.strCategory!);
@@ -184,14 +169,15 @@ class AsyncCocktailRepository {
 
     _getIngredients(dto).forEach(
         (key, value) => ingredients.add(IngredientDefinition(key, value)));
-
+    
+    bool isFavorite = await compareFavoriteId(dto.idDrink ); 
     return Cocktail(
       id: dto.idDrink,
       category: category,
       cocktailType: cocktailType,
       glassType: glass,
       instruction: dto.strInstructions,
-      isFavourite: false,
+      isFavourite: isFavorite,
       name: dto.strDrink,
       ingredients: ingredients,
       drinkThumbUrl: dto.strDrinkThumb,
@@ -217,4 +203,33 @@ class AsyncCocktailRepository {
       if (dto.strIngredient15 != null) dto.strIngredient15!: dto.strMeasure15,
     };
   }
+
+  Future<List<CocktailDefinition>> createListCocktailDefinition (Iterable<CocktailDefinitionDto> dtos) async {
+    var box = await Hive.openBox<Cocktail>('favorits');
+    List<dynamic> _favoritsIdList =  box.toMap().keys.toList();
+    var result = <CocktailDefinition>[];
+    for (final dto in dtos) {
+        bool _isFavorite = false;
+        dynamic _id = dto.idDrink; 
+        if (_favoritsIdList.contains(_id)){ _isFavorite = true ;}
+        result.add(CocktailDefinition(
+          id: dto.idDrink,
+          isFavourite: _isFavorite,
+          name: dto.strDrink,
+          drinkThumbUrl: dto.strDrinkThumb,
+        ));
+      }
+      return result;
+  }
+
+  Future<bool> compareFavoriteId(String id) async {
+    var box = await Hive.openBox<Cocktail>('favorits');
+    List<dynamic> _favoritsIdList =  box.toMap().keys.toList();
+    bool _isFavorite = false;
+    dynamic _id = id;
+     if (_favoritsIdList.contains(_id)){ _isFavorite = true ;}
+    return _isFavorite;
+  }
+
+
 }

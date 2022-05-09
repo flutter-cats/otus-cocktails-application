@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lesson_21_animations_homework/core/models.dart';
 import 'package:lesson_21_animations_homework/main.dart';
 import 'package:lesson_21_animations_homework/ui/pages/details/cocktail_detail_page.dart';
+import 'package:lesson_21_animations_homework/ui/pages/details/get_is_favorite_icon.dart';
 import 'package:lesson_21_animations_homework/ui/style/custom_colors.dart';
 
 class CocktailGridItem extends StatelessWidget {
@@ -24,7 +25,7 @@ class CocktailGridItem extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute<void>(
             builder: (context) => FutureBuilder<Cocktail?>(
-              future: repository.fetchCocktailDetails(cocktailDefinition.id!),
+              future: repository.fetchCocktailDetails(cocktailDefinition.id),
               builder: (ctx, snapshot) {
                 if (snapshot.hasData) {
                   return Material(
@@ -86,7 +87,15 @@ class CocktailGridItem extends StatelessWidget {
                             ),
                           ),
                         ),
-                        _getIsFavoriteIcon(cocktailDefinition.isFavourite!),
+                       
+                        GetIsFavoriteIcon(
+                        cocktail: Cocktail(
+                          id: cocktailDefinition.id,
+                          isFavourite: cocktailDefinition.isFavourite,
+                          name: cocktailDefinition.name,
+                          drinkThumbUrl: cocktailDefinition.drinkThumbUrl,
+                          category: selectedCategory
+                        )),                      
                       ]),
                 ],
               ),
@@ -97,17 +106,5 @@ class CocktailGridItem extends StatelessWidget {
     );
   }
 
-  Widget _getIsFavoriteIcon(bool isFavourite) {
-    if (isFavourite) {
-      return IconButton(
-        icon: Icon(Icons.favorite, color: Colors.white),
-        onPressed: () {},
-      );
-    } else {
-      return IconButton(
-        icon: Icon(Icons.favorite_border, color: Colors.white),
-        onPressed: () {},
-      );
-    }
-  }
+  
 }
