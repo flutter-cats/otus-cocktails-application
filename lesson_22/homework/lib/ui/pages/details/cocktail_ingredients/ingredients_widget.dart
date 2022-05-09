@@ -1,5 +1,4 @@
 import 'package:cocktail_app/core/src/model/ingredient_definition.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'cocktail_ingredient_row.dart';

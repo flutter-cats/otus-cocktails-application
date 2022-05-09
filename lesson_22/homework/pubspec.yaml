@@ -1,8 +1,6 @@
 name: cocktail_app
 description: Cocktail of the day application
 version: 1.0.0+1
-authors:
-  - Flutter Mobile developer cource
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
