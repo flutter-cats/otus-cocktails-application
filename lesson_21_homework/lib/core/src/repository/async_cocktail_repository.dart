@@ -46,7 +46,7 @@ class AsyncCocktailRepository {
     return result;
   }
 
-  Future<Iterable<CocktailDefinition?>> fetchCocktailsByCocktailCategory(
+  Future<Iterable<CocktailDefinition>> fetchCocktailsByCocktailCategory(
       CocktailCategory category) async {
     var result = <CocktailDefinition>[];
 
