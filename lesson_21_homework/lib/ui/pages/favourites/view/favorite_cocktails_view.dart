@@ -1,5 +1,8 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lesson_21_animations_homework/ui/aplication/application_scaffold.dart';
 import 'package:flutter/material.dart';
+
+import '../cubit/favourites_cubit.dart';
 
 ///
 /// TODO:
@@ -31,13 +34,34 @@ class _FavouriteCocktailsPageState extends State<FavouriteCocktailsPage> {
     return ApplicationScaffold(
       title: 'Избранное',
       currentSelectedNavBarItem: 2,
-      child: _buildFavoriteCocktailItems(context),
+      child: BlocBuilder<FavouritesCubit, FavouritesState>(
+        builder: (context, state) {
+          return _buildFavoriteCocktailItems(context);
+        },
+      ),
     );
   }
 
-  Widget _buildFavoriteCocktailItems(BuildContext context) => Center(
-          child: Text(
-        'todo: add code here',
-        style: Theme.of(context).textTheme.caption,
-      ));
+  Widget _buildFavoriteCocktailItems(BuildContext context) {
+    final cubit = context.read<FavouritesCubit>();
+    return Center(
+      child: ListView.builder(
+          itemCount: cubit.items.length,
+          itemBuilder: (BuildContext context, int index) {
+            String key = cubit.items.keys.elementAt(index);
+            return ListTile(
+                leading: Icon(Icons.list),
+                trailing: TextButton(
+                  onPressed: () {
+                    cubit.removeFromFavourite(key);
+                  },
+                  child: Text('remove',
+                      style: TextStyle(color: Colors.green, fontSize: 15)),
+                ),
+                title: Text(
+                  cubit.items[key]?.name ?? '-',
+                ));
+          }),
+    );
+  }
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lesson_21_animations_homework/core/models.dart';
 import 'package:lesson_21_animations_homework/main.dart';
 import 'package:lesson_21_animations_homework/ui/pages/details/cocktail_detail_page.dart';
+import 'package:lesson_21_animations_homework/ui/pages/favourites/cubit/favourites_cubit.dart';
 import 'package:lesson_21_animations_homework/ui/style/custom_colors.dart';
 
 class CocktailGridItem extends StatelessWidget {
@@ -86,7 +88,13 @@ class CocktailGridItem extends StatelessWidget {
                             ),
                           ),
                         ),
-                        _getIsFavoriteIcon(cocktailDefinition.isFavourite!),
+                        FavouriteIcon(cocktail: cocktailDefinition)
+                        // BlocBuilder<FavouritesCubit, FavouritesState>(
+                        //   builder: (context, state) {
+                        //     return _getIsFavoriteIcon(
+                        //         context, false, cocktailDefinition);
+                        //   },
+                        // ),
                       ]),
                 ],
               ),
@@ -97,17 +105,74 @@ class CocktailGridItem extends StatelessWidget {
     );
   }
 
-  Widget _getIsFavoriteIcon(bool isFavourite) {
-    if (isFavourite) {
-      return IconButton(
-        icon: Icon(Icons.favorite, color: Colors.white),
-        onPressed: () {},
-      );
-    } else {
-      return IconButton(
-        icon: Icon(Icons.favorite_border, color: Colors.white),
-        onPressed: () {},
-      );
-    }
+//   Widget _getIsFavoriteIcon(
+//       BuildContext context, bool isFavourite, CocktailDefinition cocktail) {
+//     final cubit = context.read<FavouritesCubit>();
+//     if (isFavourite) {
+//       return IconButton(
+//         icon: Icon(Icons.favorite, color: Colors.white),
+//         onPressed: () {},
+//       );
+//     } else {
+//       return IconButton(
+//         icon: Icon(Icons.favorite_border, color: Colors.white),
+//         onPressed: () {
+//           cubit.addToFavourite(cocktail);
+//         },
+//       );
+//     }
+//   }
+// }
+}
+
+class FavouriteIcon extends StatelessWidget {
+  const FavouriteIcon({Key? key, required this.cocktail}) : super(key: key);
+
+  final CocktailDefinition cocktail;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<FavouritesCubit, FavouritesState>(
+      builder: (context, state) {
+        final cubit = context.read<FavouritesCubit>();
+        if (cubit.items.containsKey(cocktail.id)) {
+          return IconButton(
+            icon: Icon(Icons.favorite, color: Colors.white),
+            onPressed: () {
+              cubit.removeFromFavourite(cocktail.id!);
+            },
+          );
+        } else {
+          return IconButton(
+            icon: Icon(Icons.favorite_border, color: Colors.white),
+            onPressed: () {
+              cubit.addToFavourite(cocktail.id!, cocktail);
+            },
+          );
+        }
+      },
+    );
   }
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   final cubit = context.read<FavouritesCubit>();
+  //   final select =
+  //       context.select((FavouritesCubit cubit) => cubit.state.cocktailsList);
+  //   if (select.containsKey(cocktail.id)) {
+  //     return IconButton(
+  //       icon: Icon(Icons.favorite, color: Colors.white),
+  //       onPressed: () {
+  //         cubit.removeFromFavourite(cocktail.id!);
+  //       },
+  //     );
+  //   } else {
+  //     return IconButton(
+  //       icon: Icon(Icons.favorite_border, color: Colors.white),
+  //       onPressed: () {
+  //         cubit.addToFavourite(cocktail.id!, cocktail);
+  //       },
+  //     );
+  //   }
+  // }
 }

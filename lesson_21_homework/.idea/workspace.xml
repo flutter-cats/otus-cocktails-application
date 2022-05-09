@@ -1,20 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="1559a543-d24b-47b8-9ff9-c1143998a9a6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/ui/pages/favourites/cubit/favourites_cubit.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ui/pages/favourites/cubit/favourites_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ui/pages/favourites/view/favourite_cocktails_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/otus-cocktails-application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/otus-cocktails-application.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis_options.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/analysis_options.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/aplication/adaptive_navigation_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/aplication/adaptive_navigation_bar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/aplication/application_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/aplication/application_drawer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/cocktail_grid_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/cocktail_grid_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/favorite_cocktails_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/favourites/view/favorite_cocktails_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/Development/flutter/packages/flutter/lib/src/widgets/container.dart" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="1t5ipo6ubbYgRDUvS6UHoht82Fb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -24,13 +53,17 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description" />
-    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -41,6 +74,10 @@
       <recent name="$PROJECT_DIR$/lib/ui/aplication" />
       <recent name="$PROJECT_DIR$/lib" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/ui/pages/favourites/view" />
+      <recent name="$PROJECT_DIR$/lib/ui/pages/favourites" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
@@ -48,6 +85,7 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -90,58 +128,20 @@
     <option name="localTasksCounter" value="5" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lesson_21 homework" />
     <option name="LAST_COMMIT_MESSAGE" value="lesson_21 homework" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="114" y="40" key="CommitChangelistDialog2" timestamp="1622075275167">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="114" y="40" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1622075275167" />
-    <state width="1019" height="468" key="GridCell.Tab.0.bottom" timestamp="1622075278707">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1019" height="468" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1622075278707" />
-    <state width="1019" height="468" key="GridCell.Tab.0.center" timestamp="1622075278706">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1019" height="468" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1622075278706" />
-    <state width="1019" height="468" key="GridCell.Tab.0.left" timestamp="1622075278706">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1019" height="468" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1622075278706" />
-    <state width="1019" height="468" key="GridCell.Tab.0.right" timestamp="1622075278707">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1019" height="468" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1622075278707" />
-    <state width="1019" height="468" key="GridCell.Tab.1.bottom" timestamp="1622075278708">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1019" height="468" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1622075278708" />
-    <state width="1019" height="468" key="GridCell.Tab.1.center" timestamp="1622075278708">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1019" height="468" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1622075278708" />
-    <state width="1019" height="468" key="GridCell.Tab.1.left" timestamp="1622075278707">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1019" height="468" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1622075278707" />
-    <state width="1019" height="468" key="GridCell.Tab.1.right" timestamp="1622075278708">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1019" height="468" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1622075278708" />
-    <state width="527" height="445" key="SwitcherDM" timestamp="1622074079015">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="527" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1622074079015" />
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1622075277498">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1622075277498" />
-    <state x="151" y="18" width="1142" height="879" key="find.popup" timestamp="1622068123103">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="151" y="18" width="1142" height="879" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1622068123103" />
   </component>
 </project>
