@@ -1,10 +1,23 @@
+import 'package:cocktail_app/core/src/model/cocktail.dart';
 import 'package:cocktail_app/ui/style/custom_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 
 class CocktailPreview extends StatelessWidget {
-  final String imageUrl;
+  final Cocktail cocktail;
 
-  CocktailPreview({required this.imageUrl});
+  CocktailPreview({required this.cocktail});
+
+  share() async {
+    var text = "Name: ${cocktail.name}\n";
+    text += "Category: ${cocktail.category.value}\n";
+    text += "Cocktail type: ${cocktail.cocktailType.value}\n";
+    text += "Glass type: ${cocktail.glassType.value}\n";
+    text += "Image: ${cocktail.drinkThumbUrl}\n";
+    text += "Instruction: ${cocktail.instruction}\n";
+
+    Share.share(text);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +25,7 @@ class CocktailPreview extends StatelessWidget {
       children: [
         AspectRatio(
           aspectRatio: 375 / 343,
-          child: Image.network(imageUrl, fit: BoxFit.fill),
+          child: Image.network(cocktail.drinkThumbUrl, fit: BoxFit.fill),
         ),
         Positioned(
           bottom: 0,
@@ -44,19 +57,7 @@ class CocktailPreview extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
-                    ///
-                    /// TODO:
-                    ///    - Склонировать соотвествующий github репозиторий с заготовкой проекта для этого урока (https://github.com/guid-empty/otus-cocktail-app-lessons)
-                    ///    - Подключить соот-щий плагинг для вызова platform's share dialog в pubspec.yaml
-                    ///    - Открыть класс экрана CocktailDetailPage -> виджет CocktailPreview с кнопкой Share
-                    ///    - Внести изменения в код обработчика событий на нажатие кнопки Share (Поделиться) (в виджете CocktailPreview)
-                    ///    - В обработчике события на Sharing сформировать текст с ссылкой на ImageThumb для описания коктейля
-                    ///    - В обработчике события на Sharing выполнить обращение к классу плагина и пошарить описание коктейля
-                    ///    - Убедиться, что сформированный текст уходит в канал #random в нашем канале Slack
-                    ///
-                    /// На усмотрение студента:
-                    ///    - Можно использовать любые проверенные плагины из pub.dev
-                    ///    - Можно выполнить любую декомпозицию методов экрана CocktailDetailPage (а также в виджете CocktailPreview) или кнопки Share для внесения изменений, требуемых для sharing
+                    share();
                   },
                   icon: Icon(
                     Icons.share,
