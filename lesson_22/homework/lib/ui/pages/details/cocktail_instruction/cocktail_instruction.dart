@@ -1,7 +1,5 @@
-import 'dart:ui';
 
 import 'package:cocktail_app/ui/style/custom_colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CocktailInstruction extends StatelessWidget {
