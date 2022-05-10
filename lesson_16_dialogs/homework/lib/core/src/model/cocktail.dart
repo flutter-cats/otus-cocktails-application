@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+
 
 import 'cocktail_category.dart';
 import 'cocktail_type.dart';
@@ -68,14 +68,14 @@ import 'ingredient_definition.dart';
 ///  ```
 ///
 class Cocktail {
-  final String id;
-  final String name;
-  final String instruction;
-  final CocktailCategory category;
-  final GlassType glassType;
-  final CocktailType cocktailType;
-  final Iterable<IngredientDefinition> ingredients;
-  final String drinkThumbUrl;
+  final String? id;
+  final String? name;
+  final String? instruction;
+  final CocktailCategory? category;
+  final GlassType? glassType;
+  final CocktailType? cocktailType;
+  final Iterable<IngredientDefinition>? ingredients;
+  final String? drinkThumbUrl;
   final bool isFavourite;
 
   Cocktail({

@@ -74,7 +74,7 @@ class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
                   (ctx, index) {
                     return CocktailGridItem(
                       cocktailDefinition,
-                      selectedCategory: cocktail.category!,
+                      selectedCategory: cocktail.category ?? CocktailCategory.unknown,
                     );
                   },
                   childCount: 1,
