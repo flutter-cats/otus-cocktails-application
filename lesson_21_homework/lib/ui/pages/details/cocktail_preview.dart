@@ -1,11 +1,12 @@
+import 'package:lesson_21_animations_homework/core/models.dart';
 import 'package:lesson_21_animations_homework/ui/style/custom_colors.dart';
-
+import 'package:share_plus/share_plus.dart';
 import 'package:flutter/material.dart';
 
 class CocktailPreview extends StatelessWidget {
-  final String imageUrl;
+  final Cocktail cocktail;
 
-  CocktailPreview({required this.imageUrl});
+  CocktailPreview({required this.cocktail});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class CocktailPreview extends StatelessWidget {
       children: [
         AspectRatio(
           aspectRatio: 375 / 343,
-          child: Image.network(imageUrl, fit: BoxFit.fill),
+          child: Image.network(cocktail.drinkThumbUrl!, fit: BoxFit.fill),
         ),
         Positioned(
           bottom: 0,
@@ -46,7 +47,11 @@ class CocktailPreview extends StatelessWidget {
                   onPressed: () => Navigator.of(context).pop(),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Share.share('Name: ${cocktail.name}\n'
+                        'Instruction: ${cocktail.instruction}\n'
+                        'Image: ${cocktail.drinkThumbUrl}');
+                  },
                   icon: Icon(
                     Icons.share,
                     color: Colors.white,
