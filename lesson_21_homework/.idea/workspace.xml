@@ -5,24 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1559a543-d24b-47b8-9ff9-c1143998a9a6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/ui/pages/favourites/cubit/favourites_cubit.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/ui/pages/favourites/cubit/favourites_state.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/ui/pages/favourites/view/favourite_cocktails_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/otus-cocktails-application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/otus-cocktails-application.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis_options.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/analysis_options.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/aplication/adaptive_navigation_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/aplication/adaptive_navigation_bar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/aplication/application_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/aplication/application_drawer.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ui/pages/cocktail_grid_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/cocktail_grid_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/pages/favorite_cocktails_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/favourites/view/favorite_cocktails_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/favourites/cubit/favourites_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/favourites/cubit/favourites_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/favourites/cubit/favourites_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/favourites/cubit/favourites_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/favourites/view/favorite_cocktails_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/favourites/view/favorite_cocktails_view.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622075275649</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="cubit first approach">
+      <created>1652138529591</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1652138529592</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -142,6 +136,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lesson_21 homework" />
-    <option name="LAST_COMMIT_MESSAGE" value="lesson_21 homework" />
+    <MESSAGE value="cubit first approach" />
+    <option name="LAST_COMMIT_MESSAGE" value="cubit first approach" />
   </component>
 </project>

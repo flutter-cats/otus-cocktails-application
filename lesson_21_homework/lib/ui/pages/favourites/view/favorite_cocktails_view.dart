@@ -46,20 +46,19 @@ class _FavouriteCocktailsPageState extends State<FavouriteCocktailsPage> {
     final cubit = context.read<FavouritesCubit>();
     return Center(
       child: ListView.builder(
-          itemCount: cubit.items.length,
+          itemCount: cubit.state.list.length,
           itemBuilder: (BuildContext context, int index) {
-            String key = cubit.items.keys.elementAt(index);
             return ListTile(
                 leading: Icon(Icons.list),
                 trailing: TextButton(
                   onPressed: () {
-                    cubit.removeFromFavourite(key);
+                    cubit.removeFromFavouriteByIndex(index);
                   },
                   child: Text('remove',
                       style: TextStyle(color: Colors.green, fontSize: 15)),
                 ),
                 title: Text(
-                  cubit.items[key]?.name ?? '-',
+                  cubit.state.list[index].name ?? '-',
                 ));
           }),
     );

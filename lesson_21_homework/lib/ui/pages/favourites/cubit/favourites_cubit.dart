@@ -5,32 +5,28 @@ import 'package:lesson_21_animations_homework/core/models.dart';
 part 'favourites_state.dart';
 
 class FavouritesCubit extends Cubit<FavouritesState> {
-  FavouritesCubit() : super(const FavouritesState(cocktailsList: {}));
+  FavouritesCubit() : super(const FavouritesState(cocktailsList: []));
 
-  final Map<String, CocktailDefinition> _favouriteItems = {};
-
-  Map<String, CocktailDefinition> get items => _favouriteItems;
-
-  void addToFavourite(String id, CocktailDefinition cocktail) {
-    _favouriteItems[id] = cocktail;
-    _favouriteItems.forEach((key, value) {
-      print('$key, ${value.name}');
-    });
+  void addToFavourite(CocktailDefinition cocktail) {
+    emit(
+      state.copyWith(
+        cocktailsList: List.of(state.list)..add(cocktail),
+      ),
+    );
     print('add performed ____________');
-    // emit(state.copyWith(cocktailsList: {..._favouriteItems, '$id': cocktail}));
-    emit(FavouritesState(cocktailsList: {..._favouriteItems, id: cocktail}));
-    //emit(state.copyWith(cocktailsList: _favouriteItems));
-    // emit(FavouritesState(cocktailsList: _favouriteItems));
   }
 
-  void removeFromFavourite(String id) {
-    _favouriteItems.remove(id);
-
-    _favouriteItems.forEach((key, value) {
-      print('$key, ${value.name}');
-    });
+  void removeFromFavourite(CocktailDefinition cocktail) {
+    emit(
+      state.copyWith(
+        cocktailsList: List.of(state.list)..remove(cocktail),
+      ),
+    );
     print('remove performed ____________');
-    //emit(state.copyWith(cocktailsList: _favouriteItems));
-    emit(FavouritesState(cocktailsList: _favouriteItems));
+  }
+
+  void removeFromFavouriteByIndex(int index) {
+    emit(state.copyWith(cocktailsList: List.of(state.list)..removeAt(index)));
+    print('remove performed ____________');
   }
 }

@@ -135,18 +135,23 @@ class FavouriteIcon extends StatelessWidget {
     return BlocBuilder<FavouritesCubit, FavouritesState>(
       builder: (context, state) {
         final cubit = context.read<FavouritesCubit>();
-        if (cubit.items.containsKey(cocktail.id)) {
+        var favouriteIndexList = [];
+        for (var element in cubit.state.list) {
+          favouriteIndexList.add(element.id);
+          print('creating');
+        }
+        if (favouriteIndexList.contains(cocktail.id)) {
           return IconButton(
             icon: Icon(Icons.favorite, color: Colors.white),
             onPressed: () {
-              cubit.removeFromFavourite(cocktail.id!);
+              cubit.removeFromFavourite(cocktail);
             },
           );
         } else {
           return IconButton(
             icon: Icon(Icons.favorite_border, color: Colors.white),
             onPressed: () {
-              cubit.addToFavourite(cocktail.id!, cocktail);
+              cubit.addToFavourite(cocktail);
             },
           );
         }
@@ -154,25 +159,25 @@ class FavouriteIcon extends StatelessWidget {
     );
   }
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   final cubit = context.read<FavouritesCubit>();
-  //   final select =
-  //       context.select((FavouritesCubit cubit) => cubit.state.cocktailsList);
-  //   if (select.containsKey(cocktail.id)) {
-  //     return IconButton(
-  //       icon: Icon(Icons.favorite, color: Colors.white),
-  //       onPressed: () {
-  //         cubit.removeFromFavourite(cocktail.id!);
-  //       },
-  //     );
-  //   } else {
-  //     return IconButton(
-  //       icon: Icon(Icons.favorite_border, color: Colors.white),
-  //       onPressed: () {
-  //         cubit.addToFavourite(cocktail.id!, cocktail);
-  //       },
-  //     );
-  //   }
-  // }
+// @override
+// Widget build(BuildContext context) {
+//   final cubit = context.read<FavouritesCubit>();
+//   final select =
+//       context.select((FavouritesCubit cubit) => cubit.state.cocktailsList);
+//   if (select.containsKey(cocktail.id)) {
+//     return IconButton(
+//       icon: Icon(Icons.favorite, color: Colors.white),
+//       onPressed: () {
+//         cubit.removeFromFavourite(cocktail.id!);
+//       },
+//     );
+//   } else {
+//     return IconButton(
+//       icon: Icon(Icons.favorite_border, color: Colors.white),
+//       onPressed: () {
+//         cubit.addToFavourite(cocktail.id!, cocktail);
+//       },
+//     );
+//   }
+// }
 }
