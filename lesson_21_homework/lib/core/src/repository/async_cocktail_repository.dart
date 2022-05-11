@@ -96,10 +96,10 @@ class AsyncCocktailRepository {
 
     for (final dto in dtos) {
       result.add(CocktailDefinition(
-        id: dto.idDrink,
-        name: dto.strDrink,
-        drinkThumbUrl: dto.strDrinkThumb,
-      ));
+          id: dto.idDrink,
+          name: dto.strDrink,
+          drinkThumbUrl: dto.strDrinkThumb,
+          cocktailCategory: category.value));
     }
 
     return result;

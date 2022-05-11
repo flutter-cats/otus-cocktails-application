@@ -35,7 +35,9 @@ class FavouriteCocktailsPage extends StatelessWidget {
       currentSelectedNavBarItem: 2,
       child: BlocBuilder<FavouritesCubit, FavouritesState>(
         builder: (context, state) {
-          return Favourites();
+          return Favourites(
+            favouriteCocktailsMap: state.favouriteCocktailsMap,
+          );
         },
       ),
     );
@@ -43,26 +45,27 @@ class FavouriteCocktailsPage extends StatelessWidget {
 }
 
 class Favourites extends StatelessWidget {
-  const Favourites({Key? key}) : super(key: key);
+  const Favourites({
+    Key? key,
+    required this.favouriteCocktailsMap,
+  }) : super(key: key);
+
+  final Map<String, CocktailDefinition> favouriteCocktailsMap;
 
   @override
   Widget build(BuildContext context) {
-    final cocktailsMap =
-        context.read<FavouritesCubit>().state.favouriteCocktailsMap;
-    final cubit = context.read<FavouritesCubit>();
-
     return CustomScrollView(slivers: [
       SliverPadding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         sliver: SliverGrid(
           delegate: SliverChildBuilderDelegate(
             (ctx, index) {
-              final cocktailKey = cocktailsMap.keys.elementAt(index);
+              final cocktailKey = favouriteCocktailsMap.keys.elementAt(index);
               return CocktailGridItem(
-                cocktailsMap[cocktailKey]!,
+                favouriteCocktailsMap[cocktailKey]!,
               );
             },
-            childCount: cocktailsMap.length,
+            childCount: favouriteCocktailsMap.length,
           ),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             childAspectRatio: CocktailGridItem.aspectRatio,
