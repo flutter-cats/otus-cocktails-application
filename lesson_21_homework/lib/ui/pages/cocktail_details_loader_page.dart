@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lesson_21_animations_homework/core/models.dart';
 import 'package:lesson_21_animations_homework/main.dart';
-import 'package:lesson_21_animations_homework/ui/pages/details/cocktail_detail_page.dart';
+import 'package:lesson_21_animations_homework/ui/circular_progress_custom.dart';
+import 'package:lesson_21_animations_homework/ui/pages/details/view/cocktail_detail_page.dart';
 
 class CocktailDetailsLoaderPageWidget extends StatefulWidget {
   final String cocktailId;
@@ -28,6 +29,6 @@ class _CocktailDetailsLoaderPageWidgetState
               return CocktailDetailPage(snapshot.data!);
             }
 
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressCustom());
           });
 }

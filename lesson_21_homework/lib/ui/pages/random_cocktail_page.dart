@@ -1,8 +1,9 @@
 import 'package:lesson_21_animations_homework/core/models.dart';
 import 'package:lesson_21_animations_homework/ui/aplication/application_scaffold.dart';
+import 'package:lesson_21_animations_homework/ui/circular_progress_custom.dart';
 import 'package:lesson_21_animations_homework/ui/pages/categories_fitler_bar_delegate.dart';
 import 'package:lesson_21_animations_homework/ui/pages/cocktail_grid_item.dart';
-import 'package:lesson_21_animations_homework/ui/pages/filter_results_page.dart';
+import 'package:lesson_21_animations_homework/ui/pages/filter/view/filter_results_page.dart';
 import 'package:flutter/material.dart';
 
 class RandomCocktailPageWidget extends StatefulWidget {
@@ -23,23 +24,21 @@ class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
       currentSelectedNavBarItem: 0,
       child: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(child: SizedBox(height: 21)),
+          const SliverToBoxAdapter(child: SizedBox(height: 21)),
           SliverPersistentHeader(
             delegate: CategoriesFilterBarDelegate(
               CocktailCategory.values,
               onCategorySelected: (category) {
                 Navigator.of(context).push(
                   MaterialPageRoute<void>(
-                    builder: (context) => FilterResultsPageWidget(
-                      selectedCategory: category,
-                    ),
+                    builder: (context) => const FilterResultsPageWidget(),
                   ),
                 );
               },
             ),
             floating: true,
           ),
-          SliverToBoxAdapter(child: SizedBox(height: 24)),
+          const SliverToBoxAdapter(child: SizedBox(height: 24)),
           _buildRandomCocktailPage(context)
         ],
       ),
@@ -64,7 +63,7 @@ class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
               id: cocktail.id,
               name: cocktail.name,
               drinkThumbUrl: cocktail.drinkThumbUrl,
-              isFavourite: cocktail.isFavourite,
+              cocktailCategory: cocktail.category.value,
             );
 
             return SliverPadding(
@@ -74,12 +73,11 @@ class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
                   (ctx, index) {
                     return CocktailGridItem(
                       cocktailDefinition,
-                      selectedCategory: cocktail.category!,
                     );
                   },
                   childCount: 1,
                 ),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   childAspectRatio: CocktailGridItem.aspectRatio,
                   crossAxisSpacing: 6,
                   mainAxisSpacing: 6,
@@ -88,20 +86,9 @@ class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
               ),
             );
           }
-
-          ///
-          /// todo:
-          /// отрефакторить использование CircularProgressIndicator
-          /// в пользу реализации своего кастомного виджета progress indicator
-          /// Этот виджет нужно реализовать самостоятельно,
-          /// используя стандартные средства Flutter для работы
-          /// с графическим canvas и средства анимации.
-          /// И затем переиспользовать вместо CircularProgressIndicator
-          /// (в местах отмеченных///todo:)
-          ///
-          return SliverFillRemaining(
+          return const SliverFillRemaining(
             child: Center(
-              child: const CircularProgressIndicator(),
+              child: CircularProgressCustom(),
             ),
           );
         });

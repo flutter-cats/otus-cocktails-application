@@ -3,7 +3,7 @@
 ///
 class IngredientDefinition {
   final String ingredientName;
-  final String? measure;
+  final String measure;
 
   IngredientDefinition(this.ingredientName, this.measure);
 }

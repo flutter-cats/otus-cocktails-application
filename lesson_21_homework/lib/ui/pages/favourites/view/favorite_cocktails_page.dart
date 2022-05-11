@@ -1,5 +1,10 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lesson_21_animations_homework/core/models.dart';
+import 'package:lesson_21_animations_homework/ui/aplication/application_scaffold.dart';
 import 'package:flutter/material.dart';
+
+import '../../cocktail_grid_item.dart';
+import '../cubit/favourites_cubit.dart';
 
 ///
 /// TODO:
@@ -20,38 +25,53 @@ import 'package:flutter/material.dart';
 ///
 /// В этом экране используется точно такая же  верстка, как и на экране фильтрации (то есть можно переиспользовать экран выдачи результатов по категориям)
 ///
-class CocktailTitle extends StatelessWidget {
-  final String cocktailTitle;
-  final bool isFavorite;
-
-  CocktailTitle({required this.cocktailTitle, required this.isFavorite});
+class FavouriteCocktailsPage extends StatelessWidget {
+  const FavouriteCocktailsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          cocktailTitle,
-          style: Theme.of(context).textTheme.headline3,
-        ),
-        _getIsFavoriteIcon()
-      ],
+    return ApplicationScaffold(
+      title: 'Избранное',
+      currentSelectedNavBarItem: 2,
+      child: BlocBuilder<FavouritesCubit, FavouritesState>(
+        builder: (context, state) {
+          return Favourites();
+        },
+      ),
     );
   }
+}
 
-  Widget _getIsFavoriteIcon() {
-    if (isFavorite) {
-      return IconButton(
-        icon: Icon(Icons.favorite, color: Colors.white),
-        onPressed: () {},
-      );
-    } else {
-      return IconButton(
-        icon: Icon(Icons.favorite_border, color: Colors.white),
-        onPressed: () {},
-      );
-    }
+class Favourites extends StatelessWidget {
+  const Favourites({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final cocktailsMap =
+        context.read<FavouritesCubit>().state.favouriteCocktailsMap;
+    final cubit = context.read<FavouritesCubit>();
+
+    return CustomScrollView(slivers: [
+      SliverPadding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        sliver: SliverGrid(
+          delegate: SliverChildBuilderDelegate(
+            (ctx, index) {
+              final cocktailKey = cocktailsMap.keys.elementAt(index);
+              return CocktailGridItem(
+                cocktailsMap[cocktailKey]!,
+              );
+            },
+            childCount: cocktailsMap.length,
+          ),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            childAspectRatio: CocktailGridItem.aspectRatio,
+            crossAxisSpacing: 6,
+            mainAxisSpacing: 6,
+            crossAxisCount: 2,
+          ),
+        ),
+      ),
+    ]);
   }
 }

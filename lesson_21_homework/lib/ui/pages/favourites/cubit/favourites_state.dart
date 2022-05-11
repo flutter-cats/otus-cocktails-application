@@ -1,16 +1,19 @@
 part of 'favourites_cubit.dart';
 
 class FavouritesState extends Equatable {
-  const FavouritesState({required this.cocktailsList});
+  const FavouritesState({required this.favouriteCocktailsMap});
 
-  final List<CocktailDefinition> cocktailsList;
+  final Map<String, CocktailDefinition> favouriteCocktailsMap;
 
-  FavouritesState copyWith({List<CocktailDefinition>? cocktailsList}) {
-    return FavouritesState(cocktailsList: cocktailsList ?? this.cocktailsList);
+  FavouritesState copyWith(
+      {Map<String, CocktailDefinition>? favouriteCocktailsMap}) {
+    return FavouritesState(
+        favouriteCocktailsMap:
+            favouriteCocktailsMap ?? this.favouriteCocktailsMap);
   }
 
-  List<CocktailDefinition> get list => cocktailsList;
+  Map<String, CocktailDefinition> get favouriteMap => favouriteCocktailsMap;
 
   @override
-  List<Object?> get props => [cocktailsList];
+  List<Object?> get props => [favouriteCocktailsMap];
 }

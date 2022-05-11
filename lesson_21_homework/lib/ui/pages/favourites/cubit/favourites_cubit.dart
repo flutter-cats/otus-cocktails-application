@@ -5,12 +5,19 @@ import 'package:lesson_21_animations_homework/core/models.dart';
 part 'favourites_state.dart';
 
 class FavouritesCubit extends Cubit<FavouritesState> {
-  FavouritesCubit() : super(const FavouritesState(cocktailsList: []));
+  FavouritesCubit() : super(const FavouritesState(favouriteCocktailsMap: {}));
+
+  bool isFavorite(String id) {
+    return state.favouriteCocktailsMap.containsKey(id);
+  }
 
   void addToFavourite(CocktailDefinition cocktail) {
     emit(
       state.copyWith(
-        cocktailsList: List.of(state.list)..add(cocktail),
+        favouriteCocktailsMap: {
+          ...state.favouriteCocktailsMap,
+          cocktail.id: cocktail
+        },
       ),
     );
     print('add performed ____________');
@@ -19,14 +26,10 @@ class FavouritesCubit extends Cubit<FavouritesState> {
   void removeFromFavourite(CocktailDefinition cocktail) {
     emit(
       state.copyWith(
-        cocktailsList: List.of(state.list)..remove(cocktail),
+        favouriteCocktailsMap: {...state.favouriteCocktailsMap}
+          ..remove(cocktail.id),
       ),
     );
-    print('remove performed ____________');
-  }
-
-  void removeFromFavouriteByIndex(int index) {
-    emit(state.copyWith(cocktailsList: List.of(state.list)..removeAt(index)));
     print('remove performed ____________');
   }
 }

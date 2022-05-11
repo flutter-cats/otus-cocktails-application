@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lesson_21_animations_homework/main.dart';
-import 'package:lesson_21_animations_homework/ui/pages/favourites/view/favorite_cocktails_view.dart';
+import 'package:lesson_21_animations_homework/ui/pages/favourites/view/favorite_cocktails_page.dart';
 import 'package:lesson_21_animations_homework/ui/pages/random_cocktail_page.dart';
 import 'package:lesson_21_animations_homework/ui/style/custom_colors.dart';
 import 'package:lesson_21_animations_homework/ui/style/svg_icons.dart';
