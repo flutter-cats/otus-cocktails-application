@@ -11,9 +11,7 @@ class RatingCubit extends Cubit<RatingState> {
   void updateRating(String cocktailId, int rating) {
     emit(
       state.copyWith(
-        cocktailsRatingList: Map.of(state.ratingList)
-          ..addAll({cocktailId: rating}),
-      ),
+          cocktailsRatingList: {...state.ratingList, cocktailId: rating}),
     );
     print('update performed ____________');
   }

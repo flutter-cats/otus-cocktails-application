@@ -4,9 +4,17 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1559a543-d24b-47b8-9ff9-c1143998a9a6" name="Default Changelist" comment="">
+    <list default="true" id="1559a543-d24b-47b8-9ff9-c1143998a9a6" name="Default Changelist" comment="updated BlocBuilder in FavouritesPage&#10;added category to CocktailDefinition in fetchByCocktailCategory">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/src/repository/async_cocktail_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/src/repository/async_cocktail_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/favourite_icon_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/favourite_icon_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/cocktail_grid_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/cocktail_grid_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/details/cubit/rating_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/details/cubit/rating_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/details/view/description.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/details/view/description.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/favourites/cubit/favourites_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/favourites/cubit/favourites_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/favourites/cubit/favourites_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/favourites/cubit/favourites_state.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ui/pages/favourites/view/favorite_cocktails_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/favourites/view/favorite_cocktails_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/filter/view/filter_results_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/filter/view/filter_results_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652310468625</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="updated BlocBuilder in FavouritesPage&#10;added category to CocktailDefinition in fetchByCocktailCategory">
+      <created>1652311197300</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1652311197300</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers>
       <YouTrack url="https://artembark.youtrack.cloud">
         <option name="defaultSearch" value="" />
@@ -183,6 +198,7 @@
     <MESSAGE value="cubit first approach" />
     <MESSAGE value="cubit list variant, list in state" />
     <MESSAGE value="favourite, rating, category cubits working" />
-    <option name="LAST_COMMIT_MESSAGE" value="favourite, rating, category cubits working" />
+    <MESSAGE value="updated BlocBuilder in FavouritesPage&#10;added category to CocktailDefinition in fetchByCocktailCategory" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated BlocBuilder in FavouritesPage&#10;added category to CocktailDefinition in fetchByCocktailCategory" />
   </component>
 </project>

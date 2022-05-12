@@ -5,11 +5,8 @@ import 'package:lesson_21_animations_homework/core/models.dart';
 part 'favourites_state.dart';
 
 class FavouritesCubit extends Cubit<FavouritesState> {
-  FavouritesCubit() : super(const FavouritesState(favouriteCocktailsMap: {}));
-
-  bool isFavorite(String id) {
-    return state.favouriteCocktailsMap.containsKey(id);
-  }
+  FavouritesCubit()
+      : super(const FavouritesState(<String, CocktailDefinition>{}));
 
   void addToFavourite(CocktailDefinition cocktail) {
     emit(

@@ -41,7 +41,7 @@ class DescriptionWidget extends StatelessWidget {
               style: AppStyles.cocktailNameTextStyle,
             ),
             trailing: FavouriteIconButton(
-              cocktail: CocktailDefinition(
+              CocktailDefinition(
                   id: cocktailId,
                   drinkThumbUrl: cocktailImageUrl,
                   name: cocktailName,

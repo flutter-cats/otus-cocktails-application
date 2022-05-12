@@ -12,12 +12,12 @@ class FilterResultsPageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<SelectedCategoryCubit>();
     return ApplicationScaffold(
       title: 'Мой бар',
       currentSelectedNavBarItem: 1,
       child: BlocBuilder<SelectedCategoryCubit, SelectedCategoryState>(
         builder: (context, state) {
+          final cubit = context.read<SelectedCategoryCubit>();
           return CustomScrollView(
             slivers: [
               const SliverToBoxAdapter(
@@ -29,26 +29,32 @@ class FilterResultsPageWidget extends StatelessWidget {
                   onCategorySelected: (category) {
                     cubit.updateCategory(category);
                   },
-                  selectedCategory: cubit.state.cocktailCategory,
+                  selectedCategory: state.cocktailCategory,
                 ),
                 floating: true,
               ),
               const SliverToBoxAdapter(
                 child: SizedBox(height: 24),
               ),
-              _buildCocktailItems(context)
+              CocktailItems(cocktailCategory: state.cocktailCategory),
             ],
           );
         },
       ),
     );
   }
+}
 
-  Widget _buildCocktailItems(BuildContext context) {
-    final cubit = context.read<SelectedCategoryCubit>();
+class CocktailItems extends StatelessWidget {
+  const CocktailItems({Key? key, required this.cocktailCategory})
+      : super(key: key);
+
+  final CocktailCategory cocktailCategory;
+
+  @override
+  Widget build(BuildContext context) {
     return FutureBuilder<Iterable<CocktailDefinition?>>(
-        future: repository
-            .fetchCocktailsByCocktailCategory(cubit.state.cocktailCat),
+        future: repository.fetchCocktailsByCocktailCategory(cocktailCategory),
         builder: (ctx, snapshot) {
           if (snapshot.hasError) {
             return SliverFillRemaining(
@@ -67,8 +73,7 @@ class FilterResultsPageWidget extends StatelessWidget {
               sliver: SliverGrid(
                 delegate: SliverChildBuilderDelegate((ctx, index) {
                   return CocktailGridItem(
-                    cocktails!.elementAt(index)!.copyWith(
-                        cocktailCategory: cubit.state.cocktailCategory.value),
+                    cocktails!.elementAt(index)!,
                   );
                 }, childCount: cocktails!.length),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -81,8 +86,8 @@ class FilterResultsPageWidget extends StatelessWidget {
             );
           }
 
-          return SliverFillRemaining(
-            child: const Center(
+          return const SliverFillRemaining(
+            child: Center(
               child: CircularProgressIndicator(),
             ),
           );

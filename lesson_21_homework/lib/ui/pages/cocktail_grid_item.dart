@@ -85,7 +85,7 @@ class CocktailGridItem extends StatelessWidget {
                             ),
                           ),
                         ),
-                        FavouriteIconButton(cocktail: cocktailDefinition),
+                        FavouriteIconButton(cocktailDefinition),
                       ]),
                 ],
               ),

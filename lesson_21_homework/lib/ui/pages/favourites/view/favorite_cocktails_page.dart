@@ -6,25 +6,6 @@ import 'package:flutter/material.dart';
 import '../../cocktail_grid_item.dart';
 import '../cubit/favourites_cubit.dart';
 
-///
-/// TODO:
-///        - Склонировать соотвествующий github репозиторий с заготовкой проекта для этого урока (для соот-щего подхода к управлению состоянием приложения - redux, bloc mobx версии) (https://github.com/guid-empty/otus-cocktail-app-lessons)
-///        - Внести изменения в классы описания состояний для экрана FavouriteCocktailsPage (будут помечены /// todo)
-///        - Открыть класс экрана FavouriteCocktailsPage
-///        - Внести изменения в код экрана, выделив логику для получения состояния используя один из ранее рассмотренных подходов к state management
-///        - Внести изменения в экран CocktailDetailPage (CocktailTitle) для управления состояния isFavourite текущей модели (коктейль должен появиться или удалиться в списке избранного в соот-щем блоке состояния приложения)
-///        - Убедиться, что изменения состояния isFavourite для конкретного коктейля отражается в поведении экрана FavouriteCocktailsPage (появляется новый избранный коктейль, удаляется ранее убранный из favourites)
-///
-/// На усмотрение студента:
-///        - Можно выполнить любую декомпозицию класса FavouriteCocktailsPage для внесения изменений в управление состоянием (рефакторинг)
-///        - Можно выполнить любую декомпозицию класса CocktailDetailPage (CocktailTitle) для внесения изменений в управление состоянием (рефакторинг)
-///        - Можно выполнить любую декомпозицию в самих классах управления состоянием приложения (store, block etc)
-///        - Можно выполнить рефакторинг кнопки isFavourite, выделив ее в отдельный виджет и используя на обоих экранах
-/// Мокап экрана Избранное (FavouriteCocktailsPage):
-/// https://www.figma.com/file/UKHKopXpDy02I232c9mdwZ/%D0%9A%D0%BE%D0%BA%D1%82%D0%B5%D0%B9%D0%BB%D0%B8?node-id=24%3A441
-///
-/// В этом экране используется точно такая же  верстка, как и на экране фильтрации (то есть можно переиспользовать экран выдачи результатов по категориям)
-///
 class FavouriteCocktailsPage extends StatelessWidget {
   const FavouriteCocktailsPage({Key? key}) : super(key: key);
 
@@ -35,9 +16,13 @@ class FavouriteCocktailsPage extends StatelessWidget {
       currentSelectedNavBarItem: 2,
       child: BlocBuilder<FavouritesCubit, FavouritesState>(
         builder: (context, state) {
-          return Favourites(
-            favouriteCocktailsMap: state.favouriteCocktailsMap,
-          );
+          final favourites = state.favouriteCocktailsMap.values;
+          if (favourites.isNotEmpty) {
+            return Favourites(
+              favourites,
+            );
+          }
+          return const Center(child: Text('В избранном ничего нет'));
         },
       ),
     );
@@ -45,12 +30,12 @@ class FavouriteCocktailsPage extends StatelessWidget {
 }
 
 class Favourites extends StatelessWidget {
-  const Favourites({
+  const Favourites(
+    this.favourites, {
     Key? key,
-    required this.favouriteCocktailsMap,
   }) : super(key: key);
 
-  final Map<String, CocktailDefinition> favouriteCocktailsMap;
+  final Iterable<CocktailDefinition> favourites;
 
   @override
   Widget build(BuildContext context) {
@@ -60,12 +45,11 @@ class Favourites extends StatelessWidget {
         sliver: SliverGrid(
           delegate: SliverChildBuilderDelegate(
             (ctx, index) {
-              final cocktailKey = favouriteCocktailsMap.keys.elementAt(index);
               return CocktailGridItem(
-                favouriteCocktailsMap[cocktailKey]!,
+                favourites.elementAt(index),
               );
             },
-            childCount: favouriteCocktailsMap.length,
+            childCount: favourites.length,
           ),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             childAspectRatio: CocktailGridItem.aspectRatio,
