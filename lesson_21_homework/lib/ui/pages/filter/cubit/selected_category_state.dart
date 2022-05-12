@@ -10,8 +10,6 @@ class SelectedCategoryState extends Equatable {
         cocktailCategory: cocktailCategory ?? this.cocktailCategory);
   }
 
-  CocktailCategory get cocktailCat => cocktailCategory;
-
   @override
   List<Object> get props => [cocktailCategory];
 }

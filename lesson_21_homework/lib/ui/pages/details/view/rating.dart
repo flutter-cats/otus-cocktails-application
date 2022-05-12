@@ -14,7 +14,7 @@ class RatingWidget extends StatelessWidget {
     return BlocBuilder<RatingCubit, RatingState>(
       builder: (context, state) {
         final cubit = context.read<RatingCubit>();
-        final rating = cubit.state.ratingList[id] ?? 0;
+        final rating = state.cocktailsRatingList[id] ?? 0;
         return Container(
           padding: AppDimensions.ratingStarWidgetPadding,
           height: AppDimensions.ratingStarWidgetHeight,

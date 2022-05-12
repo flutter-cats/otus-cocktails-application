@@ -19,6 +19,5 @@ class SelectedCategoryCubit extends Cubit<SelectedCategoryState> {
         cocktailCategory: cocktailCategory,
       ),
     );
-    print('update performed ____________');
   }
 }

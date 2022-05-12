@@ -17,16 +17,13 @@ class FavouritesCubit extends Cubit<FavouritesState> {
         },
       ),
     );
-    print('add performed ____________');
   }
 
-  void removeFromFavourite(CocktailDefinition cocktail) {
+  void removeFromFavourite(String id) {
     emit(
       state.copyWith(
-        favouriteCocktailsMap: {...state.favouriteCocktailsMap}
-          ..remove(cocktail.id),
+        favouriteCocktailsMap: {...state.favouriteCocktailsMap}..remove(id),
       ),
     );
-    print('remove performed ____________');
   }
 }

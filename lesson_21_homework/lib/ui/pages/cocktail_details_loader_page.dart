@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lesson_21_animations_homework/core/models.dart';
-import 'package:lesson_21_animations_homework/main.dart';
 import 'package:lesson_21_animations_homework/ui/circular_progress_custom.dart';
 import 'package:lesson_21_animations_homework/ui/pages/details/view/cocktail_detail_page.dart';
 
@@ -23,7 +23,8 @@ class _CocktailDetailsLoaderPageWidgetState
 
   Widget _buildCocktailDetailsPage(BuildContext context) =>
       FutureBuilder<Cocktail?>(
-          future: repository.fetchCocktailDetails(widget.cocktailId),
+          future: RepositoryProvider.of<AsyncCocktailRepository>(context)
+              .fetchCocktailDetails(widget.cocktailId),
           builder: (ctx, snapshot) {
             if (snapshot.hasData) {
               return CocktailDetailPage(snapshot.data!);

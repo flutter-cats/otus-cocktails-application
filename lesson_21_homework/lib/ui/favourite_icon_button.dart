@@ -5,23 +5,25 @@ import 'animated_heart_icon_button.dart';
 import 'pages/favourites/cubit/favourites_cubit.dart';
 
 class FavouriteIconButton extends StatelessWidget {
-  const FavouriteIconButton(this.cocktail, {Key? key}) : super(key: key);
+  const FavouriteIconButton(this.cocktailDefinition, {Key? key})
+      : super(key: key);
 
-  final CocktailDefinition cocktail;
+  final CocktailDefinition cocktailDefinition;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FavouritesCubit, FavouritesState>(
       builder: (context, state) {
         final favouritesCubit = context.read<FavouritesCubit>();
-        final isFavourite = state.isCocktailFavorite(cocktail.id);
+        final isCocktailFavourite =
+            state.isCocktailFavorite(cocktailDefinition.id);
         return AnimatedHeartIconButton(
-          isFavourite: isFavourite,
+          isFavourite: isCocktailFavourite,
           onTap: () {
-            if (isFavourite) {
-              favouritesCubit.removeFromFavourite(cocktail);
+            if (isCocktailFavourite) {
+              favouritesCubit.removeFromFavourite(cocktailDefinition.id);
             } else {
-              favouritesCubit.addToFavourite(cocktail);
+              favouritesCubit.addToFavourite(cocktailDefinition);
             }
           },
         );

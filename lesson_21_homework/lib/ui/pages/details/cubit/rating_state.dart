@@ -10,8 +10,6 @@ class RatingState extends Equatable {
         cocktailsRatingList: cocktailsRatingList ?? this.cocktailsRatingList);
   }
 
-  Map<String, int> get ratingList => cocktailsRatingList;
-
   @override
   List<Object> get props => [cocktailsRatingList];
 }

@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lesson_21_animations_homework/core/models.dart';
-import 'package:lesson_21_animations_homework/main.dart';
 import 'package:lesson_21_animations_homework/ui/aplication/application_scaffold.dart';
 import 'package:lesson_21_animations_homework/ui/pages/categories_fitler_bar_delegate.dart';
 import 'package:lesson_21_animations_homework/ui/pages/cocktail_grid_item.dart';
@@ -54,7 +53,8 @@ class CocktailItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<Iterable<CocktailDefinition?>>(
-        future: repository.fetchCocktailsByCocktailCategory(cocktailCategory),
+        future: RepositoryProvider.of<AsyncCocktailRepository>(context)
+            .fetchCocktailsByCocktailCategory(cocktailCategory),
         builder: (ctx, snapshot) {
           if (snapshot.hasError) {
             return SliverFillRemaining(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lesson_21_animations_homework/core/models.dart';
-import 'package:lesson_21_animations_homework/main.dart';
 import 'package:lesson_21_animations_homework/ui/circular_progress_custom.dart';
 import 'package:lesson_21_animations_homework/ui/pages/details/view/cocktail_detail_page.dart';
 import 'package:lesson_21_animations_homework/ui/style/custom_colors.dart';
@@ -24,7 +24,8 @@ class CocktailGridItem extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute<void>(
             builder: (context) => FutureBuilder<Cocktail?>(
-              future: repository.fetchCocktailDetails(cocktailDefinition.id),
+              future: RepositoryProvider.of<AsyncCocktailRepository>(context)
+                  .fetchCocktailDetails(cocktailDefinition.id),
               builder: (ctx, snapshot) {
                 if (snapshot.hasData) {
                   return Material(
