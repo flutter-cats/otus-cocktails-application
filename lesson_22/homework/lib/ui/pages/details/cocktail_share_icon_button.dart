@@ -11,22 +11,16 @@ class CocktailShareIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        String ingredients = '';
-        final List<IngredientDefinition> ingredientList =
-            cocktail.ingredients.toList();
-        for (var index = 0; index < ingredientList.length; ++index) {
-          ingredients +=
-              '${index + 1}. ${ingredientList.elementAt(index).ingredientName} '
-              ': ${ingredientList.elementAt(index).measure},\n';
-        }
+        final List<String> instructionsList = cocktail.instruction.split('.');
+        if (instructionsList.last.trim().isEmpty) instructionsList.removeLast();
 
-        Share.share("Коктейль: ${cocktail.name}\n" +
-            "Категория: ${cocktail.category.value}\n" +
-            "Тип: ${cocktail.glassType.value}\n" +
-            "Ингредиенты для приготовления: \n" +
-            ingredients +
-            "Инструкции для приготовления: ${cocktail.instruction}\n" +
-            "Ссылка на изображение: ${cocktail.drinkThumbUrl}\n");
+        Share.share('🍸 Название коктейля: ${cocktail.name}\n' +
+            '📊 Категория: ${cocktail.category.value}\n' +
+            '🏷️ Тип: ${cocktail.glassType.value}\n' +
+            '🛒 Ингредиенты для приготовления: \n${cocktail.ingredients.map((e) => '  ✅ ${e.ingredientName} '
+                ': ${e.measure}').join('\n')}\n' +
+            '📖 Инструкции для приготовления:\n${instructionsList.map((e) => '  ✅ ${e.trim()}').join('\n')}\n' +
+            '🖼️ Ссылка на изображение: ${cocktail.drinkThumbUrl}\n');
       },
       icon: Icon(
         Icons.share,
