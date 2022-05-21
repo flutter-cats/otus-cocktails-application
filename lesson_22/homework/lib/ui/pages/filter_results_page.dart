@@ -85,8 +85,6 @@ class _FilterResultsPageWidgetState extends State<FilterResultsPageWidget> {
                       crossAxisCount: 2)),
             );
           }
-
-          //  todo set loader
           return SliverFillRemaining(child: const SizedBox());
         });
   }
