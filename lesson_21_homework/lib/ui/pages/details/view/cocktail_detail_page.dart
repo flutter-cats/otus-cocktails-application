@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../../app/app_colors.dart';
 import '../../../../core/src/model/cocktail.dart';
 import '../widgets/cocktail_detail_widgets.dart';
 

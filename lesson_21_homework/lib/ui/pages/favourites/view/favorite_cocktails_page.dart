@@ -3,8 +3,8 @@ import 'package:lesson_21_animations_homework/ui/aplication/application_scaffold
 import 'package:flutter/material.dart';
 import 'package:lesson_21_animations_homework/ui/pages/favourites/widgets/favourites_empty.dart';
 import 'package:lesson_21_animations_homework/ui/pages/favourites/widgets/favourites_error.dart';
+import 'package:lesson_21_animations_homework/ui/pages/favourites/widgets/favourites_loading.dart';
 
-import '../../circular_progress_custom.dart';
 import '../cubit/favourites_cubit.dart';
 import '../widgets/favourites_grid_view.dart';
 
@@ -30,7 +30,7 @@ class FavouriteCocktailsView extends StatelessWidget {
           switch (state.status) {
             case FavouritesStatus.initial:
             case FavouritesStatus.loading:
-              return const Center(child: CircularProgressCustom());
+              return const FavouritesLoading();
             case FavouritesStatus.success:
               final favourites = state.favouriteCocktailsMap.values;
               return FavouritesGridView(

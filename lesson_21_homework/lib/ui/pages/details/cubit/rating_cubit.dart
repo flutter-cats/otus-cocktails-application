@@ -2,8 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:lesson_21_animations_homework/core/src/repository/rating_cocktail_repository.dart';
 
-import '../../../../core/src/model/cocktail_definition.dart';
-
 part 'rating_state.dart';
 
 class RatingCubit extends Cubit<RatingState> {

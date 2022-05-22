@@ -71,6 +71,6 @@ class FavouritesCubit extends Cubit<FavouritesState> {
   void clearFavourites() {
     _favouriteCocktailRepositoryImpl.clearFavourites();
     emit(state
-        .copyWith(favouriteCocktailsMap: {}, status: FavouritesStatus.success));
+        .copyWith(favouriteCocktailsMap: {}, status: FavouritesStatus.empty));
   }
 }

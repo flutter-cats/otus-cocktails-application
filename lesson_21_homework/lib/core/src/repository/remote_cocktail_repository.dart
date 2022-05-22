@@ -7,7 +7,6 @@ import '../../../app/app_strings.dart';
 import '../../models.dart';
 import '../dto/ingredient_dto.dart';
 
-//TODO: refactor to separate file
 abstract class RemoteCocktailRepository {
   Future<Cocktail?> fetchCocktailDetails(String id);
 
