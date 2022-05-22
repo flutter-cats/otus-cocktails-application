@@ -8,7 +8,7 @@ import '../../models.dart';
 import '../dto/ingredient_dto.dart';
 
 //TODO: refactor to separate file
-abstract class CocktailRepository {
+abstract class RemoteCocktailRepository {
   Future<Cocktail?> fetchCocktailDetails(String id);
 
   Future<Iterable<CocktailDefinition>> fetchCocktailsByCocktailType(
@@ -22,9 +22,11 @@ abstract class CocktailRepository {
   Future<Cocktail?> getRandomCocktail();
 
   Future<Iterable<CocktailCategory>> getCategories();
+
+  Future<Ingredient?> lookupIngredientById(String iid);
 }
 
-class AsyncCocktailRepository extends CocktailRepository {
+class RemoteCocktailRepositoryImpl extends RemoteCocktailRepository {
   static const Map<String, String> _headers = {
     'x-rapidapi-key': AppStrings.apiKey,
   };
@@ -52,6 +54,7 @@ class AsyncCocktailRepository extends CocktailRepository {
     }
   }
 
+  @override
   Future<Cocktail?> fetchCocktailDetails(String id) async {
     Cocktail? result;
 
@@ -69,6 +72,7 @@ class AsyncCocktailRepository extends CocktailRepository {
     return result;
   }
 
+  @override
   Future<Iterable<CocktailDefinition>> fetchCocktailsByCocktailType(
       CocktailType cocktailType) async {
     final result = <CocktailDefinition>[];
@@ -94,6 +98,7 @@ class AsyncCocktailRepository extends CocktailRepository {
     return result;
   }
 
+  @override
   Future<Iterable<CocktailDefinition>> fetchCocktailsByCocktailCategory(
       CocktailCategory category) async {
     final result = <CocktailDefinition>[];
@@ -122,6 +127,7 @@ class AsyncCocktailRepository extends CocktailRepository {
     return result;
   }
 
+  @override
   Future<Iterable<Cocktail>> fetchPopularCocktails() async {
     final result = <Cocktail>[];
 
@@ -141,6 +147,7 @@ class AsyncCocktailRepository extends CocktailRepository {
     return result;
   }
 
+  @override
   Future<Cocktail?> getRandomCocktail() async {
     Cocktail? result;
 
@@ -158,6 +165,7 @@ class AsyncCocktailRepository extends CocktailRepository {
     return result;
   }
 
+  @override
   Future<Ingredient?> lookupIngredientById(String iid) async {
     Ingredient? result;
 
@@ -240,10 +248,6 @@ class AsyncCocktailRepository extends CocktailRepository {
       if (dto.strIngredient15 != null)
         dto.strIngredient15!: dto.strMeasure15 ?? '-',
     };
-  }
-
-  Future<Iterable<CocktailDefinition>> getFavouriteCocktails() {
-    return fetchCocktailsByCocktailType(CocktailType.optionalAlcohol);
   }
 
   @override

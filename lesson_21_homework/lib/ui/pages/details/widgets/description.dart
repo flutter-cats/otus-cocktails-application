@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lesson_21_animations_homework/core/models.dart';
-import 'package:lesson_21_animations_homework/ui/favourite_icon_button.dart';
+import 'package:lesson_21_animations_homework/ui/pages/favourite_icon_button.dart';
 
 import '../../../../app/app_colors.dart';
 import '../../../../app/app_dimens.dart';

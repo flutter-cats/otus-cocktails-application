@@ -5,16 +5,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf8589ba-2505-41eb-b5e1-abbd6982daf0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/otus-cocktails-application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/otus-cocktails-application.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson_21_homework/.flutter-plugins" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson_21_homework/.flutter-plugins-dependencies" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson_21_homework/ios/Podfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson_21_homework/ios/Podfile.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson_21_homework/lib/core/src/model/cocktail_definition.g.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson_21_homework/lib/core/src/repository/favourite_cocktail_repository.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson_21_homework/lib/core/src/repository/rating_cocktail_repository.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/widgets/rating.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/favourites/widgets/favourites_grid_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/.idea/lesson_21_homework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/.idea/lesson_21_homework.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lesson_21_homework/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_21_homework/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lesson_21_homework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_21_homework/analysis_options.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/analysis_options.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_21_homework/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/ios/Flutter/Debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/ios/Flutter/Debug.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/ios/Flutter/Release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/ios/Flutter/Release.xcconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lesson_21_homework/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson_21_homework/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/ios/Runner.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/core/models.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/core/models.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/core/src/model/cocktail_definition.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/core/src/model/cocktail_definition.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/core/src/repository/async_cocktail_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/core/src/repository/remote_cocktail_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/core/src/repository/cubit/cocktails_repository_cubit.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/core/src/repository/cubit/cocktails_repository_state.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/animated_heart_icon_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/animated_heart_icon_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/aplication/adaptive_navigation_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/aplication/adaptive_navigation_bar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/aplication/application_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/aplication/application_drawer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/circular_progress_custom.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/circular_progress_custom.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/favourite_icon_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/favourite_icon_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/cocktail_details_loader_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/cocktail_details_loader_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/cocktail_grid_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/cocktail_grid_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/cubit/rating_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/cubit/rating_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/cubit/rating_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/cubit/rating_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/view/cocktail_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/view/cocktail_detail_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/view/cocktail_detail_widgets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/widgets/cocktail_detail_widgets.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/view/cocktail_image.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/widgets/cocktail_image.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/view/description.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/widgets/description.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/view/description_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/widgets/description_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/view/ingredient_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/widgets/ingredient_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/view/ingredients.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/widgets/ingredients.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/view/instruction_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/widgets/instruction_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/view/instructions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/widgets/instructions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/view/rating.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/view/rating_star.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/details/widgets/rating_star.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/favourites/cubit/favourites_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/favourites/cubit/favourites_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/favourites/cubit/favourites_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/favourites/cubit/favourites_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/favourites/view/favorite_cocktails_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/favourites/view/favorite_cocktails_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/filter/view/filter_results_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/filter/view/filter_results_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/random_cocktail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/lib/ui/pages/random/random_cocktail_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lesson_21_homework/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/lesson_21_homework/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -1,3 +1,4 @@
+import 'package:hive/hive.dart';
 import 'package:lesson_21_animations_homework/core/models.dart';
 
 ///
@@ -16,19 +17,25 @@ import 'package:lesson_21_animations_homework/core/models.dart';
 ///   "idDrink": "15328"
 ///   }
 ///
-class CocktailDefinition {
-  final String id;
-  final String name;
-  final String drinkThumbUrl;
-  final String? cocktailCategory;
-  final bool? isFavourite;
+part 'cocktail_definition.g.dart';
 
-  CocktailDefinition(
-      {required this.id,
-      required this.name,
-      required this.drinkThumbUrl,
-      this.cocktailCategory,
-      this.isFavourite});
+@HiveType(typeId: 0)
+class CocktailDefinition extends HiveObject {
+  @HiveField(0)
+  final String id;
+  @HiveField(1)
+  final String name;
+  @HiveField(2)
+  final String drinkThumbUrl;
+  @HiveField(3)
+  final String? cocktailCategory;
+
+  CocktailDefinition({
+    required this.id,
+    required this.name,
+    required this.drinkThumbUrl,
+    this.cocktailCategory,
+  });
 
   CocktailDefinition copyWith(
       {String? id,
@@ -41,7 +48,6 @@ class CocktailDefinition {
       name: name ?? this.name,
       drinkThumbUrl: drinkThumbUrl ?? this.drinkThumbUrl,
       cocktailCategory: cocktailCategory ?? this.cocktailCategory,
-      isFavourite: isFavourite ?? this.isFavourite,
     );
   }
 }

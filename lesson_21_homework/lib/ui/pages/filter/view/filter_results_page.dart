@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lesson_21_animations_homework/core/models.dart';
 import 'package:lesson_21_animations_homework/ui/aplication/application_scaffold.dart';
 import 'package:lesson_21_animations_homework/ui/pages/categories_fitler_bar_delegate.dart';
+import 'package:lesson_21_animations_homework/ui/pages/circular_progress_custom.dart';
 import 'package:lesson_21_animations_homework/ui/pages/cocktail_grid_item.dart';
 import 'package:flutter/material.dart';
 import 'package:lesson_21_animations_homework/ui/pages/filter/cubit/selected_category_cubit.dart';
@@ -53,7 +54,7 @@ class CocktailItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<Iterable<CocktailDefinition?>>(
-        future: RepositoryProvider.of<AsyncCocktailRepository>(context)
+        future: RepositoryProvider.of<RemoteCocktailRepositoryImpl>(context)
             .fetchCocktailsByCocktailCategory(cocktailCategory),
         builder: (ctx, snapshot) {
           if (snapshot.hasError) {
@@ -88,7 +89,7 @@ class CocktailItems extends StatelessWidget {
 
           return const SliverFillRemaining(
             child: Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressCustom(),
             ),
           );
         });

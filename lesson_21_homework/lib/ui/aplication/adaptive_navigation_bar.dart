@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lesson_21_animations_homework/main.dart';
 import 'package:lesson_21_animations_homework/ui/pages/favourites/view/favorite_cocktails_page.dart';
-import 'package:lesson_21_animations_homework/ui/pages/random_cocktail_page.dart';
+import 'package:lesson_21_animations_homework/ui/pages/random/view/random_cocktail_page.dart';
 import 'package:lesson_21_animations_homework/ui/style/custom_colors.dart';
 import 'package:lesson_21_animations_homework/ui/style/svg_icons.dart';
 
-import '../../core/src/repository/async_cocktail_repository.dart';
+import '../../core/src/repository/remote_cocktail_repository.dart';
 
 const appNavigationHeight = 73.0;
 
@@ -75,8 +75,7 @@ class _ApplicationNavigationBarState extends State<ApplicationNavigationBar>
                 _tabController.previousIndex != _tabController.index) {
               Navigator.of(context).push(
                 MaterialPageRoute<void>(
-                  builder: (context) => RandomCocktailPageWidget(
-                      RepositoryProvider.of<AsyncCocktailRepository>(context)),
+                  builder: (context) => RandomCocktailPage(),
                 ),
               );
             }
