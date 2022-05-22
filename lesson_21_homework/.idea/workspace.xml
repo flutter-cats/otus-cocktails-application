@@ -1,45 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="1559a543-d24b-47b8-9ff9-c1143998a9a6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/ui/pages/favourites/widgets/favourites_loading.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ui/pages/random/widgets/random_failure.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ui/pages/random/widgets/random_loading.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ui/pages/random/widgets/random_success.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/src/repository/remote_cocktail_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/src/repository/remote_cocktail_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/details/cubit/rating_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/details/cubit/rating_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/details/view/cocktail_detail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/details/view/cocktail_detail_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/favourites/cubit/favourites_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/favourites/cubit/favourites_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/favourites/view/favorite_cocktails_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/favourites/view/favorite_cocktails_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/random/view/random_cocktail_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/random/view/random_cocktail_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/Development/flutter/packages/flutter/lib/src/widgets/container.dart" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProjectId" id="1t5ipo6ubbYgRDUvS6UHoht82Fb" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description" />
-    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/ui/pages/random/widgets" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+    <property name="timeTracker.activityTracker" value="null" />
+    <property name="timeTracker.comment" value="" />
+    <property name="timeTracker.inactivityPeriodInMills" value="600000" />
+    <property name="timeTracker.isAutoTrackingEnable" value="false" />
+    <property name="timeTracker.isAutoTrackingTemporaryDisabled" value="false" />
+    <property name="timeTracker.isManualTrackingEnable" value="false" />
+    <property name="timeTracker.isPaused" value="true" />
+    <property name="timeTracker.isPostAfterCommitEnabled" value="false" />
+    <property name="timeTracker.isPostedScheduled" value="true" />
+    <property name="timeTracker.isRunning" value="false" />
+    <property name="timeTracker.isScheduledEnabled" value="false" />
+    <property name="timeTracker.isWhenProjectClosedEnabled" value="false" />
+    <property name="timeTracker.issueId" value="Default" />
+    <property name="timeTracker.issueIdReadable" value="Default" />
+    <property name="timeTracker.pausedTime" value="0" />
+    <property name="timeTracker.query" value="добавить" />
+    <property name="timeTracker.recordedTime" value="0" />
+    <property name="timeTracker.scheduledPeriod" value="19:00:0" />
+    <property name="timeTracker.startTime" value="0" />
+    <property name="timeTracker.timeInMills" value="0" />
+    <property name="timeTracker.type" value="Разработка" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description" />
-      <recent name="$PROJECT_DIR$/lib/ui/pages/details" />
+      <recent name="$PROJECT_DIR$/lib/ui/pages/random/widgets" />
+      <recent name="$PROJECT_DIR$/lib/ui/pages/favourites/widgets" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/lib/ui/pages" />
-      <recent name="$PROJECT_DIR$/lib/ui/aplication" />
-      <recent name="$PROJECT_DIR$/lib" />
+      <recent name="$PROJECT_DIR$/lib/ui" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/ui/pages/random/view" />
+      <recent name="$PROJECT_DIR$/lib/ui/pages/random" />
+      <recent name="$PROJECT_DIR$/lib/ui/pages/details/widgets" />
+      <recent name="$PROJECT_DIR$/lib/ui/pages" />
+      <recent name="$PROJECT_DIR$/lib/ui/pages/favourites" />
     </key>
   </component>
   <component name="RunManager">
@@ -48,6 +120,7 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -87,61 +160,77 @@
       <option name="project" value="LOCAL" />
       <updated>1622075275649</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
-    <servers />
+    <task id="LOCAL-00005" summary="cubit first approach">
+      <created>1652138529591</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1652138529592</updated>
+    </task>
+    <task id="LOCAL-00006" summary="cubit list variant, list in state">
+      <created>1652143246216</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1652143246216</updated>
+    </task>
+    <task id="LOCAL-00007" summary="favourite, rating, category cubits working">
+      <created>1652310468625</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1652310468625</updated>
+    </task>
+    <task id="LOCAL-00008" summary="updated BlocBuilder in FavouritesPage&#10;added category to CocktailDefinition in fetchByCocktailCategory">
+      <created>1652311197300</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1652311197300</updated>
+    </task>
+    <task id="LOCAL-00009" summary="refactored, empty favourites screen add">
+      <created>1652347915835</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1652347915835</updated>
+    </task>
+    <task id="LOCAL-00010" summary="added BlocObserver, RepositoryProvider">
+      <created>1652398984109</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1652398984109</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers>
+      <YouTrack url="https://artembark.youtrack.cloud">
+        <option name="defaultSearch" value="" />
+        <username>random</username>
+      </YouTrack>
+    </servers>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="lesson_21 homework" />
-    <option name="LAST_COMMIT_MESSAGE" value="lesson_21 homework" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="114" y="40" key="CommitChangelistDialog2" timestamp="1622075275167">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="114" y="40" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1622075275167" />
-    <state width="1019" height="468" key="GridCell.Tab.0.bottom" timestamp="1622075278707">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1019" height="468" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1622075278707" />
-    <state width="1019" height="468" key="GridCell.Tab.0.center" timestamp="1622075278706">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1019" height="468" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1622075278706" />
-    <state width="1019" height="468" key="GridCell.Tab.0.left" timestamp="1622075278706">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1019" height="468" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1622075278706" />
-    <state width="1019" height="468" key="GridCell.Tab.0.right" timestamp="1622075278707">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1019" height="468" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1622075278707" />
-    <state width="1019" height="468" key="GridCell.Tab.1.bottom" timestamp="1622075278708">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1019" height="468" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1622075278708" />
-    <state width="1019" height="468" key="GridCell.Tab.1.center" timestamp="1622075278708">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1019" height="468" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1622075278708" />
-    <state width="1019" height="468" key="GridCell.Tab.1.left" timestamp="1622075278707">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1019" height="468" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1622075278707" />
-    <state width="1019" height="468" key="GridCell.Tab.1.right" timestamp="1622075278708">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1019" height="468" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1622075278708" />
-    <state width="527" height="445" key="SwitcherDM" timestamp="1622074079015">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="527" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1622074079015" />
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1622075277498">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1622075277498" />
-    <state x="151" y="18" width="1142" height="879" key="find.popup" timestamp="1622068123103">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="151" y="18" width="1142" height="879" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1622068123103" />
+    <MESSAGE value="cubit first approach" />
+    <MESSAGE value="cubit list variant, list in state" />
+    <MESSAGE value="favourite, rating, category cubits working" />
+    <MESSAGE value="updated BlocBuilder in FavouritesPage&#10;added category to CocktailDefinition in fetchByCocktailCategory" />
+    <MESSAGE value="refactored, empty favourites screen add" />
+    <MESSAGE value="added BlocObserver, RepositoryProvider" />
+    <option name="LAST_COMMIT_MESSAGE" value="added BlocObserver, RepositoryProvider" />
   </component>
 </project>

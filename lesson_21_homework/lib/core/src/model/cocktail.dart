@@ -1,12 +1,8 @@
-import 'package:lesson_21_animations_homework/core/src/model/cocktail_category.dart';
-import 'package:lesson_21_animations_homework/core/src/model/cocktail_definition.dart';
-import 'package:lesson_21_animations_homework/core/src/model/cocktail_type.dart';
-import 'package:lesson_21_animations_homework/core/src/model/glass_type.dart';
-import 'package:lesson_21_animations_homework/core/src/model/ingredient_definition.dart';
-import 'package:meta/meta.dart';
+import 'cocktail_category.dart';
+import 'cocktail_type.dart';
+import 'glass_type.dart';
+import 'ingredient_definition.dart';
 
-///
-/// see some details on https://www.thecocktaildb.com/
 ///
 /// Cocktail Model Definition based on response from
 /// curl https://the-cocktail-db.p.rapidapi.com/popular.php
@@ -69,41 +65,29 @@ import 'package:meta/meta.dart';
 ///        }
 ///  ```
 ///
-///   some details about thumbs
-///   Drink thumbnails
-///         Add /preview to the end of the cocktail image URL
-///         https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg/preview (100x100 pixels)
-///
-///
-///         Ingredient Thumbnails
-///         https://www.thecocktaildb.com/images/ingredients/gin-Small.png (100x100 pixels)
-///         https://www.thecocktaildb.com/images/ingredients/gin-Medium.png (350x350 pixels)
-///         https://www.thecocktaildb.com/images/ingredients/gin.png (700x700 pixels)
-///
-///   see more on RapidApi or https://www.thecocktaildb.com/
-///
-///
-class Cocktail extends CocktailDefinition {
-  final String? instruction;
-  final CocktailCategory? category;
-  final GlassType? glassType;
-  final CocktailType? cocktailType;
-  final Iterable<IngredientDefinition>? ingredients;
+class Cocktail {
+  final String id;
+  final String name;
+  final String instruction;
+  final CocktailCategory category;
+  final GlassType glassType;
+  final CocktailType cocktailType;
+  final Iterable<IngredientDefinition> ingredients;
+  final String drinkThumbUrl;
 
   Cocktail({
-    @required String? id,
-    @required String? name,
-    @required String? drinkThumbUrl,
-    @required bool? isFavourite,
-    @required this.instruction,
-    @required this.category,
-    @required this.glassType,
-    @required this.cocktailType,
-    @required this.ingredients,
-  }) : super(
-          id: id,
-          drinkThumbUrl: drinkThumbUrl,
-          isFavourite: isFavourite,
-          name: name,
-        );
+    required this.id,
+    required this.name,
+    required this.instruction,
+    required this.category,
+    required this.glassType,
+    required this.cocktailType,
+    required this.ingredients,
+    required this.drinkThumbUrl,
+  });
+
+  @override
+  String toString() {
+    return 'Cocktail{id: $id, name: $name, instruction: $instruction, category: $category, glassType: $glassType, cocktailType: $cocktailType, ingredients: $ingredients, drinkThumbUrl: $drinkThumbUrl,}';
+  }
 }

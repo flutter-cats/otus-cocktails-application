@@ -9,12 +9,12 @@ class CocktailDto {
   final String? strDrinkAlternate;
   final String? strTags;
   final String? strVideo;
-  final String? strCategory;
+  final String strCategory;
   final String? strIBA;
-  final String? strAlcoholic;
-  final String? strGlass;
-  final String? strInstructions;
-  final String? strDrinkThumb;
+  final String strAlcoholic;
+  final String strGlass;
+  final String strInstructions;
+  final String strDrinkThumb;
   final String? strIngredient1;
   final String? strIngredient2;
   final String? strIngredient3;
@@ -92,5 +92,6 @@ class CocktailDto {
     this.strCreativeCommonsConfirmed,
   );
 
-  factory CocktailDto.fromJson(Map<String, dynamic> json) => _$CocktailDtoFromJson(json);
+  factory CocktailDto.fromJson(Map<String, dynamic> json) =>
+      _$CocktailDtoFromJson(json);
 }

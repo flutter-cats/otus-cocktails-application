@@ -1,5 +1,3 @@
-import 'package:collection/collection.dart';
-
 ///
 /// curl https://the-cocktail-db.p.rapidapi.com/list.php\?g\=list
 ///
@@ -109,6 +107,6 @@ class GlassType {
   @override
   String toString() => 'GlassType{value: $value, name: $name}';
 
-  static GlassType? parse(String raw) => values.firstWhereOrNull(
-      (element) => element.value.toLowerCase() == raw.toLowerCase());
+  static GlassType parse(String? raw) => values.firstWhere(
+      (element) => element.value.toLowerCase() == raw?.toLowerCase());
 }

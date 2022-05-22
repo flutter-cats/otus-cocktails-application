@@ -1,5 +1,3 @@
-import 'package:collection/collection.dart';
-
 ///
 /// curl https://the-cocktail-db.p.rapidapi.com/list.php\?a\=list
 ///
@@ -39,6 +37,6 @@ class CocktailType {
   /// Show toString() method using in debug session
   ///
 
-  static CocktailType? parse(String raw) => values.firstWhereOrNull(
-      (element) => element.value.toLowerCase() == raw.toLowerCase());
+  static CocktailType parse(String? raw) => values.firstWhere(
+      (element) => element.value.toLowerCase() == raw?.toLowerCase());
 }

@@ -1,5 +1,3 @@
-import 'package:collection/collection.dart';
-
 ///
 /// curl https://the-cocktail-db.p.rapidapi.com/list.php\?c\=list
 ///
@@ -23,6 +21,7 @@ class CocktailCategory {
   static const CocktailCategory beer = CocktailCategory._('beer', 'Beer');
   static const CocktailCategory softDrinkSoda =
       CocktailCategory._('softDrinkSoda', 'Soft Drink / Soda');
+  static const CocktailCategory shake = CocktailCategory._('shake', 'Shake');
 
   static const Iterable<CocktailCategory> values = [
     ordinaryDrink,
@@ -36,6 +35,7 @@ class CocktailCategory {
     punchPartyDrink,
     beer,
     softDrinkSoda,
+    shake
   ];
 
   final String value;
@@ -56,6 +56,6 @@ class CocktailCategory {
   @override
   String toString() => 'CocktailCategory{value: $value, name: $name}';
 
-  static CocktailCategory? parse(String raw) => values.firstWhereOrNull(
-      (element) => element.value.toLowerCase() == raw.toLowerCase());
+  static CocktailCategory parse(String? raw) => values.firstWhere(
+      (element) => element.value.toLowerCase() == raw?.toLowerCase());
 }
