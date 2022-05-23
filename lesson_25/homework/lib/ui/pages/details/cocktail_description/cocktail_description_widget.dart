@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cocktail_app_tests/core/src/model/cocktail.dart';
 import 'package:cocktail_app_tests/ui/style/custom_colors.dart';
@@ -20,10 +19,7 @@ class CocktailDescriptionWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CocktailTitle(
-              cocktailTitle: cocktail.name!,
-              isFavorite: cocktail.isFavourite!,
-            ),
+            CocktailTitle(cocktail: cocktail),
             Padding(
               padding: const EdgeInsets.only(top: 10.0),
               child: Text(
