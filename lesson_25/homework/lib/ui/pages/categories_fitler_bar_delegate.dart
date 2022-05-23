@@ -1,4 +1,4 @@
-import 'package:cocktail_app_tests/core/models.dart';
+import 'package:cocktail_app_tests/core/src/model/cocktail_category.dart';
 import 'package:cocktail_app_tests/ui/style/custom_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -16,9 +16,7 @@ class CategoriesFilterBarDelegate extends SliverPersistentHeaderDelegate {
   final CocktailCategory? selectedCategory;
 
   @override
-  Widget build(
-          BuildContext context, double shrinkOffset, bool overlapsContent) =>
-      CategoriesFilterBar(
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) => CategoriesFilterBar(
         categories,
         onCategorySelected: onCategorySelected,
         selectedCategory: selectedCategory,
@@ -31,8 +29,7 @@ class CategoriesFilterBarDelegate extends SliverPersistentHeaderDelegate {
   double get minExtent => 48;
 
   @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) =>
-      true;
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) => true;
 }
 
 class CategoriesFilterBar extends StatelessWidget {
@@ -54,16 +51,12 @@ class CategoriesFilterBar extends StatelessWidget {
     return ListView.separated(
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 24),
-        itemBuilder: (ctx, index) => _categoryItemBuilder(
-            context,
-            categories.elementAt(index),
-            categories.elementAt(index) == selectedCategory),
+        itemBuilder: (ctx, index) => _categoryItemBuilder(context, categories.elementAt(index), categories.elementAt(index) == selectedCategory),
         separatorBuilder: _separatorBuilder,
         itemCount: categories.length);
   }
 
-  Widget _categoryItemBuilder(
-      BuildContext context, CocktailCategory category, bool isSelected) {
+  Widget _categoryItemBuilder(BuildContext context, CocktailCategory category, bool isSelected) {
     return FilterChip(
       selected: isSelected,
       selectedColor: CustomColors.filter_item_selected_color,

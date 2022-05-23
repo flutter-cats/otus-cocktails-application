@@ -1,4 +1,7 @@
-import 'package:cocktail_app_tests/core/models.dart';
+import 'package:cocktail_app_tests/core/src/model/cocktail.dart';
+import 'package:cocktail_app_tests/core/src/model/cocktail_category.dart';
+import 'package:cocktail_app_tests/core/src/model/cocktail_definition.dart';
+import 'package:cocktail_app_tests/core/src/repository/async_cocktail_repository.dart';
 import 'package:cocktail_app_tests/ui/application/application_scaffold.dart';
 import 'package:cocktail_app_tests/ui/pages/categories_fitler_bar_delegate.dart';
 import 'package:cocktail_app_tests/ui/pages/cocktail_grid_item.dart';
@@ -11,8 +14,7 @@ class RandomCocktailPageWidget extends StatefulWidget {
   const RandomCocktailPageWidget(this.repository, {Key? key}) : super(key: key);
 
   @override
-  _RandomCocktailPageWidgetState createState() =>
-      _RandomCocktailPageWidgetState();
+  _RandomCocktailPageWidgetState createState() => _RandomCocktailPageWidgetState();
 }
 
 class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
@@ -63,6 +65,7 @@ class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
             final cocktailDefinition = CocktailDefinition(
               id: cocktail.id,
               name: cocktail.name,
+              categoryName: cocktail.category?.value,
               drinkThumbUrl: cocktail.drinkThumbUrl,
               isFavourite: cocktail.isFavourite,
             );
@@ -74,7 +77,7 @@ class _RandomCocktailPageWidgetState extends State<RandomCocktailPageWidget> {
                   (ctx, index) {
                     return CocktailGridItem(
                       cocktailDefinition,
-                      selectedCategory: cocktail.category!,
+                      selectedCategory: cocktail.category ?? CocktailCategory.unknown,
                     );
                   },
                   childCount: 1,

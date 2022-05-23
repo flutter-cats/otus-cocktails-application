@@ -1,7 +1,11 @@
+import 'package:cocktail_app_tests/core/cocktails_favorites.dart';
+import 'package:cocktail_app_tests/ui/application/application_scaffold.dart';
+import 'package:cocktail_app_tests/ui/pages/details/cocktail_favorite_item.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter/material.dart';
-import 'package:cocktail_app_tests/core/src/model/cocktail.dart';
-import 'package:cocktail_app_tests/ui/pages/details/cocktail_favorite_button.dart';
+import 'package:provider/provider.dart';
 
+///
 ///        - Склонировать соотвествующий github репозиторий с заготовкой проекта для этого урока (для соот-щего подхода к управлению состоянием приложения - redux, bloc mobx версии) (https://github.com/guid-empty/otus-cocktail-app-lessons)
 ///        - Внести изменения в классы описания состояний для экрана FavouriteCocktailsPage (будут помечены /// todo)
 ///        - Открыть класс экрана FavouriteCocktailsPage
@@ -19,23 +23,41 @@ import 'package:cocktail_app_tests/ui/pages/details/cocktail_favorite_button.dar
 ///
 /// В этом экране используется точно такая же  верстка, как и на экране фильтрации (то есть можно переиспользовать экран выдачи результатов по категориям)
 ///
-class CocktailTitle extends StatelessWidget {
-  final Cocktail cocktail;
+class FavouriteCocktailsPage extends StatefulWidget {
+  @override
+  _FavouriteCocktailsPageState createState() => _FavouriteCocktailsPageState();
+}
 
-  CocktailTitle({required this.cocktail});
-
+class _FavouriteCocktailsPageState extends State<FavouriteCocktailsPage> {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          cocktail.name!,
-          style: Theme.of(context).textTheme.headline3,
-        ),
-        CocktailFavoriteButton(cocktail)
-      ],
+    return ApplicationScaffold(
+      title: 'Избранное',
+      currentSelectedNavBarItem: 2,
+      child: _buildFavoriteCocktailItems(context),
     );
   }
+
+  Widget _buildFavoriteCocktailItems(BuildContext context) => Observer(builder: (context) {
+        final favorites = Provider.of<CocktailsFavorites>(context);
+
+        return CustomScrollView(slivers: [
+          SliverGrid(
+            delegate: SliverChildListDelegate(favorites.favorites.map((cocktail) => CocktailFavoriteItem(context: context, value: cocktail)).toList()),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, childAspectRatio: 160 / 215),
+          ),
+        ]);
+      });
 }
+
+final cardSliverListDelegate = SliverChildListDelegate(
+  List.generate(
+    4,
+    (index) => Card(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(child: Text('$index')),
+      ),
+    ),
+  ),
+);

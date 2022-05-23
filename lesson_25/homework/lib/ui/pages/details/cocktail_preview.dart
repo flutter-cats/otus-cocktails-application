@@ -1,5 +1,4 @@
 import 'package:cocktail_app_tests/ui/style/custom_colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CocktailPreview extends StatelessWidget {
@@ -21,10 +20,7 @@ class CocktailPreview extends StatelessWidget {
             color: Colors.red,
             foregroundDecoration: BoxDecoration(
               gradient: const LinearGradient(
-                colors: [
-                  CustomColors.gradient_first,
-                  CustomColors.gradient_second
-                ],
+                colors: [CustomColors.gradient_first, CustomColors.gradient_second],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
