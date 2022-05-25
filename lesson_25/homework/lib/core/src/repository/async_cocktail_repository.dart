@@ -31,8 +31,8 @@ class AsyncCocktailRepository {
     var response = await http.get(url, headers: _headers);
     if (response.statusCode == HttpStatus.ok) {
       final jsonResponse = convert.jsonDecode(response.body);
+      print(response.body);
       var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
-
       final dtos = drinks
           .cast<Map<String, dynamic>>()
           .map((json) => CocktailDto.fromJson(json));
