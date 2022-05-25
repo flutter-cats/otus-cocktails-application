@@ -11,13 +11,17 @@ import 'package:cocktail_app_tests/core/src/model/cocktail_type.dart';
 import 'package:cocktail_app_tests/core/src/model/glass_type.dart';
 import 'package:cocktail_app_tests/core/src/model/ingredient_definition.dart';
 
-class AsyncCocktailRepository {
+class AsyncRepository {
   static const String _apiKey =
       'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b';
 
   static const Map<String, String> _headers = const {
     'x-rapidapi-key': _apiKey,
   };
+
+  late http.Client client;
+
+  AsyncRepository({required this.client});
 
   Future<Cocktail?> fetchCocktailDetails(String id) async {
     Cocktail? result;
@@ -27,8 +31,8 @@ class AsyncCocktailRepository {
     ///
     await Future.delayed(Duration(seconds: 2));
     final url =
-        Uri.parse('https://the-cocktail-db.p.rapidapi.com/lookup.php?i=$id');
-    var response = await http.get(url, headers: _headers);
+    Uri.parse('https://the-cocktail-db.p.rapidapi.com/lookup.php?i=$id');
+    var response = await client.get(url, headers: _headers);
     if (response.statusCode == HttpStatus.ok) {
       final jsonResponse = convert.jsonDecode(response.body);
       var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
@@ -55,7 +59,7 @@ class AsyncCocktailRepository {
     await Future.delayed(Duration(seconds: 2));
     final url = Uri.parse(
         'https://the-cocktail-db.p.rapidapi.com/filter.php?c=${category.value}');
-    var response = await http.get(
+    var response = await client.get(
       url,
       headers: {
         'x-rapidapi-key': 'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
@@ -90,7 +94,7 @@ class AsyncCocktailRepository {
 
     final url = Uri.parse(
         'https://the-cocktail-db.p.rapidapi.com/filter.php?a=${cocktailType.value}');
-    var response = await http.get(
+    var response = await client.get(
       url,
       headers: {
         'x-rapidapi-key': 'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
@@ -123,7 +127,7 @@ class AsyncCocktailRepository {
     var result = <Cocktail>[];
 
     final uri = Uri.parse('https://the-cocktail-db.p.rapidapi.com/popular.php');
-    var response = await http.get(
+    var response = await client.get(
       uri,
       headers: {
         'x-rapidapi-key': 'e5b7f97a78msh3b1ba27c40d8ccdp105034jsn34e2da32d50b',
@@ -156,7 +160,7 @@ class AsyncCocktailRepository {
     ///
     await Future.delayed(Duration(seconds: 2));
     final uri = Uri.parse('https://the-cocktail-db.p.rapidapi.com/random.php');
-    var response = await http.get(uri, headers: _headers);
+    var response = await client.get(uri, headers: _headers);
     if (response.statusCode == HttpStatus.ok) {
       final jsonResponse = convert.jsonDecode(response.body);
       var drinks = jsonResponse['drinks'] as Iterable<dynamic>;
@@ -182,7 +186,7 @@ class AsyncCocktailRepository {
     var ingredients = <IngredientDefinition>[];
 
     _getIngredients(dto).forEach(
-        (key, value) => ingredients.add(IngredientDefinition(key, value)));
+            (key, value) => ingredients.add(IngredientDefinition(key, value)));
 
     return Cocktail(
       id: dto.idDrink,
