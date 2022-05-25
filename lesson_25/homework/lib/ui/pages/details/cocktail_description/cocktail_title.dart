@@ -24,12 +24,18 @@ class CocktailTitle extends StatelessWidget {
       );
 
   Widget _getIsFavoriteIcon() => isFavorite
-      ? IconButton(
-          icon: Icon(Icons.favorite, color: Colors.white),
-          onPressed: () {},
+      ? Semantics(
+          label: 'favourite',
+          child: IconButton(
+            icon: Icon(Icons.favorite, color: Colors.white),
+            onPressed: () {},
+          ),
         )
-      : IconButton(
-          icon: Icon(Icons.favorite_border, color: Colors.white),
-          onPressed: () {},
+      : Semantics(
+          label: 'no favourite',
+          child: IconButton(
+            icon: Icon(Icons.favorite_border, color: Colors.white),
+            onPressed: () {},
+          ),
         );
 }
