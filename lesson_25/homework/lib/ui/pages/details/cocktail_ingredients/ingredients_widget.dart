@@ -1,5 +1,4 @@
 import 'package:cocktail_app_tests/core/src/model/ingredient_definition.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'cocktail_ingredient_row.dart';
@@ -18,7 +17,8 @@ class CocktailIngredients extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Ингредиенты:', style: Theme.of(context).textTheme.headline6),
+              Text('Ингредиенты:',
+                  style: Theme.of(context).textTheme.headline6),
               ...cocktailIngredients
                   .map((ingredient) => CocktailIngredientRow(
                       cocktailIngredientName: ingredient.ingredientName,
