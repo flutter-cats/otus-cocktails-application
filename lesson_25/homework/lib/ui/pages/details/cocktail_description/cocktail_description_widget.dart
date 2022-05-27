@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cocktail_app_tests/core/src/model/cocktail.dart';
 import 'package:cocktail_app_tests/ui/style/custom_colors.dart';

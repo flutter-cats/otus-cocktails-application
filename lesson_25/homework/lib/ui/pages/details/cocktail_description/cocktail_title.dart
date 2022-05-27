@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CocktailTitle extends StatelessWidget {
@@ -25,11 +24,19 @@ class CocktailTitle extends StatelessWidget {
 
   Widget _getIsFavoriteIcon() => isFavorite
       ? IconButton(
-          icon: Icon(Icons.favorite, color: Colors.white),
+          icon: Icon(
+            Icons.favorite,
+            color: Colors.white,
+            semanticLabel: "isFavorite icon",
+          ),
           onPressed: () {},
         )
       : IconButton(
-          icon: Icon(Icons.favorite_border, color: Colors.white),
+          icon: Icon(
+            Icons.favorite_border,
+            color: Colors.white,
+            semanticLabel: "not isFavorite icon",
+          ),
           onPressed: () {},
         );
 }

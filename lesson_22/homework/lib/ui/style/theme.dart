@@ -7,7 +7,7 @@ final mainThemeData = ThemeData(
   backgroundColor: CustomColors.background,
   scaffoldBackgroundColor: CustomColors.background,
   textTheme: mainTextTheme,
-  accentColor: Colors.lightGreen,
+  colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.lightGreen),
 );
 
 final mainTextTheme = TextTheme(
