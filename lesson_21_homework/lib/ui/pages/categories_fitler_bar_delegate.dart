@@ -65,9 +65,9 @@ class CategoriesFilterBar extends StatelessWidget {
   Widget _categoryItemBuilder(
       BuildContext context, CocktailCategory category, bool isSelected) {
     return FilterChip(
-      selected: isSelected,
+      selected: false,
       selectedColor: CustomColors.filter_item_selected_color,
-      backgroundColor: CustomColors.filter_item_color,
+      backgroundColor: isSelected ? CustomColors.filter_item_selected_color : CustomColors.filter_item_color,
       onSelected: (value) {
         if (value) {
           onCategorySelected.call(category);
