@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
 class CocktailTitle extends StatelessWidget {
@@ -19,17 +19,22 @@ class CocktailTitle extends StatelessWidget {
             cocktailTitle,
             style: Theme.of(context).textTheme.headline3,
           ),
-          _getIsFavoriteIcon()
+          FavoriteIcon(isFavorite: isFavorite),
         ],
       );
 
-  Widget _getIsFavoriteIcon() => isFavorite
-      ? IconButton(
-          icon: Icon(Icons.favorite, color: Colors.white),
-          onPressed: () {},
-        )
-      : IconButton(
-          icon: Icon(Icons.favorite_border, color: Colors.white),
-          onPressed: () {},
-        );
+  
+}
+
+class FavoriteIcon extends StatelessWidget {
+  const FavoriteIcon({Key? key, required this.isFavorite}) : super(key: key);
+  final bool isFavorite;
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      label: isFavorite ? 'is Favorite' : 'not Fovorite',
+      child: IconButton(icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border, color:  Colors.white,),
+      onPressed: (){}, ),
+    ) ;
+  }
 }
