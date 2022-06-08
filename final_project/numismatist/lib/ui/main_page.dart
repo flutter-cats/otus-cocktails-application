@@ -1,7 +1,9 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:numismatist/core/error_handler.dart';
+import 'package:numismatist/storage/storage.dart';
 import 'package:numismatist/ui/list_page.dart';
+import 'package:provider/provider.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -43,14 +45,15 @@ class _MainPageState extends State<MainPage> with ErrorStatefullHandler {
             title: const Text("НумизматЪ"),
             centerTitle: true,
             actions: <Widget>[
-              Badge(
-                  animationType: BadgeAnimationType.slide,
-                  badgeColor: Theme.of(context).colorScheme.secondary,
-                  badgeContent: Text(
-                    '10',
-                    style: Theme.of(context).textTheme.caption,
+              IconButton(
+                  icon: Badge(
+                    animationType: BadgeAnimationType.slide,
+                    badgeColor: Theme.of(context).colorScheme.secondary,
+                    showBadge: context.watch<Storage>().needUpdate,
+                    child: const Icon(Icons.sync),
                   ),
-                  child: IconButton(icon: const Icon(Icons.sync), tooltip: 'Sync', onPressed: () => sync(context))),
+                  tooltip: 'Синхронизация',
+                  onPressed: () => sync(context)),
             ],
           ),
           bottomNavigationBar: menu(context, 5),
@@ -94,6 +97,12 @@ class _MainPageState extends State<MainPage> with ErrorStatefullHandler {
             ),
           )),
         ));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<Storage>().checkNeedSync();
   }
 
   @override

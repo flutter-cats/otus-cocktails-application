@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:numismatist/core/error_handler.dart';
 
 class StartPage extends StatelessWidget with ErrorStatelessHandler {
   const StartPage({Key? key}) : super(key: key);
 
+  static const platform = MethodChannel('numismatist/version');
+
   Future<String> _getVersion(BuildContext context) async {
-    //TODO сходить в платформу за версией
-    //PackageInfo packageInfo = await PackageInfo.fromPlatform();
-    return "0.0.0.0"; //"${packageInfo.appName} ${packageInfo.version}+${packageInfo.buildNumber}";
+    //сходить в платформу за версией
+    String version;
+    try {
+      version = await platform.invokeMethod('getApplicationVersion');
+    } on PlatformException {
+      version = "?.?.?+0";
+    }
+    return version;
   }
 
   @override
@@ -17,8 +25,10 @@ class StartPage extends StatelessWidget with ErrorStatelessHandler {
         future: _getVersion(context),
         builder: (context, AsyncSnapshot<String> snapshot) {
           Future.delayed(const Duration(seconds: 3)).then(
+            // ждём 3 секунды на заставке чтобы увидеть версию из платформы )
             (value) => Navigator.of(context).pushNamedAndRemoveUntil(Navigator.defaultRouteName, (route) => false),
           );
+
           return Scaffold(
               body: SafeArea(
                   child: Center(

@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:numismatist/core/appbuilder.dart';
+import 'package:numismatist/storage/storage.dart';
 import 'package:numismatist/ui/item_page.dart';
 import 'package:numismatist/ui/list_page.dart';
 import 'package:numismatist/ui/main_page.dart';
 import 'package:numismatist/ui/start_page.dart';
 import 'package:numismatist/ui/style/colors.dart';
 import 'package:numismatist/ui/sync_page.dart';
+import 'package:provider/provider.dart';
 
 Future<void> main() async {
   await AppBuilder.setup();
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (_) => Storage()),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

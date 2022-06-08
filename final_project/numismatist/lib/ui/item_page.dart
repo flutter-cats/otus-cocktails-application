@@ -16,7 +16,10 @@ class ItemPage extends StatelessWidget with ErrorStatelessHandler {
         body: SafeArea(
             child: Center(
       child: Column(
-        children: const <Widget>[Text('Монета')],
+        children: const <Widget>[
+          Text('Монета'),
+          //Image.memory( )
+        ],
       ),
     )));
   }
