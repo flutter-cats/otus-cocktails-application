@@ -5,7 +5,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:numismatist/api/dto/item_dto.dart';
 
 import 'package:numismatist/core/const.dart';
-import 'package:numismatist/storage/models/currency.dart';
+import 'package:numismatist/repository/models/currency.dart';
 
 part 'item.g.dart';
 

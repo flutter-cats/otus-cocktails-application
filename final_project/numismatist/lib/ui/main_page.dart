@@ -1,7 +1,9 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:numismatist/core/error_handler.dart';
-import 'package:numismatist/storage/storage.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:mobx/mobx.dart';
+import 'package:numismatist/state/sync_state.dart';
 import 'package:numismatist/ui/list_page.dart';
 import 'package:provider/provider.dart';
 
@@ -37,6 +39,7 @@ class _MainPageState extends State<MainPage> with ErrorStatefullHandler {
 
   @override
   Widget build(BuildContext context) {
+    final syncState = Provider.of<SyncState>(context);
     return DefaultTabController(
         length: 2,
         initialIndex: _tabIndex,
@@ -46,12 +49,13 @@ class _MainPageState extends State<MainPage> with ErrorStatefullHandler {
             centerTitle: true,
             actions: <Widget>[
               IconButton(
-                  icon: Badge(
-                    animationType: BadgeAnimationType.slide,
-                    badgeColor: Theme.of(context).colorScheme.secondary,
-                    showBadge: context.watch<Storage>().needUpdate,
-                    child: const Icon(Icons.sync),
-                  ),
+                  icon: Observer(
+                      builder: (context) => Badge(
+                            animationType: BadgeAnimationType.slide,
+                            badgeColor: Theme.of(context).colorScheme.secondary,
+                            showBadge: syncState.needUpdate,
+                            child: const Icon(Icons.sync),
+                          )),
                   tooltip: 'Синхронизация',
                   onPressed: () => sync(context)),
             ],
@@ -100,9 +104,9 @@ class _MainPageState extends State<MainPage> with ErrorStatefullHandler {
   }
 
   @override
-  void initState() {
-    super.initState();
-    context.read<Storage>().checkNeedSync();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    Provider.of<SyncState>(context).checkUpdate();
   }
 
   @override

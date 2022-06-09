@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
-import 'package:numismatist/ui/style/colors.dart';
 
 mixin ErrorStatefullHandler<T extends StatefulWidget> on State<T> {
   showError(BuildContext context, dynamic error) {
@@ -17,15 +16,19 @@ mixin ErrorStatelessHandler on StatelessWidget {
 extension ErrorExtension on BuildContext {
   showError(dynamic error) {
     final text = errorHandler(error);
+    showErrorText(text);
+  }
+
+  showErrorText(String error) {
     ScaffoldMessenger.of(this)
       ..removeCurrentSnackBar()
       ..showSnackBar(SnackBar(
         //margin: EdgeInsets.zero, // only floating
         padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
         content: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-          const Icon(Icons.error_outline, size: 24, color: primaryColor),
+          const Icon(Icons.error_outline, size: 24, color: Colors.red),
           const SizedBox(width: 8),
-          Expanded(child: Text(text, style: Theme.of(this).textTheme.subtitle1)),
+          Expanded(child: Text(error, style: Theme.of(this).textTheme.apply(bodyColor: Colors.black).subtitle1)),
         ]),
         backgroundColor: Colors.yellow,
         //duration: Duration(seconds: 3),

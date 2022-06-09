@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:numismatist/core/appbuilder.dart';
-import 'package:numismatist/storage/storage.dart';
+import 'package:numismatist/repository/repository.dart';
+import 'package:numismatist/state/sync_state.dart';
 import 'package:numismatist/ui/item_page.dart';
 import 'package:numismatist/ui/list_page.dart';
 import 'package:numismatist/ui/main_page.dart';
@@ -13,7 +14,7 @@ import 'package:provider/provider.dart';
 Future<void> main() async {
   await AppBuilder.setup();
   runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(create: (_) => Storage()),
+    Provider(create: (_) => SyncState(Repository())),
   ], child: const MyApp()));
 }
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Engy.СервисДеск',
+      title: 'НумизматЪ',
       themeMode: ThemeMode.system,
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,

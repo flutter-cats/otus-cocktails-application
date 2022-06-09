@@ -21,7 +21,7 @@ class ItemAdapter extends TypeAdapter<Item> {
       name: fields[1] as String,
       description: fields[2] as String,
       nominal: fields[3] as num,
-      currency: fields[4] as Currency,
+      currency: fields[4] as dynamic,
       material: fields[5] as String,
       weight: fields[6] as num?,
       circulation: fields[7] as int?,

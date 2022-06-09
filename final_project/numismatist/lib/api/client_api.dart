@@ -30,5 +30,5 @@ abstract class RestClient {
   Future<List<CatalogDto>> catalogs();
 
   @GET("Catalog/catalog/{id}")
-  Future<List<ItemDto>> syncTickets(@Path("id") String id);
+  Future<List<ItemDto>> items(@Path("id") String id);
 }

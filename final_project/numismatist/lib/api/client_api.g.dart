@@ -50,7 +50,7 @@ class _RestClient implements RestClient {
   }
 
   @override
-  Future<List<ItemDto>> syncTickets(id) async {
+  Future<List<ItemDto>> items(id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
