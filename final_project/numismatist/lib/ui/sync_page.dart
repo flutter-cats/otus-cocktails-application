@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mobx/mobx.dart';
 import 'package:numismatist/core/error_handler.dart';
-import 'package:numismatist/state/sync_state.dart';
+import 'package:numismatist/state/load_process_state.dart';
+import 'package:numismatist/state/catalogs_state.dart';
 import 'package:numismatist/ui/component/coin_progress_indicator.dart';
 import 'package:numismatist/ui/component/default_button.dart';
 import 'package:provider/provider.dart';
@@ -17,11 +18,11 @@ class SyncPage extends StatefulWidget {
 class _SyncPageState extends State<SyncPage> with ErrorStatefullHandler {
   @override
   Widget build(BuildContext context) {
-    final syncState = Provider.of<SyncState>(context);
-    syncState.count();
+    final catalogsState = Provider.of<CatalogsState>(context);
+    catalogsState.count();
     return ReactionBuilder(
       builder: ((context) => reaction(
-            (_) => syncState.errorMessage,
+            (_) => catalogsState.errorMessage,
             (String message) => context.showErrorText(message),
           )),
       child: Scaffold(
@@ -30,70 +31,76 @@ class _SyncPageState extends State<SyncPage> with ErrorStatefullHandler {
             centerTitle: true,
           ),
           body: SafeArea(child: Observer(builder: (_) {
-            switch (syncState.countState) {
-              case SyncProcessState.initial:
-              case SyncProcessState.loading:
-                return Center(
-                    child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: <Widget>[
-                  Text('Проверка обновлений1', style: Theme.of(context).textTheme.headline6),
-                  CoinProgressIndicator(color: Theme.of(context).colorScheme.primary),
-                ]));
-              case SyncProcessState.loaded:
-                if (syncState.needUpdateCount <= 0 && syncState.updateState != SyncProcessState.loading) {
-                  return Center(
-                      child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      Text('Обновление не требуется', style: Theme.of(context).textTheme.headline6),
-                      DefaultButton(
-                        text: 'Все равно обновить',
-                        icon: Icons.sync,
-                        onPressed: () => syncState.update(),
-                      )
-                    ],
-                  ));
+            switch (catalogsState.countState) {
+              case LoadProcessState.initial:
+              case LoadProcessState.loading:
+                return buildSearchCatalogs();
+              case LoadProcessState.loaded:
+                if (catalogsState.needUpdateCount <= 0 && catalogsState.updateState != LoadProcessState.loading) {
+                  return buildNotUpdateRequere(catalogsState);
                 }
-                switch (syncState.updateState) {
-                  case SyncProcessState.initial:
-                    return Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          Text('Требуется обновление ${syncState.needUpdateCount} каталогов', style: Theme.of(context).textTheme.headline6),
-                          DefaultButton(
-                            text: 'Обновить сейчас',
-                            icon: Icons.sync,
-                            onPressed: () => syncState.update(),
-                          )
-                        ],
-                      ),
-                    );
-                  case SyncProcessState.loading:
-                    return Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          Text('Обновление ${syncState.needUpdateCount > 0 ? syncState.needUpdateCount.toString() : "всех"} каталогов', style: Theme.of(context).textTheme.headline6),
-                          CoinProgressIndicator(color: Theme.of(context).colorScheme.primary)
-                        ],
-                      ),
-                    );
-                  case SyncProcessState.loaded:
-                    return Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          Text('Обновление каталогов завершено', style: Theme.of(context).textTheme.headline6),
-                        ],
-                      ),
-                    );
+                switch (catalogsState.updateState) {
+                  case LoadProcessState.initial:
+                    return buildUpdateRequere(catalogsState);
+                  case LoadProcessState.loading:
+                    return buildLoading(catalogsState.needUpdateCount);
+                  case LoadProcessState.loaded:
+                    return buildLoaded();
                 }
             }
           }))),
     );
-
-    // return Center(
-    //   child: Text('Ошибка проверки обновлений', style: Theme.of(context).textTheme.bodyMedium),
-    // );
   }
+
+  Widget buildSearchCatalogs() => Center(
+          child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: <Widget>[
+        Text('Поиск обновлений каталогов', style: Theme.of(context).textTheme.headline6),
+        CoinProgressIndicator(color: Theme.of(context).colorScheme.primary),
+      ]));
+
+  Widget buildNotUpdateRequere(CatalogsState catalogsState) => Center(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Text('Обновление не требуется', style: Theme.of(context).textTheme.headline6),
+          DefaultButton(
+            text: 'Все равно обновить',
+            icon: Icons.sync,
+            onPressed: () => catalogsState.update(),
+          )
+        ],
+      ));
+
+  Widget buildUpdateRequere(CatalogsState catalogsState) => Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Text('Требуется обновление ${catalogsState.needUpdateCount} каталогов', style: Theme.of(context).textTheme.headline6),
+            DefaultButton(
+              text: 'Обновить сейчас',
+              icon: Icons.sync,
+              onPressed: () => catalogsState.update(),
+            )
+          ],
+        ),
+      );
+
+  Widget buildLoading(int count) => Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Text('Обновление ${count > 0 ? count.toString() : "всех"} каталогов', style: Theme.of(context).textTheme.headline6),
+            CoinProgressIndicator(color: Theme.of(context).colorScheme.primary)
+          ],
+        ),
+      );
+
+  Widget buildLoaded() => Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Text('Обновление каталогов завершено', style: Theme.of(context).textTheme.headline6),
+          ],
+        ),
+      );
 }

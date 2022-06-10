@@ -1,18 +1,21 @@
 import 'package:mobx/mobx.dart';
+import 'package:numismatist/repository/models/catalog.dart';
 import 'package:numismatist/repository/repository.dart';
+import 'package:numismatist/state/load_process_state.dart';
 
-import 'package:provider/provider.dart';
+part 'catalogs_state.g.dart';
 
-part 'sync_state.g.dart';
+class CatalogsState = CatalogsStateBase with _$CatalogsState;
 
-class SyncState = SyncStateBase with _$SyncState;
-
-enum SyncProcessState { initial, loading, loaded }
-
-abstract class SyncStateBase with Store {
+abstract class CatalogsStateBase with Store {
   final Repository _repository;
 
-  SyncStateBase(this._repository);
+  CatalogsStateBase(this._repository) {
+    _fillCatalogs();
+  }
+
+  @observable
+  ObservableList<Catalog> catalogs = ObservableList<Catalog>();
 
   @observable
   ObservableFuture<int>? _countFuture;
@@ -30,21 +33,21 @@ abstract class SyncStateBase with Store {
   String errorMessage = '';
 
   @computed
-  SyncProcessState get countState {
+  LoadProcessState get countState {
     final future = _countFuture;
     if (future == null || future.status == FutureStatus.rejected) {
-      return SyncProcessState.initial;
+      return LoadProcessState.initial;
     }
-    return future.status == FutureStatus.pending ? SyncProcessState.loading : SyncProcessState.loaded;
+    return future.status == FutureStatus.pending ? LoadProcessState.loading : LoadProcessState.loaded;
   }
 
   @computed
-  SyncProcessState get updateState {
+  LoadProcessState get updateState {
     final future = _updateFuture;
     if (future == null || future.status == FutureStatus.rejected) {
-      return SyncProcessState.initial;
+      return LoadProcessState.initial;
     }
-    return future.status == FutureStatus.pending ? SyncProcessState.loading : SyncProcessState.loaded;
+    return future.status == FutureStatus.pending ? LoadProcessState.loading : LoadProcessState.loaded;
   }
 
   @action
@@ -73,6 +76,12 @@ abstract class SyncStateBase with Store {
     } on Error {
       errorMessage = "Ошибка обновления каталогов";
     }
+    _fillCatalogs();
     await checkUpdate();
+  }
+
+  void _fillCatalogs() {
+    catalogs.clear();
+    catalogs.addAll(_repository.getCatalogs());
   }
 }

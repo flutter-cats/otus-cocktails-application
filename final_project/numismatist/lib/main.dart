@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:numismatist/core/appbuilder.dart';
 import 'package:numismatist/repository/repository.dart';
-import 'package:numismatist/state/sync_state.dart';
+import 'package:numismatist/state/catalogs_state.dart';
+import 'package:numismatist/state/favorites_state.dart';
+import 'package:numismatist/state/items_state.dart';
+import 'package:numismatist/ui/image_page.dart';
 import 'package:numismatist/ui/item_page.dart';
 import 'package:numismatist/ui/list_page.dart';
 import 'package:numismatist/ui/main_page.dart';
@@ -13,8 +16,11 @@ import 'package:provider/provider.dart';
 
 Future<void> main() async {
   await AppBuilder.setup();
+  final repository = Repository();
   runApp(MultiProvider(providers: [
-    Provider(create: (_) => SyncState(Repository())),
+    Provider(create: (_) => CatalogsState(repository)),
+    Provider(create: (_) => ItemsState(repository)),
+    Provider(create: (_) => FavoritesState(repository)),
   ], child: const MyApp()));
 }
 
@@ -74,5 +80,9 @@ final pages = [
   Page(
     route: '/item',
     builder: (context) => const ItemPage(),
+  ),
+  Page(
+    route: '/image',
+    builder: (context) => const ImagePage(),
   ),
 ];

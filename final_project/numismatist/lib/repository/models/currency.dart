@@ -28,3 +28,13 @@ class CurrencyConst {
     EURValue: Currency.EUR,
   };
 }
+
+extension SymbolExtension on Currency {
+  String toSymbol() => this == Currency.USD
+      ? '\$'
+      : this == Currency.EUR
+          ? '€'
+          : this == Currency.RUR
+              ? '₽'
+              : '';
+}

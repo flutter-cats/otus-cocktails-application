@@ -18,50 +18,53 @@ class ItemAdapter extends TypeAdapter<Item> {
     };
     return Item(
       id: fields[0] as String,
-      name: fields[1] as String,
-      description: fields[2] as String,
-      nominal: fields[3] as num,
-      currency: fields[4] as dynamic,
-      material: fields[5] as String,
-      weight: fields[6] as num?,
-      circulation: fields[7] as int?,
-      years: (fields[8] as List).cast<int>(),
-      facilities: (fields[9] as List).cast<String>(),
-      lastUpdate: fields[10] as DateTime,
-      averse: fields[11] as Uint8List?,
-      reverse: fields[12] as Uint8List?,
+      catalogId: fields[1] as String,
+      name: fields[2] as String,
+      description: fields[3] as String,
+      nominal: fields[4] as num,
+      currency: fields[5] as Currency,
+      material: fields[6] as String,
+      weight: fields[7] as num?,
+      circulation: fields[8] as int?,
+      years: (fields[9] as List).cast<int>(),
+      facilities: (fields[10] as List).cast<String>(),
+      lastUpdate: fields[11] as DateTime,
+      averse: fields[12] as Uint8List?,
+      reverse: fields[13] as Uint8List?,
     );
   }
 
   @override
   void write(BinaryWriter writer, Item obj) {
     writer
-      ..writeByte(13)
+      ..writeByte(14)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.name)
+      ..write(obj.catalogId)
       ..writeByte(2)
-      ..write(obj.description)
+      ..write(obj.name)
       ..writeByte(3)
-      ..write(obj.nominal)
+      ..write(obj.description)
       ..writeByte(4)
-      ..write(obj.currency)
+      ..write(obj.nominal)
       ..writeByte(5)
-      ..write(obj.material)
+      ..write(obj.currency)
       ..writeByte(6)
-      ..write(obj.weight)
+      ..write(obj.material)
       ..writeByte(7)
-      ..write(obj.circulation)
+      ..write(obj.weight)
       ..writeByte(8)
-      ..write(obj.years)
+      ..write(obj.circulation)
       ..writeByte(9)
-      ..write(obj.facilities)
+      ..write(obj.years)
       ..writeByte(10)
-      ..write(obj.lastUpdate)
+      ..write(obj.facilities)
       ..writeByte(11)
-      ..write(obj.averse)
+      ..write(obj.lastUpdate)
       ..writeByte(12)
+      ..write(obj.averse)
+      ..writeByte(13)
       ..write(obj.reverse);
   }
 

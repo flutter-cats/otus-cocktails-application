@@ -14,32 +14,35 @@ class Item {
   @HiveField(0)
   final String id;
   @HiveField(1)
-  final String name;
+  final String catalogId;
   @HiveField(2)
-  final String description;
+  final String name;
   @HiveField(3)
-  final num nominal;
+  final String description;
   @HiveField(4)
-  final Currency currency;
+  final num nominal;
   @HiveField(5)
-  final String material;
+  final Currency currency;
   @HiveField(6)
-  final num? weight;
+  final String material;
   @HiveField(7)
-  final int? circulation;
+  final num? weight;
   @HiveField(8)
-  final List<int> years;
+  final int? circulation;
   @HiveField(9)
-  final List<String> facilities;
+  final List<int> years;
   @HiveField(10)
-  final DateTime lastUpdate;
+  final List<String> facilities;
   @HiveField(11)
-  final Uint8List? averse;
+  final DateTime lastUpdate;
   @HiveField(12)
+  final Uint8List? averse;
+  @HiveField(13)
   final Uint8List? reverse;
 
   Item({
     required this.id,
+    required this.catalogId,
     required this.name,
     required this.description,
     required this.nominal,
@@ -54,9 +57,10 @@ class Item {
     this.reverse,
   });
 
-  static Item createFromDto(ItemDto dto) {
+  static Item createFromDto(ItemDto dto, String catalogId) {
     return Item(
       id: dto.id,
+      catalogId: catalogId,
       name: dto.name,
       description: dto.description ?? "",
       nominal: dto.nominal,

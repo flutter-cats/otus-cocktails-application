@@ -6,6 +6,7 @@ import 'package:numismatist/api/client_api.dart';
 import 'package:numismatist/api/dto/lastupdate_dto.dart';
 import 'package:numismatist/core/const.dart';
 import 'package:numismatist/repository/models/catalog.dart';
+import 'package:numismatist/repository/models/favorite.dart';
 import 'package:numismatist/repository/models/item.dart';
 
 class Repository {
@@ -13,6 +14,7 @@ class Repository {
   final _settings = Hive.box(Const.settingsBox);
   final _catalogs = Hive.box<Catalog>(Const.catalogsBox);
   final _items = Hive.box<Item>(Const.itemsBox);
+  final _favorites = Hive.box<Favorite>(Const.favoriteBox);
 
   DateTime get lastSync => DateTime.tryParse(_settings.get(Const.lastSyncKey)?.toString() ?? "") ?? DateTime.now();
   set lastSync(DateTime value) => _settings.put(Const.lastSyncKey, value);
@@ -40,6 +42,23 @@ class Repository {
     lastSync = catalogs.map((e) => e.lastUpdate).reduce((value1, value2) => value1.isAfter(value2) ? value1 : value2);
   }
 
+  List<Catalog> getCatalogs() => _catalogs.values.toList()
+    ..sort(
+      (a, b) => a.name.compareTo(b.name),
+    );
+
+  List<Favorite> getFavorites() => _favorites.values.toList();
+
+  Future<List<Item>> getItems(String catalogId) => Future.value(_items.values.where((i) => i.catalogId == catalogId).toList()
+    ..sort(
+      (a, b) => a.id.compareTo(b.id),
+    ));
+
+  Future<List<Item>> findItems(String searchBy) => Future.value(_items.values.where((i) => i.name.toLowerCase().contains(searchBy.toLowerCase())).toList()
+    ..sort(
+      (a, b) => a.id.compareTo(b.id),
+    ));
+
   Future<DateTime> _lastCatalogsUpdate() async => DateTime.tryParse((await _client.lastUpdate().catchError((e) => LastUpdateDto(lastUpdate: ""))).lastUpdate) ?? lastSync;
 
   Future<List<Catalog>> _updatedCatalogs() async {
@@ -60,7 +79,7 @@ class Repository {
     final client = RestClientBuilder.setup();
     final items = List<Item>.empty(growable: true);
     for (var id in ids) {
-      final coins = (await client.items(id)).map(Item.createFromDto).toList();
+      final coins = (await client.items(id)).map((i) => Item.createFromDto(i, id)).toList();
       items.addAll(coins);
     }
     return items;
