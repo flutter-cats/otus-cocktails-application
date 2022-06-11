@@ -1,16 +1,31 @@
-# numismatist
+# Приложение для работы с каталогами монет
 
-A new Flutter project.
+Отображает каталоги монет, с возможность синхронизацией каталогов на устройство для отображения оффлайн.
 
-## Getting Started
+## Источник данных
 
-This project is a starting point for a Flutter application.
+Сейчас использует самописный бэкэнд (сваггер доступен по адресу http://office4.en-gy.ru:22010/), который синхронизируется (выборочно, 16 из 40) с каталогами инвестиционно-памятных монет ЦБ РФ (https://www.cbr.ru/cash_circulation/memorable_coins/coins_base/)
 
-A few resources to get you started if this is your first Flutter project:
+## Пакеты, технологии 
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- хранение состояния - Provider + MobX.
+- работа с API - связка Dio + Retrofit + Json_annotation.
+- хранение данных - Hive.
+- в перехода, где это имеет смысл используется виджет Hero (например при переходе к изображению монеты)
+- в обновлении используется Isolate через compute (по монетам могут приходить объемные данные)
+- при синхронизации показывается самописная анимация
+- для отображения версий используется платформенный код
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Основые экраны 
+
+- [Каталоги](catalog.png)
+- [Обновление каталогов](sync0.png) и [Каталоги обновлены](sync1.png)
+- [Содержимое каталога - монеты](items.png)
+- [Описание монеты](item.png)
+- [Изображение монеты](item_image.png)
+- [Поиск монеты по названию](search0.png) и [Результаты поиска](search1.png)
+
+## Планы на развитие
+
+- Сохранения монет в избранное (с указанием качества - заморочка коллекционеров).
+- Добавить сторонные каталоги монет (эта больше задача поиска данных для бэкэнда, приложение готово для отображения).

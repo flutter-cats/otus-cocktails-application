@@ -34,6 +34,7 @@ class Repository {
       catalogs.clear();
       catalogs.addAll(_catalogs.values);
     }
+
     // использовать изоляты для получения каталогов монет - они могут быть тяжелые
     final items = await compute(_syncCatalogs, catalogs.map((e) => e.id).toList());
     for (var item in items) {

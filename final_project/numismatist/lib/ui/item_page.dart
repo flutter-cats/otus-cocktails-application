@@ -63,39 +63,77 @@ class ItemPage extends StatelessWidget with ErrorStatelessHandler {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                 child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                  Text('Каталожный №', style: Theme.of(context).textTheme.bodyMedium),
-                  Text(item.id, style: Theme.of(context).textTheme.bodyLarge),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: Text('Каталожный №:', style: Theme.of(context).textTheme.bodyMedium),
+                  ),
+                  Flexible(
+                    child: Text(item.id, style: Theme.of(context).textTheme.bodyLarge),
+                  ),
                 ]),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                 child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                  Text('Материал', style: Theme.of(context).textTheme.bodyMedium),
-                  Text(item.material.toString(), style: Theme.of(context).textTheme.bodyLarge),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: Text('Материал:', style: Theme.of(context).textTheme.bodyMedium),
+                  ),
+                  Flexible(
+                      child: Text(
+                    item.material.toString(),
+                    style: Theme.of(context).textTheme.bodyLarge,
+                    overflow: TextOverflow.ellipsis,
+                  )),
                 ]),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                 child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                  Text('Вес', style: Theme.of(context).textTheme.bodyMedium),
-                  Text(item.weight.toString(), style: Theme.of(context).textTheme.bodyLarge),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: Text('Вес:', style: Theme.of(context).textTheme.bodyMedium),
+                  ),
+                  Flexible(
+                    child: Text(item.weight.toString(), style: Theme.of(context).textTheme.bodyLarge),
+                  ),
                 ]),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                 child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                  Text('Чеканка', style: Theme.of(context).textTheme.bodyMedium),
-                  Text(item.facilities.join(','), style: Theme.of(context).textTheme.bodyLarge),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: Text('Чеканка:', style: Theme.of(context).textTheme.bodyMedium),
+                  ),
+                  Flexible(
+                    child: Text(item.facilities.join(','), style: Theme.of(context).textTheme.bodyLarge),
+                  ),
                 ]),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                 child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                  Text('Года', style: Theme.of(context).textTheme.bodyMedium),
-                  Text(item.years.join(','), style: Theme.of(context).textTheme.bodyLarge),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: Text('Год:', style: Theme.of(context).textTheme.bodyMedium),
+                  ),
+                  Flexible(
+                    child: Text(item.years.join(','), style: Theme.of(context).textTheme.bodyLarge),
+                  ),
                 ]),
               ),
-              Padding(padding: const EdgeInsets.symmetric(vertical: 4), child: Html(data: item.description)),
+              if (item.description.isNotEmpty)
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                  child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: Text('Описание:', style: Theme.of(context).textTheme.bodyMedium),
+                    )
+                  ]),
+                ),
+              if (item.description.isNotEmpty) Padding(padding: const EdgeInsets.symmetric(vertical: 4), child: Html(data: item.description)),
               //Image.memory( )
             ],
           ),

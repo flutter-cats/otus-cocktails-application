@@ -63,7 +63,7 @@ class _MainPageState extends State<MainPage> with ErrorStatefullHandler {
                     onPressed: () => sync(context)),
               ],
             ),
-            bottomNavigationBar: menu(context, 5),
+            bottomNavigationBar: menu(context),
             body: TabBarView(
               children: [
                 catalogsPage(context),
@@ -127,15 +127,6 @@ class _MainPageState extends State<MainPage> with ErrorStatefullHandler {
                     },
                     icon: const Icon(Icons.clear),
                   )))),
-      // Expanded(
-      //     child: Observer(
-      //         builder: (context) => ListView.builder(
-      //               itemCount: itemsState.items.length,
-      //               itemBuilder: (_, index) => CoinListItem(
-      //                 itemsState.items[index],
-      //                 onTap: () => goto(context, itemsState.items[index].id, itemsState.items[index].name),
-      //               ),
-      //             )))
     ]));
   }
 
@@ -146,22 +137,24 @@ class _MainPageState extends State<MainPage> with ErrorStatefullHandler {
       builder: (context) => ListView.builder(
         itemCount: favoritesState.favorites.length,
         itemBuilder: (_, index) => Text('F: ${favoritesState.favorites[index].id}'),
+        //CoinListItem()
       ),
     ));
   }
 
-  TabBar menu(BuildContext context, int count) {
+  TabBar menu(BuildContext context) {
+    final favoritesState = Provider.of<FavoritesState>(context);
     return TabBar(
       onTap: ((value) => setState(() => _tabIndex = value)),
       indicatorColor: Theme.of(context).colorScheme.primary,
       labelColor: Theme.of(context).colorScheme.primary,
       unselectedLabelColor: Theme.of(context).colorScheme.background,
-      tabs: const [
-        Tab(
+      tabs: [
+        const Tab(
           text: "Каталог",
           icon: Icon(Icons.list_alt),
         ),
-        Tab(
+        const Tab(
           text: "Поиск",
           icon: Icon(Icons.search),
         ),
@@ -170,8 +163,9 @@ class _MainPageState extends State<MainPage> with ErrorStatefullHandler {
         //   icon: Badge(
         //       animationType: BadgeAnimationType.slide,
         //       badgeColor: Theme.of(context).colorScheme.secondary,
+        //       showBadge: favoritesState.favorites.isNotEmpty,
         //       badgeContent: Text(
-        //         count.toString(),
+        //         favoritesState.favorites.length.toString(),
         //         style: Theme.of(context).textTheme.caption,
         //       ),
         //       child: const Icon(Icons.favorite_border)),
