@@ -10,13 +10,15 @@ import 'package:numismatist/repository/models/favorite.dart';
 import 'package:numismatist/repository/models/item.dart';
 
 class Repository {
-  final _client = RestClientBuilder.setup();
+  Repository(this._client);
+
+  final RestClient _client;
   final _settings = Hive.box(Const.settingsBox);
   final _catalogs = Hive.box<Catalog>(Const.catalogsBox);
   final _items = Hive.box<Item>(Const.itemsBox);
   final _favorites = Hive.box<Favorite>(Const.favoriteBox);
 
-  DateTime get lastSync => DateTime.tryParse(_settings.get(Const.lastSyncKey)?.toString() ?? "") ?? DateTime.now();
+  DateTime get lastSync => DateTime.tryParse(_settings.get(Const.lastSyncKey)?.toString() ?? "") ?? DateTime(2000, 1, 1);
   set lastSync(DateTime value) => _settings.put(Const.lastSyncKey, value);
 
   Future<bool> checkUpdate() async => (await _lastCatalogsUpdate()).isAfter(lastSync);

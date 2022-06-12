@@ -34,7 +34,7 @@ class StartPage extends StatelessWidget with ErrorStatelessHandler {
                   child: Center(
             child: Column(
               children: <Widget>[
-                const Expanded(flex: 1, child: Text("")),
+                Expanded(flex: 1, child: Text('НумизматЪ', style: Theme.of(context).textTheme.headline6)),
                 Image.asset(
                   "assets/images/coin.png",
                   width: 256,

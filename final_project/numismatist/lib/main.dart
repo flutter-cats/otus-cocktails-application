@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:numismatist/api/client_api.dart';
 import 'package:numismatist/core/appbuilder.dart';
 import 'package:numismatist/repository/repository.dart';
 import 'package:numismatist/state/catalogs_state.dart';
@@ -16,7 +17,8 @@ import 'package:provider/provider.dart';
 
 Future<void> main() async {
   await AppBuilder.setup();
-  final repository = Repository();
+  final client = RestClientBuilder.setup();
+  final repository = Repository(client);
   runApp(MultiProvider(providers: [
     Provider(create: (_) => CatalogsState(repository)),
     Provider(create: (_) => ItemsState(repository)),
