@@ -24,7 +24,7 @@ class _RestClient implements RestClient {
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<LastUpdateDto>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'Catalog/lastupdate',
+                .compose(_dio.options, 'catalog/lastupdate',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = LastUpdateDto.fromJson(_result.data!);
@@ -40,7 +40,7 @@ class _RestClient implements RestClient {
     final _result = await _dio.fetch<List<dynamic>>(
         _setStreamType<List<CatalogDto>>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'Catalog/catalogs',
+                .compose(_dio.options, 'catalog/catalogs',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!
@@ -58,7 +58,7 @@ class _RestClient implements RestClient {
     final _result = await _dio.fetch<List<dynamic>>(
         _setStreamType<List<ItemDto>>(
             Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'Catalog/catalog/${id}',
+                .compose(_dio.options, 'catalog/catalog/${id}',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = _result.data!

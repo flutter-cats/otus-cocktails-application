@@ -1,10 +1,9 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:numismatist/api/dto/catalog_dto.dart';
 import 'package:numismatist/api/dto/item_dto.dart';
 import 'package:numismatist/api/dto/lastupdate_dto.dart';
 import 'package:numismatist/core/const.dart';
+
 import 'package:retrofit/retrofit.dart';
 
 part 'client_api.g.dart';
@@ -23,12 +22,12 @@ class RestClientBuilder {
 abstract class RestClient {
   factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
 
-  @GET("Catalog/lastupdate")
+  @GET("catalog/lastupdate")
   Future<LastUpdateDto> lastUpdate();
 
-  @GET("Catalog/catalogs")
+  @GET("catalog/catalogs")
   Future<List<CatalogDto>> catalogs();
 
-  @GET("Catalog/catalog/{id}")
+  @GET("catalog/catalog/{id}")
   Future<List<ItemDto>> items(@Path("id") String id);
 }

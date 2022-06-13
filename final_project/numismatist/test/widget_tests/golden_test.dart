@@ -18,7 +18,7 @@ void main() {
 
   Widget createSizedWidget() {
     return const Center(
-      child: RepaintBoundary(child: CoinProgressIndicator(size: 200)),
+      child: RepaintBoundary(child: CoinProgressIndicator(size: 150)),
     );
   }
 

@@ -1,14 +1,14 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:numismatist/ui/style/colors.dart';
 
 // анимация процесса загрузки
 class CoinProgressIndicator extends StatefulWidget {
-  final Color color;
+  final MaterialColor color;
   final double size;
   final double width;
-  const CoinProgressIndicator({Key? key, this.color = Colors.white, this.size = 100, this.width = 10}) : super(key: key);
-
+  const CoinProgressIndicator({Key? key, this.color = primaryColor, this.size = 200, this.width = 15}) : super(key: key);
   @override
   State<StatefulWidget> createState() => _CoinProgressIndicatorState();
 }
@@ -21,7 +21,8 @@ class _CoinProgressIndicatorState extends State<CoinProgressIndicator> with Sing
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 2000),
+      //value: 0.1,
+      duration: const Duration(seconds: 3),
     )..repeat();
   }
 
@@ -33,7 +34,7 @@ class _CoinProgressIndicatorState extends State<CoinProgressIndicator> with Sing
             height: widget.size,
             child: CustomPaint(
               child: childWidget,
-              painter: CircularProgressIndicatorPainter(
+              painter: CoinProgressIndicatorPainter(
                 value: _controller.value,
                 color: widget.color,
                 size: widget.size,
@@ -49,13 +50,13 @@ class _CoinProgressIndicatorState extends State<CoinProgressIndicator> with Sing
   }
 }
 
-class CircularProgressIndicatorPainter extends CustomPainter {
-  final Color color;
+class CoinProgressIndicatorPainter extends CustomPainter {
+  final MaterialColor color;
   final double value;
   final double size;
   final double width;
 
-  CircularProgressIndicatorPainter({
+  CoinProgressIndicatorPainter({
     required this.value,
     required this.color,
     required this.size,
@@ -65,34 +66,51 @@ class CircularProgressIndicatorPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final center = Offset(size.width / 2, size.height / 2);
-    final paint = Paint()..color = color;
+    final paintAverse = Paint()..color = color.shade500;
+    final paintGurt = Paint()..color = color.shade900;
     final outterOadius = this.size / 2;
-    final innerRadius = this.size / 2 - width;
 
-    final phaseAngle = (value * 2 * pi);
-    final currentAngle = phaseAngle + (value * 2 * pi); // - pi / 2;
-    final sweepAngle = (value <= 0.5 ? (value * 2 * pi) : ((1 - value) * 2 * pi));
-    final startAngle = currentAngle - sweepAngle / 2;
+    final direction = (value - 0.5).sign;
+    final delta = ((value - 0.5) * 2).abs();
+    final halfdiff = -direction * 0.5 * width * (1 - delta);
 
-    Path path = Path();
-    path.addArc(
-      Rect.fromPoints(Offset(center.dx - outterOadius, center.dy - outterOadius), Offset(center.dx + outterOadius, center.dy + outterOadius)),
-      startAngle,
-      sweepAngle,
+    Path averse = Path();
+    averse.addOval(Rect.fromPoints(
+      Offset(center.dx - delta * outterOadius + halfdiff, center.dy - outterOadius),
+      Offset(center.dx + delta * outterOadius + halfdiff, center.dy + outterOadius),
+    ));
+    averse.close();
+    canvas.drawPath(averse, paintAverse);
+
+    Path gurt = Path();
+    gurt.addArc(
+      Rect.fromPoints(
+        Offset(center.dx - delta * outterOadius + halfdiff, center.dy - outterOadius),
+        Offset(center.dx + delta * outterOadius + halfdiff, center.dy + outterOadius),
+      ),
+      3 * pi / 2,
+      direction * pi,
     );
-    double x = center.dx + innerRadius * cos(startAngle + sweepAngle);
-    double y = center.dy + innerRadius * sin(startAngle + sweepAngle);
-    path.lineTo(x, y);
-    path.addArc(
-      Rect.fromPoints(Offset(center.dx - innerRadius, center.dy - innerRadius), Offset(center.dx + innerRadius, center.dy + innerRadius)),
-      startAngle + sweepAngle,
-      -sweepAngle,
+    gurt.lineTo(center.dx + direction * width * (1 - delta) + halfdiff, center.dy + outterOadius);
+    gurt.addArc(
+      Rect.fromPoints(
+        Offset(center.dx - delta * outterOadius + direction * width * (1 - delta) + halfdiff, center.dy - outterOadius),
+        Offset(center.dx + delta * outterOadius + direction * width * (1 - delta) + halfdiff, center.dy + outterOadius),
+      ),
+      5 * pi / 2,
+      -direction * pi,
     );
-    x = center.dx + outterOadius * cos(startAngle);
-    y = center.dy + outterOadius * sin(startAngle);
-    path.lineTo(x, y);
-    path.close();
-    canvas.drawPath(path, paint);
+    gurt.lineTo(center.dx + halfdiff, center.dy - outterOadius);
+
+    gurt.close();
+    canvas.drawPath(gurt, paintGurt);
+
+    // final ParagraphBuilder paragraphBuilder = ParagraphBuilder(ParagraphStyle(
+    //   textAlign: TextAlign.justify,
+    // ))
+    //   ..addText((halfdiff - 0.5).toStringAsFixed(2));
+    // final Paragraph paragraph = paragraphBuilder.build()..layout(ParagraphConstraints(width: size.width - 12.0 - 12.0));
+    // canvas.drawParagraph(paragraph, Offset(center.dx, center.dy));
   }
 
   @override

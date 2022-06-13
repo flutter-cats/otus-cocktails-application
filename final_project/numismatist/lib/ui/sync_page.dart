@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mobx/mobx.dart';
 import 'package:numismatist/core/error_handler.dart';
-import 'package:numismatist/state/load_process_state.dart';
 import 'package:numismatist/state/catalogs_state.dart';
+import 'package:numismatist/state/load_process_state.dart';
 import 'package:numismatist/ui/component/coin_progress_indicator.dart';
 import 'package:numismatist/ui/component/default_button.dart';
+import 'package:numismatist/ui/style/colors.dart';
+
 import 'package:provider/provider.dart';
 
 class SyncPage extends StatefulWidget {
@@ -55,7 +57,7 @@ class _SyncPageState extends State<SyncPage> with ErrorStatefullHandler {
   Widget buildSearchCatalogs() => Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: <Widget>[
         Text('Поиск обновлений каталогов', style: Theme.of(context).textTheme.headline6),
-        CoinProgressIndicator(color: Theme.of(context).colorScheme.primary),
+        const CoinProgressIndicator(color: primaryColor),
       ]));
 
   Widget buildNotUpdateRequere(CatalogsState catalogsState) => Center(
@@ -90,7 +92,7 @@ class _SyncPageState extends State<SyncPage> with ErrorStatefullHandler {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Text('Обновление ${count > 0 ? count.toString() : "всех"} каталогов', style: Theme.of(context).textTheme.headline6),
-            CoinProgressIndicator(color: Theme.of(context).colorScheme.primary)
+            const CoinProgressIndicator(color: primaryColor),
           ],
         ),
       );
