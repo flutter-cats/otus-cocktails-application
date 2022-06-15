@@ -1,8 +1,6 @@
 import 'package:mobx/mobx.dart';
 import 'package:numismatist/repository/models/favorite.dart';
-import 'package:numismatist/repository/models/item.dart';
 import 'package:numismatist/repository/repository.dart';
-import 'package:numismatist/state/load_process_state.dart';
 
 part 'favorites_state.g.dart';
 

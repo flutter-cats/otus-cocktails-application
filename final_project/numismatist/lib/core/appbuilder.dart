@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:numismatist/core/const.dart';
 import 'package:numismatist/repository/models/catalog.dart';

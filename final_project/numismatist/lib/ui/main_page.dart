@@ -4,9 +4,7 @@ import 'package:numismatist/core/error_handler.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:numismatist/state/catalogs_state.dart';
 import 'package:numismatist/state/favorites_state.dart';
-import 'package:numismatist/state/items_state.dart';
 import 'package:numismatist/ui/component/catalog_list_item.dart';
-import 'package:numismatist/ui/component/coin_list_item.dart';
 import 'package:numismatist/ui/list_page.dart';
 import 'package:provider/provider.dart';
 
@@ -100,7 +98,6 @@ class _MainPageState extends State<MainPage> with ErrorStatefullHandler {
   }
 
   Widget searchPage(BuildContext context) {
-    final itemsState = Provider.of<ItemsState>(context);
     return SafeArea(
         child: Column(children: [
       Padding(
@@ -143,18 +140,17 @@ class _MainPageState extends State<MainPage> with ErrorStatefullHandler {
   }
 
   TabBar menu(BuildContext context) {
-    final favoritesState = Provider.of<FavoritesState>(context);
     return TabBar(
       onTap: ((value) => setState(() => _tabIndex = value)),
       indicatorColor: Theme.of(context).colorScheme.primary,
       labelColor: Theme.of(context).colorScheme.primary,
       unselectedLabelColor: Theme.of(context).colorScheme.background,
-      tabs: [
-        const Tab(
+      tabs: const [
+        Tab(
           text: "Каталог",
           icon: Icon(Icons.list_alt),
         ),
-        const Tab(
+        Tab(
           text: "Поиск",
           icon: Icon(Icons.search),
         ),

@@ -3,7 +3,6 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 
 import 'package:numismatist/core/error_handler.dart';
-import 'package:numismatist/repository/models/item.dart';
 
 class ImagePageArguments {
   final String title;

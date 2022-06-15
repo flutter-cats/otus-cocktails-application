@@ -21,12 +21,9 @@ class _RestClient implements RestClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<LastUpdateDto>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'catalog/lastupdate',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_setStreamType<LastUpdateDto>(Options(method: 'GET', headers: _headers, extra: _extra)
+        .compose(_dio.options, 'catalog/lastupdate', queryParameters: queryParameters, data: _data)
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = LastUpdateDto.fromJson(_result.data!);
     return value;
   }
@@ -37,15 +34,10 @@ class _RestClient implements RestClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<List<CatalogDto>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'catalog/catalogs',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    var value = _result.data!
-        .map((dynamic i) => CatalogDto.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final _result = await _dio.fetch<List<dynamic>>(_setStreamType<List<CatalogDto>>(Options(method: 'GET', headers: _headers, extra: _extra)
+        .compose(_dio.options, 'catalog/catalogs', queryParameters: queryParameters, data: _data)
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!.map((dynamic i) => CatalogDto.fromJson(i as Map<String, dynamic>)).toList();
     return value;
   }
 
@@ -55,22 +47,16 @@ class _RestClient implements RestClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<List<dynamic>>(
-        _setStreamType<List<ItemDto>>(
-            Options(method: 'GET', headers: _headers, extra: _extra)
-                .compose(_dio.options, 'catalog/catalog/${id}',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    var value = _result.data!
-        .map((dynamic i) => ItemDto.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final _result = await _dio.fetch<List<dynamic>>(_setStreamType<List<ItemDto>>(Options(method: 'GET', headers: _headers, extra: _extra)
+        // ignore: unnecessary_brace_in_string_interps
+        .compose(_dio.options, 'catalog/catalog/${id}', queryParameters: queryParameters, data: _data)
+        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    var value = _result.data!.map((dynamic i) => ItemDto.fromJson(i as Map<String, dynamic>)).toList();
     return value;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
-    if (T != dynamic &&
-        !(requestOptions.responseType == ResponseType.bytes ||
-            requestOptions.responseType == ResponseType.stream)) {
+    if (T != dynamic && !(requestOptions.responseType == ResponseType.bytes || requestOptions.responseType == ResponseType.stream)) {
       if (T == String) {
         requestOptions.responseType = ResponseType.plain;
       } else {

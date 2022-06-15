@@ -1,7 +1,3 @@
-@TestOn('vm')
-
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -11,7 +7,6 @@ import 'package:numismatist/api/client_api.dart';
 import 'package:numismatist/api/dto/catalog_dto.dart';
 import 'package:numismatist/api/dto/item_dto.dart';
 import 'package:numismatist/api/dto/lastupdate_dto.dart';
-import 'package:numismatist/core/appbuilder.dart';
 import 'package:numismatist/core/const.dart';
 
 import 'package:numismatist/main.dart';

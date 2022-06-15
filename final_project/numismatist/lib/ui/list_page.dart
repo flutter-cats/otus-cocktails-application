@@ -1,12 +1,8 @@
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:mobx/mobx.dart';
 
 import 'package:numismatist/core/error_handler.dart';
 import 'package:numismatist/repository/models/item.dart';
-import 'package:numismatist/state/catalogs_state.dart';
-import 'package:numismatist/state/items_state.dart';
 import 'package:numismatist/state/items_state.dart';
 import 'package:numismatist/ui/component/coin_list_item.dart';
 import 'package:numismatist/ui/item_page.dart';
