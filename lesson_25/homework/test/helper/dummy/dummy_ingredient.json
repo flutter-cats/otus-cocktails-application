@@ -1,0 +1,12 @@
+{
+  "ingredients": [
+    {
+      "idIngredient": "100",
+      "strIngredient": "Cherry Brandy",
+      "strDescription": null,
+      "strType": "Liquer",
+      "strAlcohol": "Yes",
+      "strABV": null
+    }
+  ]
+}

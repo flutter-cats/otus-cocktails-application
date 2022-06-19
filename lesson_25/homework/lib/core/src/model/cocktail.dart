@@ -3,6 +3,7 @@ import 'package:cocktail_app_tests/core/src/model/cocktail_definition.dart';
 import 'package:cocktail_app_tests/core/src/model/cocktail_type.dart';
 import 'package:cocktail_app_tests/core/src/model/glass_type.dart';
 import 'package:cocktail_app_tests/core/src/model/ingredient_definition.dart';
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
 ///
@@ -83,7 +84,7 @@ import 'package:meta/meta.dart';
 ///   see more on RapidApi or https://www.thecocktaildb.com/
 ///
 ///
-class Cocktail extends CocktailDefinition {
+class Cocktail extends CocktailDefinition implements Equatable {
   final String? instruction;
   final CocktailCategory? category;
   final GlassType? glassType;
@@ -106,4 +107,20 @@ class Cocktail extends CocktailDefinition {
           isFavourite: isFavourite,
           name: name,
         );
+
+  @override
+  List<Object?> get props => [
+        id,
+        name,
+        drinkThumbUrl,
+        isFavourite,
+        instruction,
+        category,
+        glassType,
+        cocktailType,
+        ingredients
+      ];
+
+  @override
+  bool? get stringify => false;
 }

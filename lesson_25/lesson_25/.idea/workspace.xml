@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a86b4f6-e92e-4184-b43a-773e96ef905a" name="Default Changelist" comment="" />
+    <list default="true" id="0a86b4f6-e92e-4184-b43a-773e96ef905a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../.idea/otus-cocktails-application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/otus-cocktails-application.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@/Users/andreysmirnov/.android/avd/Pixel_4_XL_API_30.avd]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -58,10 +60,12 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/test/golden_tests" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -95,39 +99,45 @@
     </configuration>
     <configuration name="tests in 00_cocktail_title_test.dart" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
       <option name="testFile" value="$PROJECT_DIR$/test/widget_tests/pages/details/cocktail_description/00_cocktail_title_test.dart" />
+      <option name="useRegexp" value="false" />
       <method v="2" />
     </configuration>
     <configuration name="tests in 01_cocktail_title_test_by_semantics.dart" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
       <option name="testFile" value="$PROJECT_DIR$/test/widget_tests/pages/details/cocktail_description/01_cocktail_title_test_by_semantics.dart" />
+      <option name="useRegexp" value="false" />
       <method v="2" />
     </configuration>
     <configuration name="tests in 02_cocktail_title_test_the_problem_with_stateful.dart" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
       <option name="testFile" value="$PROJECT_DIR$/test/widget_tests/pages/details/cocktail_description/02_cocktail_title_test_the_problem_with_stateful.dart" />
+      <option name="useRegexp" value="false" />
       <method v="2" />
     </configuration>
     <configuration name="tests in 03_cocktail_title_test_resolving_the_problem_with_stateful.dart" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
       <option name="testFile" value="$PROJECT_DIR$/test/widget_tests/pages/details/cocktail_description/03_cocktail_title_test_resolving_the_problem_with_stateful.dart" />
+      <option name="useRegexp" value="false" />
       <method v="2" />
     </configuration>
     <configuration name="tests in fancy_button_test.dart" type="FlutterTestConfigType" factoryName="Flutter Test" nameIsGenerated="true">
       <option name="testFile" value="$PROJECT_DIR$/test/fancy_button_test.dart" />
+      <option name="useRegexp" value="false" />
       <option name="additionalArgs" value="" />
       <method v="2" />
     </configuration>
     <configuration name="tests in test" type="FlutterTestConfigType" factoryName="Flutter Test" nameIsGenerated="true">
       <option name="testDir" value="$PROJECT_DIR$/test" />
+      <option name="useRegexp" value="false" />
       <option name="additionalArgs" value="" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Flutter.main.dart" />
+      <item itemvalue="Flutter.golden_test_demo.dart" />
       <item itemvalue="Flutter Test.tests in test" />
       <item itemvalue="Flutter Test.tests in fancy_button_test.dart" />
       <item itemvalue="Flutter Test.tests in 00_cocktail_title_test.dart" />
       <item itemvalue="Flutter Test.tests in 01_cocktail_title_test_by_semantics.dart" />
       <item itemvalue="Flutter Test.tests in 03_cocktail_title_test_resolving_the_problem_with_stateful.dart" />
       <item itemvalue="Flutter Test.tests in 02_cocktail_title_test_the_problem_with_stateful.dart" />
-      <item itemvalue="Flutter.golden_test_demo.dart" />
     </list>
     <recent_temporary>
       <list>

@@ -1,3 +1,5 @@
+import 'package:equatable/equatable.dart';
+
 ///
 /// Ingredient Model Definition based on response from
 /// curl https://the-cocktail-db.p.rapidapi.com/lookup.php\?iid\=552
@@ -17,18 +19,24 @@
 ///   }
 ///  ```
 ///
-class Ingredient {
+class Ingredient extends Equatable {
   final String? id;
   final String? name;
   final String? description;
   final String? ingredientType;
   final bool? isAlcoholic;
+  final String? abv;
 
-  Ingredient({
-    this.id,
-    this.name,
-    this.description,
-    this.ingredientType,
-    this.isAlcoholic,
-  });
+  Ingredient(
+      {this.id,
+      this.name,
+      this.description,
+      this.ingredientType,
+      this.isAlcoholic,
+      this.abv});
+
+  @override
+  // TODO: implement props
+  List<Object?> get props =>
+      [id, name, description, ingredientType, isAlcoholic, abv];
 }

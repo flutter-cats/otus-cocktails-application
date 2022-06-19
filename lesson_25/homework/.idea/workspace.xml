@@ -4,15 +4,46 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a86b4f6-e92e-4184-b43a-773e96ef905a" name="Default Changelist" comment="" />
+    <list default="true" id="0a86b4f6-e92e-4184-b43a-773e96ef905a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/test/presentation/pages/cocktail_details_page_test.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverage/lcov.info" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/lcov.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app_strings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_strings.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/src/repository/async_cocktail_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/src/repository/async_cocktail_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_title.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_title.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@/Users/andreysmirnov/.android/avd/Pixel_4_XL_API_30.avd]" />
+  <component name="FileColors">
+    <fileColor scope="All" color="Blue" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/../.." value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
@@ -41,17 +72,23 @@
     </option>
   </component>
   <component name="ProjectId" id="1ryTMI8GlQJMOAIKQVB1Hiq5Hz9" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -62,13 +99,6 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/test/golden_tests" />
-      <recent name="$PROJECT_DIR$/test" />
-      <recent name="$PROJECT_DIR$/lib/uikit" />
-      <recent name="$PROJECT_DIR$/test/golden1" />
-      <recent name="$PROJECT_DIR$/lib/golden" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$/test/ui" />
@@ -76,35 +106,77 @@
       <recent name="$PROJECT_DIR$/lib/core/src/model" />
       <recent name="$PROJECT_DIR$/lib/ui" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test/data/repository" />
+      <recent name="$PROJECT_DIR$/test/golden_tests" />
+      <recent name="$PROJECT_DIR$/test" />
+      <recent name="$PROJECT_DIR$/lib/uikit" />
+      <recent name="$PROJECT_DIR$/test/golden1" />
+    </key>
   </component>
-  <component name="RunManager" selected="Flutter.golden_test_demo.dart">
-    <configuration name="golden_test_demo.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
-      <option name="filePath" value="$PROJECT_DIR$/lib/uikit/golden_test_demo.dart" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Flutter Test.tests in cocktail_details_page_test.dart">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
       <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
       <method v="2" />
     </configuration>
+    <configuration name="Async cocktail repository test" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testName" value="Async cocktail repository test" />
+      <option name="testFile" value="$PROJECT_DIR$/test/data/repository/async_cocktail_repository_test.dart" />
+      <option name="useRegexp" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Button is active when cocktail is favourite" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testName" value="Button is active when cocktail is favourite" />
+      <option name="testFile" value="$PROJECT_DIR$/test/presentation/pages/cocktail_details_page_test.dart" />
+      <option name="useRegexp" value="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Button is not active when cockatail is not favourite" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testName" value="Button is not active when cockatail is not favourite" />
+      <option name="testFile" value="$PROJECT_DIR$/test/presentation/pages/cocktail_details_page_test.dart" />
+      <option name="useRegexp" value="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Favourite button test" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testName" value="Favourite button test" />
+      <option name="testFile" value="$PROJECT_DIR$/test/presentation/pages/cocktail_details_page_test.dart" />
+      <option name="useRegexp" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tests in cocktail_details_page_test.dart" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testFile" value="$PROJECT_DIR$/test/presentation/pages/cocktail_details_page_test.dart" />
+      <option name="useRegexp" value="false" />
+      <method v="2" />
+    </configuration>
     <configuration name="tests in fancy_button_test.dart" type="FlutterTestConfigType" factoryName="Flutter Test" nameIsGenerated="true">
       <option name="testFile" value="$PROJECT_DIR$/test/fancy_button_test.dart" />
+      <option name="useRegexp" value="false" />
       <option name="additionalArgs" value="" />
       <method v="2" />
     </configuration>
     <configuration name="tests in test" type="FlutterTestConfigType" factoryName="Flutter Test" nameIsGenerated="true">
       <option name="testDir" value="$PROJECT_DIR$/test" />
+      <option name="useRegexp" value="false" />
       <option name="additionalArgs" value="" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Flutter.main.dart" />
-      <item itemvalue="Flutter.golden_test_demo.dart" />
-      <item itemvalue="Flutter Test.tests in test" />
       <item itemvalue="Flutter Test.tests in fancy_button_test.dart" />
+      <item itemvalue="Flutter Test.tests in test" />
+      <item itemvalue="Flutter Test.Async cocktail repository test" />
+      <item itemvalue="Flutter Test.Favourite button test" />
+      <item itemvalue="Flutter Test.Button is not active when cockatail is not favourite" />
+      <item itemvalue="Flutter Test.Button is active when cocktail is favourite" />
+      <item itemvalue="Flutter Test.tests in cocktail_details_page_test.dart" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Flutter.golden_test_demo.dart" />
+        <item itemvalue="Flutter Test.tests in cocktail_details_page_test.dart" />
+        <item itemvalue="Flutter Test.Button is active when cocktail is favourite" />
+        <item itemvalue="Flutter Test.Button is not active when cockatail is not favourite" />
+        <item itemvalue="Flutter Test.Favourite button test" />
+        <item itemvalue="Flutter Test.Async cocktail repository test" />
       </list>
     </recent_temporary>
   </component>
@@ -169,99 +241,30 @@
       <option name="project" value="LOCAL" />
       <updated>1624274019226</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="AsyncCocktailRepository testing implemented">
+      <created>1655596963397</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1655596963397</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
     <MESSAGE value="animations module homework" />
     <MESSAGE value="lesson 25 homework" />
-    <option name="LAST_COMMIT_MESSAGE" value="lesson 25 homework" />
+    <MESSAGE value="AsyncCocktailRepository testing implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="AsyncCocktailRepository testing implemented" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="0" y="109" width="1071" height="730" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1624260146994">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="0" y="109" width="1071" height="730" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1624260146994" />
-    <state x="230" y="201" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1620804603942">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="230" y="201" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1620804603942" />
-    <state x="0" y="40" key="CommitChangelistDialog2" timestamp="1624274018519">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="0" y="40" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1624274018519" />
-    <state x="13" y="13" width="1355" height="874" maximized="true" key="DiffContextDialog" timestamp="1621285245618">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="13" y="13" width="1355" height="874" maximized="true" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1621285245618" />
-    <state width="1038" height="465" key="GridCell.Tab.0.bottom" timestamp="1624269213039">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1038" height="465" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1624269213039" />
-    <state width="1038" height="465" key="GridCell.Tab.0.center" timestamp="1624269213038">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1038" height="465" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1624269213038" />
-    <state width="1038" height="465" key="GridCell.Tab.0.left" timestamp="1624269213036">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1038" height="465" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1624269213036" />
-    <state width="1038" height="465" key="GridCell.Tab.0.right" timestamp="1624269213039">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1038" height="465" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1624269213038" />
-    <state width="1038" height="465" key="GridCell.Tab.1.bottom" timestamp="1624269213043">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1038" height="465" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1624269213043" />
-    <state width="1038" height="465" key="GridCell.Tab.1.center" timestamp="1624269213041">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1038" height="465" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1624269213041" />
-    <state width="1038" height="465" key="GridCell.Tab.1.left" timestamp="1624269213040">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1038" height="465" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1624269213040" />
-    <state width="1038" height="465" key="GridCell.Tab.1.right" timestamp="1624269213042">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1038" height="465" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1624269213042" />
-    <state x="442" y="172" width="982" height="728" key="SettingsEditor" timestamp="1624273758845">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="442" y="172" width="982" height="728" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1624273758845" />
-    <state x="251" y="200" width="540" height="524" key="StructurePopup" timestamp="1624259040603">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="251" y="200" width="540" height="524" key="StructurePopup/0.0.1440.900@0.0.1440.900" timestamp="1624259040603" />
-    <state x="170" y="187" key="Vcs.Push.Dialog.v2" timestamp="1624274022971">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="170" y="187" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1624274022971" />
-    <state x="25" y="188" key="VcsDiffUtil.ChangesDialog" timestamp="1621285239653">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="25" y="188" key="VcsDiffUtil.ChangesDialog/0.0.1440.900@0.0.1440.900" timestamp="1621285239653" />
-    <state x="521" y="368" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1624273689352">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="521" y="368" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1624273689352" />
-    <state x="185" y="111" width="856" height="767" key="find.popup" timestamp="1624274025808">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="185" y="111" width="856" height="767" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1624274025808" />
-    <state x="0" y="0" width="612" height="247" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1624263977443">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="0" y="0" width="612" height="247" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1440.900@0.0.1440.900" timestamp="1624263977443" />
-    <state x="235" y="112" width="670" height="676" key="search.everywhere.popup" timestamp="1624272619977">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="235" y="112" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1624272619977" />
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="../../../../AndroidStudioProjects/otus-cocktails-application-hw28/lesson_25/homework/coverage/lcov.info" NAME="tests in cocktail_details_page_test.dart Coverage Results" MODIFIED="1655656398154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="FlutterCoverageRunner" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="../../../../AndroidStudioProjects/otus-cocktails-application-hw28/lesson_25/homework/coverage/lcov.info" NAME="tests in async_cocktail_repository_test.dart Coverage Results" MODIFIED="1655596635860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="FlutterCoverageRunner" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

@@ -1,3 +1,4 @@
+import 'package:cocktail_app_tests/app_strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -24,12 +25,18 @@ class CocktailTitle extends StatelessWidget {
       );
 
   Widget _getIsFavoriteIcon() => isFavorite
-      ? IconButton(
-          icon: Icon(Icons.favorite, color: Colors.white),
-          onPressed: () {},
+      ? Semantics(
+          label: AppStrings.cocktailIsFavouriteSemantics,
+          child: IconButton(
+            icon: Icon(Icons.favorite, color: Colors.white),
+            onPressed: () {},
+          ),
         )
-      : IconButton(
-          icon: Icon(Icons.favorite_border, color: Colors.white),
-          onPressed: () {},
+      : Semantics(
+          label: AppStrings.cocktailIsNotFavouriteSemantics,
+          child: IconButton(
+            icon: Icon(Icons.favorite_border, color: Colors.white),
+            onPressed: () {},
+          ),
         );
 }
