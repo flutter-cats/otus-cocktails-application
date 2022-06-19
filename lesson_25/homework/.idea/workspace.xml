@@ -5,44 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a86b4f6-e92e-4184-b43a-773e96ef905a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coverage/lcov.info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/app_strings.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/core/src/dto/ingredient_dto.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/core/src/dto/ingredient_dto.g.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/data/repository/async_cocktail_repository_test.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/data/repository/async_cocktail_repository_test.mocks.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/helper/dummy/dummy_cocktail.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/helper/dummy/dummy_cocktail_definition.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/helper/dummy/dummy_ingredient.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/otus-cocktails-application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/otus-cocktails-application.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/fileColors.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/presentation/pages/cocktail_details_page_test.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/src/dto/cocktail_definition_dto.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/src/dto/cocktail_definition_dto.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/src/dto/cocktail_dto.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/src/dto/cocktail_dto.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/src/model/cocktail.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/src/model/cocktail.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/src/model/cocktail_category.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/src/model/cocktail_category.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/src/model/cocktail_definition.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/src/model/cocktail_definition.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/src/model/cocktail_type.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/src/model/cocktail_type.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/src/model/ingredient.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/src/model/ingredient.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/core/src/model/ingredient_definition.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/src/model/ingredient_definition.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coverage/lcov.info" beforeDir="false" afterPath="$PROJECT_DIR$/coverage/lcov.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/app_strings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/app_strings.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/core/src/repository/async_cocktail_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/src/repository/async_cocktail_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_title.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/pages/details/cocktail_description/cocktail_title.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_25/.idea/lesson_25_module.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_25/.idea/lesson_25_module.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_25/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_25/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_25/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_25/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lesson_25/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lesson_25/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +36,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
@@ -136,7 +114,7 @@
       <recent name="$PROJECT_DIR$/test/golden1" />
     </key>
   </component>
-  <component name="RunManager" selected="Flutter Test.Async cocktail repository test">
+  <component name="RunManager" selected="Flutter Test.tests in cocktail_details_page_test.dart">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
       <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
       <method v="2" />
@@ -147,26 +125,26 @@
       <option name="useRegexp" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Cocktail DTO to Model" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
-      <option name="testName" value="Cocktail DTO to Model" />
-      <option name="testFile" value="$PROJECT_DIR$/test/data/repository/async_cocktail_repository_test.dart" />
+    <configuration name="Button is active when cocktail is favourite" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testName" value="Button is active when cocktail is favourite" />
+      <option name="testFile" value="$PROJECT_DIR$/test/presentation/pages/cocktail_details_page_test.dart" />
+      <option name="useRegexp" value="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Button is not active when cockatail is not favourite" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testName" value="Button is not active when cockatail is not favourite" />
+      <option name="testFile" value="$PROJECT_DIR$/test/presentation/pages/cocktail_details_page_test.dart" />
+      <option name="useRegexp" value="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Favourite button test" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testName" value="Favourite button test" />
+      <option name="testFile" value="$PROJECT_DIR$/test/presentation/pages/cocktail_details_page_test.dart" />
       <option name="useRegexp" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Get ingredient by id" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
-      <option name="testName" value="Get ingredient by id" />
-      <option name="testFile" value="$PROJECT_DIR$/test/data/repository/async_cocktail_repository_test.dart" />
-      <option name="useRegexp" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Ingredient dto to Model" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
-      <option name="testName" value="Ingredient dto to Model" />
-      <option name="testFile" value="$PROJECT_DIR$/test/data/repository/async_cocktail_repository_test.dart" />
-      <option name="useRegexp" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration name="tests in async_cocktail_repository_test.dart" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
-      <option name="testFile" value="$PROJECT_DIR$/test/data/repository/async_cocktail_repository_test.dart" />
+    <configuration name="tests in cocktail_details_page_test.dart" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
+      <option name="testFile" value="$PROJECT_DIR$/test/presentation/pages/cocktail_details_page_test.dart" />
       <option name="useRegexp" value="false" />
       <method v="2" />
     </configuration>
@@ -187,18 +165,18 @@
       <item itemvalue="Flutter Test.tests in fancy_button_test.dart" />
       <item itemvalue="Flutter Test.tests in test" />
       <item itemvalue="Flutter Test.Async cocktail repository test" />
-      <item itemvalue="Flutter Test.Get ingredient by id" />
-      <item itemvalue="Flutter Test.Ingredient dto to Model" />
-      <item itemvalue="Flutter Test.Cocktail DTO to Model" />
-      <item itemvalue="Flutter Test.tests in async_cocktail_repository_test.dart" />
+      <item itemvalue="Flutter Test.Favourite button test" />
+      <item itemvalue="Flutter Test.Button is not active when cockatail is not favourite" />
+      <item itemvalue="Flutter Test.Button is active when cocktail is favourite" />
+      <item itemvalue="Flutter Test.tests in cocktail_details_page_test.dart" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Flutter Test.tests in cocktail_details_page_test.dart" />
+        <item itemvalue="Flutter Test.Button is active when cocktail is favourite" />
+        <item itemvalue="Flutter Test.Button is not active when cockatail is not favourite" />
+        <item itemvalue="Flutter Test.Favourite button test" />
         <item itemvalue="Flutter Test.Async cocktail repository test" />
-        <item itemvalue="Flutter Test.Cocktail DTO to Model" />
-        <item itemvalue="Flutter Test.tests in async_cocktail_repository_test.dart" />
-        <item itemvalue="Flutter Test.Ingredient dto to Model" />
-        <item itemvalue="Flutter Test.Get ingredient by id" />
       </list>
     </recent_temporary>
   </component>
@@ -263,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624274019226</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="AsyncCocktailRepository testing implemented">
+      <created>1655596963397</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1655596963397</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -275,9 +260,11 @@
     </ignored-roots>
     <MESSAGE value="animations module homework" />
     <MESSAGE value="lesson 25 homework" />
-    <option name="LAST_COMMIT_MESSAGE" value="lesson 25 homework" />
+    <MESSAGE value="AsyncCocktailRepository testing implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="AsyncCocktailRepository testing implemented" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="../../../../AndroidStudioProjects/otus-cocktails-application-hw28/lesson_25/homework/coverage/lcov.info" NAME="tests in cocktail_details_page_test.dart Coverage Results" MODIFIED="1655656398154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="FlutterCoverageRunner" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="../../../../AndroidStudioProjects/otus-cocktails-application-hw28/lesson_25/homework/coverage/lcov.info" NAME="tests in async_cocktail_repository_test.dart Coverage Results" MODIFIED="1655596635860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="FlutterCoverageRunner" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

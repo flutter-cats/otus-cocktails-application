@@ -12,4 +12,7 @@ class AppStrings {
   static const String cocktailCategoryParameter = 'c';
   static const String fetchPopularCocktailsUrl = 'popular.php';
   static const String getRandomCocktailUrl = 'random.php';
+  static const String cocktailIsFavouriteSemantics = 'Cocktail is favourite';
+  static const String cocktailIsNotFavouriteSemantics =
+      'Cocktail is not favourite';
 }

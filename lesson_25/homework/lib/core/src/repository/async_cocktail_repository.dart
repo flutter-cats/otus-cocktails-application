@@ -59,7 +59,7 @@ class AsyncCocktailRepository {
         .cast<Map<String, dynamic>>()
         .map((json) => CocktailDto.fromJson(json));
     if (dtos.length > 0) {
-      result = _createCocktailFromDto(dtos.first);
+      result = createCocktailFromDto(dtos.first);
     }
     return result;
   }
@@ -127,7 +127,7 @@ class AsyncCocktailRepository {
         .map((json) => CocktailDto.fromJson(json));
 
     for (final dto in dtos) {
-      final cocktail = _createCocktailFromDto(dto);
+      final cocktail = createCocktailFromDto(dto);
       result.add(cocktail);
     }
 
@@ -143,7 +143,7 @@ class AsyncCocktailRepository {
         .cast<Map<String, dynamic>>()
         .map((json) => CocktailDto.fromJson(json));
     if (dtos.length > 0) {
-      result = _createCocktailFromDto(dtos.first);
+      result = createCocktailFromDto(dtos.first);
     }
     return result;
   }
@@ -160,13 +160,13 @@ class AsyncCocktailRepository {
         .cast<Map<String, dynamic>>()
         .map((json) => IngredientDto.fromJson(json));
     if (dtos.length > 0) {
-      result = _createIngredientFromDto(dtos.first);
+      result = createIngredientFromDto(dtos.first);
     }
 
     return result;
   }
 
-  Ingredient _createIngredientFromDto(IngredientDto dto) => Ingredient(
+  Ingredient createIngredientFromDto(IngredientDto dto) => Ingredient(
         id: dto.idIngredient,
         name: dto.strIngredient,
         description: dto.strDescription,
@@ -175,14 +175,14 @@ class AsyncCocktailRepository {
         abv: dto.strABV,
       );
 
-  Cocktail _createCocktailFromDto(CocktailDto dto) {
+  Cocktail createCocktailFromDto(CocktailDto dto) {
     final glass = GlassType.parse(dto.strGlass!);
     final cocktailType = CocktailType.parse(dto.strAlcoholic!);
     final category = CocktailCategory.parse(dto.strCategory!);
 
     var ingredients = <IngredientDefinition>[];
 
-    _getIngredients(dto).forEach(
+    getIngredients(dto).forEach(
         (key, value) => ingredients.add(IngredientDefinition(key, value)));
 
     return Cocktail(
@@ -198,7 +198,7 @@ class AsyncCocktailRepository {
     );
   }
 
-  Map<String, String> _getIngredients(CocktailDto dto) {
+  Map<String, String> getIngredients(CocktailDto dto) {
     return <String, String>{
       if (dto.strIngredient1 != null)
         dto.strIngredient1!: dto.strMeasure1 ?? '-',
