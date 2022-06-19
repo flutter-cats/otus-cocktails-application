@@ -1,9 +1,10 @@
 import 'package:collection/collection.dart';
+import 'package:equatable/equatable.dart';
 
 ///
 /// curl https://the-cocktail-db.p.rapidapi.com/list.php\?c\=list
 ///
-class CocktailCategory {
+class CocktailCategory extends Equatable {
   static const CocktailCategory ordinaryDrink =
       CocktailCategory._('ordinaryDrink', 'Ordinary Drink');
   static const CocktailCategory cocktail =
@@ -42,20 +43,9 @@ class CocktailCategory {
   final String name;
 
   const CocktailCategory._(this.name, this.value);
-
-  @override
-  int get hashCode => value.hashCode;
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is CocktailCategory &&
-          runtimeType == other.runtimeType &&
-          value == other.value;
-
-  @override
-  String toString() => 'CocktailCategory{value: $value, name: $name}';
-
   static CocktailCategory? parse(String raw) => values.firstWhereOrNull(
       (element) => element.value.toLowerCase() == raw.toLowerCase());
+
+  @override
+  List<Object?> get props => [name, value];
 }

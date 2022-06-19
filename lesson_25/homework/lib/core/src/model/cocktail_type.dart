@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart';
+import 'package:equatable/equatable.dart';
 
 ///
 /// curl https://the-cocktail-db.p.rapidapi.com/list.php\?a\=list
